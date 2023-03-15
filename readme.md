@@ -6,22 +6,15 @@ To create a comprehensive, user-friendly learning platform that enables users to
 
 ## Table of Contents:
 
--	[Case Study Rubric]()
--	[Roadmap]()
--	[Presentation Slides]()
--	[Daily Progress]()
--	[User Stories]()
-  -	[Admin]()
-  -	[User]()
--	[Technical Architecture]()
--	[Wire Frame]()
--	[Schema Diagram]()
 -	[Jira]()
--	[Technical Challenges]()
--	[Lessons Learned]()
--	[Future Improvements]()
+-	[Documentation](https://bobbygrdn.atlassian.net/wiki/spaces/LEARNINGPL/pages/33234/Project+Documentation?atlOrigin=eyJpIjoiNzc0ZWY2NDc2ZDVkNDZiOWI1OGQ1NTVjZDI1NWRkYWMiLCJwIjoiaiJ9)
+-	[Daily Progress](#daily-progress)
+-	[Technical Architecture](#technical-architecture)
+-	[Technical Challenges](#technical-challenges)
+-	[Lessons Learned](#lessons-learned)
+-	[Future Improvements](#future-improvements)
 
-### Roadmap
+### Daily Progress
 
 ### Technical Architecture
 
