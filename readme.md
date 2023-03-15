@@ -1,4 +1,4 @@
-# Web Develoopment Learning Platform
+# Web Development Learning Platform
 
 ## Objective Statement:
 
