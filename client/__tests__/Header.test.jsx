@@ -17,7 +17,7 @@ it('renders without crashing', () => {
 
 it('should render header element', () => {
     const wrapper = shallow(<Header />);
-    expect(wrapper.find('.header')).toHaveLength(1);
+    expect(wrapper.find('header')).toHaveLength(1);
 })
 
 it('should render title element', () => {
