@@ -1,5 +1,3 @@
-// Creates test suite for the demo component using jest and enzyme
-
 import React from 'react';
 import ReactPlayer from 'react-player';
 import { configure, shallow } from 'enzyme';

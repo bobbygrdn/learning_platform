@@ -1,5 +1,3 @@
-// Creates a jest unit testing suite for the LandingPage component.
-
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
