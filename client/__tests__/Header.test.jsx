@@ -7,6 +7,9 @@ import Header from '../src/components/landingPage/Header';
 
 configure({ adapter: new Adapter() });
 
+jest.mock('../src/styles/Header.css', () => ({}));
+jest.mock('../src/styles/App.css', () => ({}));
+
 it('renders without crashing', () => {
     const wrapper = shallow(<Header />);
     expect(wrapper).toMatchSnapshot();
@@ -24,7 +27,7 @@ it('should render title element', () => {
 
 it('should render subtitle element', () => {
     const wrapper = shallow(<Header />);
-    expect(wrapper.find('.subtitle')).toHaveLength(1);
+    expect(wrapper.find('.sectiontitle')).toHaveLength(1);
 })
 
 it('should render logo element', () => {
