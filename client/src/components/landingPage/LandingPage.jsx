@@ -9,6 +9,7 @@ import KeyFeatures from './KeyFeatures'
 import Overview from './Overview'
 import GettingStarted from './GettingStarted'
 import Footer from './Footer'
+import Demo from './Demo';
 
 export default function LandingPage() {
     const [reviews, setReviews] = React.useState([])
@@ -32,6 +33,7 @@ export default function LandingPage() {
             <KeyFeatures />
             <Overview />
             <GettingStarted />
+            <Demo video={""} />
             <Footer />
         </>
     )
