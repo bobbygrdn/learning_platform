@@ -1,10 +1,11 @@
-import React from 'react'
-
-export default function UserReviews() {
-    // TODO: Finish user reviews component
+import React from 'react';
+import Review from './Review';
+export default function UserReviews({ reviews }) {
     return (
-        <div>
-
-        </div>
+        <>
+            {reviews ? reviews.map((review, index) => {
+                return <Review key={index} review={review} />
+            }) : null}
+        </>
     )
 }
