@@ -7,3 +7,23 @@
   width: 100vw;
   background-color: #000000;
 }
+
+.title {
+  font-size: 42px;
+}
+
+.sectiontitle {
+  font-size: 28px;
+}
+
+.subheading {
+  font-size: 21px;
+}
+
+.subsubheading {
+  font-size: 14px;
+}
+
+.text {
+  font-size: 14px;
+}
