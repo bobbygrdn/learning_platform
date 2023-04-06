@@ -66,6 +66,11 @@ it('should render getting started component', () => {
     expect(wrapper.find('GettingStarted')).toHaveLength(1)
 })
 
+it('should render demo component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('Demo')).toHaveLength(1)
+})
+
 it('should render a footer component', () => {
     const wrapper = shallow(<LandingPage />)
     expect(wrapper.find('Footer')).toHaveLength(1)
