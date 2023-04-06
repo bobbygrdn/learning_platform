@@ -1,12 +1,18 @@
 import React from 'react'
+import '../../styles/Header.css'
+import '../../styles/App.css'
 
 export default function Header() {
-    // TODO: Finish header component
     return (
-        <div className='header'>
-            <h1 className="title">Valor Academy</h1>
-            <h2 className="subtitle">Become a Code Warrior</h2>
-            <img className="logo" src={process.env.PUBLIC_URL + '/resources/valorAcademy_logo.jpg'} alt="Valor Academy logo" width={"100px"} height={"100px"} />
-        </div>
+        <>
+            <div className='header'>
+                <div className='titles'>
+                    <p className="title">Valor Academy</p>
+                    <p className="sectiontitle">Become a Code Warrior</p>
+                </div>
+
+                <img className="logo" src={process.env.PUBLIC_URL + '/resources/valorAcademy_logo.jpg'} alt="Valor Academy logo" width={"200px"} height={"200px"} />
+            </div >
+        </>
     )
 }
