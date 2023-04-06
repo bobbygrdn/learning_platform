@@ -3,7 +3,11 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import LandingPage from '../src/components/LandingPage/LandingPage';
+import LandingPage from '../src/components/landingPage/LandingPage';
+
+jest.mock('../src/styles/LandingPage.css', () => ({}));
+jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../src/styles/Header.css', () => ({}));
 
 configure({ adapter: new Adapter() });
 
