@@ -12,3 +12,57 @@ it('renders without crashing', () => {
     expect(wrapper).toMatchSnapshot()
 })
 
+it('should render a header component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('Header')).toHaveLength(1)
+})
+
+it('should render a list of warrior names', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('.warriorList')).toHaveLength(1)
+})
+
+it('should render a warrior name', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('.warriorName')).toHaveLength(4)
+})
+
+it('should render warrior cards', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('WarriorCard')).toHaveLength(4)
+})
+
+it('should render call to action statements', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('CallToAction')).toHaveLength(1)
+})
+
+it('should render button component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('Button')).toHaveLength(1)
+})
+
+it('should render user reviews component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('UserReviews')).toHaveLength(1)
+})
+
+it('should render key features component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('KeyFeatures')).toHaveLength(1)
+})
+
+it('should render overview component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('Overview')).toHaveLength(1)
+})
+
+it('should render getting started component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('GettingStarted')).toHaveLength(1)
+})
+
+it('should render a footer component', () => {
+    const wrapper = shallow(<LandingPage />)
+    expect(wrapper.find('Footer')).toHaveLength(1)
+})
