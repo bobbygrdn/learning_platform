@@ -7,7 +7,7 @@ import CallToAction from '../src/components/landingPage/CallToAction';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/CallToAction.css', () => ({}));
+jest.mock('../src/styles/Button.css', () => ({}));
 jest.mock('../src/styles/App.css', () => ({}));
 
 it('renders without crashing', () => {
