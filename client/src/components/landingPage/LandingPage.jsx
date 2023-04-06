@@ -11,6 +11,8 @@ import GettingStarted from './GettingStarted'
 import Footer from './Footer'
 
 export default function LandingPage() {
+    const [reviews, setReviews] = React.useState([])
+
     return (
         <>
             <Header />
@@ -26,7 +28,7 @@ export default function LandingPage() {
             <WarriorCard warrior="Viking" />
             <CallToAction />
             <Button />
-            <UserReviews />
+            <UserReviews reviews={reviews} />
             <KeyFeatures />
             <Overview />
             <GettingStarted />
