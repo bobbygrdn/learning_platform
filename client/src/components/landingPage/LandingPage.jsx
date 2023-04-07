@@ -10,6 +10,7 @@ import Overview from './Overview'
 import GettingStarted from './GettingStarted'
 import Footer from './Footer'
 import Demo from './Demo';
+import '../../styles/LandingPage.css'
 
 export default function LandingPage() {
     const [reviews, setReviews] = React.useState([])
