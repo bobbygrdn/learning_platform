@@ -2,27 +2,27 @@
 import React, { useEffect } from 'react'
 
 export default function WarriorCard({ warrior }) {
-    const [warrior1, setWarrior1] = React.useState(null);
-    const [warrior2, setWarrior2] = React.useState(null);
+    const [warrior1, setWarrior1] = React.useState('');
+    const [warrior2, setWarrior2] = React.useState('');
     const [isHovered, setIsHovered] = React.useState(false);
 
     useEffect(() => {
         switch (warrior) {
             case "Samurai":
-                setWarrior1(process.env.PUBLIC_url + '/resources/male_samurai.png');
-                setWarrior2(process.env.PUBLIC_url + '/resources/female_samurai.png');
+                setWarrior1(process.env.PUBLIC_URL + '/resources/male_meijin.jpg');
+                setWarrior2(process.env.PUBLIC_URL + '/resources/female_meijin.jpg');
                 break;
             case "Legionnaire":
-                setWarrior1(process.env.PUBLIC_url + '/resources/female_legionnaire.png');
-                setWarrior2(process.env.PUBLIC_url + '/resources/male_legionnaire.png');
+                setWarrior1(process.env.PUBLIC_URL + '/resources/female_imperator.jpg');
+                setWarrior2(process.env.PUBLIC_URL + '/resources/male_imperator.jpg');
                 break;
             case "Spartan":
-                setWarrior1(process.env.PUBLIC_url + '/resources/male_spartan.png');
-                setWarrior2(process.env.PUBLIC_url + '/resources/female_spartan.png');
+                setWarrior1(process.env.PUBLIC_URL + '/resources/male_king.jpg');
+                setWarrior2(process.env.PUBLIC_URL + '/resources/female_king.jpg');
                 break;
             default:
-                setWarrior1(process.env.PUBLIC_url + '/resources/female_viking.png');
-                setWarrior2(process.env.PUBLIC_url + '/resources/male_viking.png');
+                setWarrior1(process.env.PUBLIC_URL + '/resources/female_king_viking.jpg');
+                setWarrior2(process.env.PUBLIC_URL + '/resources/male_king_viking.jpg');
                 break;
         }
     }, [warrior]);
@@ -34,6 +34,8 @@ export default function WarriorCard({ warrior }) {
     const handleMouseLeave = () => {
         setIsHovered(false);
     }
+
+
 
     return (
         <>
