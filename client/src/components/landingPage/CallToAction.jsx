@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/CallToAction.css';
+import '../../styles/landingPage/CallToAction.css';
 
 export default function CallToAction() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 import WarriorCard from './WarriorCard'
-import '../../styles/WarriorCard.css'
+import '../../styles/landingPage/WarriorCard.css'
 
 export default function WarriorCards() {
     return (

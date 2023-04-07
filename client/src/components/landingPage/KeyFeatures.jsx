@@ -1,6 +1,6 @@
 import React from 'react';
 import Feature from './Feature';
-import '../../styles/KeyFeatures.css'
+import '../../styles/landingPage/KeyFeatures.css'
 
 export default function KeyFeatures() {
     const features = [

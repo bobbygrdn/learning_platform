@@ -10,7 +10,7 @@ import GettingStarted from './GettingStarted'
 import Footer from './Footer'
 import Demo from './Demo';
 import WarriorCards from './WarriorCards';
-import '../../styles/LandingPage.css'
+import '../../styles/landingPage/LandingPage.css'
 
 export default function LandingPage() {
     const [reviews, setReviews] = React.useState([])

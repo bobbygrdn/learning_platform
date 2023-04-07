@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/GettingStarted.css'
+import '../../styles/landingPage/GettingStarted.css'
 
 export default function GettingStarted() {
     return (

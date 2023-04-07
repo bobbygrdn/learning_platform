@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/Button.css';
+import '../../styles/landingPage/Button.css';
 
 export default function Button({ onClick, text, purpose }) {
     return (
