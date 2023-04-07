@@ -1,0 +1,10 @@
+.reviewText {
+    text-align: left;
+}
+
+.user {
+    text-align: left;
+    padding-right: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
