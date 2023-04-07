@@ -7,7 +7,7 @@
 
 .warriorList {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     list-style: none;
     pointer-events: none;
 }
