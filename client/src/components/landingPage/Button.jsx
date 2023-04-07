@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../../styles/Button.css';
 
 export default function Button({ onClick, text, purpose }) {
     return (
