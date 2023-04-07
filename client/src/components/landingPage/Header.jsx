@@ -10,7 +10,7 @@ export default function Header() {
                     <p className="sectiontitle">Become a Code Warrior</p>
                 </div>
 
-                <img className="logo" src={process.env.PUBLIC_URL + '/resources/valorAcademy_logo.jpg'} alt="Valor Academy logo" width={"200px"} height={"200px"} />
+                <img className="logo" src={process.env.PUBLIC_URL + '/resources/valorAcademy_logo.png'} alt="Valor Academy logo" />
             </header >
         </>
     )

@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react'
 import Header from './Header'
-import WarriorCard from './WarriorCard'
 import CallToAction from './CallToAction';
 import Button from './Button'
 import UserReviews from './UserReviews'
@@ -10,26 +9,23 @@ import Overview from './Overview'
 import GettingStarted from './GettingStarted'
 import Footer from './Footer'
 import Demo from './Demo';
+import WarriorCards from './WarriorCards';
 import '../../styles/LandingPage.css'
+import '../../styles/Button.css';
 
 export default function LandingPage() {
     const [reviews, setReviews] = React.useState([])
 
+    const handleClick = () => {
+
+    }
+
     return (
         <>
             <Header />
-            <ul className='warriorList'>
-                <li className="warriorName">Samurai</li>
-                <li className="warriorName">Legionnaire</li>
-                <li className="warriorName">Spartan</li>
-                <li className="warriorName">Viking</li>
-            </ul>
-            <WarriorCard warrior="Samurai" />
-            <WarriorCard warrior="Legionnaire" />
-            <WarriorCard warrior="Spartan" />
-            <WarriorCard warrior="Viking" />
+            <WarriorCards />
             <CallToAction />
-            <Button />
+            <Button purpose={"landingPage"} onClick={handleClick} text={"Start Your Journey"} />
             <UserReviews reviews={reviews} />
             <KeyFeatures />
             <Overview />

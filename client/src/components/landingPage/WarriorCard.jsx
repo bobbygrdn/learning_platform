@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 
 export default function WarriorCard({ warrior }) {
     const [warrior1, setWarrior1] = React.useState('');

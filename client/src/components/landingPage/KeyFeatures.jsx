@@ -1,5 +1,6 @@
 import React from 'react';
 import Feature from './Feature';
+import '../../styles/KeyFeatures.css'
 
 export default function KeyFeatures() {
     const features = [
@@ -29,10 +30,10 @@ export default function KeyFeatures() {
         }
     ]
     return (
-        <>
+        <div className='features'>
             {features.map((feature, index) => (
                 <Feature key={index} feature={feature} />
             ))}
-        </>
+        </div>
     )
 }

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import '../../styles/Feature.css';
 
 export default function Feature({ feature }) {
     return (
-        <>
-            <img className="logo" src={feature.Image} alt={`Feature ${feature.key}`} />
+        <div className='feature'>
+            <img className="icon" src={feature.Image} alt={`Feature ${feature.key}`} />
             <p className="text">{feature.description}</p>
-        </>
+        </div>
     )
 }
