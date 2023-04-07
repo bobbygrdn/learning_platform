@@ -8,16 +8,12 @@ configure({ adapter: new Adapter() });
 jest.mock('../src/styles/WarriorCard.css', () => ({}));
 jest.mock('../src/styles/App.css', () => ({}));
 
-const warrior = {
-    name: 'Samurai'
-}
-
 it('renders without crashing', () => {
     const wrapper = shallow(<WarriorCard />);
     expect(wrapper).toMatchSnapshot();
 })
 
 it('should render card based on warrior type', () => {
-    const wrapper = shallow(<WarriorCard warrior={warrior.name} />);
+    const wrapper = shallow(<WarriorCard warrior="Samurai" />);
     expect(wrapper.find('img.card')).toHaveLength(1);
-})
+});
