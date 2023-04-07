@@ -1,0 +1,30 @@
+.landingPage {
+    background-color: #677D8C;
+    border-radius: .5em;
+    border-width: 0em;
+    width: 15em;
+    height: 5em;
+    padding: 1em;
+    color: whitesmoke;
+    margin: 2em 0em;
+    font-size: 1em;
+}
+
+.landingPage:hover {
+    background-color: #ACA9A4;
+    color: #000000;
+    cursor: pointer;
+}
+
+.landingPage:active {
+    background-color: #ACA9A4;
+    color: #000000;
+}
+
+@media screen and (min-width: 1000px) {
+    .landingPage {
+        width: 12em;
+        height: 4em;
+        font-size: 1.5em;
+    }
+}

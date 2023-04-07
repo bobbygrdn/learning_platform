@@ -1,0 +1,92 @@
+.warriorCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+}
+
+.warriorList {
+    display: flex;
+    align-items: start;
+    list-style: none;
+    pointer-events: none;
+}
+
+.warriorName {
+    padding-left: 4em;
+    padding-right: 3em;
+    padding-bottom: .5em;
+}
+
+.warriorList :nth-child(4) {
+    padding-left: 4.7em;
+}
+
+
+.warriors {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 10em;
+    border: 2px solid #677D8C;
+    margin-top: 0;
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 5em;
+    }
+
+    .warriorName {
+        padding-left: 1.5em;
+        padding-right: .5em;
+    }
+
+    .warriorList :nth-child(1) {
+        padding-left: 1.2em;
+    }
+
+    .warriorList :nth-child(2) {
+        padding-left: .8em;
+    }
+
+    .warriorList :nth-child(3) {
+        padding-left: 1em;
+    }
+
+    .warriorList :nth-child(4) {
+        padding-left: 2.2em;
+    }
+
+}
+
+@media screen and (min-width: 1000px) {
+    .warriorName {
+        font-size: 24px;
+    }
+
+    .card {
+        width: 15em;
+    }
+
+    .warriorList :nth-child(2) {
+        padding-left: 3em;
+    }
+
+    .warriorList :nth-child(3) {
+        padding-left: 3em;
+    }
+
+    .warriorList :nth-child(4) {
+        padding-left: 4em;
+    }
+}

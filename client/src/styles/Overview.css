@@ -1,0 +1,19 @@
+.overviewText {
+    padding: 0 1em;
+    text-align: left;
+    margin-bottom: 5em;
+    pointer-events: none;
+}
+
+.callStatement {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 1000px) {
+    .overviewText {
+        font-size: 22px;
+        padding: 0em 4em;
+    }
+}

@@ -1,8 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #E5F1F2;
+
+}
+
+.logo {
+  background-color: #E5F1F2;
+  width: 10em;
+  height: 10em;
 }
 
 .title {
@@ -10,17 +25,47 @@
 }
 
 .sectiontitle {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .subheading {
-  font-size: 21px;
+  font-size: 19px;
 }
 
 .subsubheading {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .text {
-  font-size: 14px;
+  font-size: 12px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .sectiontitle {
+    font-size: 16px;
+  }
+
+  .subheading {
+    font-size: 10px;
+  }
+
+  .subsubheading {
+    font-size: 10px;
+  }
+
+  .text {
+    font-size: 10px;
+  }
+
+  .logo {
+    width: 7em;
+    height: 7em;
+  }
+
 }

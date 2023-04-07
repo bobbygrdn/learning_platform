@@ -1,0 +1,27 @@
+.callToAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    text-align: center;
+}
+
+.subheading {
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width: 600px) {
+    .callToAction :nth-child(1) {
+        font-size: 14px;
+    }
+
+    .callToAction :nth-child(2) {
+        font-size: 14px;
+        padding: 0em 1em;
+    }
+
+    .callToAction :nth-child(3) {
+        font-size: 14px;
+        padding: 0em 1em;
+    }
+}
