@@ -9,6 +9,7 @@
     text-align: center;
     font-size: 26px;
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
 @media screen and (min-width: 1000px) {
