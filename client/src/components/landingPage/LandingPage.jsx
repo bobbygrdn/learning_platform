@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
 import CallToAction from './CallToAction';
 import Button from './Button'
@@ -14,6 +14,15 @@ import '../../styles/landingPage/LandingPage.css'
 
 export default function LandingPage() {
     const [reviews, setReviews] = React.useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/dummyData/reviews.json');
+            const data = await response.json();
+            setReviews(data);
+        };
+        fetchData();
+    }, [])
 
     const handleClick = () => {
 
