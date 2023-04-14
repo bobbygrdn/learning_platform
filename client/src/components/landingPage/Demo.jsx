@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 export default function Demo({ video }) {
     return (
         <>
-            <ReactPlayer url={video} controls={true} />
+            <ReactPlayer url={video} controls={true} data-testid="demo-video" />
         </>
     )
 }

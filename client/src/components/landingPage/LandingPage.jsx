@@ -38,7 +38,7 @@ export default function LandingPage() {
             <KeyFeatures />
             <Overview />
             <GettingStarted />
-            // TODO: Add demo video url
+            {/* TODO: Add demo video url*/}
             <Demo video={""} />
             <Footer />
         </>

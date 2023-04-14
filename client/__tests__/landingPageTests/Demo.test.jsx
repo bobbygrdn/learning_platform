@@ -1,20 +1,13 @@
 import React from 'react';
-import ReactPlayer from 'react-player';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render, screen } from '@testing-library/react';
 import Demo from '../../src/components/landingPage/Demo';
 
-configure({ adapter: new Adapter() });
-
-jest.mock('../../src/styles/landingPage/Demo.css', () => ({}));
-jest.mock('../../src/styles/App.css', () => ({}));
-
 it('renders without crashing', () => {
-    const wrapper = shallow(<Demo />);
-    expect(wrapper).toMatchSnapshot();
-})
+    const { container } = render(<Demo />);
+    expect(container).toMatchSnapshot();
+});
 
-it('should render a react player that plays the demo video', () => {
-    const wrapper = shallow(<Demo />);
-    expect(wrapper.find(ReactPlayer)).toHaveLength(1);
-})
+it('should render a react player that plays the demo video', async () => {
+    render(<Demo />);
+    expect(await screen.findAllByTestId('demo-video')).toHaveLength(1);
+});

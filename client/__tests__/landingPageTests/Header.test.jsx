@@ -1,34 +1,28 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render, screen } from '@testing-library/react';
 import Header from '../../src/components/landingPage/Header';
 
-configure({ adapter: new Adapter() });
-
-jest.mock('../../src/styles/landingPage/Header.css', () => ({}));
-jest.mock('../../src/styles/App.css', () => ({}));
-
 it('renders without crashing', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<Header />);
+    expect(container).toMatchSnapshot();
 })
 
 it('should render header element', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.find('header')).toHaveLength(1);
+    render(<Header />);
+    expect(screen.getAllByTestId('header')).toHaveLength(1);
 })
 
 it('should render title element', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.find('.title')).toHaveLength(1);
+    render(<Header />);
+    expect(screen.getAllByTestId('title')).toHaveLength(1);
 })
 
-it('should render subtitle element', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.find('.sectiontitle')).toHaveLength(1);
+it('should render sectiontitle element', () => {
+    render(<Header />);
+    expect(screen.getAllByTestId('sectiontitle')).toHaveLength(1);
 })
 
 it('should render logo element', () => {
-    const wrapper = shallow(<Header />);
-    expect(wrapper.find('.logo')).toHaveLength(1);
+    render(<Header />);
+    expect(screen.getAllByTestId('logo')).toHaveLength(1);
 })

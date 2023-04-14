@@ -1,24 +1,22 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Button from '../../src/components/landingPage/Button';
+import '@testing-library/jest-dom';
 
-configure({ adapter: new Adapter() });
-
-jest.mock('../../src/styles/LandingPage/Button.css', () => ({}));
-jest.mock('../../src/styles/App.css', () => ({}));
-
-it('renders without crashing', () => {
-    const wrapper = shallow(<Button />);
-    expect(wrapper).toMatchSnapshot();
-})
+it('renders without crashing', async () => {
+    render(<Button purpose="landingPage" />);
+    expect(await screen.findByTestId("landingPage")).toMatchSnapshot();
+});
 
 it('renders a button', () => {
-    const wrapper = shallow(<Button />);
-    expect(wrapper.find('button')).toHaveLength(1);
-})
+    render(<Button />);
+    expect(screen.getAllByRole('button')).toHaveLength(1);
+});
 
 it('renders a button with an onClick', () => {
-    const wrapper = shallow(<Button onClick={() => { }} />);
-    expect(wrapper.find('button')).toHaveLength(1);
-})
+    const onClick = jest.fn();
+    render(<Button onClick={onClick} />);
+    const button = screen.getByRole('button');
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalled();
+});

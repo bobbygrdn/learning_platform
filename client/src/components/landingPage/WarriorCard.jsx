@@ -39,7 +39,7 @@ export default function WarriorCard({ warrior }) {
 
     return (
         <>
-            <img className="card" src={isHovered ? warrior1 : warrior2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} alt='warrior image' />
+            <img className="card" src={isHovered ? warrior1 : warrior2} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} data-testid="card" alt='warrior image' />
         </>
     )
 }

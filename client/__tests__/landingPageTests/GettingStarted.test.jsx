@@ -1,24 +1,23 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render, screen } from '@testing-library/react';
 import GettingStarted from '../../src/components/landingPage/GettingStarted';
 
-configure({ adapter: new Adapter() });
-
-jest.mock('../../src/styles/landingPage/GettingStarted.css', () => ({}));
-jest.mock('../../src/styles/App.css', () => ({}));
-
 it('renders without crashing', () => {
-    const wrapper = shallow(<GettingStarted />);
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(<GettingStarted />);
+    expect(container).toMatchSnapshot();
 })
 
-it('should render four image elements with step class name', () => {
-    const wrapper = shallow(<GettingStarted />);
-    expect(wrapper.find('img.step')).toHaveLength(5);
+it('should render paragraph with steps class name', () => {
+    render(<GettingStarted />);
+    expect(screen.getAllByTestId('steps')).toHaveLength(1);
 })
 
-it('should render three images of arrow icon with arrow class name', () => {
-    const wrapper = shallow(<GettingStarted />);
-    expect(wrapper.find('img.arrow')).toHaveLength(4);
+it('should render five image elements with step class name', () => {
+    render(<GettingStarted />);
+    expect(screen.getAllByTestId('step')).toHaveLength(5);
+})
+
+it('should render four images of arrow icon with arrow class name', () => {
+    render(<GettingStarted />);
+    expect(screen.getAllByTestId('arrow')).toHaveLength(4);
 })

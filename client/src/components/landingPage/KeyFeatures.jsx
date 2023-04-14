@@ -30,7 +30,7 @@ export default function KeyFeatures() {
         }
     ]
     return (
-        <div className='features'>
+        <div className='features' data-testid="features">
             {features.map((feature, index) => (
                 <Feature key={index} feature={feature} />
             ))}

@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`renders without crashing 1`] = `
+<div>
+  <header
+    class="header"
+    data-testid="header"
+  >
+    <div
+      class="titles"
+    >
+      <p
+        class="title"
+        data-testid="title"
+      >
+        Valor Academy
+      </p>
+      <p
+        class="sectiontitle"
+        data-testid="sectiontitle"
+      >
+        Become a Code Warrior
+      </p>
+    </div>
+    <img
+      alt="Valor Academy logo"
+      class="logo"
+      data-testid="logo"
+      src="undefined/resources/valorAcademy_logo.png"
+    />
+  </header>
+</div>
+`;

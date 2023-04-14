@@ -1,11 +1,11 @@
 import React from 'react';
-import '../../src/styles/landingPage/Feature.css';
+import '../../styles/landingPage/Feature.css';
 
 export default function Feature({ feature }) {
     return (
-        <div className='feature'>
+        <div className='feature' data-testid="feature">
             <img className="icon" src={feature.Image} alt={`Feature ${feature.key}`} />
-            <p className="text">{feature.description}</p>
+            <p className="text" data-testid="text">{feature.description}</p>
         </div>
     )
 }

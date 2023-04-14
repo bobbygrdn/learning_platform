@@ -4,8 +4,8 @@ import '../../styles/landingPage/Review.css';
 export default function Review({ review }) {
     return (
         <>
-            <q className='reviewText'>{review.quote}</q>
-            <p className='user'>{review.user}</p>
+            <q className='reviewText' data-testid="reviewText">{review.quote}</q>
+            <p className='user' data-testid="user">{review.user}</p>
         </>
     )
 }

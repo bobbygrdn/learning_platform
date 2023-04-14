@@ -1,3 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`renders without crashing 1`] = `
+<div>
+  <footer
+    data-testid="footer"
+  >
+    <p
+      class="copyright"
+      data-testid="copyright"
+    >
+      Copyright © 2023 Valor Academy. All rights reserved.
+    </p>
+    <p
+      class="media"
+      data-testid="media"
+    >
+      Follow us on social media for news, updates, and promotions.
+    </p>
+    <ul
+      data-testid="ul"
+    >
+      <li
+        data-testid="li"
+      >
+        <a
+          data-testid="anchor"
+          href="/terms"
+        >
+          Terms of Service
+        </a>
+      </li>
+      <li
+        data-testid="li"
+      >
+        <a
+          data-testid="anchor"
+          href="/privacy"
+        >
+          Privacy Policy
+        </a>
+      </li>
+      <li
+        data-testid="li"
+      >
+        <a
+          data-testid="anchor"
+          href="https://github.com/bobbygrdn/robert_gordon_capstone.git"
+        >
+          GitHub
+        </a>
+      </li>
+      <li
+        data-testid="li"
+      >
+        <a
+          data-testid="anchor"
+          href="https://bobbygrdn.atlassian.net/wiki/spaces/VA/pages/7012354/Documentation?atlOrigin=eyJpIjoiODRkZmIzNWU2YjIxNGEyYjliZDAyMTVlYjExN2QyN2QiLCJwIjoiaiJ9"
+        >
+          Jira
+        </a>
+      </li>
+    </ul>
+  </footer>
+</div>
+`;

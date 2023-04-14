@@ -1,75 +1,73 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { render, screen } from '@testing-library/react';
 import LandingPage from '../../src/components/landingPage/LandingPage';
 
-jest.mock('../../src/styles/landingPage/LandingPage.css', () => ({}));
-jest.mock('../../src/styles/App.css', () => ({}));
-jest.mock('../../src/styles/landingPage/Header.css', () => ({}));
-
-configure({ adapter: new Adapter() });
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useEffect: () => { },
+}))
 
 it('renders without crashing', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<LandingPage />);
+    expect(container).toMatchSnapshot();
 })
 
 it('should render a header component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('Header')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('header')).toHaveLength(1);
 })
 
 it('should render a list of warrior names', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('.warriorList')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('warriorList')).toHaveLength(1);
 })
 
 it('should render a warrior name', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('.warriorName')).toHaveLength(4)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('warriorName')).toHaveLength(4);
 })
 
 it('should render warrior cards', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('WarriorCard')).toHaveLength(4)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('card')).toHaveLength(4);
 })
 
 it('should render call to action statements', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('CallToAction')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('callToAction')).toHaveLength(1);
 })
 
 it('should render button component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('Button')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('landingPage')).toHaveLength(1);
 })
 
 it('should render user reviews component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('UserReviews')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('reviews')).toHaveLength(1);
 })
 
 it('should render key features component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('KeyFeatures')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('features')).toHaveLength(1);
 })
 
 it('should render overview component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('Overview')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('overview')).toHaveLength(1);
 })
 
 it('should render getting started component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('GettingStarted')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('steps')).toHaveLength(1);
 })
 
 it('should render demo component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('Demo')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('demo-video')).toHaveLength(1);
 })
 
 it('should render a footer component', () => {
-    const wrapper = shallow(<LandingPage />)
-    expect(wrapper.find('Footer')).toHaveLength(1)
+    render(<LandingPage />);
+    expect(screen.getAllByTestId('footer')).toHaveLength(1);
 })

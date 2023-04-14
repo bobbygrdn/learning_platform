@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`renders without crashing 1`] = `
+<div>
+  <q
+    class="reviewText"
+    data-testid="reviewText"
+  >
+    This is a quote
+  </q>
+  <p
+    class="user"
+    data-testid="user"
+  >
+    This is a user
+  </p>
+</div>
+`;

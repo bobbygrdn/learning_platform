@@ -1,3 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`renders without crashing 1`] = `
+<div>
+  <p
+    class="steps"
+    data-testid="steps"
+  >
+    Here is a step by step guide to get you started!
+  </p>
+  <div
+    class="gettingStarted"
+  >
+    <img
+      alt="Step 1"
+      class="step"
+      data-testid="step"
+      src="/resources/male_meijin.jpg"
+    />
+    <img
+      alt="Arrow"
+      class="arrow arrow1"
+      data-testid="arrow"
+      src="/resources/arrow_right.png"
+    />
+    <img
+      alt="Step 2"
+      class="step"
+      data-testid="step"
+      src="/resources/male_meijin.jpg"
+    />
+    <img
+      alt="Arrow"
+      class="arrow arrow2"
+      data-testid="arrow"
+      src="/resources/curved_arrow_right.png"
+    />
+    <img
+      alt="Step 3"
+      class="step"
+      data-testid="step"
+      src="/resources/male_meijin.jpg"
+    />
+    <img
+      alt="Arrow"
+      class="arrow arrow3"
+      data-testid="arrow"
+      src="/resources/curved_arrow_left.png"
+    />
+    <img
+      alt="Step 4"
+      class="step"
+      data-testid="step"
+      src="/resources/male_meijin.jpg"
+    />
+    <img
+      alt="Arrow"
+      class="arrow arrow4"
+      data-testid="arrow"
+      src="/resources/arrow_right.png"
+    />
+    <img
+      alt="Step 5"
+      class="step"
+      data-testid="step"
+      src="/resources/male_meijin.jpg"
+    />
+  </div>
+</div>
+`;
