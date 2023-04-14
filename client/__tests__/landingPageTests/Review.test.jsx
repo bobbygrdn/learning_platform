@@ -22,7 +22,7 @@ it('renders without crashing', () => {
 
 it('should render quote element with text class name', () => {
     const wrapper = shallow(<Review review={review} />);
-    expect(wrapper.find('q.text')).toHaveLength(1);
+    expect(wrapper.find('q.reviewText')).toHaveLength(1);
 })
 
 it('should render paragraph element with user class name', () => {
