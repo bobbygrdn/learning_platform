@@ -5,8 +5,8 @@ import Button from '../../src/components/landingPage/Button';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Button.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/LandingPage/Button.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 it('renders without crashing', () => {
     const wrapper = shallow(<Button />);

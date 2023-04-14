@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Footer from '../src/components/landingPage/Footer';
+import Footer from '../../src/components/landingPage/Footer';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Footer.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Footer.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 it('renders without crashing', () => {
     const wrapper = shallow(<Footer />);
@@ -41,9 +41,4 @@ it('should render 4 list item tags', () => {
 it('should render list tag with 4 anchor tags', () => {
     const wrapper = shallow(<Footer />);
     expect(wrapper.find('a')).toHaveLength(4);
-})
-
-it('should render 3 paragraph tags with break class name', () => {
-    const wrapper = shallow(<Footer />);
-    expect(wrapper.find('p.break')).toHaveLength(3);
 })

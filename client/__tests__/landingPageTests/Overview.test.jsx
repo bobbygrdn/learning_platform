@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Overview from '../src/components/landingPage/Overview';
+import Overview from '../../src/components/landingPage/Overview';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Overview.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Overview.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 it('renders without crashing', () => {
     const wrapper = shallow(<Overview />);

@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Review from '../src/components/landingPage/Review';
+import Review from '../../src/components/landingPage/Review';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Review.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Review.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 const review = () => {
     return {

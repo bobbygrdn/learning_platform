@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/landingPage/Feature.css';
+import '../../src/styles/landingPage/Feature.css';
 
 export default function Feature({ feature }) {
     return (

@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Feature from '../src/components/landingPage/Feature';
+import Feature from '../../src/components/landingPage/Feature';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Feature.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Feature.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 const feature = {
     description: "Custom learning paths for different goals and skill levels",
@@ -18,9 +18,9 @@ it('renders without crashing', () => {
     expect(wrapper).toMatchSnapshot();
 })
 
-it('should render the feature image with logo class name', () => {
+it('should render the feature image with icon class name', () => {
     const wrapper = shallow(<Feature feature={feature} />);
-    expect(wrapper.find('img.logo')).toHaveLength(1);
+    expect(wrapper.find('img.icon')).toHaveLength(1);
 })
 
 it('should render the feature description with text class name', () => {

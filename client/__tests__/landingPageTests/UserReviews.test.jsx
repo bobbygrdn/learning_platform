@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import UserReviews from '../src/components/landingPage/UserReviews';
+import UserReviews from '../../src/components/landingPage/UserReviews';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/Button.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Button.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 const reviews = () => {
     return [

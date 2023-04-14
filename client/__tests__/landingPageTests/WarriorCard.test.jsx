@@ -1,12 +1,12 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import WarriorCard from '../src/components/landingPage/WarriorCard';
+import WarriorCard from '../../src/components/landingPage/WarriorCard';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/WarriorCard.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/WarriorCard.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 it('renders without crashing', () => {
     const wrapper = shallow(<WarriorCard />);

@@ -1,12 +1,13 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import KeyFeatures from '../src/components/landingPage/KeyFeatures';
+import KeyFeatures from '../../src/components/landingPage/KeyFeatures.jsx';
 
 configure({ adapter: new Adapter() });
 
-jest.mock('../src/styles/KeyFeatures.css', () => ({}));
-jest.mock('../src/styles/App.css', () => ({}));
+jest.mock('../../src/styles/landingPage/KeyFeatures.css', () => ({}));
+jest.mock('../../src/styles/landingPage/Feature.css', () => ({}));
+jest.mock('../../src/styles/App.css', () => ({}));
 
 const features = () => {
     return [
