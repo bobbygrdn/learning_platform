@@ -14,7 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --env=jsdom",
-    "testAll": "jest --coverage",
+    "testAll": "jest --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
