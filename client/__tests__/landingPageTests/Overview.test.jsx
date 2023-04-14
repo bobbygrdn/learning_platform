@@ -15,5 +15,10 @@ it('renders without crashing', () => {
 
 it('should render paragraph element with class of text', () => {
     const wrapper = shallow(<Overview />);
-    expect(wrapper.find('p.text')).toHaveLength(1);
+    expect(wrapper.find('p.overviewText')).toHaveLength(1);
+})
+
+it('should render paragraph element with class of callStatement', () => {
+    const wrapper = shallow(<Overview />);
+    expect(wrapper.find('p.callStatement')).toHaveLength(1);
 })
