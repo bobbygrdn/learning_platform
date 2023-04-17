@@ -44,6 +44,7 @@
     "enzyme-adapter-react-16": "^1.15.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "jest-fetch-mock": "^3.0.3",
     "react-test-renderer": "^18.2.0"
   }
 }
