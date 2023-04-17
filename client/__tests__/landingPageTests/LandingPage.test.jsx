@@ -1,16 +1,21 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import React, { useState } from 'react';
+import { render, screen, renderHook } from '@testing-library/react';
 import LandingPage from '../../src/components/landingPage/LandingPage';
+import fetchMock from 'jest-fetch-mock';
 
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useEffect: () => { },
-}))
+beforeEach(() => {
+    fetchMock.resetMocks();
+})
 
 it('renders without crashing', () => {
     const { container } = render(<LandingPage />);
     expect(container).toMatchSnapshot();
 })
+
+test('initial state of reviews is an empty array', () => {
+    const { result } = renderHook(() => useState([]));
+    expect(result.current[0]).toEqual([]);
+});
 
 it('should render a header component', () => {
     render(<LandingPage />);

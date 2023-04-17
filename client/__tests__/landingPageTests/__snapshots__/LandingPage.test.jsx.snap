@@ -68,25 +68,25 @@ exports[`renders without crashing 1`] = `
         alt="warrior image"
         class="card"
         data-testid="card"
-        src=""
+        src="undefined/resources/female_meijin.jpg"
       />
       <img
         alt="warrior image"
         class="card"
         data-testid="card"
-        src=""
+        src="undefined/resources/male_imperator.jpg"
       />
       <img
         alt="warrior image"
         class="card"
         data-testid="card"
-        src=""
+        src="undefined/resources/female_king.jpg"
       />
       <img
         alt="warrior image"
         class="card"
         data-testid="card"
-        src=""
+        src="undefined/resources/male_king_viking.jpg"
       />
     </div>
   </div>
