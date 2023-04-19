@@ -20,7 +20,7 @@ export default function LandingPage({ token }) {
 
     useEffect(() => {
         if (token != null) {
-            navigate('/dashboard')
+            navigate("/dashboard");
         }
     }, [navigate, token])
 
@@ -34,8 +34,8 @@ export default function LandingPage({ token }) {
         fetchData();
     }, [])
 
-    const handleClick = () => {
-        navigate('/login');
+    const handleClick = async () => {
+        navigate("/login");
     }
 
     return (
@@ -43,7 +43,7 @@ export default function LandingPage({ token }) {
             <Header />
             <WarriorCards />
             <CallToAction />
-            <Button purpose={"landingPage"} onClick={handleClick} text={"Start Your Journey"} />
+            <Button purpose={"landingPage"} type={"submit"} onClick={handleClick} text={"Start Your Journey"} />
             <UserReviews reviews={reviews} loading={loading} />
             <KeyFeatures />
             <Overview />
