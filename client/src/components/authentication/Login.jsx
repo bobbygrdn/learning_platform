@@ -3,6 +3,8 @@ import { Form, useNavigate } from 'react-router-dom';
 import UseLocalStorage from '../../hooks/useLocalStorage';
 import UseSessionStorage from '../../hooks/useSessionStorage';
 import Button from '../landingPage/Button';
+import '../../styles/authentication/Login.css';
+import Header from '../landingPage/Header';
 
 export default function Login() {
     const [userName, setUserName] = useState();
@@ -21,7 +23,8 @@ export default function Login() {
         }
     }, [userName, password])
 
-    const loginUser = async () => {
+    const loginUser = async (e) => {
+        e.preventDefault();
         // await fetch('http://localhost:3001/login', {
         //     method: 'POST',
         //     headers: {
@@ -56,24 +59,25 @@ export default function Login() {
 
     return (
         <div className='login-wrapper'>
-            <h1>Login</h1>
-            <Form>
-                <label>
-                    <p>Username</p>
-                    <input type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} />
+            <Header />
+            <Form className='login-form'>
+                <h1 className='loginTitle'>Login</h1>
+                <label className='username'>
+                    <p className='userTitle'>Username</p>
+                    <input className='userInput' type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} />
                 </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
+                <label className='password'>
+                    <p className='passwordTitle'>Password</p>
+                    <input className='passwordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
                 </label>
-                <label>
-                    <p>Keep me logged in</p>
-                    <input type="checkbox" onChange={e => setKeepLoggedIn(e.target.checked)} required />
+                <label className='keepLoggedIn'>
+                    <p className='subheading'>Keep me logged in</p>
+                    <input className='checkbox' type="checkbox" onChange={e => setKeepLoggedIn(e.target.checked)} required />
                 </label>
                 <div disabled={disabled}>
                     <Button purpose='login' text='Login' onClick={loginUser} />
                 </div>
-                <p>If you do not have an account, please <a href="/signup">signup</a> here.</p>
+                <p className='signupAccount'>If you do not have an account, please <a href="/signup">signup</a> here.</p>
             </Form>
         </div>
     )

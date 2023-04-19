@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import Button from '../landingPage/Button';
+import '../../styles/authentication/Signup.css';
+import Header from '../landingPage/Header';
 
 export default function Signup() {
     const [userName, setUserName] = useState();
@@ -50,23 +52,24 @@ export default function Signup() {
     }
     return (
         <div className='signup-wrapper'>
-            <h1>Signup</h1>
-            <Form>
-                <label>
-                    <p>Username</p>
-                    <input type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} required />
+            <Header />
+            <Form className='signup-form'>
+                <h1 className='signupTitle'>Signup</h1>
+                <label className='signupUsername'>
+                    <p className='signupUserTitle'>Username</p>
+                    <input className='signupUserInput' type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} required />
                 </label>
-                <label>
-                    <p>Email</p>
-                    <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' oninvalid="this.setCustomValidity('Please input a proper email address.')" oninput="setCustomValidity('')" required />
+                <label className='signupEmail'>
+                    <p className='signupEmailTitle'>Email</p>
+                    <input className='signupEmailInput' type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' oninvalid="this.setCustomValidity('Please input a proper email address.')" oninput="setCustomValidity('')" required />
                 </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$' oninvalid="this.setCustomValidity('Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number.')" oninput="setCustomValidity('')" required />
+                <label className='signupPassword'>
+                    <p className='signupPasswordTitle'>Password</p>
+                    <input className='signupPasswordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$' oninvalid="this.setCustomValidity('Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number.')" oninput="setCustomValidity('')" required />
                 </label>
-                <label>
-                    <p>Confirm Password</p>
-                    <input type="password" placeholder="Confirm Password" onChange={e => setConfirmedPassword(e.target.value)} pattern={`^${password}$`} oninvalid="this.setCustomValidity('Passwords must match.')" oninput="setCustomValidity('')" required />
+                <label className='signupConfirmPassword'>
+                    <p className='signupConfirmPasswordTitle'>Confirm Password</p>
+                    <input className='signupConfirmPasswordInput' type="password" placeholder="Confirm Password" onChange={e => setConfirmedPassword(e.target.value)} pattern={`^${password}$`} oninvalid="this.setCustomValidity('Passwords must match.')" oninput="setCustomValidity('')" required />
                 </label>
                 <div disabled={disabled}>
                     <Button purpose='signup' text='Signup' onClick={signupUser} />
