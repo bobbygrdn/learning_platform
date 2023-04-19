@@ -22,6 +22,7 @@ export default function Signup() {
     }, [userName, password, confirmedPassword, email])
 
     const signupUser = () => {
+        // TODO: Update once backed is ready
         // await fetch('http://localhost:3001/signup', {
         //     method: 'POST',
         //     headers: {

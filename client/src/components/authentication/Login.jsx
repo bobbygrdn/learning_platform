@@ -25,6 +25,7 @@ export default function Login() {
 
     const loginUser = async (e) => {
         e.preventDefault();
+        // TODO: Update once backed is ready
         // await fetch('http://localhost:3001/login', {
         //     method: 'POST',
         //     headers: {
