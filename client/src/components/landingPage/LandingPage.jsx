@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from './Header'
 import CallToAction from './CallToAction';
 import Button from './Button'
@@ -12,20 +12,30 @@ import Demo from './Demo';
 import WarriorCards from './WarriorCards';
 import '../../styles/landingPage/LandingPage.css'
 
-export default function LandingPage() {
-    const [reviews, setReviews] = React.useState([])
+export default function LandingPage({ token }) {
+    const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (token != null) {
+            navigate('/dashboard')
+        }
+    }, [navigate, token])
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('/dummyData/reviews.json');
             const data = await response.json();
             setReviews(data);
+            setLoading(false);
         };
         fetchData();
     }, [])
 
     const handleClick = () => {
-
+        navigate('/login');
     }
 
     return (
@@ -34,7 +44,7 @@ export default function LandingPage() {
             <WarriorCards />
             <CallToAction />
             <Button purpose={"landingPage"} onClick={handleClick} text={"Start Your Journey"} />
-            <UserReviews reviews={reviews} />
+            <UserReviews reviews={reviews} loading={loading} />
             <KeyFeatures />
             <Overview />
             <GettingStarted />
