@@ -53,6 +53,16 @@
     padding: 1em;
 }
 
+.userInput,
+.passwordInput:invalid {
+    border-color: 2px solid red;
+}
+
+.userInput,
+.passwordInput:valid {
+    border-color: 2px solid green;
+}
+
 .keepLoggedIn {
     display: flex;
     margin-top: 1em;

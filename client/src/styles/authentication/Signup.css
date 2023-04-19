@@ -58,6 +58,20 @@
     padding: 1em;
 }
 
+.signupUserInput,
+.signupPasswordInput,
+.signupEmailInput,
+.signupConfirmPasswordInput:invalid {
+    border: 2px solid red;
+}
+
+.signupUserInput:valid,
+.signupPasswordInput:valid,
+.signupEmailInput:valid,
+.signupConfirmPasswordInput:valid {
+    border: 2px solid green;
+}
+
 .keepLoggedIn {
     display: flex;
     margin-top: 1em;
