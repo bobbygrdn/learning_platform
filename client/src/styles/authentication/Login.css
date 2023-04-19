@@ -1,0 +1,133 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #aca9a4;
+    border: 1em solid #4a4c52;
+    border-radius: 1em;
+    padding: .5em;
+    width: 70vw;
+    height: 70vh;
+}
+
+.login {
+    background-color: #677D8C;
+    border-radius: .5em;
+    border-width: 0em;
+    width: 6em;
+    height: 2em;
+    color: whitesmoke;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+.username,
+.password {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.userTitle,
+.passwordTitle {
+    font-size: 3em;
+}
+
+.userInput,
+.passwordInput {
+    width: 30em;
+    height: 4em;
+    border-radius: 2em;
+    padding: 1em;
+}
+
+.keepLoggedIn {
+    display: flex;
+    margin-top: 1em;
+}
+
+.subheading {
+    margin-right: 1em;
+}
+
+.checkbox {
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.loginTitle {
+    font-size: 4em;
+    margin-bottom: 1em;
+}
+
+.login:hover {
+    background-color: #e5f1f2;
+    color: #000000;
+    cursor: pointer;
+}
+
+.login:active {
+    background-color: #e5f1f2;
+    color: #000000;
+}
+
+.signupAccount {
+    text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+    .login-form {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .login {
+        font-size: 1.5em;
+    }
+
+    .userTitle,
+    .passwordTitle {
+        font-size: 2em;
+    }
+
+    .userInput,
+    .passwordInput {
+        width: 20em;
+        height: 3em;
+    }
+
+    .checkbox {
+        width: 1.5em;
+    }
+
+    .loginTitle {
+        font-size: 3em;
+    }
+
+    .subheading {
+        margin-right: 1.5em;
+        font-size: 1em;
+    }
+
+
+}
+
+@media screen and (min-width: 1000px) {
+    .login-form {
+        width: 50vw;
+        height: 70vh;
+    }
+}

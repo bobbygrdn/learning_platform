@@ -1,0 +1,138 @@
+.signup-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #aca9a4;
+    border: 1em solid #4a4c52;
+    border-radius: 1em;
+    padding: .5em;
+    width: 70vw;
+    height: 70vh;
+}
+
+.signup {
+    background-color: #677D8C;
+    border-radius: .5em;
+    border-width: 0em;
+    width: 6em;
+    height: 2em;
+    color: whitesmoke;
+    font-size: 2em;
+}
+
+.signupUsername,
+.signupPassword,
+.signupEmail,
+.signupConfirmPassword {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.signupUserTitle,
+.signupPasswordTitle,
+.signupEmailTitle,
+.signupConfirmPasswordTitle {
+    font-size: 2em;
+}
+
+.signupUserInput,
+.signupPasswordInput,
+.signupEmailInput,
+.signupConfirmPasswordInput {
+    width: 30em;
+    height: 4em;
+    border-radius: 2em;
+    padding: 1em;
+}
+
+.keepLoggedIn {
+    display: flex;
+    margin-top: 1em;
+}
+
+.subheading {
+    margin-right: 1em;
+}
+
+.checkbox {
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+
+.signupTitle {
+    font-size: 4em;
+}
+
+.signup:hover {
+    background-color: #e5f1f2;
+    color: #000000;
+    cursor: pointer;
+}
+
+.signup:active {
+    background-color: #e5f1f2;
+    color: #000000;
+}
+
+@media screen and (max-width: 600px) {
+    .signup-form {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .signup {
+        font-size: 1.5em;
+    }
+
+    .signupUserTitle,
+    .signupPasswordTitle,
+    .signupEmailTitle,
+    .signupConfirmPasswordTitle {
+        font-size: 1.5em;
+    }
+
+    .signupUserInput,
+    .signupPasswordInput,
+    .signupEmailInput,
+    .signupConfirmPasswordInput {
+        width: 20em;
+        height: 3em;
+    }
+
+    .checkbox {
+        width: 1.5em;
+    }
+
+    .signupTitle {
+        font-size: 3em;
+        margin-bottom: .5em;
+    }
+
+    .subheading {
+        margin-right: 1.5em;
+        font-size: 1em;
+    }
+
+
+}
+
+@media screen and (min-width: 1000px) {
+    .signup-form {
+        width: 50vw;
+        height: 70vh;
+    }
+}
