@@ -62,14 +62,14 @@
 .signupPasswordInput,
 .signupEmailInput,
 .signupConfirmPasswordInput:invalid {
-    border: 2px solid red;
+    border: 4px solid red;
 }
 
 .signupUserInput:valid,
 .signupPasswordInput:valid,
 .signupEmailInput:valid,
 .signupConfirmPasswordInput:valid {
-    border: 2px solid green;
+    border: 4px solid green;
 }
 
 .keepLoggedIn {
@@ -141,6 +141,19 @@
         font-size: 1em;
     }
 
+    .signupUserInput,
+    .signupPasswordInput,
+    .signupEmailInput,
+    .signupConfirmPasswordInput:invalid {
+        border: 2px solid red;
+    }
+
+    .signupUserInput:valid,
+    .signupPasswordInput:valid,
+    .signupEmailInput:valid,
+    .signupConfirmPasswordInput:valid {
+        border: 2px solid green;
+    }
 
 }
 
