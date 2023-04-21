@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Quiz_Question {
     private int id;
-    private String question;
+    private String content;
     private ArrayList<Quiz_Option> options;
     private int quizId;
 
-    public Quiz_Question(int id, String question, ArrayList<Quiz_Option> options, int quizId) {
+    public Quiz_Question(int id, String content, ArrayList<Quiz_Option> options, int quizId) {
         this.id = id;
-        this.question = question;
+        this.content = content;
         this.options = options;
         this.quizId = quizId;
     }
@@ -24,11 +24,11 @@ public class Quiz_Question {
     }
 
     public String getQuestion() {
-        return question;
+        return content;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(String content) {
+        this.content = content;
     }
 
     public ArrayList<Quiz_Option> getOptions() {
@@ -52,7 +52,7 @@ public class Quiz_Question {
         final int prime = 31;
         int result = 1;
         result = prime * result + id;
-        result = prime * result + ((question == null) ? 0 : question.hashCode());
+        result = prime * result + ((content == null) ? 0 : content.hashCode());
         result = prime * result + ((options == null) ? 0 : options.hashCode());
         result = prime * result + quizId;
         return result;
@@ -69,10 +69,10 @@ public class Quiz_Question {
         Quiz_Question other = (Quiz_Question) obj;
         if (id != other.id)
             return false;
-        if (question == null) {
-            if (other.question != null)
+        if (content == null) {
+            if (other.content != null)
                 return false;
-        } else if (!question.equals(other.question))
+        } else if (!content.equals(other.content))
             return false;
         if (options == null) {
             if (other.options != null)
@@ -86,7 +86,7 @@ public class Quiz_Question {
 
     @Override
     public String toString() {
-        return "Quiz_Question [id=" + id + ", question=" + question + ", options=" + options + ", quizId=" + quizId
+        return "Quiz_Question [id=" + id + ", content=" + content + ", options=" + options + ", quizId=" + quizId
                 + "]";
     }
 
