@@ -16,7 +16,7 @@ function App() {
     },
     {
       path: '/login',
-      element: <Login />,
+      element: <Login token={token} />,
     },
     {
       path: '/signup',
