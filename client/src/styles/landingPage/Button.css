@@ -11,6 +11,11 @@
     font-size: 1em;
 }
 
+.login,
+.signup {
+    box-shadow: 0px 0px 20px #677D8C;
+}
+
 .landingPage:hover {
     background-color: #ACA9A4;
     color: #000000;
@@ -20,6 +25,14 @@
 .landingPage:active {
     background-color: #ACA9A4;
     color: #000000;
+}
+
+.signup:disabled,
+.login:disabled {
+    background-color: #000000;
+    color: #6e6e6e;
+    pointer-events: none;
+    box-shadow: none;
 }
 
 @media screen and (min-width: 1000px) {
