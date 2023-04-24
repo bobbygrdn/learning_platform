@@ -42,8 +42,6 @@
     "@babel/preset-env": "^7.21.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-fetch-mock": "^3.0.3",
