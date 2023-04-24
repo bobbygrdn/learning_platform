@@ -21,8 +21,8 @@ export default function Signup() {
         }
     }, [userName, password, confirmedPassword, email])
 
-    const signupUser = () => {
-        // TODO: Update once backed is ready
+    async function signupUser() {
+        // TODO: Update once backend is ready
         // await fetch('http://localhost:3001/signup', {
         //     method: 'POST',
         //     headers: {
@@ -34,12 +34,12 @@ export default function Signup() {
         //         email: email
         //     }),
         // })
-        // .then(response => response.json())
-        // .then(data => {
-        //     window.alert("Signup successful!");
-        //     navigate('/login');
-        // })
-        window.alert("Signup successful!");
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         window.alert("Signup successful!");
+        //         navigate('/login');
+        //     })
+        window.alert("Signup successful!")
         navigate('/login');
     }
     return (
@@ -53,19 +53,19 @@ export default function Signup() {
                 </label>
                 <label className='signupEmail'>
                     <p className='signupEmailTitle'>Email</p>
-                    <input className='signupEmailInput' type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' required />
+                    <input className='signupEmailInput' type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
                 </label>
                 <label className='signupPassword'>
                     <p className='signupPasswordTitle'>Password</p>
-                    <input className='signupPasswordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$' title="Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number." required />
+                    <input className='signupPasswordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number." />
                 </label>
                 <label className='signupConfirmPassword'>
                     <p className='signupConfirmPasswordTitle'>Confirm Password</p>
-                    <input className='signupConfirmPasswordInput' type="password" placeholder="Confirm Password" onChange={e => setConfirmedPassword(e.target.value)} pattern={`^${password}$`}
-                        title="Passwords must match." required />
+                    <input className='signupConfirmPasswordInput' type="password" placeholder="Confirm Password" onChange={e => setConfirmedPassword(e.target.value)} required pattern={`^${password}$`}
+                        title="Passwords must match." />
                 </label>
-                <div disabled={disabled}>
-                    <Button purpose='signup' text='Signup' onClick={signupUser} />
+                <div>
+                    <Button purpose='signup' text='Signup' onClick={signupUser} disabled={disabled} />
                 </div>
             </Form>
         </div>

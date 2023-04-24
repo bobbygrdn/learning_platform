@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
-import UseLocalStorage from '../../hooks/useLocalStorage';
-import UseSessionStorage from '../../hooks/useSessionStorage';
 import Button from '../landingPage/Button';
 import '../../styles/authentication/Login.css';
 import Header from '../landingPage/Header';
 
-export default function Login() {
+export default function Login({ token }) {
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
     const [keepLoggedIn, setKeepLoggedIn] = useState(false);
     const [disabled, setDisabled] = useState(true);
-    const [token, setToken] = useState();
 
     const navigate = useNavigate();
 
@@ -25,7 +22,7 @@ export default function Login() {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        // TODO: Update once backed is ready
+        // TODO: Update once backend is ready
         // await fetch('http://localhost:3001/login', {
         //     method: 'POST',
         //     headers: {
@@ -36,17 +33,23 @@ export default function Login() {
         //         password: password
         //     }),
         // })
-        await fetch('/dummyData/token.json')
+        await fetch('/dummyData/users.json')
             .then(response => response.json())
             .then(data => {
-                if (data.length !== 0) {
+
+                const users = data.users;
+
+                const user = users.find(user => user.username === userName && user.password === password);
+
+                if (user) {
                     if (keepLoggedIn === false) {
-                        UseSessionStorage('token', data.token);
+                        sessionStorage.setItem('token', user.token);
                     }
                     if (keepLoggedIn === true) {
-                        UseLocalStorage('token', data.token);
+                        localStorage.setItem('token', user.token);
                     }
-                    setToken(data.token);
+                    console.log(user.token)
+                    window.alert("Successfully logged in!")
                     navigate('/dashboard');
                 } else {
                     window.alert("User not found!")
