@@ -15,8 +15,8 @@
 
 .step {
     width: 12em;
-    border: .2em solid #677D8C;
     border-radius: .5em;
+    box-shadow: 0px 0px 20px #677D8C;
 }
 
 .arrow {
