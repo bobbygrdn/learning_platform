@@ -19,9 +19,9 @@ To create a comprehensive, user-friendly learning platform that enables users to
 
 ### Technical Architecture
 
-The learning platform is a web-based application built with a Next.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
+The learning platform is a web-based application built with a React.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
 
-The Next.js frontend is built with React and uses server-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
+The React.js frontend uses server-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
 
 The Spring Boot backend is built with Java and uses Spring Framework to provide a modular and scalable architecture. It is responsible for handling authentication and authorization, managing user profiles, and serving course content. The backend also integrates with a MySQL database to store user data, course information, and other application data.
 
