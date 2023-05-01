@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.valoracademy.server.exception.ResourceNotFoundException;
 import com.valoracademy.server.model.Quiz_Answer;
-import com.valoracademy.server.model.Quiz_Question;
 import com.valoracademy.server.repository.Quiz_AnswerRepository;
 import com.valoracademy.server.repository.Quiz_QuestionRepository;
 
@@ -22,13 +21,13 @@ public class Quiz_AnswerController {
     @Autowired
     private Quiz_QuestionRepository quiz_questionRepository;
 
-    @PostMapping("/quizzes/{quizid}/answers")
-    public ResponseEntity<Quiz_Answer> createQuiz_Answer(@PathVariable("quizquestionid") Long quizquestionid,
+    @PostMapping("/questions/{questionid}/answers")
+    public ResponseEntity<Quiz_Answer> createQuiz_Answer(@PathVariable("questionid") Long quizquestionid,
             @RequestBody Quiz_Answer quiz_answerRequest) {
-        Quiz_Question quiz_question = this.quiz_questionRepository.findById(quizquestionid).orElseThrow(
-                () -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizquestionid));
-        quiz_answerRequest.setQuestion(quiz_question);
-        Quiz_Answer quiz_answer = this.quiz_answerRepository.save(quiz_answerRequest);
+        Quiz_Answer quiz_answer = this.quiz_questionRepository.findById(quizquestionid).map(quizquestion -> {
+            quizquestion.getAnswers().add(quiz_answerRequest);
+            return quiz_answerRepository.save(quiz_answerRequest);
+        }).orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizquestionid));
 
         return ResponseEntity.ok(quiz_answer);
     }

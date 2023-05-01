@@ -21,8 +21,8 @@ public class Quiz_OptionController {
     @Autowired
     private Quiz_QuestionRepository quiz_questionRepository;
 
-    @PostMapping("/quizzes/{quizid}/options")
-    public ResponseEntity<Quiz_Option> createQuiz_Option(@PathVariable("quizquestionid") Long quizquestionid,
+    @PostMapping("/questions/{questionid}/options")
+    public ResponseEntity<Quiz_Option> createQuiz_Option(@PathVariable("questionid") Long quizquestionid,
             @RequestBody Quiz_Option quiz_optionRequest) {
         Quiz_Option quiz_option = this.quiz_questionRepository.findById(quizquestionid).map(quizquestion -> {
             quizquestion.getOptions().add(quiz_optionRequest);
