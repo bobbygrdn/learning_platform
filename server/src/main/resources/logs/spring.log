@@ -10595,3 +10595,72 @@ org.hibernate.PropertyValueException: not-null property references a null or tra
 2023-05-01T13:04:19.190-07:00  INFO 13084 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-05-01T13:04:19.196-07:00  INFO 13084 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-05-01T13:04:19.206-07:00  INFO 13084 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-01T14:16:03.151-07:00  INFO 9976 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 9976 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone\server)
+2023-05-01T14:16:03.160-07:00  INFO 9976 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T14:16:03.211-07:00  INFO 9976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-01T14:16:03.211-07:00  INFO 9976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-01T14:16:03.819-07:00  INFO 9976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T14:16:03.903-07:00  INFO 9976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 7 JPA repository interfaces.
+2023-05-01T14:16:04.629-07:00  INFO 9976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T14:16:04.643-07:00  INFO 9976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T14:16:04.644-07:00  INFO 9976 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T14:16:04.725-07:00  INFO 9976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T14:16:04.726-07:00  INFO 9976 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1514 ms
+2023-05-01T14:16:04.913-07:00  INFO 9976 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T14:16:04.969-07:00  INFO 9976 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-01T14:16:05.247-07:00  INFO 9976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-01T14:16:05.379-07:00  INFO 9976 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fc62084
+2023-05-01T14:16:05.381-07:00  INFO 9976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-01T14:16:05.396-07:00  INFO 9976 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T14:16:05.398-07:00  WARN 9976 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T14:16:06.232-07:00  INFO 9976 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T14:16:06.241-07:00  INFO 9976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T14:16:06.666-07:00  WARN 9976 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T14:16:06.837-07:00  WARN 9976 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invalid mapping on handler class [com.valoracademy.server.controller.CourseController]: public org.springframework.http.ResponseEntity com.valoracademy.server.controller.CourseController.createCourse(java.lang.Long,com.valoracademy.server.model.Course)
+2023-05-01T14:16:06.839-07:00  INFO 9976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T14:16:06.842-07:00  INFO 9976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-01T14:16:06.855-07:00  INFO 9976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-01T14:16:06.858-07:00  INFO 9976 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T14:16:06.874-07:00  INFO 9976 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-01T14:16:06.901-07:00 ERROR 9976 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Invalid mapping pattern detected: /users/{userId}}courses
+               ^
+Missing preceding open capture character before variable name{
+
+Action:
+
+Fix this pattern in your application or switch to the legacy parser implementation with 'spring.mvc.pathmatch.matching-strategy=ant_path_matcher'.
+
+2023-05-01T14:16:37.314-07:00  INFO 13332 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 13332 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone\server)
+2023-05-01T14:16:37.336-07:00  INFO 13332 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T14:16:37.383-07:00  INFO 13332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-01T14:16:37.384-07:00  INFO 13332 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-01T14:16:37.904-07:00  INFO 13332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T14:16:37.979-07:00  INFO 13332 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 7 JPA repository interfaces.
+2023-05-01T14:16:38.758-07:00  INFO 13332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T14:16:38.770-07:00  INFO 13332 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T14:16:38.771-07:00  INFO 13332 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T14:16:38.846-07:00  INFO 13332 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T14:16:38.847-07:00  INFO 13332 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1462 ms
+2023-05-01T14:16:39.011-07:00  INFO 13332 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T14:16:39.067-07:00  INFO 13332 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-01T14:16:39.317-07:00  INFO 13332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-01T14:16:39.458-07:00  INFO 13332 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e3dced9
+2023-05-01T14:16:39.460-07:00  INFO 13332 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-01T14:16:39.479-07:00  INFO 13332 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T14:16:39.481-07:00  WARN 13332 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T14:16:40.361-07:00  INFO 13332 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T14:16:40.376-07:00  INFO 13332 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T14:16:40.874-07:00  WARN 13332 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T14:16:41.168-07:00  INFO 13332 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T14:16:41.204-07:00  INFO 13332 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T14:16:41.215-07:00  INFO 13332 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 4.307 seconds (process running for 4.888)
