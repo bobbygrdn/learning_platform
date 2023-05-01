@@ -13,18 +13,18 @@ public class Quiz_Answer {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "question_id", nullable = false)
-    private Quiz_Question question_id;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "quiz_question_id")
+    private Quiz_Question question;
 
     public Quiz_Answer() {
 
     }
 
-    public Quiz_Answer(Long id, String content, Quiz_Question question_id) {
+    public Quiz_Answer(Long id, String content) {
         this.id = id;
         this.content = content;
-        this.question_id = question_id;
     }
 
     public Long getId() {
@@ -43,12 +43,12 @@ public class Quiz_Answer {
         this.content = content;
     }
 
-    public Quiz_Question getQuiz() {
-        return question_id;
+    public Quiz_Question getQuestion() {
+        return question;
     }
 
-    public void setQuizQuestion(Quiz_Question question_id) {
-        this.question_id = question_id;
+    public void setQuestion(Quiz_Question question) {
+        this.question = question;
     }
 
     @Override
@@ -57,7 +57,6 @@ public class Quiz_Answer {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
-        result = prime * result + ((question_id == null) ? 0 : question_id.hashCode());
         return result;
     }
 
@@ -80,17 +79,12 @@ public class Quiz_Answer {
                 return false;
         } else if (!content.equals(other.content))
             return false;
-        if (question_id == null) {
-            if (other.question_id != null)
-                return false;
-        } else if (!question_id.equals(other.question_id))
-            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Quiz_Answer [id=" + id + ", content=" + content + ", question_id=" + question_id + "]";
+        return "Quiz_Answer [id=" + id + ", content=" + content + "]";
     }
 
 }

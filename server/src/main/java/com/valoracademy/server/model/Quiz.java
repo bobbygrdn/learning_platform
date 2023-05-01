@@ -18,23 +18,19 @@ public class Quiz {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "lesson_id", nullable = false)
-    private Long lessonId;
-
-    @OneToMany(mappedBy = "quiz_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "quiz_id")
     private List<Quiz_Question> questions;
 
     public Quiz() {
 
     }
 
-    public Quiz(Long id, String title, String description, Long lessonId, List<Quiz_Question> questions,
-            List<Quiz_Option> options, List<Quiz_Answer> answers) {
+    public Quiz(Long id, String title, String description, List<Quiz_Question> questions) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.lessonId = lessonId;
-
+        this.questions = questions;
     }
 
     public Long getId() {
@@ -61,14 +57,6 @@ public class Quiz {
         this.description = description;
     }
 
-    public Long getLessonId() {
-        return lessonId;
-    }
-
-    public void setLessonId(Long lessonId) {
-        this.lessonId = lessonId;
-    }
-
     public List<Quiz_Question> getQuestions() {
         return questions;
     }
@@ -84,7 +72,6 @@ public class Quiz {
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + ((lessonId == null) ? 0 : lessonId.hashCode());
         result = prime * result + ((questions == null) ? 0 : questions.hashCode());
         return result;
     }
@@ -113,23 +100,12 @@ public class Quiz {
                 return false;
         } else if (!description.equals(other.description))
             return false;
-        if (lessonId == null) {
-            if (other.lessonId != null)
-                return false;
-        } else if (!lessonId.equals(other.lessonId))
-            return false;
         if (questions == null) {
             if (other.questions != null)
                 return false;
         } else if (!questions.equals(other.questions))
             return false;
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Quiz [id=" + id + ", title=" + title + ", description=" + description + ", lessonId=" + lessonId
-                + ", questions=" + questions + "]";
     }
 
 }

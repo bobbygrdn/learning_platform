@@ -1,5 +1,8 @@
 package com.valoracademy.server.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,20 +22,19 @@ public class Lesson {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id", nullable = false)
-    private Course course;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "lesson_id")
+    private List<Quiz> quizzes = new ArrayList<>();
 
     public Lesson() {
 
     }
 
-    public Lesson(Long id, String title, String description, String content, Course course) {
+    public Lesson(Long id, String title, String description, String content) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.content = content;
-        this.course = course;
     }
 
     public Long getId() {
@@ -67,12 +69,12 @@ public class Lesson {
         this.content = content;
     }
 
-    public Course getCourse() {
-        return course;
+    public List<Quiz> getQuizzes() {
+        return quizzes;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setQuizzes(List<Quiz> quizzes) {
+        this.quizzes = quizzes;
     }
 
     @Override
@@ -83,7 +85,7 @@ public class Lesson {
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
-        result = prime * result + ((course == null) ? 0 : course.hashCode());
+        result = prime * result + ((quizzes == null) ? 0 : quizzes.hashCode());
         return result;
     }
 
@@ -116,10 +118,10 @@ public class Lesson {
                 return false;
         } else if (!content.equals(other.content))
             return false;
-        if (course == null) {
-            if (other.course != null)
+        if (quizzes == null) {
+            if (other.quizzes != null)
                 return false;
-        } else if (!course.equals(other.course))
+        } else if (!quizzes.equals(other.quizzes))
             return false;
         return true;
     }
@@ -127,7 +129,7 @@ public class Lesson {
     @Override
     public String toString() {
         return "Lesson [id=" + id + ", title=" + title + ", description=" + description + ", content=" + content
-                + ", course=" + course + "]";
+                + ", quizzes=" + quizzes + "]";
     }
 
 }

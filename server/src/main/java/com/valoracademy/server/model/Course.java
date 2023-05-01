@@ -19,22 +19,18 @@ public class Course {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
     private List<Lesson> lessons = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
 
     public Course() {
 
     }
 
-    public Course(long id, String title, String description, User user) {
+    public Course(long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.user = user;
     }
 
     public long getId() {
@@ -69,14 +65,6 @@ public class Course {
         this.lessons = lessons;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -85,7 +73,6 @@ public class Course {
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((lessons == null) ? 0 : lessons.hashCode());
-        result = prime * result + ((user == null) ? 0 : user.hashCode());
         return result;
     }
 
@@ -115,18 +102,12 @@ public class Course {
                 return false;
         } else if (!lessons.equals(other.lessons))
             return false;
-        if (user == null) {
-            if (other.user != null)
-                return false;
-        } else if (!user.equals(other.user))
-            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Course [id=" + id + ", title=" + title + ", description=" + description + ", lessons=" + lessons
-                + ", user=" + user + "]";
+        return "Course [id=" + id + ", title=" + title + ", description=" + description + ", lessons=" + lessons + "]";
     }
 
 }
