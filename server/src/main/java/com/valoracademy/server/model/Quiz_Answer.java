@@ -3,7 +3,7 @@ package com.valoracademy.server.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "quiz_answers")
+@Table(name = "answers")
 public class Quiz_Answer {
 
     @Id
@@ -12,11 +12,6 @@ public class Quiz_Answer {
 
     @Column(name = "content", nullable = false)
     private String content;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "quiz_question_id")
-    private Quiz_Question question;
 
     public Quiz_Answer() {
 
@@ -41,14 +36,6 @@ public class Quiz_Answer {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public Quiz_Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Quiz_Question question) {
-        this.question = question;
     }
 
     @Override

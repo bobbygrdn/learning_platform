@@ -5,7 +5,7 @@ import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "quiz_questions")
+@Table(name = "questions")
 public class Quiz_Question {
 
     @Id
@@ -16,8 +16,12 @@ public class Quiz_Question {
     private String content;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "quiz_id")
+    @JoinColumn(name = "question_id")
     private List<Quiz_Option> options;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id")
+    private List<Quiz_Answer> answers;
 
     public Quiz_Question() {
 
@@ -50,6 +54,14 @@ public class Quiz_Question {
 
     public void setOptions(List<Quiz_Option> options) {
         this.options = options;
+    }
+
+    public List<Quiz_Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Quiz_Answer> answers) {
+        this.answers = answers;
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.valoracademy.server.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "quiz_options")
+@Table(name = "options")
 public class Quiz_Option {
 
     @Id
