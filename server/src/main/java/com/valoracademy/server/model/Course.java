@@ -19,7 +19,7 @@ public class Course {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "course_id", cascade = CascadeType.ALL)
     private List<Lesson> lessons = new ArrayList<>();
 
     @ManyToOne
