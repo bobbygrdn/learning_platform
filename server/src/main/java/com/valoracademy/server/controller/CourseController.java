@@ -21,7 +21,7 @@ public class CourseController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("users/{userId}}courses")
+    @PostMapping("users/{userId}/courses")
     public ResponseEntity<Course> createCourse(@PathVariable("userId") Long userId,
             @RequestBody Course courseRequest) {
 
