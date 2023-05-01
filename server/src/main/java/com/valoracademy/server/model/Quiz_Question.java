@@ -19,10 +19,10 @@ public class Quiz_Question {
     @JoinColumn(name = "quiz_id", nullable = false)
     private Quiz quiz;
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question_id")
     private List<Quiz_Option> options;
 
-    @OneToOne(mappedBy = "question")
+    @OneToOne(mappedBy = "question_id")
     private Quiz_Answer answer;
 
     public Quiz_Question() {

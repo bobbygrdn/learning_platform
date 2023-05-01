@@ -14,17 +14,17 @@ public class Quiz_Option {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "quiz_id", nullable = false)
-    private Quiz quiz;
+    @JoinColumn(name = "question_id", nullable = false)
+    private Quiz_Question question_id;
 
     public Quiz_Option() {
 
     }
 
-    public Quiz_Option(Long id, String content, Quiz quiz) {
+    public Quiz_Option(Long id, String content, Quiz_Question question_id) {
         this.id = id;
         this.content = content;
-        this.quiz = quiz;
+        this.question_id = question_id;
     }
 
     public Long getId() {
@@ -43,12 +43,20 @@ public class Quiz_Option {
         this.content = content;
     }
 
-    public Quiz getQuiz() {
-        return quiz;
+    public Quiz_Question getQuiz_Question() {
+        return question_id;
     }
 
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
+    public void setQuiz_Question(Quiz_Question question_id) {
+        this.question_id = question_id;
+    }
+
+    public Quiz_Question getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(Quiz_Question question_id) {
+        this.question_id = question_id;
     }
 
     @Override
@@ -57,7 +65,7 @@ public class Quiz_Option {
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((content == null) ? 0 : content.hashCode());
-        result = prime * result + ((quiz == null) ? 0 : quiz.hashCode());
+        result = prime * result + ((question_id == null) ? 0 : question_id.hashCode());
         return result;
     }
 
@@ -80,17 +88,17 @@ public class Quiz_Option {
                 return false;
         } else if (!content.equals(other.content))
             return false;
-        if (quiz == null) {
-            if (other.quiz != null)
+        if (question_id == null) {
+            if (other.question_id != null)
                 return false;
-        } else if (!quiz.equals(other.quiz))
+        } else if (!question_id.equals(other.question_id))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Quiz_Option [id=" + id + ", content=" + content + ", quiz=" + quiz + "]";
+        return "Quiz_Option [id=" + id + ", content=" + content + ", question_id=" + question_id + "]";
     }
 
 }
