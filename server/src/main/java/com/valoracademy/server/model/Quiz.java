@@ -21,7 +21,7 @@ public class Quiz {
     @Column(name = "lesson_id", nullable = false)
     private Long lessonId;
 
-    @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "quiz_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Quiz_Question> questions;
 
     public Quiz() {
