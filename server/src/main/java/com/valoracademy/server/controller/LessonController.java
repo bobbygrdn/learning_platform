@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.valoracademy.server.exception.ResourceNotFoundException;
 import com.valoracademy.server.model.Lesson;
+import com.valoracademy.server.repository.CourseRepository;
 import com.valoracademy.server.repository.LessonRepository;
 
 @RestController
@@ -17,19 +18,34 @@ public class LessonController {
     @Autowired
     private LessonRepository lessonRepository;
 
-    @GetMapping("/lessons")
+    @Autowired
+    private CourseRepository courseRepository;
+
+    @PostMapping("/courses/{courseid}/lessons")
+    public ResponseEntity<Lesson> createLesson(@PathVariable("courseid") Long courseId,
+            @RequestBody Lesson lessonRequest) {
+        Lesson lesson = this.courseRepository.findById(courseId).map(course -> {
+            course.getLessons().add(lessonRequest);
+            return lessonRepository.save(lessonRequest);
+        }).orElseThrow((() -> new ResourceNotFoundException("Course does not exist with the ID: " + courseId)));
+
+        return ResponseEntity.ok(lesson);
+
+    }
+
+    @GetMapping("lessons")
     public List<Lesson> getAllLessons() {
         return this.lessonRepository.findAll();
     }
 
-    @GetMapping("/lessons/{id}")
+    @GetMapping("lessons/{id}")
     public ResponseEntity<Lesson> getLessonById(@PathVariable("id") Long lessonId) {
         Lesson lesson = this.lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with the ID: " + lessonId));
         return ResponseEntity.ok(lesson);
     }
 
-    @PutMapping("/lessons/{id}")
+    @PutMapping("lessons/{id}")
     public ResponseEntity<Lesson> updateLesson(@PathVariable("id") Long lessonId,
             @RequestBody Lesson lesson) {
 
@@ -44,7 +60,7 @@ public class LessonController {
         return ResponseEntity.ok(updatedLesson);
     }
 
-    @DeleteMapping("/lessons/{id}")
+    @DeleteMapping("lessons/{id}")
     public ResponseEntity<String> deleteLesson(@PathVariable("id") Long lessonId) {
         Lesson lesson = this.lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with the ID: " + lessonId));
