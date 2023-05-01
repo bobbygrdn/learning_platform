@@ -1,0 +1,331 @@
+2023-05-01T08:20:36.399-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:20:36.403-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:20:36.467-07:00  INFO 7272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-05-01T08:20:36.468-07:00  INFO 7272 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-05-01T08:20:37.235-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:20:37.327-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:20:38.388-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:20:38.410-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:20:38.411-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:20:38.489-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:20:38.491-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2021 ms
+2023-05-01T08:20:38.718-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:20:38.780-07:00  INFO 7272 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-01T08:20:39.079-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-01T08:20:39.241-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@515c6de5
+2023-05-01T08:20:39.243-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-01T08:20:39.269-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:20:39.272-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:20:40.205-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:20:40.213-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:20:40.589-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:20:40.943-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:20:40.988-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:20:41.002-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 5.191 seconds (process running for 5.668)
+2023-05-01T08:20:53.091-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-01T08:20:53.092-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-01T08:20:53.093-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-01T08:22:08.166-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-05-01T08:22:08.184-07:00  INFO 7272 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:22:08.186-07:00  INFO 7272 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-01T08:22:08.201-07:00  INFO 7272 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:22:08.211-07:00  INFO 7272 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-01T08:22:08.227-07:00  INFO 7272 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-05-01T08:22:08.393-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:22:08.394-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:22:08.724-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:22:08.746-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:22:08.894-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:22:08.896-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:22:08.896-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:22:08.995-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:22:08.997-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 598 ms
+2023-05-01T08:22:09.066-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:22:09.075-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-05-01T08:22:09.081-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@227e7c1
+2023-05-01T08:22:09.082-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-05-01T08:22:09.083-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:22:09.085-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:22:09.249-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:22:09.250-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:22:09.403-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:22:09.524-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:22:09.534-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:22:09.540-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 1.199 seconds (process running for 94.206)
+2023-05-01T08:22:09.545-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:22:28.366-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:22:28.392-07:00  INFO 7272 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:22:28.400-07:00  INFO 7272 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:22:28.402-07:00  INFO 7272 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-05-01T08:22:28.411-07:00  INFO 7272 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-05-01T08:22:28.488-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:22:28.490-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:22:28.715-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:22:28.734-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:22:28.876-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:22:28.878-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:22:28.878-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:22:28.906-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:22:28.906-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 406 ms
+2023-05-01T08:22:28.956-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:22:28.970-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-05-01T08:22:28.976-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@192db25d
+2023-05-01T08:22:28.978-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-05-01T08:22:28.979-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:22:28.980-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:22:29.152-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:22:29.152-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:22:29.252-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:22:29.347-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:22:29.360-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:22:29.364-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.911 seconds (process running for 114.029)
+2023-05-01T08:22:29.373-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:25:31.410-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-05-01T08:25:31.427-07:00  INFO 7272 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:25:31.432-07:00  INFO 7272 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:25:31.433-07:00  INFO 7272 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-05-01T08:25:31.438-07:00  INFO 7272 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2023-05-01T08:25:31.572-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:25:31.573-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:25:31.884-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:25:31.920-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:25:32.064-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:25:32.065-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:25:32.066-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:25:32.109-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:25:32.112-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 531 ms
+2023-05-01T08:25:32.159-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:25:32.168-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-05-01T08:25:32.176-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e7e158c
+2023-05-01T08:25:32.177-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-05-01T08:25:32.178-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:25:32.179-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:25:32.379-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:25:32.380-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:25:32.484-07:00  WARN 7272 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webConfig' defined in file [D:\Code\robert_gordon_capstone\server\target\classes\com\valoracademy\server\WebConfig.class]: Failed to instantiate [com.valoracademy.server.WebConfig$$SpringCGLIB$$0]: Constructor threw exception
+2023-05-01T08:25:32.487-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:25:32.488-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-05-01T08:25:32.514-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2023-05-01T08:25:32.517-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:25:32.530-07:00  INFO 7272 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-01T08:25:32.565-07:00 ERROR 7272 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'webConfig' defined in file [D:\Code\robert_gordon_capstone\server\target\classes\com\valoracademy\server\WebConfig.class]: Failed to instantiate [com.valoracademy.server.WebConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1199) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:560) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:917) ~[spring-context-6.0.8.jar:6.0.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.8.jar:6.0.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304) ~[spring-boot-3.0.6.jar:3.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293) ~[spring-boot-3.0.6.jar:3.0.6]
+	at com.valoracademy.server.ServerApplication.main(ServerApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.6.jar:3.0.6]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.valoracademy.server.WebConfig$$SpringCGLIB$$0]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87) ~[spring-beans-6.0.8.jar:6.0.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308) ~[spring-beans-6.0.8.jar:6.0.8]
+	... 22 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "}" to complete ClassBody
+	The method addResourceHandlers() of type WebConfig must override or implement a supertype method
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+	at com.valoracademy.server.WebConfig.<init>(WebConfig.java:8) ~[classes/:na]
+	at com.valoracademy.server.WebConfig$$SpringCGLIB$$0.<init>(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Unknown Source) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source) ~[na:na]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:198) ~[spring-beans-6.0.8.jar:6.0.8]
+	... 24 common frames omitted
+
+2023-05-01T08:25:57.534-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:25:57.535-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:25:57.769-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:25:57.787-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:25:57.942-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:25:57.945-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:25:57.947-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:25:58.006-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:25:58.048-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 510 ms
+2023-05-01T08:25:58.138-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:25:58.155-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-05-01T08:25:58.165-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7fb45c32
+2023-05-01T08:25:58.166-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-05-01T08:25:58.168-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:25:58.168-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:25:58.348-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:25:58.349-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:25:58.475-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:25:58.577-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:25:58.589-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:25:58.594-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 1.09 seconds (process running for 323.26)
+2023-05-01T08:25:58.596-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:26:06.311-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:26:06.325-07:00  INFO 7272 --- [Thread-15] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:26:06.329-07:00  INFO 7272 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:26:06.329-07:00  INFO 7272 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-05-01T08:26:06.332-07:00  INFO 7272 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-05-01T08:26:06.436-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:26:06.441-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:26:06.659-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:26:06.676-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:26:06.766-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:26:06.767-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:26:06.768-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:26:06.790-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:26:06.793-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 347 ms
+2023-05-01T08:26:06.834-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:26:06.847-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2023-05-01T08:26:06.854-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ad7aece
+2023-05-01T08:26:06.855-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2023-05-01T08:26:06.856-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:26:06.856-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:26:06.999-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:26:06.999-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:26:07.079-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:26:07.151-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:26:07.160-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:26:07.165-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.775 seconds (process running for 331.831)
+2023-05-01T08:26:07.169-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:26:15.740-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:26:15.751-07:00  INFO 7272 --- [Thread-22] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:26:15.756-07:00  INFO 7272 --- [Thread-22] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:26:15.757-07:00  INFO 7272 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2023-05-01T08:26:15.760-07:00  INFO 7272 --- [Thread-22] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2023-05-01T08:26:15.842-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:26:15.842-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:26:16.004-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:26:16.018-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:26:16.141-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:26:16.143-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:26:16.144-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:26:16.166-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:26:16.167-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 322 ms
+2023-05-01T08:26:16.211-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:26:16.222-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2023-05-01T08:26:16.231-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@15b9d733
+2023-05-01T08:26:16.232-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2023-05-01T08:26:16.234-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:26:16.235-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:26:16.422-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:26:16.423-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:26:16.510-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:26:16.612-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:26:16.621-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:26:16.625-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.805 seconds (process running for 341.291)
+2023-05-01T08:26:16.629-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:26:32.549-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-01T08:26:32.550-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-01T08:26:32.550-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-05-01T08:27:07.483-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:27:07.500-07:00  INFO 7272 --- [Thread-26] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:27:07.501-07:00  INFO 7272 --- [Thread-26] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-01T08:27:07.504-07:00  INFO 7272 --- [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:27:07.505-07:00  INFO 7272 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-05-01T08:27:07.507-07:00  INFO 7272 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2023-05-01T08:27:07.614-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:27:07.615-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:27:07.750-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:27:07.760-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:27:07.868-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:27:07.870-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:27:07.870-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:27:07.891-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:27:07.893-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 275 ms
+2023-05-01T08:27:07.930-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:27:07.943-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-05-01T08:27:07.950-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c9aac7
+2023-05-01T08:27:07.950-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-05-01T08:27:07.951-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:27:07.953-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:27:08.103-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:27:08.110-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:27:08.183-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:27:08.285-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:27:08.297-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:27:08.303-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.723 seconds (process running for 392.969)
+2023-05-01T08:27:08.307-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:27:10.846-07:00  INFO 7272 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-01T08:27:10.847-07:00  INFO 7272 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-01T08:27:10.848-07:00  INFO 7272 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2023-05-01T08:27:22.005-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:27:22.029-07:00  INFO 7272 --- [Thread-30] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:27:22.030-07:00  INFO 7272 --- [Thread-30] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-01T08:27:22.034-07:00  INFO 7272 --- [Thread-30] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:27:22.034-07:00  INFO 7272 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-05-01T08:27:22.037-07:00  INFO 7272 --- [Thread-30] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2023-05-01T08:27:22.122-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:27:22.123-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:27:22.276-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:27:22.311-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:27:22.406-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:27:22.408-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:27:22.409-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:27:22.428-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:27:22.429-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 303 ms
+2023-05-01T08:27:22.471-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:27:22.482-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2023-05-01T08:27:22.490-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1eba8c4
+2023-05-01T08:27:22.491-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2023-05-01T08:27:22.491-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:27:22.491-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:27:22.648-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:27:22.649-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:27:22.738-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:27:22.819-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:27:22.827-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:27:22.829-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.732 seconds (process running for 407.495)
+2023-05-01T08:27:22.831-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:27:26.001-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-01T08:27:26.002-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-01T08:27:26.003-07:00  INFO 7272 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-01T08:28:31.661-07:00  INFO 7272 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-05-01T08:28:31.670-07:00  INFO 7272 --- [Thread-34] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-01T08:28:31.671-07:00  INFO 7272 --- [Thread-34] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-01T08:28:31.675-07:00  INFO 7272 --- [Thread-34] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:28:31.676-07:00  INFO 7272 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2023-05-01T08:28:31.680-07:00  INFO 7272 --- [Thread-34] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2023-05-01T08:28:31.771-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Starting ServerApplication using Java 17.0.7 with PID 7272 (D:\Code\robert_gordon_capstone\server\target\classes started by bobby in D:\Code\robert_gordon_capstone)
+2023-05-01T08:28:31.772-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-05-01T08:28:31.870-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-01T08:28:31.880-07:00  INFO 7272 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2023-05-01T08:28:31.935-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-05-01T08:28:31.936-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-01T08:28:31.937-07:00  INFO 7272 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-01T08:28:31.949-07:00  INFO 7272 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-05-01T08:28:31.950-07:00  INFO 7272 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 176 ms
+2023-05-01T08:28:31.979-07:00  INFO 7272 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-01T08:28:31.985-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2023-05-01T08:28:31.990-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@33384a2b
+2023-05-01T08:28:31.991-07:00  INFO 7272 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2023-05-01T08:28:31.991-07:00  INFO 7272 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-01T08:28:31.991-07:00  WARN 7272 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-01T08:28:32.093-07:00  INFO 7272 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-01T08:28:32.094-07:00  INFO 7272 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-01T08:28:32.156-07:00  WARN 7272 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-01T08:28:32.226-07:00  INFO 7272 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-05-01T08:28:32.233-07:00  INFO 7272 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-05-01T08:28:32.236-07:00  INFO 7272 --- [restartedMain] c.valoracademy.server.ServerApplication  : Started ServerApplication in 0.499 seconds (process running for 476.902)
+2023-05-01T08:28:32.238-07:00  INFO 7272 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-05-01T08:28:42.054-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-01T08:28:42.055-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-01T08:28:42.056-07:00  INFO 7272 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
