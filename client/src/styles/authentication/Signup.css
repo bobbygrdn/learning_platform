@@ -17,7 +17,7 @@
     border-radius: 1em;
     padding: .5em;
     width: 70vw;
-    height: 70vh;
+    height: 75vh;
 }
 
 .signup {
@@ -45,7 +45,7 @@
 .signupPasswordTitle,
 .signupEmailTitle,
 .signupConfirmPasswordTitle {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .signupUserInput,
@@ -58,18 +58,10 @@
     padding: 1em;
 }
 
-.signupUserInput,
-.signupPasswordInput,
-.signupEmailInput,
-.signupConfirmPasswordInput:invalid {
-    border: 4px solid red;
-}
-
-.signupUserInput:valid,
-.signupPasswordInput:valid,
-.signupEmailInput:valid,
-.signupConfirmPasswordInput:valid {
-    border: 4px solid green;
+.signupError {
+    color: darkred;
+    font-size: 1em;
+    margin-top: .5em;
 }
 
 .keepLoggedIn {
@@ -155,11 +147,4 @@
         border: 2px solid green;
     }
 
-}
-
-@media screen and (min-width: 1000px) {
-    .signup-form {
-        width: 50vw;
-        height: 70vh;
-    }
 }
