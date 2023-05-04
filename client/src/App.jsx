@@ -9,6 +9,10 @@ import Profile from './components/dashboard/Profile';
 import MyLearning from './components/dashboard/MyLearning';
 import Catalog from './components/dashboard/Catalog';
 import Leaderboard from './components/dashboard/Leaderboard';
+import AdminDashboard from './components/admin/AdminDashboard';
+import Content from './components/admin/Content';
+import Analytics from './components/admin/Analytics';
+import Settings from './components/admin/Settings';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -24,6 +28,11 @@ function App() {
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
           <Route path="/dashboard/myLearning" element={<MyLearning />} />
           <Route path="/dashboard/profile" element={<Profile />} />
+        </Route>
+        <Route path="/admin" element={<AdminDashboard token={token} />}>
+          <Route path="/admin/content" element={<Content />} />
+          <Route path="/admin/analytics" element={<Analytics />} />
+          <Route path='/admin/settings' element={<Settings />} />
         </Route>
       </Route>
     )
