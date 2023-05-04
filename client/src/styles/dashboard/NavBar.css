@@ -11,7 +11,8 @@
 .catalog,
 .leaderboard,
 .myLearning,
-.profile {
+.profile,
+.logout {
     width: 14em;
     display: flex;
     flex-direction: column;
