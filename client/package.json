@@ -19,6 +19,7 @@
     "testAll": "jest --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",
