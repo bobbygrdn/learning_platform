@@ -50,7 +50,11 @@ export default function Login({ token }) {
                     }
                     console.log(user.token)
                     window.alert("Successfully logged in!")
-                    navigate('/dashboard');
+                    if (user.role === "admin") {
+                        navigate('/admin/content');
+                    } else {
+                        navigate('/dashboard/profile');
+                    }
                 } else {
                     window.alert("User not found!")
                 }
