@@ -1,73 +1,130 @@
-import React, { useEffect, useState } from 'react';
-import { Form, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../landingPage/Button';
 import '../../styles/authentication/Signup.css';
 import Header from '../landingPage/Header';
 
 export default function Signup() {
-    const [userName, setUserName] = useState();
-    const [password, setPassword] = useState();
-    const [confirmedPassword, setConfirmedPassword] = useState();
-    const [email, setEmail] = useState();
-    const [disabled, setDisabled] = useState(true);
+    const [formValues, setFormValues] = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
+
+    const [formErrors, setFormErrors] = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    });
 
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (userName && password && confirmedPassword && email) {
-            setDisabled(false);
-        } else {
-            setDisabled(true);
-        }
-    }, [userName, password, confirmedPassword, email])
+    const validateForm = useCallback(() => {
+        let errors = {};
+        let isValid = true;
 
-    async function signupUser() {
-        // TODO: Update once backend is ready
-        // await fetch('http://localhost:3001/signup', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         username: userName,
-        //         password: password,
-        //         email: email
-        //     }),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         window.alert("Signup successful!");
-        //         navigate('/login');
-        //     })
-        window.alert("Signup successful!")
-        navigate('/login');
-    }
+        // Validate username
+        if (!formValues.username) {
+            errors.username = 'Username is required';
+            isValid = false;
+        }
+
+        // Validate email
+        if (!formValues.email) {
+            errors.email = 'Email is required';
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(formValues.email)) {
+            errors.email = 'Email is invalid';
+            isValid = false;
+        }
+
+        // Validate password
+        if (!formValues.password) {
+            errors.password = 'Password is required';
+            isValid = false;
+        } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(formValues.password)) {
+            errors.password = 'Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number.';
+            isValid = false;
+        }
+
+        // Validate confirm password
+        if (!formValues.confirmPassword) {
+            errors.confirmPassword = 'Confirm password is required';
+            isValid = false;
+        } else if (formValues.password !== formValues.confirmPassword) {
+            errors.confirmPassword = 'Passwords do not match';
+            isValid = false;
+        }
+
+        return { errors, isValid };
+    }, [formValues]);
+
+    useEffect(() => {
+        setFormErrors(validateForm().errors);
+    }, [formValues, validateForm]);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const { isValid } = validateForm();
+        if (isValid) {
+            fetch('/api/v1/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: formValues.username,
+                    password: formValues.password,
+                    email: formValues.email,
+                    role: 'User',
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    window.alert('Signup successful!');
+                    navigate('/login');
+                });
+        }
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormValues({ ...formValues, [name]: value });
+    };
+
+    const { errors, isValid } = validateForm();
+
     return (
         <div className='signup-wrapper'>
             <Header />
-            <Form className='signup-form'>
+            <form className='signup-form' onSubmit={handleSubmit} noValidate>
                 <h1 className='signupTitle'>Signup</h1>
                 <label className='signupUsername'>
                     <p className='signupUserTitle'>Username</p>
-                    <input className='signupUserInput' type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} required />
+                    <input className='signupUserInput' type='text' name='username' value={formValues.username} onChange={handleInputChange} required />
+                    {errors.username && <p className='signupError'>{errors.username}</p>}
                 </label>
                 <label className='signupEmail'>
                     <p className='signupEmailTitle'>Email</p>
-                    <input className='signupEmailInput' type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                    <input className='signupEmailInput' type='email' name='email' value={formValues.email} onChange={handleInputChange} required />
+                    {errors.email && <p className='signupError'>{errors.email}</p>}
                 </label>
                 <label className='signupPassword'>
                     <p className='signupPasswordTitle'>Password</p>
-                    <input className='signupPasswordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, and one number." />
+                    <input className='signupPasswordInput' type='password' name='password' value={formValues.password} onChange={handleInputChange} required />
+                    {errors.password && <p className='signupError'>{errors.password}</p>}
                 </label>
                 <label className='signupConfirmPassword'>
                     <p className='signupConfirmPasswordTitle'>Confirm Password</p>
-                    <input className='signupConfirmPasswordInput' type="password" placeholder="Confirm Password" onChange={e => setConfirmedPassword(e.target.value)} required pattern={`^${password}$`}
-                        title="Passwords must match." />
+                    <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} required />
+                    {errors.confirmPassword && <p className='signupError'>{errors.confirmPassword}</p>}
                 </label>
                 <div>
-                    <Button purpose='signup' text='Signup' onClick={signupUser} disabled={disabled} />
+                    <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
                 </div>
-            </Form>
+            </form>
         </div>
-    )
+    );
 }
