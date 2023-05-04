@@ -22,22 +22,11 @@ export default function Login({ token }) {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        // TODO: Update once backend is ready
-        // await fetch('http://localhost:3001/login', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         username: userName,
-        //         password: password
-        //     }),
-        // })
-        await fetch('/dummyData/users.json')
+        await fetch('/api/v1/users')
             .then(response => response.json())
             .then(data => {
 
-                const users = data.users;
+                const users = data;
 
                 const user = users.find(user => user.username === userName && user.password === password);
 
@@ -48,9 +37,8 @@ export default function Login({ token }) {
                     if (keepLoggedIn === true) {
                         localStorage.setItem('token', user.token);
                     }
-                    console.log(user.token)
                     window.alert("Successfully logged in!")
-                    if (user.role === "admin") {
+                    if (user.role === "Admin") {
                         navigate('/admin/content');
                     } else {
                         navigate('/dashboard/profile');
