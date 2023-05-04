@@ -22,6 +22,9 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Column(name = "role", nullable = false)
+    private String role;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private List<Course> courses = new ArrayList<>();
@@ -29,11 +32,12 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String password, String email) {
+    public User(Long id, String username, String password, String email, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.role = role;
     }
 
     public Long getId() {
@@ -76,6 +80,14 @@ public class User {
         this.courses = courses;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -84,6 +96,8 @@ public class User {
         result = prime * result + ((username == null) ? 0 : username.hashCode());
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((role == null) ? 0 : role.hashCode());
+        result = prime * result + ((courses == null) ? 0 : courses.hashCode());
         return result;
     }
 
@@ -116,12 +130,23 @@ public class User {
                 return false;
         } else if (!email.equals(other.email))
             return false;
+        if (role == null) {
+            if (other.role != null)
+                return false;
+        } else if (!role.equals(other.role))
+            return false;
+        if (courses == null) {
+            if (other.courses != null)
+                return false;
+        } else if (!courses.equals(other.courses))
+            return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
+        return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", role="
+                + role + ", courses=" + courses + "]";
     }
 
 }
