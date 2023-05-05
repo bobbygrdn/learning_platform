@@ -16,13 +16,14 @@ import Settings from './components/admin/Settings';
 
 function App() {
   const [token, setToken] = useState(null);
+  const [allowRegistration, setAllowRegistration] = useState(null);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<LandingPage token={token} />} />
         <Route path="/login" element={<Login token={token} />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup allowRegistration={allowRegistration} />} />
         <Route path="/dashboard" element={<Dashboard token={token} />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
@@ -41,6 +42,15 @@ function App() {
   useEffect(() => {
     setToken(localStorage.getItem('token'));
   }, [token]);
+
+  useEffect(() => {
+    fetch("/api/v1/settings")
+      .then(response => response.json())
+      .then(data => {
+        setAllowRegistration(data[0].registrations);
+      })
+      .catch(error => console.error(error));
+  })
 
   return (
     <div className='App'>
