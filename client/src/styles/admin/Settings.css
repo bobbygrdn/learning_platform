@@ -1,0 +1,166 @@
+main {
+    margin: 0 auto;
+}
+
+.settingsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.settingsForm {
+    margin-bottom: 1em;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.searchTitle {
+    margin-right: 1em;
+}
+
+.settingsForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.registrationTitle {
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+.registrationTitle select {
+    margin-left: 1em;
+}
+
+.searchInput {
+    border-radius: 5px;
+    padding: 0.5em;
+}
+
+.registrationInput {
+    margin-left: 1em;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.registrationInput:checked {
+    background-color: #2196f3;
+    border-color: #2196f3;
+}
+
+.registrationInput:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.registrationInput:hover {
+    background-color: #f2f2f2;
+}
+
+table {
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: .5em;
+}
+
+th {
+    background-color: #4a4c52;
+    color: whitesmoke;
+    width: 14em;
+    text-align: center;
+}
+
+th:hover span {
+    pointer-events: none;
+}
+
+td:hover span {
+    pointer-events: none;
+}
+
+tbody {
+    font-weight: bold;
+}
+
+tr {
+    width: 5em;
+}
+
+tr:nth-child(even) {
+    background-color: #aca9a4;
+}
+
+tr:nth-child(odd) {
+    background-color: #677d8c;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+select {
+    cursor: pointer;
+    border-radius: .5em;
+}
+
+.pagesButton {
+    margin-top: 1em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #4a4c52;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pagesButton:hover {
+    background-color: #ddd;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.deleteUser {
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: red;
+    font-weight: bold;
+    font-size: .6em;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: whitesmoke;
+    border: none;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+}
