@@ -14,6 +14,12 @@
 
 }
 
+main {
+  background-color: #E5F1F2;
+  /* TODO: check on this later to make sure it is still appropriate */
+  height: 79vh;
+}
+
 .logo {
   background-color: #E5F1F2;
   width: 10em;
