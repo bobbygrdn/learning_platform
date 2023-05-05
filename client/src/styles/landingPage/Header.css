@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    margin-bottom: 1em;
 }
 
 .titles {
@@ -18,8 +19,8 @@
 }
 
 .logo {
-    width: 200px;
-    height: 200px;
+    aspect-ratio: 1;
+    width: 8em;
     margin-left: 1em;
 }
 
