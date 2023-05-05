@@ -1,17 +1,6 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5em;
-    width: 100vw;
-    border: 2px solid black;
-    border-radius: 1.5em;
-}
-
 .content,
 .analytics,
-.settings,
-.logout {
+.settings {
     width: 14em;
     display: flex;
     flex-direction: column;
@@ -20,10 +9,8 @@
     text-decoration: none;
 }
 
-.navIcon {
-    width: 4em;
-}
-
-.labels {
-    font-size: 1.5em;
+.content:hover,
+.analytics:hover,
+.settings:hover {
+    transform: scale(1.1);
 }
