@@ -2,10 +2,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 0.5em;
     width: 100vw;
     border: 2px solid black;
     border-radius: 1.5em;
+    background-color: #E5F1F2;
 }
 
 .catalog,
@@ -19,6 +24,14 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
+}
+
+.catalog:hover,
+.leaderboard:hover,
+.myLearning:hover,
+.profile:hover,
+.logout:hover {
+    transform: scale(1.1);
 }
 
 .navIcon {
