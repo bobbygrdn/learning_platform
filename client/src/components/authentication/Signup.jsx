@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../landingPage/Button';
+import RegistrationsClosed from './RegistrationsClosed';
 import '../../styles/authentication/Signup.css';
 import Header from '../landingPage/Header';
 
-export default function Signup() {
+export default function Signup({ allowRegistration }) {
     const [formValues, setFormValues] = useState({
         username: '',
         email: '',
@@ -97,34 +98,38 @@ export default function Signup() {
     const { errors, isValid } = validateForm();
 
     return (
-        <div className='signup-wrapper'>
-            <Header />
-            <form className='signup-form' onSubmit={handleSubmit} noValidate>
-                <h1 className='signupTitle'>Signup</h1>
-                <label className='signupUsername'>
-                    <p className='signupUserTitle'>Username</p>
-                    <input className='signupUserInput' type='text' name='username' value={formValues.username} onChange={handleInputChange} required />
-                    {errors.username && <p className='signupError'>{errors.username}</p>}
-                </label>
-                <label className='signupEmail'>
-                    <p className='signupEmailTitle'>Email</p>
-                    <input className='signupEmailInput' type='email' name='email' value={formValues.email} onChange={handleInputChange} required />
-                    {errors.email && <p className='signupError'>{errors.email}</p>}
-                </label>
-                <label className='signupPassword'>
-                    <p className='signupPasswordTitle'>Password</p>
-                    <input className='signupPasswordInput' type='password' name='password' value={formValues.password} onChange={handleInputChange} required />
-                    {errors.password && <p className='signupError'>{errors.password}</p>}
-                </label>
-                <label className='signupConfirmPassword'>
-                    <p className='signupConfirmPasswordTitle'>Confirm Password</p>
-                    <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} required />
-                    {errors.confirmPassword && <p className='signupError'>{errors.confirmPassword}</p>}
-                </label>
-                <div>
-                    <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
-                </div>
-            </form>
-        </div>
+        <>
+            {
+                allowRegistration ?
+                    <div div className='signup-wrapper'>
+                        < Header />
+                        <form className='signup-form' onSubmit={handleSubmit} noValidate>
+                            <h1 className='signupTitle'>Signup</h1>
+                            <label className='signupUsername'>
+                                <p className='signupUserTitle'>Username</p>
+                                <input className='signupUserInput' type='text' name='username' value={formValues.username} onChange={handleInputChange} required />
+                                {errors.username && <p className='signupError'>{errors.username}</p>}
+                            </label>
+                            <label className='signupEmail'>
+                                <p className='signupEmailTitle'>Email</p>
+                                <input className='signupEmailInput' type='email' name='email' value={formValues.email} onChange={handleInputChange} required />
+                                {errors.email && <p className='signupError'>{errors.email}</p>}
+                            </label>
+                            <label className='signupPassword'>
+                                <p className='signupPasswordTitle'>Password</p>
+                                <input className='signupPasswordInput' type='password' name='password' value={formValues.password} onChange={handleInputChange} required />
+                                {errors.password && <p className='signupError'>{errors.password}</p>}
+                            </label>
+                            <label className='signupConfirmPassword'>
+                                <p className='signupConfirmPasswordTitle'>Confirm Password</p>
+                                <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} required />
+                                {errors.confirmPassword && <p className='signupError'>{errors.confirmPassword}</p>}
+                            </label>
+                            <div>
+                                <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
+                            </div>
+                        </form>
+                    </div > : <RegistrationsClosed />}
+        </>
     );
 }
