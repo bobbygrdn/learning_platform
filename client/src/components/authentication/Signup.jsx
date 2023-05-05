@@ -11,7 +11,7 @@ export default function Signup() {
         password: '',
         confirmPassword: '',
     });
-
+    // eslint-disable-next-line no-unused-vars
     const [formErrors, setFormErrors] = useState({
         username: '',
         email: '',
