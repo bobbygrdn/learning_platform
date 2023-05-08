@@ -5,19 +5,22 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+body {
+  height: 100vh;
+  background-color: #E5F1F2;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #E5F1F2;
-
+  height: 91vh;
 }
 
 main {
   background-color: #E5F1F2;
-  /* TODO: check on this later to make sure it is still appropriate */
-  height: 79vh;
+  height: 76.5%;
 }
 
 .logo {
