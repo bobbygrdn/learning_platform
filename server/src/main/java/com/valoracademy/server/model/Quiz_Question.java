@@ -12,6 +12,9 @@ public class Quiz_Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "title", nullable = false)
+    private String title;
+
     @Column(name = "content", nullable = false)
     private String content;
 
@@ -62,6 +65,14 @@ public class Quiz_Question {
 
     public void setAnswers(List<Quiz_Answer> answers) {
         this.answers = answers;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     @Override
