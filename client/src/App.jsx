@@ -10,7 +10,7 @@ import MyLearning from './components/dashboard/MyLearning';
 import Catalog from './components/dashboard/Catalog';
 import Leaderboard from './components/dashboard/Leaderboard';
 import AdminDashboard from './components/admin/AdminDashboard';
-import Content from './components/admin/Content';
+import Content from './components/admin/content/Content';
 import Analytics from './components/admin/Analytics';
 import Settings from './components/admin/Settings';
 
