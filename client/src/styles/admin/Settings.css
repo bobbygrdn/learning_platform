@@ -79,7 +79,6 @@ table {
 
 th,
 td {
-    border: 1px solid #ddd;
     text-align: center;
     padding: .5em;
 }
@@ -141,11 +140,9 @@ select {
     background-color: #ddd;
 }
 
-.actions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+.actions select,
+.edit {
+    margin-right: 2em;
 }
 
 .deleteUser {
@@ -162,5 +159,6 @@ select {
     &:hover,
     &:focus {
         transform: scale(1.1);
+        font-size: 1em;
     }
 }
