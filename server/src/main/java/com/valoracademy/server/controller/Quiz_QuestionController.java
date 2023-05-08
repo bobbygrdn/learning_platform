@@ -53,6 +53,7 @@ public class Quiz_QuestionController {
                 .orElseThrow(() -> new ResourceNotFoundException(
                         "Quiz_Question does not exist with the ID: " + quiz_questionId));
 
+        existingQuiz_Question.setTitle(quiz_question.getTitle());
         existingQuiz_Question.setContent(quiz_question.getContent());
 
         Quiz_Question updatedQuiz_Question = this.quiz_questionRepository.save(existingQuiz_Question);
