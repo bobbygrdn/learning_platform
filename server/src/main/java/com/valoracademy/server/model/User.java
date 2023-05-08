@@ -1,8 +1,5 @@
 package com.valoracademy.server.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -24,10 +21,6 @@ public class User {
 
     @Column(name = "role", nullable = false)
     private String role;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private List<Course> courses = new ArrayList<>();
 
     public User() {
     }
@@ -72,13 +65,13 @@ public class User {
         this.email = email;
     }
 
-    public List<Course> getCourses() {
-        return courses;
-    }
+    // public List<Course> getCourses() {
+    // return courses;
+    // }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
+    // public void setCourses(List<Course> courses) {
+    // this.courses = courses;
+    // }
 
     public String getRole() {
         return role;
@@ -97,7 +90,7 @@ public class User {
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((role == null) ? 0 : role.hashCode());
-        result = prime * result + ((courses == null) ? 0 : courses.hashCode());
+        // result = prime * result + ((courses == null) ? 0 : courses.hashCode());
         return result;
     }
 
@@ -135,18 +128,18 @@ public class User {
                 return false;
         } else if (!role.equals(other.role))
             return false;
-        if (courses == null) {
-            if (other.courses != null)
-                return false;
-        } else if (!courses.equals(other.courses))
-            return false;
+        // if (courses == null) {
+        // if (other.courses != null)
+        // return false;
+        // } else if (!courses.equals(other.courses))
+        // return false;
         return true;
     }
 
     @Override
     public String toString() {
         return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", role="
-                + role + ", courses=" + courses + "]";
+                + role + "]";
     }
 
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.valoracademy.server.exception.ResourceNotFoundException;
 import com.valoracademy.server.model.Course;
+import com.valoracademy.server.model.User;
 import com.valoracademy.server.repository.CourseRepository;
 import com.valoracademy.server.repository.UserRepository;
 
@@ -21,14 +22,20 @@ public class CourseController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("users/{userId}/courses")
+    @PostMapping("courses")
     public ResponseEntity<Course> createCourse(@PathVariable("userId") Long userId,
             @RequestBody Course courseRequest) {
 
-        Course course = this.userRepository.findById(userId).map(user -> {
-            user.getCourses().add(courseRequest);
-            return courseRepository.save(courseRequest);
-        }).orElseThrow((() -> new ResourceNotFoundException("User does not exist with the ID: " + userId)));
+        User user = this.userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + userId));
+
+        courseRequest.setUser(user);
+        Course course = this.courseRepository.save(courseRequest);
+        // Course course = this.userRepository.findById(userId).map(user -> {
+        // user.getCourses().add(courseRequest);
+        // return courseRepository.save(courseRequest);
+        // }).orElseThrow((() -> new ResourceNotFoundException("User does not exist with
+        // the ID: " + userId)));
 
         return ResponseEntity.ok(course);
     }
