@@ -83,6 +83,10 @@ td {
     padding: .5em;
 }
 
+tr {
+    cursor: pointer;
+}
+
 th {
     background-color: #4a4c52;
     color: whitesmoke;
@@ -100,6 +104,12 @@ td:hover span {
 
 tbody {
     font-weight: bold;
+}
+
+tbody span,
+tbody li,
+tbody ul {
+    pointer-events: none;
 }
 
 tr {
