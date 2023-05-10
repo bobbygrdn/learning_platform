@@ -13,6 +13,7 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import Content from './components/admin/content/Content';
 import Analytics from './components/admin/Analytics';
 import Settings from './components/admin/Settings';
+import PlatformIssue from './components/authentication/PlatformIssue';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -23,6 +24,7 @@ function App() {
       <Route>
         <Route path="/" element={<LandingPage token={token} />} />
         <Route path="/login" element={<Login token={token} />} />
+        <Route path="/deviceIssue" element={<PlatformIssue />} />
         <Route path="/signup" element={<Signup allowRegistration={allowRegistration} />} />
         <Route path="/dashboard" element={<Dashboard token={token} />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
