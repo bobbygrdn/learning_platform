@@ -15,12 +15,12 @@ export default function Table({ currentTable, searchTerm, table }) {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const handleEdit = (id) => {
-        setEditModalOpen(true);
+    const handleEditModal = (id) => {
+        setEditModalOpen(!editModalOpen);
     }
 
-    const handleDelete = (id) => {
-        setDeleteModalOpen(true);
+    const handleDeleteModal = (id) => {
+        setDeleteModalOpen(!deleteModalOpen);
     }
 
     const selectedTable = () => {
@@ -75,8 +75,8 @@ export default function Table({ currentTable, searchTerm, table }) {
                                 {selectedColumn(thisTable)}
                             </td>
                             <td className='actions'>
-                                <button className='edit' type='button' onClick={() => handleEdit(thisTable.id)}>Edit</button>
-                                <button className='delete' type='button' onClick={() => handleDelete(thisTable.id)}>Delete</button>
+                                <button className='edit' type='button' onClick={() => handleEditModal(thisTable.id)}>Edit</button>
+                                <button className='delete' type='button' onClick={() => handleDeleteModal(thisTable.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
