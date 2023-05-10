@@ -1,26 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import EditModal from './EditModal';
+import DeleteModal from './DeleteModal';
+import CreateModal from './CreateModal';
 
-export default function Table({ currentTable, searchTerm, table }) {
+
+export default function Table({ searchTerm, table, setCurrentTable }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [createModalOpen, setCreateModalOpen] = useState(false);
+    const [currentEntity, setCurrentEntity] = useState(null);
+    const [currentContent, setcurrentContent] = useState([]);
+    const [courses, setCourses] = useState([]);
+    const [lessons, setLessons] = useState([]);
+    const [quizzes, setQuizzes] = useState([]);
+    const [questions, setQuestions] = useState([]);
 
-    const filteredTable = currentTable.filter((current) =>
-        current.title.includes(searchTerm)
-    );
+    useEffect(() => {
+        fetch("/api/v1/courses")
+            .then(response => response.json())
+            .then(data => {
+                setCourses(data);
+            })
+    }, [courses]);
+    useEffect(() => {
+        fetch("/api/v1/lessons")
+            .then(response => response.json())
+            .then(data => {
+                setLessons(data);
+            })
+    }, [lessons]);
+    useEffect(() => {
+        fetch("/api/v1/quizzes")
+            .then(response => response.json())
+            .then(data => {
+                setQuizzes(data);
+            })
+    }, [quizzes]);
+    useEffect(() => {
+        fetch("/api/v1/questions")
+            .then(response => response.json())
+            .then(data => {
+                setQuestions(data);
+            })
+    }, [questions]);
+
+    useEffect(() => {
+        if (table === "Courses") {
+            setcurrentContent(courses);
+        }
+    }, [table, courses]);
+
+    const filteredContent = currentContent.filter((current) => {
+        return current.title.includes(searchTerm);
+    });
 
     const itemsPerPage = 8;
-    const totalPages = Math.ceil(filteredTable.length / itemsPerPage);
+    const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
     const handleEditModal = (id) => {
+        setCurrentEntity(currentContent.find((current) => current.id === id));
         setEditModalOpen(!editModalOpen);
+        setCreateModalOpen(false);
+        setDeleteModalOpen(false);
     }
 
     const handleDeleteModal = (id) => {
+        setCurrentEntity(currentContent.find((current) => current.id === id));
         setDeleteModalOpen(!deleteModalOpen);
+        setEditModalOpen(false);
+        setCreateModalOpen(false);
+    }
+
+    const handleCreateModal = () => {
+        setCreateModalOpen(!createModalOpen);
+        setEditModalOpen(false);
+        setDeleteModalOpen(false);
     }
 
     const selectedTable = () => {
@@ -43,14 +101,38 @@ export default function Table({ currentTable, searchTerm, table }) {
             case "Quizzes":
                 return <ul className='list'>{selectTable.questions.map((question, index) => <li key={index}>{index + 1}. {question.title}</li>)}</ul>
             case "Questions":
-                return <ul className='list'>{selectTable.options.map((option, index) => <li key={index}>{index + 1}. {option.content}</li>)}</ul>
+                return <span>{selectTable.content}</span>
             default:
                 return <ul className='list'>{selectTable.lessons.map((lesson, index) => <li key={index}>{index + 1}. {lesson.title}</li>)}</ul>
         }
     }
 
+    const handleRowClick = (event) => {
+        // eslint-disable-next-line default-case
+        switch (table) {
+            case "Courses":
+                setCurrentTable("Lessons");
+                setcurrentContent(courses.find(course => course.id === parseInt(event.target.parentElement.id)).lessons);
+                setCurrentEntity(event.target.parentElement.id);
+                break;
+            case "Lessons":
+                setCurrentTable("Quizzes");
+                setcurrentContent(lessons.find(lesson => lesson.id === parseInt(event.target.parentElement.id)).quizzes);
+                setCurrentEntity(event.target.parentElement.id);
+                break;
+            case "Quizzes":
+                setCurrentTable("Questions");
+                setcurrentContent(quizzes.find(quiz => quiz.id === parseInt(event.target.parentElement.id), quizzes).questions)
+                setCurrentEntity(event.target.parentElement.id);
+                break;
+        }
+    }
+
     return (
         <div className={`${table}Table`}>
+            <EditModal editModalOpen={editModalOpen} handleEditModal={handleEditModal} currentEntity={currentEntity} table={table} />
+            <DeleteModal deleteModalOpen={deleteModalOpen} handleDeleteModal={handleDeleteModal} currentEntity={currentEntity} table={table} />
+            <CreateModal createModalOpen={createModalOpen} handleCreateModal={handleCreateModal} currentEntity={currentEntity} table={table} />
             <table>
                 <thead>
                     <tr>
@@ -66,20 +148,25 @@ export default function Table({ currentTable, searchTerm, table }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredTable.slice(startIndex, endIndex).map(thisTable => (
-                        <tr key={thisTable.id}>
-                            <td>
+                    {filteredContent.slice(startIndex, endIndex).map(thisTable => (
+                        <tr key={thisTable.id} id={thisTable.id}>
+                            <td onClick={handleRowClick}>
                                 <span>{thisTable.title}</span>
                             </td>
-                            <td>
+                            <td onClick={handleRowClick}>
                                 {selectedColumn(thisTable)}
                             </td>
-                            <td className='actions'>
+                            <td>
                                 <button className='edit' type='button' onClick={() => handleEditModal(thisTable.id)}>Edit</button>
                                 <button className='delete' type='button' onClick={() => handleDeleteModal(thisTable.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
+                    <tr>
+                        <td className='createButtonColumn' colSpan={3}>
+                            <button className='create' type='button' onClick={handleCreateModal}>Create</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div>
