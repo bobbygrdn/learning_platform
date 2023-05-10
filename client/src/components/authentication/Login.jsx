@@ -20,6 +20,10 @@ export default function Login({ token }) {
         }
     }, [userName, password])
 
+    function isMobileDevice() {
+        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+    }
+
     const loginUser = async (e) => {
         e.preventDefault();
         await fetch('/api/v1/users')
@@ -39,7 +43,13 @@ export default function Login({ token }) {
                     }
                     window.alert("Successfully logged in!")
                     if (user.role === "Admin") {
-                        navigate('/admin/content');
+                        if (isMobileDevice()) {
+                            // User is on a mobile device
+                            navigate('/deviceIssue');
+                        } else {
+                            // User is on a desktop device
+                            navigate('/admin/content');
+                        }
                     } else {
                         navigate('/dashboard/profile');
                     }
