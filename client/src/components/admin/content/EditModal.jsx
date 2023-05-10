@@ -1,9 +1,14 @@
 import React from 'react'
 
-export default function EditModal() {
+export default function EditModal({ editModalOpen, handleEditModal, currentEntity }) {
     return (
-        <div>
+        <>
+            {editModalOpen ?
+                <div className='editModalWrapper'>
+                    <p>Edit</p>
+                    <button onClick={handleEditModal}>Close</button>
+                </div> : null}
+        </>
 
-        </div>
     )
 }
