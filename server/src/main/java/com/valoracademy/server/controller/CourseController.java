@@ -22,7 +22,7 @@ public class CourseController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("courses")
+    @PostMapping("users/{userId}/courses")
     public ResponseEntity<Course> createCourse(@PathVariable("userId") Long userId,
             @RequestBody Course courseRequest) {
 
@@ -31,11 +31,6 @@ public class CourseController {
 
         courseRequest.setUser(user);
         Course course = this.courseRepository.save(courseRequest);
-        // Course course = this.userRepository.findById(userId).map(user -> {
-        // user.getCourses().add(courseRequest);
-        // return courseRepository.save(courseRequest);
-        // }).orElseThrow((() -> new ResourceNotFoundException("User does not exist with
-        // the ID: " + userId)));
 
         return ResponseEntity.ok(course);
     }
