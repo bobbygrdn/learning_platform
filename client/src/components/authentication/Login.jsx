@@ -7,6 +7,7 @@ import Header from '../landingPage/Header';
 export default function Login({ token }) {
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
+    const [userId, setUserId] = useState();
     const [keepLoggedIn, setKeepLoggedIn] = useState(false);
     const [disabled, setDisabled] = useState(true);
 
@@ -37,9 +38,11 @@ export default function Login({ token }) {
                 if (user) {
                     if (keepLoggedIn === false) {
                         sessionStorage.setItem('token', user.token);
+                        sessionStorage.setItem('userId', user.id);
                     }
                     if (keepLoggedIn === true) {
                         localStorage.setItem('token', user.token);
+                        localStorage.setItem('userId', user.id);
                     }
                     window.alert("Successfully logged in!")
                     if (user.role === "Admin") {
