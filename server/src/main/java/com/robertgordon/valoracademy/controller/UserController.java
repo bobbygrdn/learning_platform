@@ -6,31 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.robertgordon.valoracademy.exception.ResourceNotFoundException;
 import com.robertgordon.valoracademy.model.User;
-import com.robertgordon.valoracademy.repository.UserRepository;
+import com.robertgordon.valoracademy.service.UserService;
 
 @RestController
 @RequestMapping("/api/v1/")
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @PostMapping("users")
     public User saveUser(@RequestBody User user) {
-        return this.userRepository.save(user);
+        return this.userService.saveUser(user);
     }
 
     @GetMapping("users")
     public List<User> getAllUsers() {
-        return this.userRepository.findAll();
+        return this.userService.getAllUsers();
     }
 
     @GetMapping("users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Long userId) {
-        User user = this.userRepository.findById(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + userId));
+        User user = this.userService.getUserById(userId);
         return ResponseEntity.ok(user);
     }
 
@@ -38,35 +36,23 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable("id") Long id,
             @RequestBody User user) {
 
-        User existingUser = this.userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + id));
+        User existingUser = this.userService.updateUser(id, user);
 
-        existingUser.setUsername(user.getUsername());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setPassword(user.getPassword());
-
-        User updatedUser = this.userRepository.save(existingUser);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(existingUser);
     }
 
     @PatchMapping("users/{id}/role")
     public ResponseEntity<User> updateUserRole(@PathVariable("id") Long id,
             @RequestBody User user) {
-        User existingUser = this.userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + id));
+        User existingUser = this.userService.updateUserRole(id, user);
 
-        existingUser.setRole(user.getRole());
-
-        User updatedUser = this.userRepository.save(existingUser);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(existingUser);
     }
 
     @DeleteMapping("users/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) {
-        User user = this.userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + id));
 
-        this.userRepository.delete(user);
+        this.userService.deleteUser(id);
         return ResponseEntity.ok("User with ID: " + id + " has been deleted");
     }
 }
