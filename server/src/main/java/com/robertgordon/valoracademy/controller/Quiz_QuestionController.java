@@ -15,6 +15,7 @@ import com.robertgordon.valoracademy.repository.Quiz_QuestionRepository;
 @RequestMapping("/api/v1/")
 public class Quiz_QuestionController {
 
+    // TODO: refactor this to implement the QuizQuestionService interface
     @Autowired
     private Quiz_QuestionRepository quiz_questionRepository;
 

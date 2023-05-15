@@ -16,6 +16,7 @@ import com.robertgordon.valoracademy.repository.UserRepository;
 @RequestMapping("/api/v1/")
 public class CourseController {
 
+    // TODO: refactor this to implement the CourseService interface
     @Autowired
     private CourseRepository courseRepository;
 
