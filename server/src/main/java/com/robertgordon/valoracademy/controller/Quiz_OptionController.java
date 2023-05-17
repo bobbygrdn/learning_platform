@@ -6,66 +6,56 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.robertgordon.valoracademy.exception.ResourceNotFoundException;
 import com.robertgordon.valoracademy.model.Quiz_Option;
-import com.robertgordon.valoracademy.repository.Quiz_OptionRepository;
-import com.robertgordon.valoracademy.repository.Quiz_QuestionRepository;
+import com.robertgordon.valoracademy.service.Quiz_OptionService;
+import com.robertgordon.valoracademy.service.Quiz_QuestionService;
 
 @RestController
 @RequestMapping("/api/v1/")
 public class Quiz_OptionController {
 
-    // TODO: refactor this to implement the QuizOptionService interface
     @Autowired
-    private Quiz_OptionRepository quiz_optionRepository;
+    private Quiz_OptionService quiz_optionService;
 
     @Autowired
-    private Quiz_QuestionRepository quiz_questionRepository;
+    private Quiz_QuestionService quiz_questionService;
 
-    @PostMapping("/questions/{questionid}/options")
+    @PostMapping("questions/{questionid}/options")
     public ResponseEntity<Quiz_Option> createQuiz_Option(@PathVariable("questionid") Long quizquestionid,
             @RequestBody Quiz_Option quiz_optionRequest) {
-        Quiz_Option quiz_option = this.quiz_questionRepository.findById(quizquestionid).map(quizquestion -> {
-            quizquestion.getOptions().add(quiz_optionRequest);
-            return quiz_optionRepository.save(quiz_optionRequest);
-        }).orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizquestionid));
+
+        this.quiz_questionService.getQuiz_QuestionById(quizquestionid).getOptions().add(quiz_optionRequest);
+
+        Quiz_Option quiz_option = this.quiz_optionService.saveQuiz_Option(quiz_optionRequest);
 
         return ResponseEntity.ok(quiz_option);
     }
 
     @GetMapping("options")
     public List<Quiz_Option> getAllQuiz_Options() {
-        return this.quiz_optionRepository.findAll();
+        return this.quiz_optionService.getAllQuiz_Options();
     }
 
     @GetMapping("options/{id}")
     public ResponseEntity<Quiz_Option> getQuiz_OptionById(@PathVariable("id") Long quiz_OptionId) {
-        Quiz_Option quiz_option = this.quiz_optionRepository.findById(quiz_OptionId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "Quiz_Option does not exist with the ID: " + quiz_OptionId));
+
+        Quiz_Option quiz_option = this.quiz_optionService.getQuiz_OptionById(quiz_OptionId);
         return ResponseEntity.ok(quiz_option);
     }
 
     @PutMapping("options/{id}")
     public ResponseEntity<Quiz_Option> updateQuiz_Option(@PathVariable("id") Long quiz_OptionId,
-            Quiz_Option quiz_option) {
-        Quiz_Option existingQuiz_Option = this.quiz_optionRepository.findById(quiz_OptionId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "Quiz_Option does not exist with the ID: " + quiz_OptionId));
+            @RequestBody Quiz_Option quiz_option) {
 
-        existingQuiz_Option.setContent(quiz_option.getContent());
+        Quiz_Option existingQuiz_Option = this.quiz_optionService.updateQuiz_Option(quiz_OptionId, quiz_option);
 
-        Quiz_Option updatedQuiz_Option = this.quiz_optionRepository.save(existingQuiz_Option);
-        return ResponseEntity.ok(updatedQuiz_Option);
+        return ResponseEntity.ok(existingQuiz_Option);
     }
 
     @DeleteMapping("options/{id}")
     public ResponseEntity<String> deleteQuiz_Option(@PathVariable("id") Long quiz_OptionId) {
-        Quiz_Option quiz_Option = this.quiz_optionRepository.findById(quiz_OptionId)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "Quiz_Option does not exist with the ID: " + quiz_OptionId));
 
-        this.quiz_optionRepository.delete(quiz_Option);
+        this.quiz_optionService.deleteQuiz_Option(quiz_OptionId);
         return ResponseEntity.ok("Quiz Option with ID: " + quiz_OptionId + " has been deleted");
     }
 }
