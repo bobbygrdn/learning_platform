@@ -26,11 +26,10 @@ public class Quiz {
 
     }
 
-    public Quiz(Long id, String title, String description, List<Quiz_Question> questions) {
+    public Quiz(Long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
-        this.questions = questions;
     }
 
     public Long getId() {
@@ -106,6 +105,12 @@ public class Quiz {
         } else if (!questions.equals(other.questions))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Quiz [id=" + id + ", title=" + title + ", description=" + description + ", questions=" + questions
+                + "]";
     }
 
 }
