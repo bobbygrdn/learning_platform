@@ -30,8 +30,9 @@ public class Quiz_Question {
 
     }
 
-    public Quiz_Question(Long id, String content, List<Quiz_Option> options, Quiz_Answer answer) {
+    public Quiz_Question(Long id, String title, String content) {
         this.id = id;
+        this.title = title;
         this.content = content;
     }
 
@@ -114,7 +115,7 @@ public class Quiz_Question {
 
     @Override
     public String toString() {
-        return "Quiz_Question [id=" + id + ", content=" + content + ", options=" + options + "]";
+        return "Quiz_Question [id=" + id + ", title=" + title + ", content=" + content + ", options=" + options + "]";
     }
 
 }
