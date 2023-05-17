@@ -6,42 +6,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.robertgordon.valoracademy.exception.ResourceNotFoundException;
 import com.robertgordon.valoracademy.model.Quiz;
-import com.robertgordon.valoracademy.repository.LessonRepository;
-import com.robertgordon.valoracademy.repository.QuizRepository;
+import com.robertgordon.valoracademy.service.LessonService;
+import com.robertgordon.valoracademy.service.QuizService;
 
 @RestController
 @RequestMapping("/api/v1/")
 public class QuizController {
 
-    // TODO: refactor this to implement the QuizService interface
     @Autowired
-    private QuizRepository quizRepository;
+    private QuizService quizService;
 
     @Autowired
-    private LessonRepository lessonRepository;
+    private LessonService lessonService;
 
     @PostMapping("lessons/{lessonid}/quizzes")
     public ResponseEntity<Quiz> createQuiz(@PathVariable("lessonid") Long lessonId,
             @RequestBody Quiz quizRequest) {
-        Quiz quiz = this.lessonRepository.findById(lessonId).map(lesson -> {
-            lesson.getQuizzes().add(quizRequest);
-            return quizRepository.save(quizRequest);
-        }).orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with the ID: " + lessonId));
+
+        this.lessonService.getLessonById(lessonId).getQuizzes().add(quizRequest);
+
+        Quiz quiz = this.quizService.saveQuiz(quizRequest);
 
         return ResponseEntity.ok(quiz);
     }
 
     @GetMapping("quizzes")
     public List<Quiz> getAllQuizzes() {
-        return this.quizRepository.findAll();
+        return this.quizService.getAllQuizzes();
     }
 
     @GetMapping("quizzes/{id}")
     public ResponseEntity<Quiz> getQuizById(@PathVariable("id") Long quizId) {
-        Quiz quiz = this.quizRepository.findById(quizId)
-                .orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizId));
+
+        Quiz quiz = this.quizService.getQuizById(quizId);
         return ResponseEntity.ok(quiz);
     }
 
@@ -49,22 +47,15 @@ public class QuizController {
     public ResponseEntity<Quiz> updateQuiz(@PathVariable("id") Long quizId,
             @RequestBody Quiz quizRequest) {
 
-        Quiz existingQuiz = this.quizRepository.findById(quizId)
-                .orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizId));
+        Quiz existingQuiz = this.quizService.updateQuiz(quizId, quizRequest);
 
-        existingQuiz.setTitle(quizRequest.getTitle());
-        existingQuiz.setDescription(quizRequest.getDescription());
-
-        Quiz updatedQuiz = this.quizRepository.save(existingQuiz);
-        return ResponseEntity.ok(updatedQuiz);
+        return ResponseEntity.ok(existingQuiz);
     }
 
     @DeleteMapping("quizzes/{id}")
     public ResponseEntity<String> deleteQuiz(@PathVariable("id") Long quizId) {
-        Quiz quiz = this.quizRepository.findById(quizId)
-                .orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with the ID: " + quizId));
 
-        this.quizRepository.delete(quiz);
+        this.quizService.deleteQuiz(quizId);
         return ResponseEntity.ok("Quiz with ID: " + quizId + " has been deleted.");
     }
 }
