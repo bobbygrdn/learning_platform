@@ -2,7 +2,7 @@ import React from 'react';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
 
-export default function DeleteModal({ deleteModalOpen, handleDeleteModal, table }) {
+export default function DeleteModal({ table, handleModalOpen }) {
     const { currentEntity } = useStore(useTableStore);
     const deleteEntity = () => {
 
@@ -13,7 +13,7 @@ export default function DeleteModal({ deleteModalOpen, handleDeleteModal, table 
                 window.alert(`${currentEntity.title} has been deleted`);
             })
             .then(() => {
-                handleDeleteModal();
+                handleModalOpen();
             })
             .catch(error => {
                 console.log(error);
@@ -22,21 +22,18 @@ export default function DeleteModal({ deleteModalOpen, handleDeleteModal, table 
 
     return (
         <>
-            {deleteModalOpen ?
-                <div className='deleteModalWrapper'>
-                    <div className='deleteModal'>
-                        <button className='close' onClick={handleDeleteModal}>Close</button>
-                        <div className='modalContent'>
-                            <span>You are about to delete the following entity:</span>
-                            <span className='highlight'>{currentEntity.title}</span>
-                            <span>Are you sure you want to continue?</span>
-                        </div>
-                        <div className='buttons'>
-                            <button className='yes' onClick={deleteEntity}>Yes</button>
-                            <button className='no' onClick={handleDeleteModal}>No</button>
-                        </div>
-                    </div>
-                </div> : null}
+            <div className='deleteContent'>
+                <button className='close' onClick={handleModalOpen}>Close</button>
+                <div className='modalContent'>
+                    <span>You are about to delete the following entity:</span>
+                    <span className='highlight'>{currentEntity.title}</span>
+                    <span>Are you sure you want to continue?</span>
+                </div>
+                <div className='buttons'>
+                    <button className='yes' onClick={deleteEntity}>Yes</button>
+                    <button className='no' onClick={handleModalOpen}>No</button>
+                </div>
+            </div>
         </>
     )
 }
