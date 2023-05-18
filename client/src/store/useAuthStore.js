@@ -7,6 +7,4 @@ const useAuthStore = createStore((set) => ({
     setAllowRegistration: (allowRegistration) => set(() => ({ allowRegistration })),
 }));
 
-console.log(useAuthStore);
-
 export default useAuthStore;
