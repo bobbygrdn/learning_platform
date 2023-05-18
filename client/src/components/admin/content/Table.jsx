@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import EditModal from './EditModal';
-import DeleteModal from './DeleteModal';
-import CreateModal from './CreateModal';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
+import Modal from './Modal';
 
 export default function Table({ searchTerm, table, setCurrentTable }) {
-    const { currentPage, setCurrentPage, editModalOpen, setEditModalOpen, deleteModalOpen, setDeleteModalOpen, createModalOpen, setCreateModalOpen, setCurrentEntity, currentContent, setcurrentContent, courses, setCourses, lessons, setLessons, quizzes, setQuizzes, questions, setQuestions } = useStore(useTableStore);
+    const { currentPage, setCurrentPage, setCurrentEntity, currentContent, setcurrentContent, courses, setCourses, lessons, setLessons, quizzes, setQuizzes, questions, setQuestions, modalOpen, setModalOpen, setAction } = useStore(useTableStore);
 
     useEffect(() => {
         fetch("/api/v1/courses")
@@ -53,24 +51,35 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    const handleEditModal = (id) => {
-        setCurrentEntity(currentContent.find((current) => current.id === id));
-        setEditModalOpen(!editModalOpen);
-        setCreateModalOpen(false);
-        setDeleteModalOpen(false);
-    }
+    // const handleEditModal = (id) => {
+    //     setCurrentEntity(currentContent.find((current) => current.id === id));
+    //     setAction("edit");
+    //     setEditModalOpen(!editModalOpen);
+    //     setCreateModalOpen(false);
+    //     setDeleteModalOpen(false);
+    // }
 
-    const handleDeleteModal = (id) => {
-        setCurrentEntity(currentContent.find((current) => current.id === id));
-        setDeleteModalOpen(!deleteModalOpen);
-        setEditModalOpen(false);
-        setCreateModalOpen(false);
-    }
+    // const handleDeleteModal = (id) => {
+    //     setCurrentEntity(currentContent.find((current) => current.id === id));
+    //     setAction("delete");
+    //     setDeleteModalOpen(!deleteModalOpen);
+    //     setEditModalOpen(false);
+    //     setCreateModalOpen(false);
+    // }
 
-    const handleCreateModal = () => {
-        setCreateModalOpen(!createModalOpen);
-        setEditModalOpen(false);
-        setDeleteModalOpen(false);
+    // const handleCreateModal = () => {
+    //     setAction("create");
+    //     setCreateModalOpen(!createModalOpen);
+    //     setEditModalOpen(false);
+    //     setDeleteModalOpen(false);
+    // }
+
+    const handleModalOpen = (id, action) => {
+        setAction(action);
+        if (id != null) {
+            setCurrentEntity(currentContent.find((current) => current.id === id));
+        }
+        setModalOpen(!modalOpen);
     }
 
     const selectedTable = () => {
@@ -122,9 +131,7 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
 
     return (
         <div className={`${table}Table`}>
-            <EditModal editModalOpen={editModalOpen} handleEditModal={handleEditModal} table={table} />
-            <DeleteModal deleteModalOpen={deleteModalOpen} handleDeleteModal={handleDeleteModal} table={table} />
-            <CreateModal createModalOpen={createModalOpen} handleCreateModal={handleCreateModal} table={table} />
+            <Modal modalOpen={modalOpen} table={table} handleModalOpen={handleModalOpen} />
             <table>
                 <thead>
                     <tr>
@@ -149,14 +156,14 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
                                 {selectedColumn(thisTable)}
                             </td>
                             <td>
-                                <button className='edit' type='button' onClick={() => handleEditModal(thisTable.id)}>Edit</button>
-                                <button className='delete' type='button' onClick={() => handleDeleteModal(thisTable.id)}>Delete</button>
+                                <button className='edit' type='button' onClick={() => handleModalOpen(thisTable.id, "edit")}>Edit</button>
+                                <button className='delete' type='button' onClick={() => handleModalOpen(thisTable.id, "delete")}>Delete</button>
                             </td>
                         </tr>
                     ))}
                     <tr>
                         <td className='createButtonColumn' colSpan={3}>
-                            <button className='create' type='button' onClick={handleCreateModal}>Create</button>
+                            <button className='create' type='button' onClick={() => handleModalOpen(0, "create")}>Create</button>
                         </td>
                     </tr>
                 </tbody>
