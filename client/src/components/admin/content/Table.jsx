@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import EditModal from './EditModal';
 import DeleteModal from './DeleteModal';
 import CreateModal from './CreateModal';
-
+import { useStore } from 'zustand';
+import useTableStore from '../../../store/useTableStore';
 
 export default function Table({ searchTerm, table, setCurrentTable }) {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [editModalOpen, setEditModalOpen] = useState(false);
-    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-    const [createModalOpen, setCreateModalOpen] = useState(false);
-    const [currentEntity, setCurrentEntity] = useState(null);
-    const [currentContent, setcurrentContent] = useState([]);
-    const [courses, setCourses] = useState([]);
-    const [lessons, setLessons] = useState([]);
-    const [quizzes, setQuizzes] = useState([]);
-    const [questions, setQuestions] = useState([]);
+    const { currentPage, setCurrentPage, editModalOpen, setEditModalOpen, deleteModalOpen, setDeleteModalOpen, createModalOpen, setCreateModalOpen, setCurrentEntity, currentContent, setcurrentContent, courses, setCourses, lessons, setLessons, quizzes, setQuizzes, questions, setQuestions } = useStore(useTableStore);
 
     useEffect(() => {
         fetch("/api/v1/courses")
@@ -22,34 +14,34 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
             .then(data => {
                 setCourses(data);
             })
-    }, [courses]);
+    }, [courses, setCourses]);
     useEffect(() => {
         fetch("/api/v1/lessons")
             .then(response => response.json())
             .then(data => {
                 setLessons(data);
             })
-    }, [lessons]);
+    }, [lessons, setLessons]);
     useEffect(() => {
         fetch("/api/v1/quizzes")
             .then(response => response.json())
             .then(data => {
                 setQuizzes(data);
             })
-    }, [quizzes]);
+    }, [quizzes, setQuizzes]);
     useEffect(() => {
         fetch("/api/v1/questions")
             .then(response => response.json())
             .then(data => {
                 setQuestions(data);
             })
-    }, [questions]);
+    }, [questions, setQuestions]);
 
     useEffect(() => {
         if (table === "Courses") {
             setcurrentContent(courses);
         }
-    }, [table, courses]);
+    }, [table, courses, setcurrentContent]);
 
     const filteredContent = currentContent.filter((current) => {
         return current.title.includes(searchTerm);
@@ -130,9 +122,9 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
 
     return (
         <div className={`${table}Table`}>
-            <EditModal editModalOpen={editModalOpen} handleEditModal={handleEditModal} currentEntity={currentEntity} table={table} />
-            <DeleteModal deleteModalOpen={deleteModalOpen} handleDeleteModal={handleDeleteModal} currentEntity={currentEntity} table={table} />
-            <CreateModal createModalOpen={createModalOpen} handleCreateModal={handleCreateModal} currentEntity={currentEntity} table={table} />
+            <EditModal editModalOpen={editModalOpen} handleEditModal={handleEditModal} table={table} />
+            <DeleteModal deleteModalOpen={deleteModalOpen} handleDeleteModal={handleDeleteModal} table={table} />
+            <CreateModal createModalOpen={createModalOpen} handleCreateModal={handleCreateModal} table={table} />
             <table>
                 <thead>
                     <tr>

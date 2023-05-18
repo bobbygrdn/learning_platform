@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useStore } from 'zustand';
+import useTableStore from '../../../store/useTableStore';
 
-export default function EditModal({ editModalOpen, handleEditModal, currentEntity }) {
+export default function EditModal({ editModalOpen, handleEditModal }) {
+    const { currentEntity } = useStore(useTableStore)
+
     return (
         <>
             {editModalOpen ?

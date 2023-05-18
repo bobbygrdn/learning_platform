@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import Button from '../landingPage/Button';
 import '../../styles/authentication/Login.css';
 import Header from '../landingPage/Header';
+import { useStore } from 'zustand';
+import useCredentialStore from '../../store/useCredentialsStore';
 
 export default function Login({ token }) {
-    const [userName, setUserName] = useState();
-    const [password, setPassword] = useState();
-    const [userId, setUserId] = useState();
-    const [keepLoggedIn, setKeepLoggedIn] = useState(false);
-    const [disabled, setDisabled] = useState(true);
+    const { userName, setUserName, password, setPassword, setUserId, keepLoggedIn, setKeepLoggedIn, disabled, setDisabled } = useStore(useCredentialStore);
 
     const navigate = useNavigate();
 
@@ -19,7 +17,7 @@ export default function Login({ token }) {
         } else {
             setDisabled(true);
         }
-    }, [userName, password])
+    }, [userName, password, setDisabled])
 
     function isMobileDevice() {
         return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -38,11 +36,11 @@ export default function Login({ token }) {
                 if (user) {
                     if (keepLoggedIn === false) {
                         sessionStorage.setItem('token', user.token);
-                        sessionStorage.setItem('userId', user.id);
+                        setUserId(user.id);
                     }
                     if (keepLoggedIn === true) {
                         localStorage.setItem('token', user.token);
-                        localStorage.setItem('userId', user.id);
+                        setUserId(user.id);
                     }
                     window.alert("Successfully logged in!")
                     if (user.role === "Admin") {

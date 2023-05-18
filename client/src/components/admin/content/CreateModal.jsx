@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useStore } from 'zustand';
+import useAuthStore from '../../../store/useAuthStore';
+import useTableStore from '../../../store/useTableStore';
 
-export default function CreateModal({ createModalOpen, handleCreateModal, currentEntity }) {
+export default function CreateModal({ createModalOpen, handleCreateModal }) {
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [content, setContent] = useState('');
-    const [userId, setUserId] = useState('');
-
-    useEffect(() => {
-        if (sessionStorage.getItem(userId) === "") {
-            setUserId(localStorage.getItem("userId"));
-        } else {
-            setUserId(sessionStorage.getItem("userId"));
-        }
-    }, [userId])
-
+    const { userId } = useStore(useAuthStore);
+    const { currentEntity } = useStore(useTableStore);
+    const { title, setTitle, description, setDescription, content, setContent } = useStore(useTableStore);
 
     const handleSubmit = (e) => {
         fetch(`/api/v1/users/${userId}/courses`, {

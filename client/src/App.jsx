@@ -1,5 +1,6 @@
 import './styles/App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useStore } from 'zustand';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 import LandingPage from './components/landingPage/LandingPage';
 import Login from './components/authentication/Login';
@@ -14,10 +15,10 @@ import Content from './components/admin/content/Content';
 import Analytics from './components/admin/Analytics';
 import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
+import useAuthStore from './store/useAuthStore';
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [allowRegistration, setAllowRegistration] = useState(null);
+  const { token, setToken, allowRegistration, setAllowRegistration } = useStore(useAuthStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -43,7 +44,7 @@ function App() {
 
   useEffect(() => {
     setToken(localStorage.getItem('token'));
-  }, [token]);
+  }, [setToken, token]);
 
   useEffect(() => {
     fetch("/api/v1/settings")

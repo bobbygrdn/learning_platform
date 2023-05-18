@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useStore } from 'zustand';
+import useTableStore from '../../../store/useTableStore';
 
-export default function DeleteModal({ deleteModalOpen, handleDeleteModal, currentEntity, table }) {
+export default function DeleteModal({ deleteModalOpen, handleDeleteModal, table }) {
+    const { currentEntity } = useStore(useTableStore);
     const deleteEntity = () => {
 
         fetch(`/api/v1/${table.toLowerCase()}/${currentEntity.id}`, {
