@@ -126,9 +126,7 @@
     background-color: #aca9a4;
 }
 
-.editModalWrapper,
-.createModalWrapper,
-.deleteModalWrapper {
+.modalWrapper {
     z-index: 1;
     position: fixed;
     top: 0;
@@ -141,9 +139,9 @@
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.deleteModal,
-.createModal,
-.editModal {
+.deleteContent,
+.createContent,
+.editContent {
     display: flex;
     position: relative;
     flex-direction: column;
