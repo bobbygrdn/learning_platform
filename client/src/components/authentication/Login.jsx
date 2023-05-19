@@ -5,6 +5,7 @@ import '../../styles/authentication/Login.css';
 import Header from '../landingPage/Header';
 import { useStore } from 'zustand';
 import useCredentialStore from '../../store/useCredentialsStore';
+import { toast } from 'react-toastify';
 
 export default function Login({ token }) {
     const { userName, setUserName, password, setPassword, setUserId, keepLoggedIn, setKeepLoggedIn, disabled, setDisabled } = useStore(useCredentialStore);
@@ -42,7 +43,8 @@ export default function Login({ token }) {
                         localStorage.setItem('token', user.token);
                         setUserId(user.id);
                     }
-                    window.alert("Successfully logged in!")
+
+                    toast.success("Successfully logged in!");
                     if (user.role === "Admin") {
                         if (isMobileDevice()) {
                             // User is on a mobile device
@@ -55,7 +57,7 @@ export default function Login({ token }) {
                         navigate('/dashboard/profile');
                     }
                 } else {
-                    window.alert("User not found!")
+                    toast.error("User not found!");
                 }
             })
     }

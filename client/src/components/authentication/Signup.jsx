@@ -90,31 +90,11 @@ export default function Signup({ allowRegistration }) {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    toast.success("Signup successful!", {
-                        position: "top-center",
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                        pauseOnFocusLoss: false,
-                    });
+                    toast.success("Signup successful!");
                     navigate('/login');
                 })
                 .catch((error) => {
-                    toast.error("Signup unsuccessful, please try again.", {
-                        position: "top-center",
-                        autoClose: 3000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                        pauseOnFocusLoss: false,
-                    });
+                    toast.error("Signup unsuccessful, please try again.");
                 })
         }
     };
