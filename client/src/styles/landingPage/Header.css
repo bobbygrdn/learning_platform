@@ -13,9 +13,15 @@
     align-items: center;
 }
 
-.title {
+.title,
+.sectiontitle {
     margin-bottom: 0;
     height: fit-content;
+    background: linear-gradient(90deg, #677d8c, #4a4c52);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 .logo {
