@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
-import CreateModal from './CreateModal';
-import EditModal from './EditModal';
-import DeleteModal from './DeleteModal';
+import CreateContent from './CreateContent';
+import EditContent from './EditContent';
+import DeleteContent from './DeleteContent';
 
 export default function Modal({ handleModalOpen }) {
 
@@ -12,11 +12,11 @@ export default function Modal({ handleModalOpen }) {
     const userAction = () => {
         switch (action) {
             case "create":
-                return <CreateModal handleModalOpen={handleModalOpen} />
+                return <CreateContent handleModalOpen={handleModalOpen} />
             case "edit":
-                return <EditModal handleModalOpen={handleModalOpen} />
+                return <EditContent handleModalOpen={handleModalOpen} />
             case "delete":
-                return <DeleteModal handleModalOpen={handleModalOpen} />
+                return <DeleteContent handleModalOpen={handleModalOpen} />
             default:
                 return <h1>Error</h1>;
         }
