@@ -60,7 +60,7 @@
 
 .signupError {
     color: darkred;
-    font-size: 1em;
+    font-size: .8em;
     margin-top: .5em;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .signupTitle {
-    font-size: 4em;
+    font-size: 2.5em;
 }
 
 .signup:hover {
@@ -92,6 +92,14 @@
 .signup:active {
     background-color: #e5f1f2;
     color: #000000;
+}
+
+.signupAlready {
+    margin-top: 1em;
+}
+
+.signupAlready a {
+    text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -131,20 +139,6 @@
     .subheading {
         margin-right: 1.5em;
         font-size: 1em;
-    }
-
-    .signupUserInput,
-    .signupPasswordInput,
-    .signupEmailInput,
-    .signupConfirmPasswordInput:invalid {
-        border: 2px solid red;
-    }
-
-    .signupUserInput:valid,
-    .signupPasswordInput:valid,
-    .signupEmailInput:valid,
-    .signupConfirmPasswordInput:valid {
-        border: 2px solid green;
     }
 
 }
