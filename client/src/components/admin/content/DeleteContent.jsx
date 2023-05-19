@@ -1,8 +1,9 @@
 import React from 'react';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
+import { toast } from 'react-toastify';
 
-export default function DeleteModal({ table, handleModalOpen }) {
+export default function DeleteContent({ table, handleModalOpen }) {
     const { currentEntity } = useStore(useTableStore);
     const deleteEntity = () => {
 
@@ -10,13 +11,13 @@ export default function DeleteModal({ table, handleModalOpen }) {
             method: "DELETE"
         })
             .then(response => {
-                window.alert(`${currentEntity.title} has been deleted`);
+                toast.success(`${currentEntity.title} has been deleted`);
             })
             .then(() => {
                 handleModalOpen();
             })
             .catch(error => {
-                console.log(error);
+                toast.error(error.message);
             })
     }
 
@@ -25,7 +26,7 @@ export default function DeleteModal({ table, handleModalOpen }) {
             <div className='deleteContent'>
                 <button className='close' onClick={handleModalOpen}>Close</button>
                 <div className='modalContent'>
-                    <span>You are about to delete the following entity:</span>
+                    <span>You are about to delete the following:</span>
                     <span className='highlight'>{currentEntity.title}</span>
                     <span>Are you sure you want to continue?</span>
                 </div>

@@ -3,7 +3,7 @@ import { useStore } from 'zustand';
 import useAuthStore from '../../../store/useAuthStore';
 import useTableStore from '../../../store/useTableStore';
 
-export default function CreateModal() {
+export default function CreateContent() {
 
     const { userId } = useStore(useAuthStore);
     const { currentEntity } = useStore(useTableStore);
