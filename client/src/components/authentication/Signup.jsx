@@ -4,6 +4,7 @@ import Button from '../landingPage/Button';
 import RegistrationsClosed from './RegistrationsClosed';
 import '../../styles/authentication/Signup.css';
 import Header from '../landingPage/Header';
+import { toast } from 'react-toastify';
 
 export default function Signup({ allowRegistration }) {
     const [formValues, setFormValues] = useState({
@@ -19,6 +20,11 @@ export default function Signup({ allowRegistration }) {
         password: '',
         confirmPassword: '',
     });
+
+    const [userTouched, setUserTouched] = useState(false);
+    const [emailTouched, setEmailTouched] = useState(false);
+    const [passwordTouched, setPasswordTouched] = useState(false);
+    const [confirmPasswordTouched, setConfirmPasswordTouched] = useState(false);
 
     const navigate = useNavigate();
 
@@ -84,9 +90,32 @@ export default function Signup({ allowRegistration }) {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    window.alert('Signup successful!');
+                    toast.success("Signup successful!", {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        pauseOnFocusLoss: false,
+                    });
                     navigate('/login');
-                });
+                })
+                .catch((error) => {
+                    toast.error("Signup unsuccessful, please try again.", {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        pauseOnFocusLoss: false,
+                    });
+                })
         }
     };
 
@@ -94,6 +123,25 @@ export default function Signup({ allowRegistration }) {
         const { name, value } = event.target;
         setFormValues({ ...formValues, [name]: value });
     };
+
+    const handleBlur = (input) => {
+        switch (input) {
+            case "username":
+                setUserTouched(true);
+                break;
+            case "password":
+                setPasswordTouched(true);
+                break;
+            case "confirmPassword":
+                setConfirmPasswordTouched(true);
+                break;
+            case "email":
+                setEmailTouched(true);
+                break;
+            default:
+        }
+
+    }
 
     const { errors, isValid } = validateForm();
 
@@ -107,27 +155,28 @@ export default function Signup({ allowRegistration }) {
                             <h1 className='signupTitle'>Signup</h1>
                             <label className='signupUsername'>
                                 <p className='signupUserTitle'>Username</p>
-                                <input className='signupUserInput' type='text' name='username' value={formValues.username} onChange={handleInputChange} required />
-                                {errors.username && <p className='signupError'>{errors.username}</p>}
+                                <input className='signupUserInput' type='text' name='username' value={formValues.username} onChange={handleInputChange} onBlur={() => handleBlur("username")} required />
+                                {userTouched && (errors.username || !isValid) && <p className='signupError'>{errors.username}</p>}
                             </label>
                             <label className='signupEmail'>
                                 <p className='signupEmailTitle'>Email</p>
-                                <input className='signupEmailInput' type='email' name='email' value={formValues.email} onChange={handleInputChange} required />
-                                {errors.email && <p className='signupError'>{errors.email}</p>}
+                                <input className='signupEmailInput' type='email' name='email' value={formValues.email} onChange={handleInputChange} onBlur={() => handleBlur("email")} required />
+                                {emailTouched && (errors.email || !isValid) && <p className='signupError'>{errors.email}</p>}
                             </label>
                             <label className='signupPassword'>
                                 <p className='signupPasswordTitle'>Password</p>
-                                <input className='signupPasswordInput' type='password' name='password' value={formValues.password} onChange={handleInputChange} required />
-                                {errors.password && <p className='signupError'>{errors.password}</p>}
+                                <input className='signupPasswordInput' type='password' name='password' value={formValues.password} onChange={handleInputChange} onBlur={() => handleBlur("password")} required />
+                                {passwordTouched && (errors.password || !isValid) && <p className='signupError'>{errors.password}</p>}
                             </label>
                             <label className='signupConfirmPassword'>
                                 <p className='signupConfirmPasswordTitle'>Confirm Password</p>
-                                <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} required />
-                                {errors.confirmPassword && <p className='signupError'>{errors.confirmPassword}</p>}
+                                <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} onBlur={() => handleBlur("confirmPassword")} required />
+                                {confirmPasswordTouched && (errors.confirmPassword || !isValid) && <p className='signupError'>{errors.confirmPassword}</p>}
                             </label>
                             <div>
                                 <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
                             </div>
+                            <span className='signupAlready'>Already have an account?<a href='/login'> Click here</a></span>
                         </form>
                     </div > : <RegistrationsClosed />}
         </>
