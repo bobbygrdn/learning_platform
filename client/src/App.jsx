@@ -2,6 +2,8 @@ import './styles/App.css';
 import React, { useEffect } from 'react';
 import { useStore } from 'zustand';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import LandingPage from './components/landingPage/LandingPage';
 import Login from './components/authentication/Login';
 import Signup from './components/authentication/Signup';
@@ -58,6 +60,7 @@ function App() {
   return (
     <div className='App'>
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 }
