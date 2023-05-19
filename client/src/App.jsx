@@ -60,7 +60,18 @@ function App() {
   return (
     <div className='App'>
       <RouterProvider router={router} />
-      <ToastContainer />
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
     </div>
   );
 }
