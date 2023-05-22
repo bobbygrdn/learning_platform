@@ -5,14 +5,14 @@ import CreateContent from './CreateContent';
 import EditContent from './EditContent';
 import DeleteContent from './DeleteContent';
 
-export default function Modal({ handleModalOpen }) {
+export default function Modal({ table, handleModalOpen }) {
 
     const { modalOpen, action } = useStore(useTableStore);
 
     const userAction = () => {
         switch (action) {
             case "create":
-                return <CreateContent handleModalOpen={handleModalOpen} />
+                return <CreateContent table={table} handleModalOpen={handleModalOpen} />
             case "edit":
                 return <EditContent handleModalOpen={handleModalOpen} />
             case "delete":
