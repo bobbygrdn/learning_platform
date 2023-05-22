@@ -45,38 +45,15 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
         return current.title.includes(searchTerm);
     });
 
-    const itemsPerPage = 8;
+    const itemsPerPage = table === "Questions" ? 1 : 8;
     const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
-    // const handleEditModal = (id) => {
-    //     setCurrentEntity(currentContent.find((current) => current.id === id));
-    //     setAction("edit");
-    //     setEditModalOpen(!editModalOpen);
-    //     setCreateModalOpen(false);
-    //     setDeleteModalOpen(false);
-    // }
-
-    // const handleDeleteModal = (id) => {
-    //     setCurrentEntity(currentContent.find((current) => current.id === id));
-    //     setAction("delete");
-    //     setDeleteModalOpen(!deleteModalOpen);
-    //     setEditModalOpen(false);
-    //     setCreateModalOpen(false);
-    // }
-
-    // const handleCreateModal = () => {
-    //     setAction("create");
-    //     setCreateModalOpen(!createModalOpen);
-    //     setEditModalOpen(false);
-    //     setDeleteModalOpen(false);
-    // }
-
     const handleModalOpen = (id, action) => {
         setAction(action);
-        if (id != null) {
+        if (id !== null) {
             setCurrentEntity(currentContent.find((current) => current.id === id));
         }
         setModalOpen(!modalOpen);
@@ -89,7 +66,7 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
             case "Quizzes":
                 return <span>Questions</span>
             case "Questions":
-                return <span>Options</span>
+                return <span>Information</span>
             default:
                 return <span>Lessons</span>
         }
@@ -102,7 +79,15 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
             case "Quizzes":
                 return <ul className='list'>{selectTable.questions.map((question, index) => <li key={index}>{index + 1}. {question.title}</li>)}</ul>
             case "Questions":
-                return <span>{selectTable.content}</span>
+                return <span>
+                    {selectTable.content}
+                    <p>Options:</p>
+                    <ul className='list'>
+                        {selectTable.options.map((option, index) => <li key={index}>{index + 1}. {option.content}</li>)}</ul>
+                    <p>{selectTable.answers.length === 1 ? "Answer:" : "Answers:"}</p>
+                    <ul className='list'>
+                        {selectTable.answers.map((answer, index) => <li key={index}>{index + 1}. {answer.content}</li>)}</ul>
+                </span >
             default:
                 return <ul className='list'>{selectTable.lessons.map((lesson, index) => <li key={index}>{index + 1}. {lesson.title}</li>)}</ul>
         }
@@ -131,7 +116,7 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
 
     return (
         <div className={`${table}Table`}>
-            <Modal modalOpen={modalOpen} table={table} handleModalOpen={handleModalOpen} />
+            <Modal table={table} handleModalOpen={handleModalOpen} />
             <table>
                 <thead>
                     <tr>
@@ -163,7 +148,7 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
                     ))}
                     <tr>
                         <td className='createButtonColumn' colSpan={3}>
-                            <button className='create' type='button' onClick={() => handleModalOpen(0, "create")}>Create</button>
+                            <button className='create' type='button' onClick={() => handleModalOpen(null, "create")}>Create</button>
                         </td>
                     </tr>
                 </tbody>
