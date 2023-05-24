@@ -28,22 +28,6 @@
     background-color: #000;
 }
 
-.sidebar {
-    width: 16%;
-    height: 68%;
-    position: fixed;
-    left: 0;
-    background-color: #677d8c;
-}
-
-.sidebar h2 {
-    text-align: center;
-    margin-top: .5em;
-    margin-bottom: .5em;
-    color: #f5f5f5;
-    pointer-events: none;
-}
-
 .tables {
     display: flex;
     flex-direction: column;
