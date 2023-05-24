@@ -22,7 +22,7 @@ export default function AdminHeader() {
             </div>
 
             <NavLink className='logout_container' to='/'>
-                <p className='logout_text'>Logout</p>
+                <span className='logout_text'>Logout</span>
                 <img className='logout' src={`${process.env.PUBLIC_URL + "/resources/logout_icon.png"}`} alt='Logout icon' onClick={logout}></img>
             </NavLink>
         </nav>
