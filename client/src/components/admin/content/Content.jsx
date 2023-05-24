@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../../styles/admin/content/Content.css';
+import '../../../styles/admin/Content.css';
 import Table from './Table';
 
 export default function Content() {
