@@ -41,6 +41,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .delete,
@@ -91,10 +92,11 @@
     justify-content: center;
 }
 
+.answerList,
+.optionList,
 .list {
     display: flex;
-    flex-direction: column;
-    text-align: left;
+    align-items: center;
     justify-content: center;
 }
 
