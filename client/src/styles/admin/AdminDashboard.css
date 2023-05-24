@@ -30,13 +30,20 @@ main {
     align-items: center;
     column-gap: 10px;
     border: 2px solid var(--grey-color-light);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 5px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: (var(--grey-color-light));
+}
+
+.logout_container:hover {
+    background-color: var(--grey-color-light);
 }
 
 .logout {
     aspect-ratio: 1;
-    width: 3em;
+    width: 2em;
     margin-left: .5em;
     pointer-events: none;
 }
@@ -248,23 +255,6 @@ main {
     flex-direction: row;
     margin-bottom: 1em;
 }
-
-/* .content,
-.analytics,
-.settings {
-    width: 14em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
-.content:hover,
-.analytics:hover,
-.settings:hover {
-    transform: scale(1.1);
-} */
 
 @media screen and (max-width: 768px) {
     #sidebarOpen {
