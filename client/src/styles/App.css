@@ -2,12 +2,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --primary-color: #e5f1f2;
+  --secondary-color: #677d8c;
 }
 
 body {
   height: 100vh;
-  background-color: #E5F1F2;
+  background-color: #e5f1f2;
 }
 
 .App {
@@ -18,13 +23,13 @@ body {
 }
 
 main {
-  background-color: #E5F1F2;
+  background-color: #e5f1f2;
   height: 100%;
   width: 80%;
 }
 
 .logo {
-  background-color: #E5F1F2;
+  background-color: #e5f1f2;
   width: 10em;
   height: 10em;
 }
@@ -48,8 +53,6 @@ main {
 .text {
   font-size: 12px;
 }
-
-
 
 @media screen and (max-width: 600px) {
   .title {
@@ -76,5 +79,4 @@ main {
     width: 7em;
     height: 7em;
   }
-
 }

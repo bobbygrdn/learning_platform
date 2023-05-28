@@ -1,52 +1,42 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  margin-bottom: 1em;
 }
 
 .titles {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.title,
-.sectiontitle {
-    margin-bottom: 0;
-    height: fit-content;
-    background: linear-gradient(90deg, #677d8c, #4a4c52);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    display: inline-block;
+.title {
+  margin-bottom: 0;
+  height: fit-content;
 }
 
 .logo {
-    aspect-ratio: 1;
-    width: 8em;
-    margin-left: 1em;
+  aspect-ratio: 1;
+  width: 9vw;
+  margin-left: 1em;
 }
 
 @media screen and (max-width: 600px) {
-    .logo {
-        width: 100px;
-        height: 100px;
-    }
+  .logo {
+    width: 16vw;
+    height: 12vh;
+  }
 }
 
 @media screen and (min-width: 1000px) {
-    .title {
-        font-size: 52px;
-    }
+  .title {
+    font-size: 52px;
+  }
 
-    .sectiontitle {
-        font-size: 28px;
-    }
-
-    .logo {
-        width: 250px;
-    }
+  .sectiontitle {
+    font-size: 28px;
+  }
 }
