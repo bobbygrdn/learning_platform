@@ -10,6 +10,7 @@
   font-size: 26px;
   font-weight: bold;
   margin-bottom: 1em;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 1000px) {
