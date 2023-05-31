@@ -7,16 +7,9 @@ export default function AdminHeader() {
         window.localStorage.clear()
     }
 
-    const handleClick = () => {
-        const sidebarOpen = document.querySelector('#sidebarOpen');
-
-        sidebarOpen.classList.toggle('close');
-    }
-
     return (
         <nav className='adminNavbar'>
             <div className="logo_item">
-                <i className="bx bx-menu" id="sidebarOpen" onClick={handleClick}></i>
                 Valor Academy
                 <img className='adminLogo' src={`${process.env.PUBLIC_URL + "/resources/valorAcademy_logo.png"}`} alt="" />
             </div>

@@ -19,19 +19,6 @@ export default function AdminNavbar() {
         }
     }
 
-    const handleCollapse = () => {
-        const sidebar = document.querySelector('.sidebar');
-
-        sidebar.classList.add('sidebarClose', 'hoverable');
-    }
-
-    const handleExpand = () => {
-        const sidebar = document.querySelector('.sidebar');
-
-        sidebar.classList.remove('sidebarClose', 'hoverable');
-    }
-
-
     return (
         <aside className='sidebar sidebarClose hoverable' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <div className='menu_content'>
@@ -55,17 +42,6 @@ export default function AdminNavbar() {
                         </NavLink>
                     </li>
                 </ul>
-            </div>
-
-            <div className="bottom_content">
-                <div className="bottom expand_sidebar" onClick={handleExpand}>
-                    <span>Keep Open</span>
-                    <i className='bx bx-log-in'></i>
-                </div>
-                <div className="bottom collapse_sidebar" onClick={handleCollapse}>
-                    <span>Keep Closed</span>
-                    <i className='bx bx-log-out'></i>
-                </div>
             </div>
         </aside>
     )
