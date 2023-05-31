@@ -19,7 +19,7 @@ export default function Content() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
-            {<Table table={currentTable} searchTerm={searchTerm} setCurrentTable={setCurrentTable} />}
+            <Table table={currentTable} searchTerm={searchTerm} setCurrentTable={setCurrentTable} />
         </main>
     )
 }
