@@ -5,6 +5,7 @@
   justify-content: center;
   pointer-events: none;
   margin-bottom: 1em;
+  color: var(--secondary-text);
 }
 
 .titles {
