@@ -16,15 +16,10 @@
     box-shadow: 0px 0px 20px #677D8C;
 }
 
-.landingPage:hover {
-    background-color: #ACA9A4;
-    color: #000000;
-    cursor: pointer;
-}
-
+.landingPage:hover,
 .landingPage:active {
-    background-color: #ACA9A4;
-    color: #000000;
+    background-color: #000;
+    cursor: pointer;
 }
 
 .signup:disabled,
