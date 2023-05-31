@@ -1,6 +1,6 @@
 .contentTitle {
     text-align: center;
-    margin-bottom: .5em;
+    margin: .5em 0;
 }
 
 .mainContent {
@@ -11,37 +11,29 @@
     height: 100%;
 }
 
-.tablesButton {
-    margin-top: 1em;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #f5f5f5;
-    font-weight: bold;
-    font-size: 1em;
-    padding: 0.5em;
-    border-radius: 5px;
-    transition: 0.3s;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
 }
 
-.tablesButton:hover {
-    background-color: #000;
-}
-
-.tables {
+.Card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: .5em;
 }
 
-.CoursesTable,
-.LessonsTable,
-.QuizzesTable,
-.QuestionsTable {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.CoursesGrid,
+.LessonsGrid,
+.QuizzesGrid,
+.QuestionsGrid {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .delete,
@@ -78,6 +70,11 @@
     background-color: #008000;
 }
 
+.create {
+    width: 10vw;
+    margin: 2em auto 0;
+}
+
 .close {
     background-color: #000;
     color: #f5f5f5;
@@ -104,14 +101,6 @@
     font-size: 1em;
 }
 
-.admin {
-    height: 100%;
-}
-
-.createButtonColumn:hover {
-    background-color: #aca9a4;
-}
-
 .modalWrapper {
     z-index: 1;
     position: fixed;
@@ -125,7 +114,6 @@
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.deleteContent,
 .createContent,
 .editContent {
     display: flex;
@@ -143,12 +131,11 @@
 
 .buttons {
     display: flex;
-    position: absolute;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-    bottom: 1em;
     padding: 0 1.5em;
+    margin-top: 1em;
 }
 
 .close {
