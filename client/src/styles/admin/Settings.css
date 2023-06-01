@@ -21,8 +21,9 @@ main {
     margin: 1em 0;
 }
 
-.searchTitle {
-    margin-right: 1em;
+.searchTitle,
+.back {
+    margin: 0 1em;
 }
 
 .settingsForm {
@@ -131,23 +132,6 @@ tr:hover {
 select {
     cursor: pointer;
     border-radius: .5em;
-}
-
-.pagesButton {
-    margin-top: 1em;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #4a4c52;
-    font-weight: bold;
-    font-size: 1em;
-    padding: 0.5em;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.pagesButton:hover {
-    background-color: #ddd;
 }
 
 .actions select,
