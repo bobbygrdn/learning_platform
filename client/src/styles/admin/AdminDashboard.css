@@ -211,6 +211,23 @@
     margin-bottom: 1em;
 }
 
+.pagesButton {
+    margin-top: 1em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #4a4c52;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.pagesButton:hover {
+    background-color: #ddd;
+}
+
 @media screen and (max-width: 768px) {
     #sidebarOpen {
         font-size: 25px;
