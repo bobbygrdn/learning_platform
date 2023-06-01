@@ -1,10 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import '../../../styles/admin/Content.css';
 import Table from './Table';
+import { useStore } from 'zustand';
+import useTableStore from '../../../store/useTableStore';
+import { Button } from 'react-bootstrap';
 
 export default function Content() {
-    const [currentTable, setCurrentTable] = useState("Courses");
-    const [searchTerm, setSearchTerm] = useState("");
+    const { currentTable, searchTerm, setSearchTerm, quizzes, setQuizzes, questions, setQuestions, lessons, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
+
+    useEffect(() => {
+        fetch("/api/v1/courses")
+            .then(response => response.json())
+            .then(data => {
+                setCourses(data);
+            })
+    }, [courses, setCourses]);
+    useEffect(() => {
+        fetch("/api/v1/lessons")
+            .then(response => response.json())
+            .then(data => {
+                setLessons(data);
+            })
+    }, [lessons, setLessons]);
+    useEffect(() => {
+        fetch("/api/v1/quizzes")
+            .then(response => response.json())
+            .then(data => {
+                setQuizzes(data);
+            })
+    }, [quizzes, setQuizzes]);
+    useEffect(() => {
+        fetch("/api/v1/questions")
+            .then(response => response.json())
+            .then(data => {
+                setQuestions(data);
+            })
+    }, [questions, setQuestions]);
+
+    useEffect(() => {
+        if (currentTable === 'Courses') {
+            setCurrentContent(courses);
+        }
+    }, [courses, currentTable, setCurrentContent]);
+
+    const handleBack = () => {
+        window.location.reload();
+    }
 
     return (
         <main className='mainContent'>
@@ -18,8 +59,9 @@ export default function Content() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
+                {currentTable !== 'Courses' && <Button className='back' onClick={handleBack}>Back</Button>}
             </div>
-            <Table table={currentTable} searchTerm={searchTerm} setCurrentTable={setCurrentTable} />
+            <Table />
         </main>
     )
 }
