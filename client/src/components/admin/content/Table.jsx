@@ -1,53 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
 import Modal from './Modal';
 import { Card, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 
-export default function Table({ searchTerm, table, setCurrentTable }) {
-    const { currentPage, setCurrentPage, currentEntity, setCurrentEntity, currentContent, setcurrentContent, courses, setCourses, lessons, setLessons, quizzes, setQuizzes, questions, setQuestions, modalOpen, setModalOpen, setAction } = useStore(useTableStore);
-
-    useEffect(() => {
-        fetch("/api/v1/courses")
-            .then(response => response.json())
-            .then(data => {
-                setCourses(data);
-            })
-    }, [courses, setCourses]);
-    useEffect(() => {
-        fetch("/api/v1/lessons")
-            .then(response => response.json())
-            .then(data => {
-                setLessons(data);
-            })
-    }, [lessons, setLessons]);
-    useEffect(() => {
-        fetch("/api/v1/quizzes")
-            .then(response => response.json())
-            .then(data => {
-                setQuizzes(data);
-            })
-    }, [quizzes, setQuizzes]);
-    useEffect(() => {
-        fetch("/api/v1/questions")
-            .then(response => response.json())
-            .then(data => {
-                setQuestions(data);
-            })
-    }, [questions, setQuestions]);
-
-    useEffect(() => {
-        if (table === "Courses") {
-            setcurrentContent(courses);
-        }
-    }, [table, courses, setcurrentContent]);
+export default function Table() {
+    const { currentPage, setCurrentPage, setCurrentEntity, currentContent, setCurrentContent, courses, lessons, quizzes, modalOpen, setModalOpen, setAction, searchTerm, currentTable, setCurrentTable } = useStore(useTableStore);
 
     const filteredContent = currentContent.filter((current) => {
         return current.title.includes(searchTerm);
     });
 
-    const itemsPerPage = table === "Questions" ? 3 : 8;
+    const itemsPerPage = currentTable === "Questions" ? 3 : 8;
     const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -63,7 +28,7 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
 
     const handleUserSelection = (action, id) => {
         if (action === 'yes') {
-            fetch(`/api/v1/${table.toLowerCase()}/${id}`, {
+            fetch(`/api/v1/${currentTable.toLowerCase()}/${id}`, {
                 method: "DELETE"
             })
                 .then(response => {
@@ -93,36 +58,39 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
         )
     }
 
-    const handleCardClick = (event) => {
-        // eslint-disable-next-line default-case
-        // switch (table) {
-        //     case "Courses":
-        //         setCurrentTable("Lessons");
-        //         setcurrentContent(courses.find(course => course.id === parseInt(event.target.parentElement.id)).lessons);
-        //         setCurrentEntity(event.target.parentElement.id);
-        //         break;
-        //     case "Lessons":
-        //         setCurrentTable("Quizzes");
-        //         setcurrentContent(lessons.find(lesson => lesson.id === parseInt(event.target.parentElement.id)).quizzes);
-        //         setCurrentEntity(event.target.parentElement.id);
-        //         break;
-        //     case "Quizzes":
-        //         setCurrentTable("Questions");
-        //         setcurrentContent(quizzes.find(quiz => quiz.id === parseInt(event.target.parentElement.id), quizzes).questions)
-        //         setCurrentEntity(event.target.parentElement.id);
-        //         break;
-        // }
+    const handleCardClick = (id) => {
+        switch (currentTable) {
+            case "Courses":
+                setCurrentTable("Lessons");
+                setCurrentContent(courses.find(course => course.id === id).lessons);
+                console.log(currentContent);
+                setCurrentEntity(id);
+                break;
+            case "Lessons":
+                setCurrentTable("Quizzes");
+                setCurrentContent(lessons.find(lesson => lesson.id === id).quizzes);
+                console.log(currentContent);
+                setCurrentEntity(id);
+                break;
+            case "Quizzes":
+                setCurrentTable("Questions");
+                setCurrentContent(quizzes.find(quiz => quiz.id === id, quizzes).questions);
+                console.log(currentContent);
+                setCurrentEntity(id);
+                break;
+            default:
+        }
     }
 
     return (
-        <div className={`${table}Grid`}>
-            <Modal table={table} handleModalOpen={handleModalOpen} />
+        <div className={`${currentTable}Grid`}>
+            <Modal table={currentTable} handleModalOpen={handleModalOpen} />
             <div className="grid-container">
                 {filteredContent.slice(startIndex, endIndex).map(thisTable => (
                     <Card className='Card' key={thisTable.id} id={thisTable.id} onClick={() => handleCardClick(thisTable.id)}>
                         <Card.Body>
                             <Card.Title>{thisTable.title}</Card.Title>
-                            <Card.Text>{ }</Card.Text>
+                            <Card.Text>{thisTable.content || thisTable.description}</Card.Text>
                         </Card.Body>
                         <div className='buttons'>
                             <Button className='edit' onClick={() => handleModalOpen(thisTable.id, "edit")}>Edit</Button>
@@ -131,8 +99,16 @@ export default function Table({ searchTerm, table, setCurrentTable }) {
                     </Card>
                 ))}
             </div>
-            <Button className='create' onClick={() => handleModalOpen(null, "create")}>Create</Button>
+            <div className='createButtons'>
+                <div>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                        <button className='pagesButton' key={page} onClick={() => setCurrentPage(page)}>
+                            {page}
+                        </button>
+                    ))}
+                </div>
+                <Button className='create' onClick={() => handleModalOpen(null, "create")}>Create</Button>
+            </div>
         </div>
-
     )
 }
