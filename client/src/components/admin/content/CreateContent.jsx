@@ -4,12 +4,13 @@ import CodeEditor from './CodeEditor';
 import useTableStore from '../../../store/useTableStore';
 import useCredentialStore from '../../../store/useCredentialsStore';
 import useModalStore from '../../../store/useModalStore';
+import { toast } from 'react-toastify';
 
 export default function CreateContent({ table }) {
 
     const { userId } = useStore(useCredentialStore);
     const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
-    const { title, setTitle, description, setDescription, content, setContent } = useStore(useModalStore);
+    const { title, setTitle, description, setDescription, content, setContent, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics } = useStore(useModalStore);
 
     const createUrl = () => {
         switch (table) {
@@ -55,6 +56,9 @@ export default function CreateContent({ table }) {
                 return {
                     "title": title,
                     "description": description,
+                    "difficulty": difficulty,
+                    "time_needed": timeNeeded,
+                    "topics": topics,
                     "user": {
                         "id": userId
                     }
@@ -69,21 +73,21 @@ export default function CreateContent({ table }) {
         const body = createBody();
         console.log(body);
 
-        // fetch(`/api/v1/${url}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(body)
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         window.alert(`${title} has been created`);
-        //         window.location.reload();
-        //     })
-        //     .catch(error => {
-        //         window.alert(`${title} could not be created`);
-        //     })
+        fetch(`/api/v1/${url}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body)
+        })
+            .then(response => response.json())
+            .then(data => {
+                toast.success(`${title} has been created`)
+                window.location.reload();
+            })
+            .catch(error => {
+                toast.error(`${title} could not be created`);
+            })
     }
 
     const handleModalOpen = () => {
@@ -143,10 +147,32 @@ export default function CreateContent({ table }) {
                     <label htmlFor='title'>Title</label>
                     <input
                         id='createTitle'
+                        className='createInput'
                         name='title'
                         type='text'
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
+                    />
+
+                    <label htmlFor='difficulty'>Select Difficulty:</label>
+                    <select
+                        id="difficulty"
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    >
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+
+                    <label htmlFor='timeNeeded'>Time Needed</label>
+                    <input
+                        id='timeNeeded'
+                        className='createInput'
+                        name="timeNeeded"
+                        type='text'
+                        onChange={(e) => setTimeNeeded(e.target.value)}
+                        value={timeNeeded}
                     />
 
                     <label htmlFor='description'>Description</label>
@@ -155,8 +181,19 @@ export default function CreateContent({ table }) {
                         name="description"
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
-                        rows="20"
-                        cols="80"
+                        rows="5"
+                        cols="30"
+                        style={{ resize: "none" }}
+                    />
+
+                    <label htmlFor='topics'>Topics</label>
+                    <textarea
+                        id='topics'
+                        name="topics"
+                        onChange={(e) => setTopics(e.target.value)}
+                        value={topics}
+                        rows="5"
+                        cols="30"
                         style={{ resize: "none" }}
                     />
                 </>
@@ -164,17 +201,15 @@ export default function CreateContent({ table }) {
     }
 
     return (
-        <>
-            <div className='createContent'>
-                <button className='close' onClick={handleModalOpen}>Close</button>
-                <div className='modalContent'>
-                    <h2>Create New {table.slice(0, -1)}</h2>
-                    <form className='createModalForm'>
-                        {createFormContent()}
-                    </form>
-                    <button className='create submitButton' onClick={handleSubmit}>Create</button>
-                </div>
+        <div className='createContent'>
+            <button className='close' onClick={handleModalOpen}>Close</button>
+            <div className='modalContent'>
+                <h2 className="createContentTitle">Create New {table.slice(0, -1)}</h2>
+                <form className='createModalForm'>
+                    {createFormContent()}
+                </form>
+                <button className='create submitButton' onClick={handleSubmit}>Create</button>
             </div>
-        </>
+        </div>
     )
 }
