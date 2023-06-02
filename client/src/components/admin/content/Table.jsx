@@ -12,7 +12,7 @@ export default function Table() {
         return current.title.includes(searchTerm);
     });
 
-    const itemsPerPage = currentTable === "Questions" ? 3 : 8;
+    const itemsPerPage = currentTable === "Questions" ? 3 : 6;
     const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -24,6 +24,7 @@ export default function Table() {
             setCurrentEntity(currentContent.find((current) => current.id === id));
         }
         setModalOpen(!modalOpen);
+        console.log(currentTable);
     }
 
     const handleUserSelection = (action, id) => {
@@ -89,8 +90,14 @@ export default function Table() {
                 {filteredContent.slice(startIndex, endIndex).map(thisTable => (
                     <Card className='Card' key={thisTable.id} id={thisTable.id} onClick={() => handleCardClick(thisTable.id)}>
                         <Card.Body>
-                            <Card.Title>{thisTable.title}</Card.Title>
-                            <Card.Text>{thisTable.content || thisTable.description}</Card.Text>
+                            <Card.Title style={{ textAlign: 'center', marginBottom: '.2em' }}>{thisTable.title}</Card.Title>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable === 'Courses' ? `Topics: ${thisTable.topics}` : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable === 'Courses' ? `Difficulty: ${thisTable.difficulty}` : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable === 'Courses' ? `Time to Complete: ${thisTable.timeToComplete}` : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable !== 'Questions' ? `Description: ${thisTable.description}` : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{(currentTable !== 'Courses' && currentTable !== 'Quizzes') ? `Content: ${thisTable.content}` : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable === 'Questions' ? <ul style={{ display: 'flex', flexDirection: 'column' }}>Options: {thisTable.options.map(option => <li key={option.id}>- {option.content}</li>)}</ul> : ''}</Card.Text>
+                            <Card.Text style={{ marginTop: '.2em' }}>{currentTable === 'Questions' ? <ul style={{ display: 'flex', flexDirection: 'column' }}>Answer: {thisTable.answers.map(answer => <li key={answer.id}>- {answer.content}</li>)}</ul> : ''}</Card.Text>
                         </Card.Body>
                         <div className='buttons'>
                             <Button className='edit' onClick={() => handleModalOpen(thisTable.id, "edit")}>Edit</Button>
