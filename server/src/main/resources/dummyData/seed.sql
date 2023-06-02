@@ -1,27 +1,16 @@
 -- Insert statement for the course
-INSERT INTO courses (title, description, user_id)
+INSERT INTO courses (title, description, topics, difficulty, time_needed, user_id)
 VALUES
-  ('Course 1', 'This is the first course on our platform.', 1),
-  ('Course 2', 'In this course, you will learn advanced techniques.', 1),
-  ('Course 3', 'Discover the secrets of effective communication.', 1),
-  ('Course 4', 'Learn how to build your own website from scratch.', 1),
-  ('Course 5', 'Master the art of digital photography.', 1),
-  ('Course 6', 'Explore the world of data analysis and visualization.', 1),
-  ('Course 7', 'Unleash your creativity with this art course.', 1),
-  ('Course 8', 'Learn the basics of programming with Python.', 1),
-  ('Course 9', 'Enhance your leadership skills with this course.', 1),
-  ('Course 10', 'Discover the wonders of astronomy.', 1),
-  ('Course 11', 'Learn how to play the guitar like a pro.', 1),
-  ('Course 12', 'Master the art of cooking with this culinary course.', 1),
-  ('Course 13', 'Explore the history and culture of ancient civilizations.', 1),
-  ('Course 14', 'Learn the fundamentals of financial management.', 1),
-  ('Course 15', 'Get in shape and stay healthy with this fitness course.', 1),
-  ('Course 16', 'Discover the principles of effective marketing.', 1),
-  ('Course 17', 'Learn the basics of graphic design and illustration.', 1),
-  ('Course 18', 'Explore the fascinating world of psychology.', 1),
-  ('Course 19', 'Master the art of public speaking.', 1),
-  ('Course 20', 'Learn the secrets of successful entrepreneurship.', 1);
-
+  ('Course 1', 'This is the first course on our platform.', 'Learning the User Interface, Learning the flow of the Platform', 'Beginner', '3 Days', 1),
+  ('Course 2', 'In this course, you will learn advanced techniques.', 'Learning the Advanced Techniques, Learning to implement these techniques', 'Intermediate', '2 Weeks', 1),
+  ('Course 3', 'Discover the secrets of effective communication.', 'Learn how people communicate, Learn how to be an active listener', 'Beginner', '2 Days', 1),
+  ('Course 4', 'Learn how to build your own website from scratch.', 'Learn basic web development, Learn webpage structure and flow', 'Beginner', '1 week', 1),
+  ('Course 5', 'Master the art of digital photography.', 'Learnhow to utilize different camera setttings, Learn how to bring life to photos', 'Beginner', '1 week', 1),
+  ('Course 6', 'Explore the world of data analysis and visualization.', 'Learn the basics of data analysis, Learn how to best visualize your data', 'Intermediate', '3 Weeks', 1),
+  ('Course 7', 'Unleash your creativity with this art course.', 'Learn best practices for art design, Learn how to bring out your inner creativity', 'Beginner', '1 Day', 1),
+  ('Course 8', 'Learn the basics of programming with Python.', 'Learn the fundamentals of Python, Learn how to build basic programs', 'Beginner', '2 Weeks', 1),
+  ('Course 9', 'Enhance your leadership skills with this course.', 'Learn what leadership styles are used worldwide, Learn what leadership style best suites you', 'Intermediate', '5 Days', 1),
+  ('Course 10', 'Discover the wonders of astronomy.', 'Learn how to recognize star patterns, Learn positioning of astrological signs', 'Beginner', '4 Days', 1);
 
 -- Insert statements for the lessons
 INSERT INTO lessons (title, description, content, course_id)
@@ -144,126 +133,6 @@ VALUES ('Conditional Statements', 'Discover how to use if-else statements and ma
 INSERT INTO lessons (title, description, content, course_id)
 VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 10);
 
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 11);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 11);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 11);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 11);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 12);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 12);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 12);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 12);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 13);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 13);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 13);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 13);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 14);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 14);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 14);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 14);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 15);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 15);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 15);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 15);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 16);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 16);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 16);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 16);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 17);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 17);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 17);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 17);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 18);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 18);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 18);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 18);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 19);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 19);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 19);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 19);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 20);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 20);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 20);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 20);
-
 -- Insert statements for the quizzes
 INSERT INTO quizzes (title, description, lesson_id)
 VALUES
@@ -312,55 +181,6 @@ VALUES
   ('Nineteenth Quiz', 'Test your understanding of our platform\'s folder hierarchy and nesting.', 39),
   ('Twentieth Quiz', 'The final quiz to evaluate your overall learning from this course.', 40);
 
-
-  INSERT INTO quizzes (title, description, lesson_id)
-VALUES
-  ('Your First Quiz', 'This quiz will test your ability to recollect how to use our platform and navigate through it.', 41),
-  ('Second Quiz', 'This quiz will assess your understanding of advanced features in our platform.', 42),
-  ('Third Quiz', 'Test your knowledge about the history of our company and its founders.', 43),
-  ('Fourth Quiz', 'Check your understanding of our platform\'s security features.', 44),
-  ('Fifth Quiz', 'Evaluate your familiarity with our platform\'s collaboration tools.', 45),
-  ('Sixth Quiz', 'Assess your knowledge of our platform\'s integrations with other tools.', 46),
-  ('Seventh Quiz', 'Test your understanding of our platform\'s data backup and recovery options.', 47),
-  ('Eighth Quiz', 'Evaluate your familiarity with our platform\'s notification settings.', 48),
-  ('Ninth Quiz', 'Check your understanding of our platform\'s accessibility features.', 49),
-  ('Tenth Quiz', 'Assess your knowledge of our platform\'s mobile app functionality.', 50),
-  ('Eleventh Quiz', 'Test your understanding of our platform\'s file versioning capabilities.', 51),
-  ('Twelfth Quiz', 'Evaluate your familiarity with our platform\'s sharing and permission settings.', 52),
-  ('Thirteenth Quiz', 'Check your knowledge of our platform\'s search and filter options.', 53),
-  ('Fourteenth Quiz', 'Assess your understanding of our platform\'s file organization features.', 54),
-  ('Fifteenth Quiz', 'Test your knowledge of our platform\'s file format compatibility.', 55),
-  ('Sixteenth Quiz', 'Evaluate your familiarity with our platform\'s activity tracking and audit logs.', 56),
-  ('Seventeenth Quiz', 'Check your understanding of our platform\'s file recovery options.', 57),
-  ('Eighteenth Quiz', 'Assess your knowledge of our platform\'s user management capabilities.', 58),
-  ('Nineteenth Quiz', 'Test your understanding of our platform\'s folder hierarchy and nesting.', 59),
-  ('Twentieth Quiz', 'The final quiz to evaluate your overall learning from this course.', 60);
-
-
-  INSERT INTO quizzes (title, description, lesson_id)
-VALUES
-  ('Your First Quiz', 'This quiz will test your ability to recollect how to use our platform and navigate through it.', 61),
-  ('Second Quiz', 'This quiz will assess your understanding of advanced features in our platform.', 62),
-  ('Third Quiz', 'Test your knowledge about the history of our company and its founders.', 63),
-  ('Fourth Quiz', 'Check your understanding of our platform\'s security features.', 64),
-  ('Fifth Quiz', 'Evaluate your familiarity with our platform\'s collaboration tools.', 65),
-  ('Sixth Quiz', 'Assess your knowledge of our platform\'s integrations with other tools.', 66),
-  ('Seventh Quiz', 'Test your understanding of our platform\'s data backup and recovery options.', 67),
-  ('Eighth Quiz', 'Evaluate your familiarity with our platform\'s notification settings.', 68),
-  ('Ninth Quiz', 'Check your understanding of our platform\'s accessibility features.', 69),
-  ('Tenth Quiz', 'Assess your knowledge of our platform\'s mobile app functionality.', 70),
-  ('Eleventh Quiz', 'Test your understanding of our platform\'s file versioning capabilities.', 71),
-  ('Twelfth Quiz', 'Evaluate your familiarity with our platform\'s sharing and permission settings.', 72),
-  ('Thirteenth Quiz', 'Check your knowledge of our platform\'s search and filter options.', 73),
-  ('Fourteenth Quiz', 'Assess your understanding of our platform\'s file organization features.', 74),
-  ('Fifteenth Quiz', 'Test your knowledge of our platform\'s file format compatibility.', 75),
-  ('Sixteenth Quiz', 'Evaluate your familiarity with our platform\'s activity tracking and audit logs.', 76),
-  ('Seventeenth Quiz', 'Check your understanding of our platform\'s file recovery options.', 77),
-  ('Eighteenth Quiz', 'Assess your knowledge of our platform\'s user management capabilities.', 78),
-  ('Nineteenth Quiz', 'Test your understanding of our platform\'s folder hierarchy and nesting.', 79),
-  ('Twentieth Quiz', 'The final quiz to evaluate your overall learning from this course.', 80);
-
-
 -- Insert statements for the questions
 INSERT INTO questions (title, content, quiz_id)
 VALUES
@@ -407,52 +227,6 @@ VALUES
     ('Your Eighteenth Question', 'What is the chemical formula for table salt?', 38),
     ('Your Nineteenth Question', 'How many planets are in our solar system?', 39),
     ('Your Twentieth Question', 'Who painted "Starry Night"?', 40);
-
-INSERT INTO questions (title, content, quiz_id)
-VALUES
-    ('Your First Question', 'What is the first screen you see when you login to the platform?', 41),
-    ('Your Second Question', 'What is the capital of France?', 42),
-    ('Your Third Question', 'Who painted the Mona Lisa?', 43),
-    ('Your Fourth Question', 'What is the chemical symbol for gold?', 44),
-    ('Your Fifth Question', 'What is the largest planet in our solar system?', 45),
-    ('Your Sixth Question', 'Who is the author of "To Kill a Mockingbird"?', 46),
-    ('Your Seventh Question', 'In which year did World War II end?', 47),
-    ('Your Eighth Question', 'What is the formula for water?', 48),
-    ('Your Ninth Question', 'What is the square root of 144?', 49),
-    ('Your Tenth Question', 'Who discovered penicillin?', 50),
-    ('Your Eleventh Question', 'What is the tallest mountain in the world?', 51),
-    ('Your Twelfth Question', 'What is the primary language spoken in Brazil?', 52),
-    ('Your Thirteenth Question', 'Who is the current President of the United States?', 53),
-    ('Your Fourteenth Question', 'What is the symbol for the element oxygen?', 54),
-    ('Your Fifteenth Question', 'What is the freezing point of water in Celsius?', 55),
-    ('Your Sixteenth Question', 'Who wrote the play "Hamlet"?', 56),
-    ('Your Seventeenth Question', 'What is the largest ocean on Earth?', 57),
-    ('Your Eighteenth Question', 'What is the chemical formula for table salt?', 58),
-    ('Your Nineteenth Question', 'How many planets are in our solar system?', 59),
-    ('Your Twentieth Question', 'Who painted "Starry Night"?', 60);
-
-INSERT INTO questions (title, content, quiz_id)
-VALUES
-    ('Your First Question', 'What is the first screen you see when you login to the platform?', 61),
-    ('Your Second Question', 'What is the capital of France?', 62),
-    ('Your Third Question', 'Who painted the Mona Lisa?', 63),
-    ('Your Fourth Question', 'What is the chemical symbol for gold?', 64),
-    ('Your Fifth Question', 'What is the largest planet in our solar system?', 65),
-    ('Your Sixth Question', 'Who is the author of "To Kill a Mockingbird"?', 66),
-    ('Your Seventh Question', 'In which year did World War II end?', 67),
-    ('Your Eighth Question', 'What is the formula for water?', 68),
-    ('Your Ninth Question', 'What is the square root of 144?', 69),
-    ('Your Tenth Question', 'Who discovered penicillin?', 70),
-    ('Your Eleventh Question', 'What is the tallest mountain in the world?', 71),
-    ('Your Twelfth Question', 'What is the primary language spoken in Brazil?', 72),
-    ('Your Thirteenth Question', 'Who is the current President of the United States?', 73),
-    ('Your Fourteenth Question', 'What is the symbol for the element oxygen?', 74),
-    ('Your Fifteenth Question', 'What is the freezing point of water in Celsius?', 75),
-    ('Your Sixteenth Question', 'Who wrote the play "Hamlet"?', 76),
-    ('Your Seventeenth Question', 'What is the largest ocean on Earth?', 77),
-    ('Your Eighteenth Question', 'What is the chemical formula for table salt?', 78),
-    ('Your Nineteenth Question', 'How many planets are in our solar system?', 79),
-    ('Your Twentieth Question', 'Who painted "Starry Night"?', 80);
 
 -- Insert statements for the question options
 INSERT INTO options (content, question_id)
@@ -547,98 +321,6 @@ VALUES
   ('A search results page with pagination and sorting.', 40),
   ('A feedback form with rating and comment sections.', 40);
 
-  INSERT INTO options (content, question_id)
-VALUES
-  ('A 404 screen with customized error message.', 41),
-  ('A 500 Internal Server Error screen with detailed error description.', 41),
-  ('An animated login screen with social media integration.', 42),
-  ('A dynamic homepage showcasing trending content.', 42),
-  ('Welcome Aboard screen with personalized greeting.', 43),
-  ('User Dashboard screen with real-time data visualization.', 43),
-  ('A contact form with CAPTCHA for enhanced security.', 44),
-  ('A product listing page with advanced filtering options.', 44),
-  ('A mobile-responsive checkout screen for seamless purchases.', 45),
-  ('An order confirmation screen with order summary.', 45),
-  ('A search results page with pagination and sorting.', 46),
-  ('A feedback form with rating and comment sections.', 46),
-  ('An image gallery with slideshow and download options.', 47),
-  ('A subscription page with different pricing tiers.', 47),
-  ('A blog post page with related articles and comments.', 48),
-  ('A category page displaying related products.', 48),
-  ('A settings page with customizable theme options.', 49),
-  ('A newsletter signup form with confirmation email.', 49),
-  ('A search results page with pagination and sorting.', 50),
-  ('A feedback form with rating and comment sections.', 50);
-
-  INSERT INTO options (content, question_id)
-VALUES
-  ('A 404 screen with customized error message.', 51),
-  ('A 500 Internal Server Error screen with detailed error description.', 51),
-  ('An animated login screen with social media integration.', 52),
-  ('A dynamic homepage showcasing trending content.', 52),
-  ('Welcome Aboard screen with personalized greeting.', 53),
-  ('User Dashboard screen with real-time data visualization.', 53),
-  ('A contact form with CAPTCHA for enhanced security.', 54),
-  ('A product listing page with advanced filtering options.', 54),
-  ('A mobile-responsive checkout screen for seamless purchases.', 55),
-  ('An order confirmation screen with order summary.', 55),
-  ('A search results page with pagination and sorting.', 56),
-  ('A feedback form with rating and comment sections.', 56),
-  ('An image gallery with slideshow and download options.', 57),
-  ('A subscription page with different pricing tiers.', 57),
-  ('A blog post page with related articles and comments.', 58),
-  ('A category page displaying related products.', 58),
-  ('A settings page with customizable theme options.', 59),
-  ('A newsletter signup form with confirmation email.', 59),
-  ('A search results page with pagination and sorting.', 60),
-  ('A feedback form with rating and comment sections.', 60);
-
-  INSERT INTO options (content, question_id)
-VALUES
-  ('A 404 screen with customized error message.', 61),
-  ('A 500 Internal Server Error screen with detailed error description.', 61),
-  ('An animated login screen with social media integration.', 62),
-  ('A dynamic homepage showcasing trending content.', 62),
-  ('Welcome Aboard screen with personalized greeting.', 63),
-  ('User Dashboard screen with real-time data visualization.', 63),
-  ('A contact form with CAPTCHA for enhanced security.', 64),
-  ('A product listing page with advanced filtering options.', 64),
-  ('A mobile-responsive checkout screen for seamless purchases.', 65),
-  ('An order confirmation screen with order summary.', 65),
-  ('A search results page with pagination and sorting.', 66),
-  ('A feedback form with rating and comment sections.', 66),
-  ('An image gallery with slideshow and download options.', 67),
-  ('A subscription page with different pricing tiers.', 67),
-  ('A blog post page with related articles and comments.', 68),
-  ('A category page displaying related products.', 68),
-  ('A settings page with customizable theme options.', 69),
-  ('A newsletter signup form with confirmation email.', 69),
-  ('A search results page with pagination and sorting.', 70),
-  ('A feedback form with rating and comment sections.', 70);
-
-  INSERT INTO options (content, question_id)
-VALUES
-  ('A 404 screen with customized error message.', 71),
-  ('A 500 Internal Server Error screen with detailed error description.', 71),
-  ('An animated login screen with social media integration.', 72),
-  ('A dynamic homepage showcasing trending content.', 72),
-  ('Welcome Aboard screen with personalized greeting.', 73),
-  ('User Dashboard screen with real-time data visualization.', 73),
-  ('A contact form with CAPTCHA for enhanced security.', 74),
-  ('A product listing page with advanced filtering options.', 74),
-  ('A mobile-responsive checkout screen for seamless purchases.', 75),
-  ('An order confirmation screen with order summary.', 75),
-  ('A search results page with pagination and sorting.', 76),
-  ('A feedback form with rating and comment sections.', 76),
-  ('An image gallery with slideshow and download options.', 77),
-  ('A subscription page with different pricing tiers.', 77),
-  ('A blog post page with related articles and comments.', 78),
-  ('A category page displaying related products.', 78),
-  ('A settings page with customizable theme options.', 79),
-  ('A newsletter signup form with confirmation email.', 79),
-  ('A search results page with pagination and sorting.', 80),
-  ('A feedback form with rating and comment sections.', 80);
-
 -- -- Insert statements for the question answers
 INSERT INTO answers (content, question_id)
 VALUES
@@ -685,49 +367,3 @@ VALUES
     ('Order cancellation and refund process.', 38),
     ('Sales and revenue reports.', 39),
     ('User activity tracking.', 40);
-
-    INSERT INTO answers (content, question_id)
-VALUES
-    ('User Dashboard screen.', 41),
-    ('Product search functionality.', 42),
-    ('Payment processing module.', 43),
-    ('Account registration process.', 44),
-    ('Order tracking feature.', 45),
-    ('Customer support system.', 46),
-    ('Inventory management tool.', 47),
-    ('Data analytics dashboard.', 48),
-    ('Email notification system.', 49),
-    ('User profile customization options.', 50),
-    ('Product recommendation engine.', 51),
-    ('Multi-language support.', 52),
-    ('Social media integration.', 53),
-    ('Customer feedback collection.', 54),
-    ('Secure payment gateway.', 55),
-    ('Product rating and review system.', 56),
-    ('Mobile app compatibility.', 57),
-    ('Order cancellation and refund process.', 58),
-    ('Sales and revenue reports.', 59),
-    ('User activity tracking.', 60);
-
-    INSERT INTO answers (content, question_id)
-VALUES
-    ('User Dashboard screen.', 61),
-    ('Product search functionality.', 62),
-    ('Payment processing module.', 63),
-    ('Account registration process.', 64),
-    ('Order tracking feature.', 65),
-    ('Customer support system.', 66),
-    ('Inventory management tool.', 67),
-    ('Data analytics dashboard.', 68),
-    ('Email notification system.', 69),
-    ('User profile customization options.', 70),
-    ('Product recommendation engine.', 71),
-    ('Multi-language support.', 72),
-    ('Social media integration.', 73),
-    ('Customer feedback collection.', 74),
-    ('Secure payment gateway.', 75),
-    ('Product rating and review system.', 76),
-    ('Mobile app compatibility.', 77),
-    ('Order cancellation and refund process.', 78),
-    ('Sales and revenue reports.', 79),
-    ('User activity tracking.', 80);
