@@ -1,7 +1,6 @@
 .signup-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
@@ -10,14 +9,16 @@
 .signup-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #aca9a4;
-    border: 1em solid #4a4c52;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1em;
     padding: .5em;
-    width: 70vw;
-    height: 75vh;
+    width: 45vw;
+    height: fit-content;
 }
 
 .signup {
@@ -52,8 +53,8 @@
 .signupPasswordInput,
 .signupEmailInput,
 .signupConfirmPasswordInput {
-    width: 30em;
-    height: 4em;
+    width: 25em;
+    height: 3em;
     border-radius: 2em;
     padding: 1em;
 }
@@ -105,7 +106,7 @@
 @media screen and (max-width: 600px) {
     .signup-form {
         width: 90vw;
-        height: 70vh;
+        height: fit-content;
     }
 
     .signup {
@@ -139,6 +140,10 @@
     .subheading {
         margin-right: 1.5em;
         font-size: 1em;
+    }
+
+    .signupAccount {
+        width: 60vw;
     }
 
 }

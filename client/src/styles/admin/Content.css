@@ -1,5 +1,6 @@
 .contentTitle {
     text-align: center;
+    margin-top: 1em;
 }
 
 .mainContent {
@@ -12,7 +13,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     justify-items: center;
 }
@@ -32,7 +33,9 @@
 .QuestionsGrid {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: column;
+    margin-top: 1em;
 }
 
 .delete,
@@ -198,6 +201,7 @@
 
 .createContentTitle {
     color: var(--primary-text);
+    margin-bottom: .5em;
 }
 
 textarea {
@@ -226,4 +230,73 @@ label[for="description"] {
     width: fit-content;
     font-size: .8em;
     margin-bottom: 1em;
+}
+
+.lessonCreation {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: auto;
+    gap: 1em;
+}
+
+.devTools,
+.preview {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: .5em;
+}
+
+.informationTitle,
+.informationDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.devTools {
+    flex: 2;
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.informationDescription label {
+    margin: 0;
+}
+
+.preview {
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(103, 125, 140, 1) 0%, rgba(172, 169, 164, 1) 100%);
+    background-attachment: fixed;
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    height: auto;
+    padding: .5em;
+    pointer-events: none;
+    box-sizing: border-box;
+    font-size: .5em;
+    overflow-y: scroll;
+    word-wrap: break-word;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5em;
+}
+
+.toolButtons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .5em;
+}
+
+.toolButton {
+    cursor: pointer;
 }

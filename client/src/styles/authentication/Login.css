@@ -1,7 +1,6 @@
 .login-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
@@ -12,12 +11,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #aca9a4;
-    border: 1em solid #4a4c52;
     border-radius: 1em;
-    padding: .5em;
-    width: 70vw;
-    height: 70vh;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1em;
+    width: 45vw;
+    height: fit-content;
 }
 
 .login {
@@ -80,7 +82,7 @@
 
 .loginTitle {
     font-size: 4em;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 }
 
 .login:hover {
@@ -101,7 +103,7 @@
 @media screen and (max-width: 600px) {
     .login-form {
         width: 90vw;
-        height: 70vh;
+        height: fit-content;
     }
 
     .login {
@@ -133,11 +135,4 @@
     }
 
 
-}
-
-@media screen and (min-width: 1000px) {
-    .login-form {
-        width: 50vw;
-        height: 70vh;
-    }
 }

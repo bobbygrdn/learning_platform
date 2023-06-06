@@ -26,6 +26,10 @@ main {
     margin: 0 1em;
 }
 
+.settingsTitle {
+    margin-top: 1em;
+}
+
 .settingsForm {
     display: flex;
     flex-direction: row;
@@ -76,6 +80,10 @@ table {
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 1em;
 }
 
 th,
@@ -89,10 +97,10 @@ tr {
 }
 
 th {
-    background-color: #4a4c52;
     color: whitesmoke;
     width: 14em;
     text-align: center;
+    border-bottom: 1px solid var(--secondary-text);
 }
 
 th:hover span {
@@ -113,20 +121,16 @@ tbody ul {
     pointer-events: none;
 }
 
+.tableHead {
+    pointer-events: none;
+}
+
 tr {
     width: 5em;
 }
 
-tr:nth-child(even) {
-    background-color: #aca9a4;
-}
-
-tr:nth-child(odd) {
-    background-color: #677d8c;
-}
-
 tr:hover {
-    background-color: #ddd;
+    color: var(--tertiary-color);
 }
 
 select {
