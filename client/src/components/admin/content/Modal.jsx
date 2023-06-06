@@ -4,16 +4,16 @@ import useTableStore from '../../../store/useTableStore';
 import CreateContent from './CreateContent';
 import EditContent from './EditContent';
 
-export default function Modal({ table, handleModalOpen }) {
+export default function Modal({ table }) {
 
     const { modalOpen, action } = useStore(useTableStore);
 
     const userAction = () => {
         switch (action) {
             case "create":
-                return <CreateContent table={table} handleModalOpen={handleModalOpen} />
+                return <CreateContent table={table} />
             case "edit":
-                return <EditContent handleModalOpen={handleModalOpen} />
+                return <EditContent />
             default:
                 return <h1>Error</h1>;
         }
