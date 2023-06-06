@@ -3,7 +3,7 @@ import { createStore } from 'zustand';
 const useCredentialStore = createStore((set) => ({
     userName: '',
     password: '',
-    userId: '',
+    userId: 0,
     keepLoggedIn: false,
     disabled: true,
     setUserName: (name) => set({ userName: name }),
