@@ -1,25 +1,28 @@
 import React from 'react';
 import { useStore } from 'zustand';
-import CodeEditor from './CodeEditor';
 import useTableStore from '../../../store/useTableStore';
 import useCredentialStore from '../../../store/useCredentialsStore';
 import useModalStore from '../../../store/useModalStore';
 import { toast } from 'react-toastify';
+import CourseCreationForm from './CourseCreationForm';
+import QuestionCreationForm from './QuestionCreationForm';
+import LessonCreationForm from './LessonCreationForm';
+import QuizCreationForm from './QuizCreationForm';
 
 export default function CreateContent({ table }) {
 
     const { userId } = useStore(useCredentialStore);
     const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
-    const { title, setTitle, description, setDescription, content, setContent, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics } = useStore(useModalStore);
+    const { title, description, content, difficulty, timeNeeded, topics } = useStore(useModalStore);
 
     const createUrl = () => {
         switch (table) {
             case "Lessons":
-                return `courses/${currentEntity.id}/lessons`;
+                return `courses/${currentEntity}/lessons`;
             case "Quizzes":
-                return `lessons/${currentEntity.id}/quizzes`;
+                return `lessons/${currentEntity}/quizzes`;
             case "Questions":
-                return `quizzes/${currentEntity.id}/questions`;
+                return `quizzes/${currentEntity}/questions`;
             default:
                 return `users/${userId}/courses`;
         }
@@ -33,7 +36,7 @@ export default function CreateContent({ table }) {
                     "description": description,
                     "content": content,
                     "course": {
-                        "id": currentEntity.id
+                        "id": currentEntity
                     }
                 }
             case "Quizzes":
@@ -41,7 +44,7 @@ export default function CreateContent({ table }) {
                     "title": title,
                     "description": description,
                     "lesson": {
-                        "id": currentEntity.id
+                        "id": currentEntity
                     }
                 }
             case "Questions":
@@ -49,7 +52,7 @@ export default function CreateContent({ table }) {
                     "title": title,
                     "content": content,
                     "quiz": {
-                        "id": currentEntity.id
+                        "id": currentEntity
                     }
                 }
             default:
@@ -57,7 +60,7 @@ export default function CreateContent({ table }) {
                     "title": title,
                     "description": description,
                     "difficulty": difficulty,
-                    "time_needed": timeNeeded,
+                    "timeToComplete": timeNeeded,
                     "topics": topics,
                     "user": {
                         "id": userId
@@ -94,109 +97,19 @@ export default function CreateContent({ table }) {
         setModalOpen(!modalOpen);
     }
 
-    const handleContentChange = (newContent) => {
-        setContent(newContent)
-    }
-
     const createFormContent = () => {
         switch (table) {
-
             case "Lessons":
-                return <>
-                    <label htmlFor='title'>Title</label>
-                    <input
-                        id='createTitle'
-                        name='title'
-                        type='text'
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title}
-                    />
-
-                    <label htmlFor='description'>Description</label>
-                    <textarea
-                        id='description'
-                        name="description"
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description}
-                        rows="5"
-                        cols="80"
-                        style={{ resize: "none" }}
-                    />
-
-                    <label htmlFor='content'>Content</label>
-                    <CodeEditor handleContentChange={handleContentChange} language={"html"} />
-                </>
+                return <LessonCreationForm />
 
             case "Questions":
-                return <>
-                    <label htmlFor='title'>Title</label>
-                    <input
-                        id='createTitle'
-                        name='title'
-                        type='text'
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title}
-                    />
+                return <QuestionCreationForm />
 
-                    <label htmlFor='content'>Content</label>
-                    <CodeEditor handleContentChange={handleContentChange} language={"html"} />
-                </>
+            case "Quizzes":
+                return <QuizCreationForm />
 
             default:
-                return <>
-                    <label htmlFor='title'>Title</label>
-                    <input
-                        id='createTitle'
-                        className='createInput'
-                        name='title'
-                        type='text'
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title}
-                    />
-
-                    <label htmlFor='difficulty'>Select Difficulty:</label>
-                    <select
-                        id="difficulty"
-                        value={difficulty}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    >
-                        <option value="Beginner">Beginner</option>
-                        <option value="Intermediate">Intermediate</option>
-                        <option value="Advanced">Advanced</option>
-                    </select>
-
-                    <label htmlFor='timeNeeded'>Time Needed</label>
-                    <input
-                        id='timeNeeded'
-                        className='createInput'
-                        name="timeNeeded"
-                        type='text'
-                        onChange={(e) => setTimeNeeded(e.target.value)}
-                        value={timeNeeded}
-                    />
-
-                    <label htmlFor='description'>Description</label>
-                    <textarea
-                        id='description'
-                        name="description"
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description}
-                        rows="5"
-                        cols="30"
-                        style={{ resize: "none" }}
-                    />
-
-                    <label htmlFor='topics'>Topics</label>
-                    <textarea
-                        id='topics'
-                        name="topics"
-                        onChange={(e) => setTopics(e.target.value)}
-                        value={topics}
-                        rows="5"
-                        cols="30"
-                        style={{ resize: "none" }}
-                    />
-                </>
+                return <CourseCreationForm />
         }
     }
 
