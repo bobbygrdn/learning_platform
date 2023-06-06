@@ -76,7 +76,7 @@ export default function Settings() {
 
     return (
         <div className='settingsPage'>
-            <h1>General Settings</h1>
+            <h1 className='settingsTitle'>General Settings</h1>
             <form className='settingsForm'>
                 <label className='registrationTitle'>
                     Set Registration Access:
@@ -90,7 +90,7 @@ export default function Settings() {
                 </label>
             </form>
 
-            <h1>User Management</h1>
+            <h1 className='settingsTitle'>User Management</h1>
             <div className='searchBar'>
                 <h3 className='searchTitle'>Search</h3>
                 <input
@@ -102,7 +102,7 @@ export default function Settings() {
                 />
             </div>
             <table>
-                <thead>
+                <thead className='tableHead'>
                     <tr>
                         <th>
                             <span>Username</span>
