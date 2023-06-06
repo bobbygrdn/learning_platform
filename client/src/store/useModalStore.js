@@ -13,6 +13,7 @@ const useModalStore = createStore((set) => ({
     setTimeNeeded: (timeNeeded) => set({ timeNeeded }),
     setTopics: (topics) => set({ topics }),
     setContent: (content) => set({ content }),
+    addContent: (newContent) => set((state) => ({ ...state, content: state.content + newContent })),
 }));
 
 export default useModalStore;
