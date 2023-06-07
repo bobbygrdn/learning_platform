@@ -3,7 +3,7 @@ import Editor from '@monaco-editor/react';
 import { useStore } from 'zustand';
 import useModalStore from '../../../store/useModalStore';
 
-export default function CodeEditor({ height, language, theme }) {
+export default function CodeEditor({ height, language, theme, value }) {
 
     const { content, setContent } = useStore(useModalStore);
 
@@ -16,7 +16,7 @@ export default function CodeEditor({ height, language, theme }) {
             height={height || "300px"}
             defaultLanguage={language}
             theme={theme || "vs-dark"}
-            value={content}
+            value={content || value}
             onChange={handleContentChange}
             options={{
                 "accessibilitySupport": "auto",
