@@ -111,6 +111,7 @@
     padding: 80px 20px;
     overflow-y: scroll;
     transition: all 0.5s ease;
+    z-index: 1;
 }
 
 .sidebar.sidebarClose {
