@@ -318,9 +318,35 @@ label[for="description"] {
 .toolButtons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
     gap: .5em;
 }
 
 .toolButton {
     cursor: pointer;
+    --bg: #677D8C;
+    --text-color: var(--secondary-text);
+    width: max-content;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: .6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #7892a3 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
+}
+
+.toolButton:hover {
+    opacity: 1;
+}
+
+.toolButton:active {
+    transform: translateY(4px);
 }
