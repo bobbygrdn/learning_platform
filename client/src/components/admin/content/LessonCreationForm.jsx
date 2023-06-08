@@ -43,10 +43,10 @@ export default function LessonCreationForm() {
                         />
                     </div>
                     <div className='toolButtons'>
-                        <button value={'<h1></h1>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>Title</button>
+                        <button value={'<code></code>'} className='toolButton' onClick={(event) => handleAddElement(event)}>Code Block</button>
                         <button value={'<h3></h3>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>SubTitle</button>
                         <button value={'<p></p>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>Paragraph</button>
-                        <button value={'<code></code>'} className='toolButton' onClick={(event) => handleAddElement(event)}>Code Block</button>
+                        <button value={'<h1></h1>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>Title</button>
                         <button value={'<ul>\n<li></li>\n</ul>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>List</button>
                         <button value={'<img></img>\n'} className='toolButton' onClick={(event) => handleAddElement(event)}>Image</button>
                     </div>
