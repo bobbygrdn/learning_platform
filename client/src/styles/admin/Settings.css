@@ -10,6 +10,15 @@ main {
     width: 100%;
 }
 
+.settingsButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    bottom: 1em;
+    align-self: center;
+}
+
 .settingsForm {
     margin-bottom: 1em;
 }
