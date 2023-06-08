@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/admin/Settings.css';
+import { toast } from 'react-toastify';
+
 
 
 export default function Settings() {
@@ -11,7 +13,7 @@ export default function Settings() {
 
     const filteredUsers = users.filter((user) => user.username.includes(searchTerm));
 
-    const itemsPerPage = 8;
+    const itemsPerPage = 6;
     const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -35,43 +37,74 @@ export default function Settings() {
             .catch(error => console.error(error));
     }, []);
 
-    const handleChangeRole = (userId, newRole) => {
-        fetch(`/api/v1/users/${userId}/role`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                role: newRole
-            })
-        })
-            .then(response => {
-                if (response.ok) {
-                    const updatedUsers = users.map(user => {
-                        if (user.id === userId) {
-                            return { ...user, role: newRole }
-                        }
-                        return user;
-                    });
-                    setUsers(updatedUsers);
-                    window.alert("User role updated successfully");
-                } else {
-                    throw new Error('Failed to update user role');
-                }
-            })
-            .catch(error => console.error(error));
+    const handleChangeRole = (existUser, newRole) => {
+        toast.info(
+            <div>
+                <p>Are you sure you want to update {existUser.username}'s role?' { }?</p>
+                <div className='buttons'>
+                    <button className='yes' onClick={() => handleUserRoleSelection('yes', existUser, newRole)}>Yes</button>
+                    <button className='no' onClick={() => handleUserRoleSelection('no', existUser, newRole)}>No</button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+            }
+        )
     };
 
-    const handleDeleteUser = (user, userId) => {
-        fetch(`/api/v1/users/${userId}`, {
-            method: 'DELETE'
-        })
-            .then(response => {
-                console.log(response);
-                window.alert("User " + user.username + " deleted successfully");
-                window.location.reload();
+    const handleUserRoleSelection = (action, existUser, newRole) => {
+        if (action === 'yes') {
+            fetch(`/api/v1/users/${existUser.id}/role`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    role: newRole
+                })
             })
-            .catch(error => console.error(error));
+                .then(response => {
+                    toast.success(`User ${existUser.username} role updated successfully`);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    toast.error(error.message);
+                })
+        } else {
+            toast.dismiss();
+        }
+    }
+
+    const handleUserSelection = (action, user, userId) => {
+        if (action === 'yes') {
+            fetch(`/api/v1/users/${userId}`, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    toast.success(`User ${user.username} deleted successfully`);
+                    window.location.reload();
+                })
+                .catch(error => {
+                    toast.error(error.message);
+                })
+        } else {
+            toast.dismiss();
+        }
+    }
+
+    const handleDeleteUser = (user, userId) => {
+        toast.info(
+            <div>
+                <p>Are you sure you want to delete {user.username}?</p>
+                <div className='buttons'>
+                    <button className='yes' onClick={() => handleUserSelection('yes', user, userId)}>Yes</button>
+                    <button className='no' onClick={() => handleUserSelection('no', user, userId)}>No</button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+            }
+        )
     }
 
     return (
@@ -133,7 +166,7 @@ export default function Settings() {
                             <td className='actions'>
                                 <select
                                     value={user.role}
-                                    onChange={e => handleChangeRole(user.id, e.target.value)}
+                                    onChange={e => handleChangeRole(user, e.target.value)}
                                 >
                                     <option value="User">User</option>
                                     <option value="Admin">Admin</option>
@@ -144,7 +177,7 @@ export default function Settings() {
                     ))}
                 </tbody>
             </table>
-            <div>
+            <div className='settingsButtons'>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                     <button className='pagesButton' key={page} onClick={() => setCurrentPage(page)}>
                         {page}
