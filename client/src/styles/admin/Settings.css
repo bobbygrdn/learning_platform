@@ -127,6 +127,7 @@ tbody ul {
 
 tr {
     width: 5em;
+    height: 3.5em;
 }
 
 tr:hover {
@@ -145,18 +146,30 @@ select {
 
 .deleteUser {
     cursor: pointer;
-    transition: 0.3s;
-    background-color: red;
+    --bg: #e74c3c;
+    --text-color: var(--secondary-text);
+    position: relative;
+    width: 10em;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
     font-weight: bold;
     font-size: .6em;
-    padding: 0.5em;
+    text-transform: uppercase;
+    transition: 0.2s;
     border-radius: 5px;
-    color: whitesmoke;
-    border: none;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
+}
 
-    &:hover,
-    &:focus {
-        transform: scale(1.1);
-        font-size: 1em;
-    }
+.deleteUser:hover {
+    opacity: 1;
+}
+
+.deleteUser:active {
+    top: 4px;
+    box-shadow: #c0392b 0px 3px 2px, #000 0px 3px 5px;
 }
