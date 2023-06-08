@@ -46,15 +46,6 @@
 .close,
 .back {
     cursor: pointer;
-    /* transition: 0.3s;
-    background-color: red;
-    font-weight: bold;
-    padding: 0.5em;
-    border-radius: 5px;
-    color: whitesmoke;
-    border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
-
     --bg: #e74c3c;
     --text-color: var(--secondary-text);
     position: relative;

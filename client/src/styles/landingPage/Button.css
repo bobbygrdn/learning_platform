@@ -1,14 +1,24 @@
 .landingPage {
-    background-color: #677D8C;
-    box-shadow: 0px 0px 20px #677D8C;
-    border-radius: .5em;
-    border-width: 0em;
-    width: 15em;
-    height: 5em;
-    padding: 1em;
-    color: whitesmoke;
+    --bg: #677D8C;
+    --text-color: var(--secondary-text);
+    height: 4em;
+    width: 10em;
     margin: 2em 0em;
-    font-size: 1em;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    font-size: .8em;
+    width: fit-content;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #7892a3 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
+    cursor: pointer;
 }
 
 .login,
@@ -16,10 +26,12 @@
     box-shadow: 0px 0px 20px #677D8C;
 }
 
-.landingPage:hover,
+.landingPage:hover {
+    opacity: 1;
+}
+
 .landingPage:active {
-    background-color: #000;
-    cursor: pointer;
+    top: 4px;
 }
 
 .signup:disabled,
@@ -28,12 +40,4 @@
     color: #6e6e6e;
     pointer-events: none;
     box-shadow: none;
-}
-
-@media screen and (min-width: 1000px) {
-    .landingPage {
-        width: 12em;
-        height: 4em;
-        font-size: 1.5em;
-    }
 }
