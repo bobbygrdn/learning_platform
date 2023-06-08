@@ -26,19 +26,30 @@
     display: flex;
     align-items: center;
     column-gap: 10px;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: (var(--secondary-color));
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    --bg: #e74c3c;
+    --text-color: var(--secondary-text);
+    width: 10em;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    font-size: .6em;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
 }
 
 .logout_container:hover {
-    background-color: var(--tertiary-color);
+    opacity: 1;
+}
+
+.logout_container:active {
+    bottom: 4px;
 }
 
 .logout {
