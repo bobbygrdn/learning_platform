@@ -20,7 +20,7 @@ import PlatformIssue from './components/authentication/PlatformIssue';
 import useAuthStore from './store/useAuthStore';
 
 function App() {
-  const { token, setToken, allowRegistration, setAllowRegistration } = useStore(useAuthStore);
+  const { token, setToken, setAllowRegistration } = useStore(useAuthStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -28,7 +28,7 @@ function App() {
         <Route path="/" element={<LandingPage token={token} />} />
         <Route path="/login" element={<Login token={token} />} />
         <Route path="/deviceIssue" element={<PlatformIssue />} />
-        <Route path="/signup" element={<Signup allowRegistration={allowRegistration} />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard token={token} />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />

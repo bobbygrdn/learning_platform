@@ -5,8 +5,13 @@ import RegistrationsClosed from './RegistrationsClosed';
 import '../../styles/authentication/Signup.css';
 import Header from '../landingPage/Header';
 import { toast } from 'react-toastify';
+import { useStore } from 'zustand';
+import useAuthStore from '../../store/useAuthStore';
 
-export default function Signup({ allowRegistration }) {
+export default function Signup() {
+
+    const { allowRegistration } = useStore(useAuthStore);
+
     const [formValues, setFormValues] = useState({
         username: '',
         email: '',
@@ -129,8 +134,8 @@ export default function Signup({ allowRegistration }) {
         <>
             {
                 allowRegistration ?
-                    <div div className='signup-wrapper'>
-                        < Header />
+                    <div className='signup-wrapper'>
+                        <Header />
                         <form className='signup-form' onSubmit={handleSubmit} noValidate>
                             <h1 className='signupTitle'>Signup</h1>
                             <label className='signupUsername'>
@@ -153,12 +158,10 @@ export default function Signup({ allowRegistration }) {
                                 <input className='signupConfirmPasswordInput' type='password' name='confirmPassword' value={formValues.confirmPassword} onChange={handleInputChange} onBlur={() => handleBlur("confirmPassword")} required />
                                 {confirmPasswordTouched && (errors.confirmPassword || !isValid) && <p className='signupError'>{errors.confirmPassword}</p>}
                             </label>
-                            <div>
-                                <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
-                            </div>
+                            <Button purpose='signup' text='Signup' type='submit' disabled={!isValid} />
                             <span className='signupAlready'>Already have an account?<a href='/login'> Click here</a></span>
                         </form>
-                    </div > : <RegistrationsClosed />}
+                    </div> : <RegistrationsClosed />}
         </>
     );
 }
