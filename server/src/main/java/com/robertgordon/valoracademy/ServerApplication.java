@@ -14,7 +14,7 @@ public class ServerApplication {
 
 	@Bean
 	CommandLineRunner commandLineRunner() {
-		return args -> System.out.println("My applicaiton got started!!");
+		return args -> System.out.println("My application got started!!");
 	}
 
 }
