@@ -26,26 +26,24 @@ export default function Login({ token }) {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        await fetch('/api/v1/users')
+        await fetch('/api/v1/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: userName,
+                password,
+                keepLoggedIn
+            }),
+        })
             .then(response => response.json())
             .then(data => {
-
-                const users = data;
-
-                const user = users.find(user => user.username === userName && user.password === password);
-
-                if (user) {
-                    if (keepLoggedIn === false) {
-                        sessionStorage.setItem('token', user.token);
-                        setUserId(user.id);
-                    }
-                    if (keepLoggedIn === true) {
-                        localStorage.setItem('token', user.token);
-                        setUserId(user.id);
-                    }
+                if (data) {
+                    setUserId(data.id);
 
                     toast.success("Successfully logged in!");
-                    if (user.role === "Admin") {
+                    if (data.role === "Admin") {
                         if (isMobileDevice()) {
                             // User is on a mobile device
                             navigate('/deviceIssue');
@@ -62,6 +60,7 @@ export default function Login({ token }) {
             })
     }
 
+    // TODO: Look into Cookies and JWT for session management
     if (token != null) {
         navigate('/dashboard')
     }
