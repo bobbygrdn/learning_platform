@@ -24,4 +24,7 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
+    @Column(name = "keepLoggedIn", nullable = false, columnDefinition = "boolean default 'false'")
+    private boolean keepLoggedIn;
+
 }
