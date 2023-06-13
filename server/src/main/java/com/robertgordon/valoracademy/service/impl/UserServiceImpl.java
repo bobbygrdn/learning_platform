@@ -9,6 +9,7 @@ import com.robertgordon.valoracademy.exception.ResourceNotFoundException;
 import com.robertgordon.valoracademy.model.User;
 import com.robertgordon.valoracademy.repository.UserRepository;
 import com.robertgordon.valoracademy.service.UserService;
+import com.robertgordon.valoracademy.util.PasswordEncoder;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
+        String encodePassword = PasswordEncoder.encodePassword(user.getPassword());
+        user.setPassword(encodePassword);
         return userRepository.save(user);
     }
 
@@ -39,7 +42,8 @@ public class UserServiceImpl implements UserService {
 
         existingUser.setUsername(user.getUsername());
         existingUser.setEmail(user.getEmail());
-        existingUser.setPassword(user.getPassword());
+        String encodePassword = PasswordEncoder.encodePassword(user.getPassword());
+        existingUser.setPassword(encodePassword);
 
         return userRepository.save(existingUser);
     }
