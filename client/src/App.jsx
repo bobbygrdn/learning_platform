@@ -55,7 +55,7 @@ function App() {
         setAllowRegistration(data[0].registrations);
       })
       .catch(error => console.error(error));
-  })
+  }, [setAllowRegistration])
 
   return (
     <div className='App'>

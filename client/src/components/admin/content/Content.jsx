@@ -6,7 +6,7 @@ import useTableStore from '../../../store/useTableStore';
 import { Button } from 'react-bootstrap';
 
 export default function Content() {
-    const { currentTable, searchTerm, setSearchTerm, quizzes, setQuizzes, questions, setQuestions, lessons, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
+    const { currentTable, searchTerm, setSearchTerm, setQuizzes, setQuestions, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
 
     useEffect(() => {
         fetch("/api/v1/courses")
@@ -14,28 +14,28 @@ export default function Content() {
             .then(data => {
                 setCourses(data);
             })
-    }, [courses, setCourses]);
+    }, [setCourses]);
     useEffect(() => {
         fetch("/api/v1/lessons")
             .then(response => response.json())
             .then(data => {
                 setLessons(data);
             })
-    }, [lessons, setLessons]);
+    }, [setLessons]);
     useEffect(() => {
         fetch("/api/v1/quizzes")
             .then(response => response.json())
             .then(data => {
                 setQuizzes(data);
             })
-    }, [quizzes, setQuizzes]);
+    }, [setQuizzes]);
     useEffect(() => {
         fetch("/api/v1/questions")
             .then(response => response.json())
             .then(data => {
                 setQuestions(data);
             })
-    }, [questions, setQuestions]);
+    }, [setQuestions]);
 
     useEffect(() => {
         if (currentTable === 'Courses') {
