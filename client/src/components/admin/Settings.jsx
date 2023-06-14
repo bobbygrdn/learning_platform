@@ -34,7 +34,7 @@ export default function Settings() {
                 setUsers(data);
             })
             .catch(error => console.error(error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export default function Settings() {
                 setAllowRegistration(data[0].registrations);
             })
             .catch(error => console.error(error));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleChangeRole = (existUser, newRole) => {
