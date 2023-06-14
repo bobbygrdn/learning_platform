@@ -1,0 +1,43 @@
+.unauthorizeWrapper,
+.platformIssueWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 0 1em;
+}
+
+.unauthorizeWrapper h1 {
+    font-size: 5em;
+    margin-bottom: 1em;
+}
+
+.platformIssueWrapper h1 {
+    font-size: 2em;
+    margin-bottom: .5em;
+}
+
+.unauthorizeWrapper p {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+
+.platformIssueWrapper p {
+    font-size: 1em;
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+.unauthorizeWrapper img {
+    width: 16em;
+    margin-bottom: 1em;
+}
+
+.platformIssueWrapper img {
+    width: 18em;
+}
+
+.counter {
+    color: var(--primary-text);
+}
