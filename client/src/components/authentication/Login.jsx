@@ -6,9 +6,12 @@ import Header from '../landingPage/Header';
 import { useStore } from 'zustand';
 import useCredentialStore from '../../store/useCredentialsStore';
 import { toast } from 'react-toastify';
+import useAuthStore from '../../store/useAuthStore';
 
-export default function Login({ token }) {
+export default function Login() {
     const { userName, setUserName, password, setPassword, setUserId, keepLoggedIn, setKeepLoggedIn, disabled, setDisabled } = useStore(useCredentialStore);
+
+    const { role, setToken } = useStore(useAuthStore);
 
     const navigate = useNavigate();
 
@@ -40,6 +43,12 @@ export default function Login({ token }) {
             .then(response => response.json())
             .then(data => {
                 if (data) {
+                    if (keepLoggedIn === true) {
+                        localStorage.setItem("token", data.token);
+                        localStorage.setItem("id", data.id);
+                        localStorage.setItem("role", data.role);
+                    }
+                    setToken(data.token);
                     setUserId(data.id);
 
                     toast.success("Successfully logged in!");
@@ -60,9 +69,10 @@ export default function Login({ token }) {
             })
     }
 
-    // TODO: Look into Cookies and JWT for session management
-    if (token != null) {
-        navigate('/dashboard')
+    if (role != null) {
+        role === "Admin" ?
+            navigate('/admin/content') : navigate('/dashboard/profile');
+        toast.success("Hello again. Welcome Back!");
     }
 
     return (
