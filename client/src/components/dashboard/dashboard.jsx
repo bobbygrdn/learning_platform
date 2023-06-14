@@ -8,15 +8,15 @@ import useAuthStore from '../../store/useAuthStore';
 
 export default function Dashboard() {
 
-    const { token } = useStore(useAuthStore);
+    const { role } = useStore(useAuthStore);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (token == null) {
-            navigate('/');
+        if (role == null || role === "admin") {
+            navigate('/unauthorized');
         }
-    }, [navigate, token])
+    }, [navigate, role])
 
     return (
         <div className='dashboard'>
