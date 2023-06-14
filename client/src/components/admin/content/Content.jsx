@@ -4,38 +4,56 @@ import Table from './Table';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
 import { Button } from 'react-bootstrap';
+import useAuthStore from '../../../store/useAuthStore';
 
 export default function Content() {
     const { currentTable, searchTerm, setSearchTerm, setQuizzes, setQuestions, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
+    const { token } = useStore(useAuthStore);
 
     useEffect(() => {
-        fetch("/api/v1/courses")
+        fetch("/api/v1/courses", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setCourses(data);
             })
-    }, [setCourses]);
+    }, [setCourses, token]);
     useEffect(() => {
-        fetch("/api/v1/lessons")
+        fetch("/api/v1/lessons", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setLessons(data);
             })
-    }, [setLessons]);
+    }, [setLessons, token]);
     useEffect(() => {
-        fetch("/api/v1/quizzes")
+        fetch("/api/v1/quizzes", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setQuizzes(data);
             })
-    }, [setQuizzes]);
+    }, [setQuizzes, token]);
     useEffect(() => {
-        fetch("/api/v1/questions")
+        fetch("/api/v1/questions", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setQuestions(data);
             })
-    }, [setQuestions]);
+    }, [setQuestions, token]);
 
     useEffect(() => {
         if (currentTable === 'Courses') {

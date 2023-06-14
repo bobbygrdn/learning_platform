@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/admin/Settings.css';
 import { toast } from 'react-toastify';
+import { useStore } from 'zustand';
+import useAuthStore from '../../store/useAuthStore';
 
 
 
 export default function Settings() {
+
+    const { token } = useStore(useAuthStore);
 
     const [allowRegistration, setAllowRegistration] = useState("");
     const [users, setUsers] = useState([]);
@@ -20,21 +24,31 @@ export default function Settings() {
     const endIndex = startIndex + itemsPerPage;
 
     useEffect(() => {
-        fetch("/api/v1/users")
+        fetch("/api/v1/users", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
             })
             .catch(error => console.error(error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        fetch("/api/v1/settings")
+        fetch("/api/v1/settings", {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(response => response.json())
             .then(data => {
                 setAllowRegistration(data[0].registrations);
             })
             .catch(error => console.error(error));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleChangeRole = (existUser, newRole) => {
@@ -57,7 +71,8 @@ export default function Settings() {
             fetch(`/api/v1/users/${existUser.id}/role`, {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     role: newRole
@@ -78,7 +93,10 @@ export default function Settings() {
     const handleUserSelection = (action, user, userId) => {
         if (action === 'yes') {
             fetch(`/api/v1/users/${userId}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             })
                 .then(response => {
                     toast.success(`User ${user.username} deleted successfully`);

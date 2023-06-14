@@ -4,9 +4,12 @@ import useTableStore from '../../../store/useTableStore';
 import Modal from './Modal';
 import { Card, Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import useAuthStore from '../../../store/useAuthStore';
 
 export default function Table() {
     const { currentPage, setCurrentPage, setCurrentEntity, currentContent, setCurrentContent, courses, lessons, quizzes, modalOpen, setModalOpen, setAction, searchTerm, currentTable, setCurrentTable } = useStore(useTableStore);
+
+    const { token } = useStore(useAuthStore);
 
     const filteredContent = currentContent.filter((current) => {
         return current.title.includes(searchTerm);
@@ -31,7 +34,10 @@ export default function Table() {
     const handleUserSelection = (action, id) => {
         if (action === 'yes') {
             fetch(`/api/v1/${currentTable.toLowerCase()}/${id}`, {
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             })
                 .then(response => {
                     toast.success(`${currentContent.find((current) => current.id === id).title} has been deleted`);

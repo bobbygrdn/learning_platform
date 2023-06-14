@@ -8,12 +8,14 @@ import CourseCreationForm from './CourseCreationForm';
 import QuestionCreationForm from './QuestionCreationForm';
 import LessonCreationForm from './LessonCreationForm';
 import QuizCreationForm from './QuizCreationForm';
+import useAuthStore from '../../../store/useAuthStore';
 
 export default function CreateContent({ table }) {
 
     const { userId } = useStore(useCredentialStore);
     const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
     const { title, description, content, difficulty, timeNeeded, topics } = useStore(useModalStore);
+    const { token } = useStore(useAuthStore);
 
     const createUrl = () => {
         switch (table) {
@@ -79,7 +81,8 @@ export default function CreateContent({ table }) {
         fetch(`/api/v1/${url}`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(body)
         })
