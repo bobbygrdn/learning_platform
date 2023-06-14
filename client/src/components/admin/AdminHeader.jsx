@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 
 export default function AdminHeader() {
 
+
     function logout() {
-        window.localStorage.clear()
+        localStorage.clear();
     }
 
     return (
@@ -14,9 +15,9 @@ export default function AdminHeader() {
                 <img className='adminLogo' src={`${process.env.PUBLIC_URL + "/resources/valorAcademy_logo.png"}`} alt="" />
             </div>
 
-            <NavLink className='logout_container' to='/'>
+            <NavLink className='logout_container' to={'/'} onClick={logout}>
                 <span className='logout_text'>Logout</span>
-                <img className='logout' src={`${process.env.PUBLIC_URL + "/resources/logout_icon.png"}`} alt='Logout icon' onClick={logout}></img>
+                <img className='logout' src={`${process.env.PUBLIC_URL + "/resources/logout_icon.png"}`} alt='Logout icon'></img>
             </NavLink>
         </nav>
     )
