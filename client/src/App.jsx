@@ -20,22 +20,22 @@ import PlatformIssue from './components/authentication/PlatformIssue';
 import useAuthStore from './store/useAuthStore';
 
 function App() {
-  const { token, setToken, setAllowRegistration } = useStore(useAuthStore);
+  const { setRole, setToken, setAllowRegistration } = useStore(useAuthStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path="/" element={<LandingPage token={token} />} />
-        <Route path="/login" element={<Login token={token} />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/deviceIssue" element={<PlatformIssue />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard token={token} />}>
+        <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
           <Route path="/dashboard/myLearning" element={<MyLearning />} />
           <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
-        <Route path="/admin" element={<AdminDashboard token={token} />}>
+        <Route path="/admin" element={<AdminDashboard />}>
           <Route path="/admin/content" element={<Content />} />
           <Route path="/admin/analytics" element={<Analytics />} />
           <Route path='/admin/settings' element={<Settings />} />
@@ -45,8 +45,10 @@ function App() {
   );
 
   useEffect(() => {
+    setRole(localStorage.getItem('role'));
     setToken(localStorage.getItem('token'));
-  }, [setToken, token]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     fetch("/api/v1/settings")
