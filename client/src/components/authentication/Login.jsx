@@ -11,7 +11,7 @@ import useAuthStore from '../../store/useAuthStore';
 export default function Login() {
     const { userName, setUserName, password, setPassword, setUserId, keepLoggedIn, setKeepLoggedIn, disabled, setDisabled } = useStore(useCredentialStore);
 
-    const { role, setToken } = useStore(useAuthStore);
+    const { role, setToken, setRole } = useStore(useAuthStore);
 
     const navigate = useNavigate();
 
@@ -50,6 +50,7 @@ export default function Login() {
                     }
                     setToken(data.token);
                     setUserId(data.id);
+                    setRole(data.role);
 
                     toast.success("Successfully logged in!");
                     if (data.role === "Admin") {
