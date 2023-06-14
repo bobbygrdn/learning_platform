@@ -11,18 +11,23 @@ import Footer from './Footer'
 import Demo from './Demo';
 import WarriorCards from './WarriorCards';
 import '../../styles/landingPage/LandingPage.css'
+import { useStore } from 'zustand';
+import useAuthStore from '../../store/useAuthStore';
 
-export default function LandingPage({ token }) {
+export default function LandingPage() {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const { role } = useStore(useAuthStore);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (token != null) {
-            navigate("/dashboard");
+        if (role != null) {
+            role === "Admin" ?
+                navigate('/admin/content') : navigate('dashboard/profile');
         }
-    }, [navigate, token])
+    }, [navigate, role])
 
     useEffect(() => {
         const fetchData = async () => {
