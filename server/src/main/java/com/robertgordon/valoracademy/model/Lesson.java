@@ -3,7 +3,7 @@ package com.robertgordon.valoracademy.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity

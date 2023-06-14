@@ -1,6 +1,6 @@
 package com.robertgordon.valoracademy.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Entity
