@@ -22,19 +22,20 @@ public class JwtFilter extends GenericFilterBean {
         final HttpServletRequest request = (HttpServletRequest) servletRequest;
         final HttpServletResponse response = (HttpServletResponse) servletResponse;
         final String authHeader = request.getHeader("authorization");
+
         if ("OPTIONS".equals(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
             filterChain.doFilter(request, response);
         } else {
             if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-                throw new ServletException("An exception occurred");
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid authentication header");
+            } else {
+                final String token = authHeader.substring(7);
+                Claims claims = Jwts.parser().setSigningKey("secret").parseClaimsJws(token).getBody();
+                request.setAttribute("claims", claims);
+                request.setAttribute("user", servletRequest.getParameter("id"));
+                filterChain.doFilter(request, response);
             }
         }
-        final String token = authHeader.substring(7);
-        Claims claims = Jwts.parser().setSigningKey("secret").parseClaimsJws(token).getBody();
-        request.setAttribute("claims", claims);
-        request.setAttribute("user", servletRequest.getParameter("id"));
-        filterChain.doFilter(request, response);
     }
-
 }
