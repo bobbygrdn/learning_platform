@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import useAuthStore from '../../../store/useAuthStore';
 
 export default function Content() {
-    const { currentTable, searchTerm, setSearchTerm, setQuizzes, setQuestions, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
+    const { currentTable, setCurrentTable, searchTerm, setSearchTerm, setQuizzes, setQuestions, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
     const { token } = useStore(useAuthStore);
 
     useEffect(() => {
@@ -62,7 +62,7 @@ export default function Content() {
     }, [courses, currentTable, setCurrentContent]);
 
     const handleBack = () => {
-        window.location.reload();
+        setCurrentTable("Courses");
     }
 
     return (
