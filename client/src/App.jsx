@@ -17,6 +17,7 @@ import Content from './components/admin/content/Content';
 import Analytics from './components/admin/Analytics';
 import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
+import Unauthorized from './components/authentication/Unauthorized';
 import useAuthStore from './store/useAuthStore';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/deviceIssue" element={<PlatformIssue />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
@@ -47,7 +49,7 @@ function App() {
   useEffect(() => {
     setRole(localStorage.getItem('role'));
     setToken(localStorage.getItem('token'));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
