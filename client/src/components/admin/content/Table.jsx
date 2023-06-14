@@ -72,19 +72,16 @@ export default function Table() {
             case "Courses":
                 setCurrentTable("Lessons");
                 setCurrentContent(courses.find(course => course.id === id).lessons);
-                console.log(currentContent);
                 setCurrentEntity(id);
                 break;
             case "Lessons":
                 setCurrentTable("Quizzes");
                 setCurrentContent(lessons.find(lesson => lesson.id === id).quizzes);
-                console.log(currentContent);
                 setCurrentEntity(id);
                 break;
             case "Quizzes":
                 setCurrentTable("Questions");
                 setCurrentContent(quizzes.find(quiz => quiz.id === id, quizzes).questions);
-                console.log(currentContent);
                 setCurrentEntity(id);
                 break;
             default:
