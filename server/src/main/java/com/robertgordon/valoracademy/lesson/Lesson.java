@@ -51,6 +51,19 @@ public class Lesson {
     @Column(name = "content", nullable = false)
     private String content;
 
+    /** `@Column(name = "published", nullable = false, columnDefinition = "boolean 
+     * default 'false'")` is an annotation used to 
+     * specify that the `isPublished`
+     *  field should be mapped to a column in the database table named 
+     * `published`. 
+     *  The `nullable = false` parameter specifies that the `isPublished` field 
+     * cannot be null in the database. 
+     * The `columnDefinition` is used to define the default value of the column which
+     * in this case is set to false
+     * The `private boolean isPublished;` line is declaring a field named `isPublished` of type `boolean` in the `Lesson` class. */
+    @Column(name = "published", nullable = false, columnDefinition = "boolean default 'false'")
+    private boolean isPublished;
+
     /** This code is defining a one-to-many relationship between the `Lesson` entity 
      * and the `Quiz` entity.
      *  `JoinColumn` is being used to name the column `lesson_id`
