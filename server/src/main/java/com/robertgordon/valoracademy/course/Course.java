@@ -74,7 +74,7 @@ public class Course {
     @Column(name = "time_needed", nullable = false)
     private String timeToComplete;
 
-    /** `@Column(name = "published", nullable = false, columnDefinition = "boolean 
+    /** `@Column(name = "published", nullable = false, columnDefinition = "varchar(255) 
      * default 'false'")` is an annotation used to 
      * specify that the `isPublished`
      *  field should be mapped to a column in the database table named 
@@ -86,6 +86,32 @@ public class Course {
      * The `private boolean isPublished;` line is declaring a field named `isPublished` of type `boolean` in the `Course` class. */
     @Column(name = "published", nullable = false, columnDefinition = "varchar(255) default 'false'")
     private boolean isPublished;
+
+    /** `@Column(name = "finished", nullable = false, columnDefinition = "varchar(255) 
+     * default 'false'")` is an annotation used to 
+     * specify that the `isUserFinished`
+     *  field should be mapped to a column in the database table named 
+     * `finished`. 
+     *  The `nullable = false` parameter specifies that the `isUserFinished` field 
+     * cannot be null in the database. 
+     * The `columnDefinition` is used to define the default value of the column which
+     * in this case is set to false
+     * The `private boolean isUserFinished;` line is declaring a field named `isUserFinished` of type `boolean` in the `Course` class. */
+    @Column(name = "finished", nullable = false, columnDefinition = "varchar(255) default 'false'")
+    private boolean isUserFinished;
+
+    /** `@Column(name = "progress", nullable = false, columnDefinition = "int 
+     * default '0'")` is an annotation used to 
+     * specify that the `userProgress`
+     *  field should be mapped to a column in the database table named 
+     * `finished`. 
+     *  The `nullable = false` parameter specifies that the `userProgress` field 
+     * cannot be null in the database. 
+     * The `columnDefinition` is used to define the default value of the column which
+     * in this case is set to 0
+     * The `private int userProgress;` line is declaring a field named `userProgress` of type `int` in the `Course` class. */
+    @Column(name = "progress", nullable = false, columnDefinition = "int default '0'")
+    private int userProgress;
 
    /** This code is creating a one-to-many relationship between the `Course` entity and 
     * the `Lesson` entity.
