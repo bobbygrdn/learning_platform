@@ -83,7 +83,7 @@ public class User {
     *  in the `users` table that references the `id` column in the `courses` table. 
     *  `Private List<Course> myCourses` is being used to save all the courses the user has signed up for in an `ArrayList`. */
     @OneToMany(cascade = CascadeType.ALL) 
-    @JoinColumn(name = "my_courses")
-    private List<Course> myCourses = new ArrayList<>();
+    @Column(name = "course_id")
+    private List<Course> courses = new ArrayList<>();
 
 }
