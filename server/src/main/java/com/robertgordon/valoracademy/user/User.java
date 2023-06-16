@@ -68,7 +68,7 @@ public class User {
      *  be null in the database. 
      * The `private String keepLoggedIn;` line is declaring a field named 
      * `keepLoggedIn` of type `String` in the `User` class. */
-    @Column(name = "keepLoggedIn", nullable = false, columnDefinition = "boolean default 'false'")
+    @Column(name = "keepLoggedIn", nullable = false, columnDefinition = "varchar(255) default 'false'")
     private boolean keepLoggedIn;
 
 }

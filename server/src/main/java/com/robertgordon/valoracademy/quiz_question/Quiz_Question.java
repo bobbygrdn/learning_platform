@@ -58,7 +58,7 @@ public class Quiz_Question {
      * The `columnDefinition` is used to define the default value of the column which
      * in this case is set to false
      * The `private boolean isPublished;` line is declaring a field named `isPublished` of type `boolean` in the `Quiz_Question` class. */
-    @Column(name = "published", nullable = false, columnDefinition = "boolean default 'false'")
+    @Column(name = "published", nullable = false, columnDefinition = "varchar(255) default 'false'")
     private boolean isPublished;
 
      /** This code is defining a one-to-many relationship between the `quiz_option` entity and the `Quiz_Question` entity.
