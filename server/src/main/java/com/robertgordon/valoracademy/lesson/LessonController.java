@@ -7,16 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.robertgordon.valoracademy.course.CourseService;
+import com.robertgordon.valoracademy.util.UrlPaths;
 
 /* `@RestController` is an annotation that combines `@Controller` and `@ResponseBody`, indicating that this class is a RESTful controller that will handle HTTP requests and return the response in the form of JSON. */
 @RestController
 /*
- * `@RequestMapping("/api/v1/")` is setting the base URL path for all the
- * endpoints in this controller to "/api/v1/". This means that all the endpoints
- * in this controller will be accessed through URLs
- * that start with "/api/v1/".
+ * `@RequestMapping(UrlPaths.CLASSURL)` is setting the base URL path for all the endpoints in this controller to "/api/v1/" from the `UrlPaths class`. This means that all the endpoints in this controller will be accessed through URLs that start with "/api/v1/".
  */
-@RequestMapping("/api/v1/")
+@RequestMapping(UrlPaths.CLASSURL)
 public class LessonController {
 
     /*

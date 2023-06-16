@@ -6,14 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.robertgordon.valoracademy.util.UrlPaths;
+
 /** `@RestController` is an annotation in Spring that combines `@Controller` and 
  *  `@ResponseBody`. It is used to indicate that the class is a RESTful web service
  *  controller that handles HTTP requests and returns the response in the form of JSON. */
 @RestController
 /*
- * `@RequestMapping("/api/v1/")` is setting the base URL path for all the endpoints in this controller to "/api/v1/". This means that all the endpoints in this controller will be accessed through URLs that start with "/api/v1/".
+ * `@RequestMapping(UrlPaths.CLASSURL)` is setting the base URL path for all the endpoints in this controller to "/api/v1/" from the `UrlPaths class`. This means that all the endpoints in this controller will be accessed through URLs that start with "/api/v1/".
  */
-@RequestMapping("/api/v1/")
+@RequestMapping(UrlPaths.CLASSURL)
 public class SettingsController {
 
   /** `@Autowired` is injecting an instance of the `SettingsService` class into 
