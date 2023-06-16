@@ -1,6 +1,12 @@
 package com.robertgordon.valoracademy.user;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.robertgordon.valoracademy.course.Course;
+
 import lombok.Data;
 
 /** `@Entity` is being used to map this class to a database table. 
@@ -70,5 +76,14 @@ public class User {
      * `keepLoggedIn` of type `String` in the `User` class. */
     @Column(name = "keepLoggedIn", nullable = false, columnDefinition = "varchar(255) default 'false'")
     private boolean keepLoggedIn;
+
+    /** This code is creating a one-to-many relationship between the `Course` entity and 
+    * the `User` entity.
+    *  `JoinColumn` is being used to name the column `my_courses`
+    *  in the `users` table that references the `id` column in the `courses` table. 
+    *  `Private List<Course> myCourses` is being used to save all the courses the user has signed up for in an `ArrayList`. */
+    @OneToMany(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "my_courses")
+    private List<Course> myCourses = new ArrayList<>();
 
 }
