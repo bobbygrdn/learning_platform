@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.robertgordon.valoracademy.model.Quiz_Option;
-import com.robertgordon.valoracademy.service.Quiz_OptionService;
+import com.robertgordon.valoracademy.quiz_option.Quiz_Option;
+import com.robertgordon.valoracademy.quiz_option.Quiz_OptionService;
 
 @SpringBootTest
 public class Quiz_OptionServiceImplTest {

@@ -10,8 +10,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.robertgordon.valoracademy.model.User;
-import com.robertgordon.valoracademy.service.UserService;
+import com.robertgordon.valoracademy.user.User;
+import com.robertgordon.valoracademy.user.UserService;
 
 @SpringBootTest
 public class UserServiceImplTest {

@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.robertgordon.valoracademy.model.User;
+import com.robertgordon.valoracademy.user.User;
+import com.robertgordon.valoracademy.user.UserRepository;
 
 @SpringBootTest
 public class UserRepositoryTest {

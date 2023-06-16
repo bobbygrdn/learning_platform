@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.robertgordon.valoracademy.model.Course;
-import com.robertgordon.valoracademy.service.CourseService;
+import com.robertgordon.valoracademy.course.Course;
+import com.robertgordon.valoracademy.course.CourseService;
 
 @SpringBootTest
 public class CourseServiceImplTest {
