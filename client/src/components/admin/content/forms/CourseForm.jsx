@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStore } from 'zustand';
-import useModalStore from '../../../store/useModalStore';
-export default function CourseCreationForm() {
+import useModalStore from '../../../../store/useModalStore';
+export default function CourseForm() {
     const { title, setTitle, description, setDescription, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics } = useStore(useModalStore);
     return (
         <>

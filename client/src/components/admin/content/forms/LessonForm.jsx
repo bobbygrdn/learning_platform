@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useStore } from 'zustand';
-import useModalStore from '../../../store/useModalStore';
-import CodeEditor from './CodeEditor';
+import useModalStore from '../../../../store/useModalStore';
+import CodeEditor from '../CodeEditor';
 
-export default function LessonCreationForm() {
+export default function LessonForm() {
 
     const { title, setTitle, description, setDescription, addContent, content } = useStore(useModalStore);
 
