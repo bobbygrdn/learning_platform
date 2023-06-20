@@ -13,7 +13,7 @@ export default function Modal({ table }) {
             case "create":
                 return <CreateContent table={table} />
             case "edit":
-                return <EditContent />
+                return <EditContent table={table} />
             default:
                 return <h1>Error</h1>;
         }
