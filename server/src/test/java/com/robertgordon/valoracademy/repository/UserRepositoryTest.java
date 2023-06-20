@@ -17,14 +17,13 @@ public class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Test
-    void testFindByRole() {
+     @Test
+    void testFindByUsername() {
         // Arrange
         // Act
-        List<User> result = userRepository.findByRole("Admin");
-        System.out.println(result);
-
+        User result = userRepository.findByUsername("Charles");
         // Assert
         assertNotNull(result);
     }
+
 }
