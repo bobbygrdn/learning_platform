@@ -45,7 +45,13 @@ Update the application.properties file for your specific setup
   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 ```
 
-Run the Spring Boot REST API
+Create a clean jar file for the Spring Application
+
+```bash
+  mvn clean package
+```
+
+Run the Spring Boot REST API using your newly created jar file
 
 ```bash
   java -jar target/valoracademy-0.0.1-SNAPSHOT.jar
