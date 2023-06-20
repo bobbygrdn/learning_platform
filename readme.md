@@ -91,6 +91,7 @@ Start the server
 | Date | Tasks | Remarks |
 |---|---|---|
 | 06/16/2023 | * Restructured project to follow the Business Model structure <br> * Added fields and methods in backend to handle user progression tracking <br> * Added constant variables to clean up repetitive code in backend | * Project was perviously in project structure <br> * User progression system was implemented in backend only <br> * Constant variables were added to meet requirements |
+| 06/20/20323 | * Created the editContent component that allows admins to edit the content of the platform <br> * Cleaned up the logic for editing content and component rerendering <br> * Removed the frontend test suite <br> * Updated the state management stores to accomodate the new necessary editContent state | * This includes Courses, Lessons, Quizzes and Questions <br> * State refresh now rerenders the necessary components and refetches their data <br> * Test suite was outdated and therefore needed to be removed <br> * Options and Answers for each question created or edited is now being stored in state for rendering and fetching purposes | 
 
 ### Technical Architecture
 
