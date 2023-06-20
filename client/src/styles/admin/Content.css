@@ -158,12 +158,18 @@
     align-items: center;
     justify-content: center;
     width: fit-content;
-    height: auto;
+    height: fit-content;
     background-color: #f5f5f5;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     z-index: 10;
+}
+
+.questionContent {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }
 
 .buttons {
@@ -256,7 +262,8 @@ label[for="description"] {
     margin-bottom: 1em;
 }
 
-.lessonCreation {
+.lessonCreation,
+.questionCreation {
     display: flex;
     flex-direction: row;
     width: 90vw;
@@ -276,6 +283,12 @@ label[for="description"] {
 .informationDescription {
     display: flex;
     flex-direction: column;
+}
+
+.questionInputs {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .devTools {
