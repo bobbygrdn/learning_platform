@@ -87,6 +87,8 @@ export default function Table() {
         }
     }
 
+    // TODO: Add publishing method as well as UI for admins to publish content
+
     return (
         <div className={`${currentTable}Grid`}>
             <Modal table={currentTable} />
