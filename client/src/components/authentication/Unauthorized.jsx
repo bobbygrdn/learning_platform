@@ -18,6 +18,7 @@ export default function Unauthorized() {
     useEffect(() => {
         if (countdown === 0) {
             navigate('/login');
+            window.location.reload();
         }
     }, [countdown, navigate]);
 
