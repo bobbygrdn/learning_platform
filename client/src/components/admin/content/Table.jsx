@@ -28,7 +28,6 @@ export default function Table() {
             setCurrentEntity(currentContent.find((current) => current.id === id));
         }
         setModalOpen(!modalOpen);
-        console.log(currentTable);
     }
 
     const handleUserSelection = (action, id) => {
@@ -41,7 +40,7 @@ export default function Table() {
             })
                 .then(response => {
                     toast.success(`${currentContent.find((current) => current.id === id).title} has been deleted`);
-                    window.location.reload();
+                    setCurrentTable("Courses");
                 })
                 .catch(error => {
                     toast.error(error.message);
