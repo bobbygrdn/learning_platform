@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import useAuthStore from '../../../store/useAuthStore';
 
 export default function Content() {
-    const { currentTable, setCurrentTable, searchTerm, setSearchTerm, setQuizzes, setQuestions, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
+    const { currentTable, setCurrentTable, searchTerm, setSearchTerm, quizzes, setQuizzes, questions, setQuestions, lessons, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
     const { token } = useStore(useAuthStore);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export default function Content() {
             .then(data => {
                 setCourses(data);
             })
-    }, [setCourses, token]);
+    }, [setCourses, courses, token]);
     useEffect(() => {
         fetch("/api/v1/lessons", {
             headers: {
@@ -31,7 +31,7 @@ export default function Content() {
             .then(data => {
                 setLessons(data);
             })
-    }, [setLessons, token]);
+    }, [setLessons, lessons, token]);
     useEffect(() => {
         fetch("/api/v1/quizzes", {
             headers: {
@@ -42,7 +42,7 @@ export default function Content() {
             .then(data => {
                 setQuizzes(data);
             })
-    }, [setQuizzes, token]);
+    }, [setQuizzes, quizzes, token]);
     useEffect(() => {
         fetch("/api/v1/questions", {
             headers: {
@@ -53,7 +53,7 @@ export default function Content() {
             .then(data => {
                 setQuestions(data);
             })
-    }, [setQuestions, token]);
+    }, [setQuestions, questions, token]);
 
     useEffect(() => {
         if (currentTable === 'Courses') {
