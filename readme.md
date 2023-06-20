@@ -12,10 +12,13 @@ To create a comprehensive, user-friendly learning platform that enables users to
 -	[Daily Progress](#daily-progress)
 -	[Technical Architecture](#technical-architecture)
 -	[Technical Challenges](#technical-challenges)
--	[Lessons Learned](#lessons-learned)
 -	[Future Improvements](#future-improvements)
 
 ### Daily Progress
+
+| Date | Tasks | Remarks |
+|---|---|---|
+| 06/16/2023 | * Restructured project to follow the Business Model structure <br> * Added fields and methods in backend to handle user progression tracking <br> * Added constant variables to clean up repetitive code in backend | * Project was perviously in project structure <br> * User progression system was implemented in backend only <br> * Constant variables were added to meet requirements |
 
 ### Technical Architecture
 
@@ -29,7 +32,10 @@ Overall, the technical architecture of the learning platform is designed for per
 
 ### Technical Challenges
 
-### Lessons Learned
+| Challenge | Resolution |
+|---|---|
+| **Authentication**/**Authorization** | I used JWT tokens (JSON Web Tokens) created upon login and passed to client to be passed with all requests to backend. This ensures that each request will be authenticated from an authorized user and only fulfilled for those users.
+| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/decryption of passwords to store and authenticate users.
 
 ### Future Improvements
 
