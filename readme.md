@@ -66,7 +66,7 @@ Run the data.sql source file to inject data into the MySQL database using MySQL 
 
 **You should now have the Spring REST API and database setup**
 
-Go to the client directory
+Open a new terminal and go to the client directory
 
 ```bash
   cd ../client
