@@ -9,10 +9,76 @@ To create a comprehensive, user-friendly learning platform that enables users to
 -	Jira Board 
     - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board
 -	[Documentation](https://bobbygrdn.atlassian.net/wiki/spaces/VA/pages/7012354/Documentation?atlOrigin=eyJpIjoiMDA5YjhhN2QwOWNhNDIxZGEwYTU3NmZhZjJmN2NjOTgiLCJwIjoiaiJ9)
+- [Run Locally](#run-locally)
 -	[Daily Progress](#daily-progress)
 -	[Technical Architecture](#technical-architecture)
 -	[Technical Challenges](#technical-challenges)
 -	[Future Improvements](#future-improvements)
+
+### Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone.git
+```
+
+Go to the server directory
+
+```bash
+  cd server
+```
+
+Install MySQL if you do not have this program
+
+[MySQL Download](https://dev.mysql.com/downloads/mysql/)
+
+Update the application.properties file for your specific setup
+
+```application.properties
+  # MySQL properties (database name, username and password should be specific to your environment)
+  spring.datasource.url=jdbc:mysql://localhost:3306/vams?useSSL=false
+  spring.datasource.username=root
+  spring.datasource.password=password
+
+  # Hibernate properties (MySQL dialect should be the version you downloaded and use)
+  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+```
+
+Run the Spring Boot REST API
+
+```bash
+  java -jar target/valoracademy-0.0.1-SNAPSHOT.jar
+```
+
+Run the data.sql source file to inject data into the MySQL database using MySQL workbench or CLI
+
+```bash
+  # CLI command for running sql file once you login to MySQL and you are connected to your database
+  source seed.sql
+```
+
+**You should now have the Spring REST API and database setup**
+
+Go to the client directory
+
+```bash
+  cd ../client
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+**Now the Client should be up and running, ready for you to use**
 
 ### Daily Progress
 
