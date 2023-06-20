@@ -1,21 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStore } from 'zustand';
 import useTableStore from '../../../store/useTableStore';
 import useCredentialStore from '../../../store/useCredentialsStore';
 import useModalStore from '../../../store/useModalStore';
 import { toast } from 'react-toastify';
-import CourseCreationForm from './CourseCreationForm';
-import QuestionCreationForm from './QuestionCreationForm';
-import LessonCreationForm from './LessonCreationForm';
-import QuizCreationForm from './QuizCreationForm';
+import CourseForm from './forms/CourseForm';
+import QuestionForm from './forms/QuestionForm';
+import LessonForm from './forms/LessonForm';
+import QuizForm from './forms/QuizForm';
 import useAuthStore from '../../../store/useAuthStore';
 
 export default function CreateContent({ table }) {
 
     const { userId } = useStore(useCredentialStore);
     const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
-    const { title, description, content, difficulty, timeNeeded, topics } = useStore(useModalStore);
+    const { title, setTitle, description, setDescription, content, setContent, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics } = useStore(useModalStore);
     const { token } = useStore(useAuthStore);
+
+    useEffect(() => {
+        setTitle('');
+        setDescription('');
+        setContent('');
+        setDifficulty('');
+        setTimeNeeded('');
+        setTopics('');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const createUrl = () => {
         switch (table) {
@@ -73,10 +83,8 @@ export default function CreateContent({ table }) {
     const handleSubmit = (e) => {
 
         const url = createUrl();
-        console.log(url);
 
         const body = createBody();
-        console.log(body);
 
         fetch(`/api/v1/${url}`, {
             method: "POST",
@@ -89,11 +97,51 @@ export default function CreateContent({ table }) {
             .then(response => response.json())
             .then(data => {
                 toast.success(`${title} has been created`)
-                window.location.reload();
+                setModalOpen(false);
             })
             .catch(error => {
                 toast.error(`${title} could not be created`);
             })
+
+        if (table === "Questions") {
+
+            fetch(`/api/v1/${url}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(body)
+            })
+                .then(response => response.json())
+                .then(data => {
+                })
+                .catch(error => {
+                    toast.error(`${title} could not be created`);
+                })
+
+            fetch(`/api/v1/${url}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(body)
+            })
+                .then(response => response.json())
+                .then(data => {
+                })
+                .catch(error => {
+                    toast.error(`${title} could not be created`);
+                })
+        }
+
+        setTitle('');
+        setDescription('');
+        setContent('');
+        setDifficulty('');
+        setTimeNeeded('');
+        setTopics('');
     }
 
     const handleModalOpen = () => {
@@ -103,16 +151,32 @@ export default function CreateContent({ table }) {
     const createFormContent = () => {
         switch (table) {
             case "Lessons":
-                return <LessonCreationForm />
+                return <LessonForm />
 
             case "Questions":
-                return <QuestionCreationForm />
+                return <QuestionForm />
 
             case "Quizzes":
-                return <QuizCreationForm />
+                return <QuizForm />
 
             default:
-                return <CourseCreationForm />
+                return <CourseForm />
+        }
+    }
+
+    const createFormTitle = () => {
+        switch (table) {
+            case "Quizzes":
+                return "Quiz"
+
+            case "Lessons":
+                return "Lesson"
+
+            case "Questions":
+                return "Question"
+
+            default:
+                return "Course"
         }
     }
 
@@ -120,7 +184,7 @@ export default function CreateContent({ table }) {
         <div className='createContent'>
             <button className='close' onClick={handleModalOpen}>Close</button>
             <div className='modalContent'>
-                <h2 className="createContentTitle">Create New {table.slice(0, -1)}</h2>
+                <h2 className="createContentTitle">Create New {createFormTitle()}</h2>
                 <form className='createModalForm'>
                     {createFormContent()}
                 </form>
