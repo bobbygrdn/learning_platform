@@ -1,0 +1,28 @@
+.publisherWindow {
+    display: flex;
+    flex-direction: row;
+    width: 110%;
+    height: 100%;
+}
+
+.publisherTools {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    gap: .5em;
+}
+
+.publisherPreview {
+    flex: 1;
+    border: 2px solid green;
+}
+
+.publisherPagesButtons {
+    height: fit-content;
+    position: fixed;
+    bottom: .3em;
+    left: 27%;
+}
