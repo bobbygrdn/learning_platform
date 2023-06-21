@@ -13,8 +13,8 @@ import MyLearning from './components/dashboard/MyLearning';
 import Catalog from './components/dashboard/Catalog';
 import Leaderboard from './components/dashboard/Leaderboard';
 import AdminDashboard from './components/admin/AdminDashboard';
-import Content from './components/admin/content/Content';
-import Analytics from './components/admin/Analytics';
+import ContentCreator from './components/admin/creator/ContentCreator';
+import Publisher from './components/admin/Publisher';
 import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
 import Unauthorized from './components/authentication/Unauthorized';
@@ -38,8 +38,8 @@ function App() {
           <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
         <Route path="/admin" element={<AdminDashboard />}>
-          <Route path="/admin/content" element={<Content />} />
-          <Route path="/admin/analytics" element={<Analytics />} />
+          <Route path="/admin/creator" element={<ContentCreator />} />
+          <Route path="/admin/publisher" element={<Publisher />} />
           <Route path='/admin/settings' element={<Settings />} />
         </Route>
       </Route>
