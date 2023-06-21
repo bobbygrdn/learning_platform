@@ -59,7 +59,7 @@ export default function Login() {
                             navigate('/deviceIssue');
                         } else {
                             // User is on a desktop device
-                            navigate('/admin/content');
+                            navigate('/admin/creator');
                         }
                     } else {
                         navigate('/dashboard/profile');
