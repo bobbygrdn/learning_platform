@@ -6,7 +6,7 @@ import useTableStore from '../../../store/useTableStore';
 import { Button } from 'react-bootstrap';
 import useAuthStore from '../../../store/useAuthStore';
 
-export default function Content() {
+export default function ContentCreator() {
     const { currentTable, setCurrentTable, searchTerm, setSearchTerm, quizzes, setQuizzes, questions, setQuestions, lessons, setLessons, courses, setCourses, setCurrentContent } = useStore(useTableStore);
     const { token } = useStore(useAuthStore);
 
