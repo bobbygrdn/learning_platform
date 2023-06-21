@@ -44,7 +44,9 @@
 .yes,
 .no,
 .close,
-.back {
+.back,
+.publishButton,
+.previewButton {
     cursor: pointer;
     --bg: #e74c3c;
     --text-color: var(--secondary-text);
