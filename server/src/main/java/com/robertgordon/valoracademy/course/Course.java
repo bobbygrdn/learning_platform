@@ -84,7 +84,7 @@ public class Course {
      * The `columnDefinition` is used to define the default value of the column which
      * in this case is set to false
      * The `private boolean isPublished;` line is declaring a field named `isPublished` of type `boolean` in the `Course` class. */
-    @Column(name = "published", nullable = false, columnDefinition = "varchar(255) default 'false'")
+    @Column(name = "published", nullable = false, columnDefinition = "TINYINT(1) default 0")
     private boolean isPublished;
 
     /** `@Column(name = "finished", nullable = false, columnDefinition = "varchar(255) 
@@ -97,7 +97,7 @@ public class Course {
      * The `columnDefinition` is used to define the default value of the column which
      * in this case is set to false
      * The `private boolean isUserFinished;` line is declaring a field named `isUserFinished` of type `boolean` in the `Course` class. */
-    @Column(name = "finished", nullable = false, columnDefinition = "varchar(255) default 'false'")
+    @Column(name = "finished", nullable = false, columnDefinition = "TINYINT(1) default 0")
     private boolean isUserFinished;
 
     /** `@Column(name = "progress", nullable = false, columnDefinition = "int 
