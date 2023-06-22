@@ -48,8 +48,8 @@ public class Quiz_Question {
     @Column(name = "content", nullable = false)
     private String content;
 
-     /** `@Column(name = "published", nullable = false, columnDefinition = "boolean 
-     * default 'false'")` is an annotation used to 
+     /** `@Column(name = "published", nullable = false, columnDefinition = )` is 
+      * an annotation used to 
      * specify that the `isPublished`
      *  field should be mapped to a column in the database table named 
      * `published`. 
@@ -58,8 +58,21 @@ public class Quiz_Question {
      * The `columnDefinition` is used to define the default value of the column which
      * in this case is set to false
      * The `private boolean isPublished;` line is declaring a field named `isPublished` of type `boolean` in the `Quiz_Question` class. */
-    @Column(name = "published", nullable = false, columnDefinition = "varchar(255) default 'false'")
+    @Column(name = "published", nullable = false, columnDefinition = "TINYINT(1) default 0")
     private boolean isPublished;
+
+    /** `@Column(name = "finished", nullable = false, columnDefinition = "varchar(255) 
+     * default 'false'")` is an annotation used to 
+     * specify that the `isUserFinished`
+     *  field should be mapped to a column in the database table named 
+     * `finished`. 
+     *  The `nullable = false` parameter specifies that the `isUserFinished` field 
+     * cannot be null in the database. 
+     * The `columnDefinition` is used to define the default value of the column which
+     * in this case is set to false
+     * The `private boolean isUserFinished;` line is declaring a field named `isUserFinished` of type `boolean` in the `Quiz_Question` class. */
+    @Column(name = "finished", nullable = false, columnDefinition = "TINYINT(1) default 0")
+    private boolean isUserFinished;
 
      /** This code is defining a one-to-many relationship between the `quiz_option` entity and the `Quiz_Question` entity.
      *  `JoinColumn` is being used to name the column `question_id`
