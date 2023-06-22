@@ -64,7 +64,7 @@ Run the data.sql source file to inject data into the MySQL database using MySQL 
   source seed.sql
 ```
 
-**You should now have the Spring REST API and database setup**
+**You should now have the Spring REST API/database setup and running**
 
 Open a new terminal and go to the client directory
 
@@ -84,7 +84,7 @@ Start the server
   npm run start
 ```
 
-**Now the Client should be up and running, ready for you to use**
+**Now the Client should be running, and the application should be ready for you to use**
 
 ### Daily Progress
 
@@ -109,11 +109,11 @@ Overall, the technical architecture of the learning platform is designed for per
 | Challenge | Resolution |
 |---|---|
 | **Authentication**/**Authorization** | I used JWT tokens (JSON Web Tokens) created upon login and passed to client to be passed with all requests to backend. This ensures that each request will be authenticated from an authorized user and only fulfilled for those users.
-| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/decryption of passwords to store and authenticate users.
+| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/verification of passwords to store and authenticate users.
 
 ### Future Improvements
 
-- Content Creator Account
+- Content Creator Account/Dashboard
   - The content creator account feature would allow approved users to create and add new courses to the platform. Upon logging in, content creators would be taken to their dashboard where they can create new courses, edit existing ones, and view the status of their submissions.
 
   - To create a new course, content creators would need to provide information such as the course name, description, target audience, and learning objectives. They would also be able to upload any relevant course materials such as videos, documents, and images. Once the course is complete, the content creator can submit it for approval by the admin.
