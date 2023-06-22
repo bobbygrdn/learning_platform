@@ -95,4 +95,19 @@ public class LessonServiceImpl implements LessonService {
         lessonRepository.delete(lesson);
     }
 
+    /**
+     * This method updates the published status of a lesson in a Java application.
+     * 
+     * @param lessonId The ID of the lesson that needs to be updated.
+     */
+    @Override
+    public void updatePublished(Long lessonId) {
+        
+        Lesson existingLesson = lessonRepository.findById(lessonId).orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with ID: " + lessonId));
+
+        existingLesson.setPublished(!existingLesson.isPublished());
+
+        lessonRepository.save(existingLesson);
+    }
+
 }

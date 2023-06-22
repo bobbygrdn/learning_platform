@@ -93,4 +93,19 @@ public class CourseServiceImpl implements CourseService {
         courseRepository.delete(course);
     }
 
+    /**
+     * This method updates the published status of a course in a Java application.
+     * 
+     * @param courseId The ID of the course that needs to be updated.
+     */
+    @Override
+    public void updatePublished(Long courseId) {
+        
+        Course existingCourse = courseRepository.findById(courseId).orElseThrow(() -> new ResourceNotFoundException("Course does not exist with ID: " + courseId));
+
+        existingCourse.setPublished(!existingCourse.isPublished());
+
+        courseRepository.save(existingCourse);
+    }
+
 }

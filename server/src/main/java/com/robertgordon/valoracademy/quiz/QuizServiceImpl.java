@@ -91,4 +91,19 @@ public class QuizServiceImpl implements QuizService {
         quizRepository.delete(quiz);
     }
 
+   /**
+    * This method updates the published status of a quiz by toggling its current value.
+    * 
+    * @param quizId The ID of the quiz that needs to be updated.
+    */
+    @Override
+    public void updatePublished(long quizId) {
+        
+        Quiz existingQuiz = quizRepository.findById(quizId).orElseThrow(() -> new ResourceNotFoundException("Quiz does not exist with ID: " + quizId));
+
+        existingQuiz.setPublished(!existingQuiz.isPublished());
+
+        quizRepository.save(existingQuiz);
+    }
+
 }
