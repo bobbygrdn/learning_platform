@@ -93,6 +93,23 @@ public class CourseController {
         return ResponseEntity.ok(existingCourse);
     }
 
+    /**
+     * This method updates the published status of a course with a given ID.
+     * 
+     * @param courseId The courseId is a Long variable that represents the unique identifier of a
+     * course that needs to be updated. It is obtained from the path variable in the URL of the API
+     * endpoint.
+     * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the
+     * course with the specified ID has been updated.
+     */
+    @PatchMapping("courses/{id}")
+    public ResponseEntity<String> updatePublished(@PathVariable("id") Long courseId) {
+
+        courseService.updatePublished(courseId);
+
+        return ResponseEntity.ok("Course with id " + courseId + " has been updated");
+    }
+
    
   /**
    * This method deletes a course with a specific ID and returns a message confirming the deletion.

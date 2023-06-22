@@ -83,6 +83,21 @@ public class QuizController {
         return ResponseEntity.ok(existingQuiz);
     }
 
+    /**
+     * This method updates the published status of a quiz with a given ID.
+     * 
+     * @param quizId The quizId is a long variable that represents the unique identifier of a quiz that
+     * needs to be updated. It is obtained from the path variable in the URL of the API endpoint.
+     * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the
+     * quiz with the specified ID has been updated.
+     */
+    @PatchMapping("quizzes/{id}")
+    public ResponseEntity<String> updatePublished(@PathVariable("id") long quizId) {
+        quizService.updatePublished(quizId);
+
+        return ResponseEntity.ok("Quiz with id " + quizId + " has been updated");
+    }
+
    /**
     * This method deletes a quiz with a specified ID and returns a success message.
     * @param quizId The ID of the quiz that needs to be deleted. It is obtained from the path variable "{id}" in the URL of the DELETE request.

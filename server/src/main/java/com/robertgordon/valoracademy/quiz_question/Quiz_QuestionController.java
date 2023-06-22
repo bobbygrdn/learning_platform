@@ -92,6 +92,21 @@ public class Quiz_QuestionController {
     }
 
     /**
+     * This method updates the published status of a quiz question with a given ID.
+     * 
+     * @param questionId A long integer representing the ID of the question that needs to be updated.
+     * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the
+     * question with the specified ID has been updated.
+     */
+    @PatchMapping("questions/{id}")
+    public ResponseEntity<String> updatePublished(@PathVariable("id") long questionId) {
+
+        quiz_questionService.updatePublished(questionId);
+
+        return ResponseEntity.ok("Question with id " + questionId + " has been updated");
+    }
+
+    /**
      * This method deletes a quiz question with a specified ID and returns a success message.
      * @param quiz_questionId The ID of the quiz question that needs to be deleted.
      * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the quiz question with the specified ID has been deleted.

@@ -86,6 +86,22 @@ public class LessonController {
     }
 
     /**
+     * This method updates the published status of a lesson with a given ID.
+     * 
+     * @param lessonId The ID of the lesson that needs to be updated. It is obtained from the path
+     * variable in the URL.
+     * @return A ResponseEntity object with a String message indicating that the lesson with the
+     * specified ID has been updated.
+     */
+    @PatchMapping("lessons/{id}")
+    public ResponseEntity<String> updatePublished(@PathVariable("id") Long lessonId) {
+
+        lessonService.updatePublished(lessonId);
+
+        return ResponseEntity.ok("Lesson with id " + lessonId + " has been updated");
+    }
+
+    /**
      * This method deletes a lesson with a specified ID and returns a success message.
      * @param lessonId The ID of the lesson that needs to be deleted. It is obtained from the path variable "{id}" in the URL of the DELETE request.
      * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the lesson with the specified ID has been deleted.
