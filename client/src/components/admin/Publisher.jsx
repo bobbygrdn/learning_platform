@@ -4,6 +4,7 @@ import useAuthStore from '../../store/useAuthStore';
 import useTableStore from '../../store/useTableStore';
 import { Button, Card } from 'react-bootstrap';
 import '../../styles/admin/Publisher.css';
+import { toast } from 'react-toastify';
 
 export default function Publisher() {
 
@@ -51,10 +52,59 @@ export default function Publisher() {
         }
     }
 
-    // TODO: Add fetch to handlePublish Method(use token for request)
-    const handlePublish = (e) => {
+    const selectEntity = (elementId) => {
+        switch (currentTable) {
+            case "Lessons":
+                return lessons[elementId - 1];
+            case "Quizzes":
+                return quizzes[elementId - 1];
+            case "Questions":
+                return questions[elementId - 1];
+            default:
+                return courses[elementId - 1];
+        }
+    }
+
+    const handleSelection = (e) => {
         e.stopPropagation();
-        console.log("Publish")
+        const element = selectEntity(e.target.id);
+
+        toast.info(
+            <div>
+                <p>Are you sure you want to update {element.title}?</p>
+                <div className='buttons'>
+                    <button className='yes' onClick={() => handlePublish(element.id)}>Yes</button>
+                    <button className='no' onClick={toast.dismiss}>No</button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+            }
+        )
+    }
+
+    const handlePublish = (elementId) => {
+        const url = `${currentTable.toLowerCase()}/${elementId}`;
+
+        const body = selectEntity(elementId);
+
+        fetch(`/api/v1/${url}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authentication": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                isPublished: !body.published
+            })
+        })
+            .then(data => {
+                toast.success(`${body.title} has been successfully ${body.published === true ? "Unpublished" : "Published"}`);
+                // TODO: Find out how I can rerender the publisherTools component so the buttons show appropriate color/text for elements being published or unpublished
+            })
+            .catch(error => {
+                toast.error(`${body.title} could not be ${body.published === true ? "Unpublished" : "Published"}`);
+            })
     }
 
     // TODO: Add logic to add content to the preview panel based on the current selection
@@ -85,9 +135,9 @@ export default function Publisher() {
                                 <Card.Title style={{ marginBottom: '1em' }}> {currentSelection.title}</Card.Title>
                                 {currentTable !== "Courses" ?
                                     <div>
-                                        <Button className='publishButton' onClick={handlePublish}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>
-                                        <Button className='previewButton' onClick={handlePreview}>Preview</Button>
-                                    </div> : <Button className='publishButton' onClick={handlePublish}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>}
+                                        <Button id={currentSelection.id} className={currentSelection.published === true ? "unpublishButton" : "publishButton"} onClick={(e) => handleSelection(e)}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>
+                                        <Button id={currentSelection.id} className='previewButton' onClick={handlePreview}>Preview</Button>
+                                    </div> : <Button id={currentSelection.id} className={currentSelection.published === true ? "unpublishButton" : "publishButton"} onClick={(e) => handleSelection(e)}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>}
                             </Card.Body>
                         </Card>
                     ))}
