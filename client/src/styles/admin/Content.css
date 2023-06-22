@@ -46,7 +46,8 @@
 .close,
 .back,
 .publishButton,
-.previewButton {
+.previewButton,
+.unpublishButton {
     cursor: pointer;
     --bg: #e74c3c;
     --text-color: var(--secondary-text);
@@ -73,7 +74,9 @@
 .yes:hover,
 .no:hover,
 .close:hover,
-.back:hover {
+.back:hover,
+.publishButton:hover,
+.previewButton:hover {
     opacity: 1;
 }
 
@@ -83,7 +86,9 @@
 .yes:active,
 .no:active,
 .close:active,
-.back:active {
+.back:active,
+.publishButton:active,
+.previewButton:active {
     top: 4px;
 }
 
@@ -94,9 +99,15 @@
 }
 
 .create,
-.yes {
+.yes,
+.publishButton {
     background-color: #008000;
     box-shadow: #229c37 0px 7px 2px, #000 0px 8px 5px;
+}
+
+.previewButton {
+    background-color: #1808f1;
+    box-shadow: #3426ee 0px 7px 2px, #000 0px 8px 5px;
 }
 
 .create {
