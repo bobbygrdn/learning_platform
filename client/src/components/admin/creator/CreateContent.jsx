@@ -14,7 +14,7 @@ export default function CreateContent({ table }) {
 
     const { userId } = useStore(useCredentialStore);
     const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
-    const { title, setTitle, description, setDescription, content, setContent, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics } = useStore(useModalStore);
+    const { title, setTitle, description, setDescription, content, setContent, difficulty, setDifficulty, timeNeeded, setTimeNeeded, topics, setTopics, options, answers } = useStore(useModalStore);
     const { token } = useStore(useAuthStore);
 
     useEffect(() => {
@@ -97,44 +97,37 @@ export default function CreateContent({ table }) {
             .then(response => response.json())
             .then(data => {
                 toast.success(`${title} has been created`)
-                setModalOpen(false);
+                if (table === "Questions") {
+                    fetch(`/api/v1/questions/${data.id}/options`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ content: options })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                        })
+                        .then(fetch(`/api/v1/questions/${data.id}/answers`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": `Bearer ${token}`
+                            },
+                            body: JSON.stringify({ content: answers })
+                        }))
+                        .catch(error => {
+                            toast.error(`${title} could not be created`);
+                        })
+                }
+                window.location.reload();
             })
             .catch(error => {
                 toast.error(`${title} could not be created`);
             })
 
-        if (table === "Questions") {
 
-            fetch(`/api/v1/${url}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify(body)
-            })
-                .then(response => response.json())
-                .then(data => {
-                })
-                .catch(error => {
-                    toast.error(`${title} could not be created`);
-                })
-
-            fetch(`/api/v1/${url}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify(body)
-            })
-                .then(response => response.json())
-                .then(data => {
-                })
-                .catch(error => {
-                    toast.error(`${title} could not be created`);
-                })
-        }
 
         setTitle('');
         setDescription('');
