@@ -43,11 +43,9 @@ export default function Login() {
             .then(response => response.json())
             .then(data => {
                 if (data) {
-                    if (keepLoggedIn === true) {
-                        localStorage.setItem("token", data.token);
-                        localStorage.setItem("id", data.id);
-                        localStorage.setItem("role", data.role);
-                    }
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("id", data.id);
+                    localStorage.setItem("role", data.role);
                     setToken(data.token);
                     setUserId(data.id);
                     setRole(data.role);
@@ -72,7 +70,7 @@ export default function Login() {
 
     if (role != null) {
         role === "Admin" ?
-            navigate('/admin/content') : navigate('/dashboard/profile');
+            navigate('/admin/creator') : navigate('/dashboard/profile');
         toast.success("Hello again. Welcome Back!");
     }
 
