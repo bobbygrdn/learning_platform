@@ -9,10 +9,12 @@ import { toast } from 'react-toastify';
 export default function Publisher() {
 
     const { token } = useStore(useAuthStore);
-    const { currentTable, setCurrentTable, searchTerm, setSearchTerm, quizzes, questions, lessons, courses, currentContent, setCurrentContent, currentPage, setCurrentPage, setCurrentEntity } = useStore(useTableStore);
+    const { currentTable, setCurrentTable, searchTerm, setSearchTerm, quizzes, questions, lessons, courses, currentContent, setCurrentContent, currentPage, setCurrentPage, setCurrentEntity, preview, setPreview } = useStore(useTableStore);
 
     const handleBack = () => {
         setCurrentTable("Courses");
+        setCurrentContent(courses);
+        setPreview(null);
     }
 
     useEffect(() => {
@@ -25,13 +27,15 @@ export default function Publisher() {
         return current.title.includes(searchTerm);
     });
 
-    const itemsPerPage = 8;
+    const itemsPerPage = 4;
     const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
 
     const handleCardClick = (id) => {
+        setCurrentPage(1);
+        setPreview(null);
         switch (currentTable) {
             case "Courses":
                 setCurrentTable("Lessons");
@@ -100,17 +104,17 @@ export default function Publisher() {
         })
             .then(data => {
                 toast.success(`${body.title} has been successfully ${body.published === true ? "Unpublished" : "Published"}`);
-                // TODO: Find out how I can rerender the publisherTools component so the buttons show appropriate color/text for elements being published or unpublished
+                window.location.reload();
             })
             .catch(error => {
                 toast.error(`${body.title} could not be ${body.published === true ? "Unpublished" : "Published"}`);
             })
     }
 
-    // TODO: Add logic to add content to the preview panel based on the current selection
     const handlePreview = (e) => {
         e.stopPropagation();
-        console.log("Preview")
+        const element = selectEntity(e.target.id);
+        setPreview(element.content);
     }
 
     return (
@@ -130,14 +134,19 @@ export default function Publisher() {
             <div className='publisherWindow'>
                 <div className='publisherTools'>
                     {filteredContent.slice(startIndex, endIndex).map(currentSelection => (
-                        <Card className='Card' key={currentSelection.id} onClick={() => handleCardClick(currentSelection.id)} style={{ width: '18em', height: '6em', padding: '1em', textAlign: 'center' }}>
+                        <Card className='Card' key={currentSelection.id} onClick={() => handleCardClick(currentSelection.id)} style={{ width: '18em', height: '14em', padding: '1em', textAlign: 'center' }}>
                             <Card.Body>
                                 <Card.Title style={{ marginBottom: '1em' }}> {currentSelection.title}</Card.Title>
-                                {currentTable !== "Courses" ?
-                                    <div>
+                                {currentTable === "Courses" ? currentSelection.lessons.map((element, index) => {
+                                    return (<Card.Text key={element.id} style={{ textAlign: 'left' }}>{`${index + 1}.`} {element.title}</Card.Text>);
+                                }) : null}
+                                <Card.Text style={{ textAlign: 'left' }}>{currentTable !== "Courses" ? currentSelection.description : null}</Card.Text>
+                                <div style={{ textAlign: 'left' }}>{currentTable === 'Questions' ? <ul style={{ display: 'flex', flexDirection: 'column' }}>Answer: {currentSelection.answers.map(answer => <li key={answer.id}>- {answer.content}</li>)}</ul> : ''}</div>
+                                {currentTable === "Lessons" || currentTable === "Questions" ?
+                                    <div style={{ marginTop: '1.5em' }}>
                                         <Button id={currentSelection.id} className={currentSelection.published === true ? "unpublishButton" : "publishButton"} onClick={(e) => handleSelection(e)}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>
                                         <Button id={currentSelection.id} className='previewButton' onClick={handlePreview}>Preview</Button>
-                                    </div> : <Button id={currentSelection.id} className={currentSelection.published === true ? "unpublishButton" : "publishButton"} onClick={(e) => handleSelection(e)}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>}
+                                    </div> : <Button id={currentSelection.id} className={currentSelection.published === true ? "unpublishButton" : "publishButton"} onClick={(e) => handleSelection(e)} style={{ marginTop: '4em' }}>{currentSelection.published === true ? "Unpublish" : "Publish"}</Button>}
                             </Card.Body>
                         </Card>
                     ))}
@@ -149,7 +158,7 @@ export default function Publisher() {
                         </button>
                     ))}
                 </div>
-                <div className='publisherPreview'></div>
+                <div className='publisherPreview'>{preview}</div>
             </div>
         </main>
     )
