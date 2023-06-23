@@ -19,9 +19,11 @@ import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
 import Unauthorized from './components/authentication/Unauthorized';
 import useAuthStore from './store/useAuthStore';
+import useCredentialStore from './store/useCredentialsStore';
 
 function App() {
   const { setRole, setToken, setAllowRegistration } = useStore(useAuthStore);
+  const { setUserId } = useStore(useCredentialStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -49,6 +51,7 @@ function App() {
   useEffect(() => {
     setRole(localStorage.getItem('role'));
     setToken(localStorage.getItem('token'));
+    setUserId(localStorage.getItem('id'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
