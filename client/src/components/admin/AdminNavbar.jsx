@@ -5,7 +5,7 @@ import useTableStore from '../../store/useTableStore';
 
 export default function AdminNavbar() {
 
-    const { setCurrentTable } = useStore(useTableStore);
+    const { setCurrentTable, setCurrentContent, courses } = useStore(useTableStore);
 
     const handleMouseEnter = () => {
         const sidebar = document.querySelector('.sidebar');
@@ -25,6 +25,7 @@ export default function AdminNavbar() {
 
     const handleClick = () => {
         setCurrentTable("Courses");
+        setCurrentContent(courses);
     }
 
     return (
