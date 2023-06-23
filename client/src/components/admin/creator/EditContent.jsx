@@ -23,6 +23,8 @@ export default function EditContent({ table }) {
         setDifficulty(currentEntity.difficulty);
         setTimeNeeded(currentEntity.timeToComplete);
         setTopics(currentEntity.topics);
+        setOptions(JSON.stringify(currentEntity.options));
+        setAnswers(JSON.stringify(currentEntity.answers));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -97,7 +99,7 @@ export default function EditContent({ table }) {
             .then(response => response.json())
             .then(data => {
                 toast.success(`${title} has been created`)
-                setModalOpen(false);
+                window.location.reload();
             })
             .catch(error => {
                 toast.error(`${title} could not be created`);
