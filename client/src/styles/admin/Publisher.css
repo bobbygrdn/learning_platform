@@ -17,7 +17,18 @@
 
 .publisherPreview {
     flex: 1;
-    border: 2px solid green;
+    height: 98%;
+    background-image: linear-gradient(135deg, rgba(103, 125, 140, 1) 0%, rgba(172, 169, 164, 1) 100%);
+    background-attachment: fixed;
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: .5em;
+    pointer-events: none;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    word-wrap: break-word;
 }
 
 .publisherPagesButtons {
