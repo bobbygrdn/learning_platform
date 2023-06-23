@@ -2,18 +2,20 @@ import React, { useEffect } from 'react';
 import CodeEditor from '../CodeEditor';
 import { useStore } from 'zustand';
 import useModalStore from '../../../../store/useModalStore';
+import useTableStore from '../../../../store/useTableStore';
 
 export default function QuestionForm() {
 
     const { title, setTitle, setContent, content, options, setOptions, answers, setAnswers } = useStore(useModalStore);
+    const { preview, setPreview } = useStore(useTableStore);
 
     const handleContentChange = (newContent) => {
         setContent(newContent)
     }
 
     useEffect(() => {
-        document.querySelector(".preview").innerHTML = content;
-    }, [content])
+        setPreview(content);
+    }, [content, setPreview])
 
     return (
         <div className='questionCreation'>
@@ -33,7 +35,7 @@ export default function QuestionForm() {
                             value={title}
                         />
 
-                        <label htmlFor='title'>Options</label>
+                        <label htmlFor='options'>Options</label>
                         <textarea
                             id='createTitle'
                             name='title'
@@ -44,7 +46,7 @@ export default function QuestionForm() {
                             style={{ resize: "none" }}
                         />
 
-                        <label htmlFor='title'>Answer(s)</label>
+                        <label htmlFor='answers'>Answer(s)</label>
                         <textarea
                             id='createTitle'
                             name='title'
@@ -58,7 +60,7 @@ export default function QuestionForm() {
                     </div>
                 </div>
             </div>
-            <div className='preview'></div>
+            <div className='preview'>{preview}</div>
         </div>
     )
 }

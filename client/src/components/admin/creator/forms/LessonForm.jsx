@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { useStore } from 'zustand';
 import useModalStore from '../../../../store/useModalStore';
 import CodeEditor from '../CodeEditor';
+import useTableStore from '../../../../store/useTableStore';
 
 export default function LessonForm() {
 
     const { title, setTitle, description, setDescription, addContent, content } = useStore(useModalStore);
+    const { preview, setPreview } = useStore(useTableStore);
 
     const handleAddElement = (event) => {
         event.preventDefault();
@@ -13,8 +15,8 @@ export default function LessonForm() {
     }
 
     useEffect(() => {
-        document.querySelector(".preview").innerHTML = content;
-    }, [content])
+        setPreview(content);
+    }, [content, setPreview])
 
     return (
         <div className='lessonCreation'>
@@ -55,7 +57,7 @@ export default function LessonForm() {
                 <label htmlFor='content'>Content</label>
                 <CodeEditor language={"html"} />
             </div>
-            <div className='preview'></div>
+            <div className='preview'>{preview}</div>
         </div>
     )
 }
