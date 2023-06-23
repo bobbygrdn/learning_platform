@@ -40,7 +40,7 @@ export default function Table() {
             })
                 .then(response => {
                     toast.success(`${currentContent.find((current) => current.id === id).title} has been deleted`);
-                    setCurrentTable("Courses");
+                    window.location.reload();
                 })
                 .catch(error => {
                     toast.error(error.message);
@@ -67,6 +67,7 @@ export default function Table() {
     }
 
     const handleCardClick = (id) => {
+        setCurrentPage(1);
         switch (currentTable) {
             case "Courses":
                 setCurrentTable("Lessons");
