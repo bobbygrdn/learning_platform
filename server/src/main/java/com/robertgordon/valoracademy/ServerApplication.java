@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 /** `@SpringBootApplication` is a combination of three annotations: `@Configuration`,
  * `@EnableAutoConfiguration`, and `@ComponentScan`. It is used to indicate that this is the main class
  * of a Spring Boot application and enables auto-configuration and component scanning. */
-// @SpringBootApplication
+@SpringBootApplication
 public class ServerApplication {
 
 	/**
