@@ -29,6 +29,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     word-wrap: break-word;
+    user-select: none;
 }
 
 .publisherPagesButtons {

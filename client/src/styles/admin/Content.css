@@ -332,6 +332,7 @@ label[for="description"] {
     font-size: .5em;
     overflow-y: auto;
     word-wrap: break-word;
+    user-select: none;
 }
 
 .information {
