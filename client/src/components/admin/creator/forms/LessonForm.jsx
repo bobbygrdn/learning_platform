@@ -16,7 +16,8 @@ export default function LessonForm() {
 
     useEffect(() => {
         setPreview(content);
-    }, [content, setPreview])
+        document.querySelector(".preview").innerHTML = preview;
+    }, [content, preview, setPreview])
 
     return (
         <div className='lessonCreation'>
@@ -57,7 +58,7 @@ export default function LessonForm() {
                 <label htmlFor='content'>Content</label>
                 <CodeEditor language={"html"} />
             </div>
-            <div className='preview'>{preview}</div>
+            <div className='preview'></div>
         </div>
     )
 }

@@ -115,6 +115,7 @@ export default function Publisher() {
         e.stopPropagation();
         const element = selectEntity(e.target.id);
         setPreview(element.content);
+        document.querySelector("").innerHTML = preview;
     }
 
     return (
@@ -158,7 +159,7 @@ export default function Publisher() {
                         </button>
                     ))}
                 </div>
-                <div className='publisherPreview'>{preview}</div>
+                <div className='publisherPreview'></div>
             </div>
         </main>
     )
