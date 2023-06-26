@@ -27,7 +27,7 @@
     padding: .5em;
     pointer-events: none;
     box-sizing: border-box;
-    overflow-y: scroll;
+    overflow-y: auto;
     word-wrap: break-word;
 }
 
