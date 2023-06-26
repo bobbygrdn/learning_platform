@@ -32,7 +32,7 @@ public class Lesson {
      * field should be mapped to a column in the database table named `title`. 
      * The `nullable = false` parameter specifies that the `title` field cannot be null in the database. 
      * The `private String title;` line is declaring a field named `title` of type `String` in the `Lesson` class. */
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false, columnDefinition = "text", length = 10000000)
     private String title;
 
     /** `@Column(name = "description", nullable = false)` is an annotation used to
@@ -40,7 +40,7 @@ public class Lesson {
      *  field should be mapped to a column in the database table named `description`. 
      *  The `nullable = false` parameter specifies that the `description` field cannot be null in the database. 
      * The `private String description;` line is declaring a field named `description` of type `String` in the `Lesson` class. */
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, columnDefinition = "text", length = 10000000)
     private String description;
 
     /** `@Column(name = "content", nullable = false)` is an annotation used to specify
@@ -48,7 +48,7 @@ public class Lesson {
      *  field should be mapped to a column in the database table named `content`. 
      *  The `nullable = false` parameter specifies that the `content` field cannot be null in the database. 
      * The `private String content;` line is declaring a field named `content` of type `String` in the `Lesson` class. */
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false, columnDefinition = "text", length = 10000000)
     private String content;
 
     /** `@Column(name = "published", nullable = false, columnDefinition = "boolean 

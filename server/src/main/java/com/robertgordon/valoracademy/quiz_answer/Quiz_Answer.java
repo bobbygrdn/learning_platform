@@ -27,7 +27,7 @@ public class Quiz_Answer {
      *  The `nullable = false` parameter specifies that the `content` field cannot be 
      * null in the database. 
      * The `private String content;` line is declaring a field named `content` of type `String` in the `Quiz_Answer` class. */
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false, columnDefinition = "text", length = 10000000)
     private String content;
 
 }

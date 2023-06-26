@@ -36,7 +36,7 @@ public class Course {
      * The `nullable = false` parameter specifies that the `title` field cannot be null 
      * in the database. 
      * The `private String title;` line is declaring a field named `title` of type `String` in the `Course` class. */
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false, columnDefinition = "text", length = 10000000)
     private String title;
 
     /** `@Column(name = "description", nullable = false)` is an annotation used to specify that the `description`
@@ -44,7 +44,7 @@ public class Course {
      *  The `nullable = false` parameter specifies that the `description` field cannot
      *  be null in the database. 
      * The `private String description;` line is declaring a field named `description` of type `String` in the `Course` class. */
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, columnDefinition = "text", length = 10000000)
     private String description;
 
     /** `@Column(name = "topics", nullable = false)` is an annotation used to specify that the `topics`
@@ -52,7 +52,7 @@ public class Course {
      *  The `nullable = false` parameter specifies that the `topics` field cannot be 
      * null in the database. 
      * The `private String topics;` line is declaring a field named `topics` of type `String` in the `Course` class. */
-    @Column(name = "topics", nullable = false)
+    @Column(name = "topics", nullable = false, columnDefinition = "text", length = 10000000)
     private String topics;
 
     /** `@Column(name = "difficulty", nullable = false)` is an annotation used to 

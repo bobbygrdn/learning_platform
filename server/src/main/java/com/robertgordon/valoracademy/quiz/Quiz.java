@@ -31,7 +31,7 @@ public class Quiz {
      * field should be mapped to a column in the database table named `title`. 
      * The `nullable = false` parameter specifies that the `title` field cannot be null in the database. 
      * The `private String title;` line is declaring a field named `title` of type `String` in the `Quiz` class. */
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false, columnDefinition = "text", length = 10000000)
     private String title;
 
     /** `@Column(name = "description", nullable = false)` is an annotation used to
@@ -39,7 +39,7 @@ public class Quiz {
      *  field should be mapped to a column in the database table named `description`. 
      *  The `nullable = false` parameter specifies that the `description` field cannot be null in the database. 
      * The `private String description;` line is declaring a field named `description` of type `String` in the `Quiz` class. */
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, columnDefinition = "text", length = 10000000)
     private String description;
 
      /** `@Column(name = "published", nullable = false, columnDefinition = "boolean 

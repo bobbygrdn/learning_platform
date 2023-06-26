@@ -35,7 +35,7 @@ public class Quiz_Question {
      * in the database. 
      * The `private String title;` line is declaring a field named `title` of type 
      * `String` in the `Quiz_Question` class. */
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false, columnDefinition = "text", length = 10000000)
     private String title;
 
     /** `@Column(name = "content", nullable = false)` is an annotation used to specify 
@@ -45,7 +45,7 @@ public class Quiz_Question {
      * null in the database. 
      * The `private String content;` line is declaring a field named `content` of type
      *  `String` in the `Quiz_Question` class. */
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false, columnDefinition = "text", length = 10000000)
     private String content;
 
      /** `@Column(name = "published", nullable = false, columnDefinition = )` is 

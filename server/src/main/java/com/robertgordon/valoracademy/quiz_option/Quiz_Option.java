@@ -29,7 +29,7 @@ public class Quiz_Option {
      * null in the database. 
      * The `private String content;` line is declaring a field named `content` of type 
      * `String` in the `Quiz_Option` class. */
-    @Column(name = "content", nullable = false)
+    @Column(name = "content", nullable = false, columnDefinition = "text", length = 10000000)
     private String content;
 
 }
