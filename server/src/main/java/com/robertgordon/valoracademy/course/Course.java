@@ -17,7 +17,7 @@ import lombok.Data;
  *  and other methods. */
 @Entity
 @Table(name = "courses")
-// @Data
+@Data
 public class Course {
 
     /** `@Id` is an annotation used to mark the primary key of the entity. 
