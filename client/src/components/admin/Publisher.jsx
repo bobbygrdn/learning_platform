@@ -115,7 +115,7 @@ export default function Publisher() {
         e.stopPropagation();
         const element = selectEntity(e.target.id);
         setPreview(element.content);
-        document.querySelector("").innerHTML = preview;
+        document.querySelector(".publisherPreview").innerHTML = preview;
     }
 
     return (
@@ -141,7 +141,7 @@ export default function Publisher() {
                                 {currentTable === "Courses" ? currentSelection.lessons.map((element, index) => {
                                     return (<Card.Text key={element.id} style={{ textAlign: 'left' }}>{`${index + 1}.`} {element.title}</Card.Text>);
                                 }) : null}
-                                <Card.Text style={{ textAlign: 'left' }}>{currentTable !== "Courses" ? currentSelection.description : null}</Card.Text>
+                                <Card.Text style={{ textAlign: 'left', textOverflow: 'ellipsis', overflow: 'hidden' }}>{currentTable !== "Courses" ? `${currentSelection.description.substring(0, 80)}...` : null}</Card.Text>
                                 <div style={{ textAlign: 'left' }}>{currentTable === 'Questions' ? <ul style={{ display: 'flex', flexDirection: 'column' }}>Answer: {currentSelection.answers.map(answer => <li key={answer.id}>- {answer.content}</li>)}</ul> : ''}</div>
                                 {currentTable === "Lessons" || currentTable === "Questions" ?
                                     <div style={{ marginTop: '1.5em' }}>
