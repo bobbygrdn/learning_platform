@@ -1,137 +1,218 @@
 -- Insert statement for the course
 INSERT INTO courses (title, description, topics, difficulty, time_needed, user_id)
 VALUES
-  ('Course 1', 'This is the first course on our platform.', 'Learning the User Interface, Learning the flow of the Platform', 'Beginner', '3 Days', 1),
-  ('Course 2', 'In this course, you will learn advanced techniques.', 'Learning the Advanced Techniques, Learning to implement these techniques', 'Intermediate', '2 Weeks', 1),
-  ('Course 3', 'Discover the secrets of effective communication.', 'Learn how people communicate, Learn how to be an active listener', 'Beginner', '2 Days', 1),
-  ('Course 4', 'Learn how to build your own website from scratch.', 'Learn basic web development, Learn webpage structure and flow', 'Beginner', '1 week', 1),
-  ('Course 5', 'Master the art of digital photography.', 'Learnhow to utilize different camera setttings, Learn how to bring life to photos', 'Beginner', '1 week', 1),
-  ('Course 6', 'Explore the world of data analysis and visualization.', 'Learn the basics of data analysis, Learn how to best visualize your data', 'Intermediate', '3 Weeks', 1),
-  ('Course 7', 'Unleash your creativity with this art course.', 'Learn best practices for art design, Learn how to bring out your inner creativity', 'Beginner', '1 Day', 1),
-  ('Course 8', 'Learn the basics of programming with Python.', 'Learn the fundamentals of Python, Learn how to build basic programs', 'Beginner', '2 Weeks', 1),
-  ('Course 9', 'Enhance your leadership skills with this course.', 'Learn what leadership styles are used worldwide, Learn what leadership style best suites you', 'Intermediate', '5 Days', 1),
-  ('Course 10', 'Discover the wonders of astronomy.', 'Learn how to recognize star patterns, Learn positioning of astrological signs', 'Beginner', '4 Days', 1);
+  ('JavaScript Fundamentals', 'This course is designed to give you the foundational knowledge you need to start using JavaScript', 'Introduction to JavaScript, Variables and Data Types, Operators and Expressions, Control Flow and Conditional Statements, Loop and Iterations, Functions and Scope, Arrays and Objects, Working with DOM(Document Object Model), Events and Event Handling, Introduction to Asynchronous Programming with Promises', 'Beginner', '2 Weeks', 1),
+  ('Getting Started with HTML', 'This course is designed to give you the foundational knowledge you need for working with HTML and the Browser.', 'Introduction to HTML, HTML Document Structure, HTML Tags and Elements, Text Formatting and Structure, Links and Anchor Tags, Images and Multimedia, Lists and Tables, Forms and Input Elements, Semantic HTML, HTML5 Features and APIs', 'Intermediate', '2 Weeks', 1),
+  ('CSS Basics', 'This course is designed to give you the foundational knowledge you need for working with style systems like Flex-Box and Grid for creating responsive, styled webpages.', 'Introduction to CSS, CSS Syntax and Selectors, CSS Box Model and Layout, CSS Typography and Fonts, CSS Colors and Backgrounds, CSS Borders and Shadows, CSS Layout Techniques (Floats, Flexbox, Grid), CSS Transitions and Animations, Responsive Web Design with CSS, CSS Best Practices and Optimization', 'Beginner', '2 Weeks', 1),
+  ('Advanced JavaScript', 'This course is designed to push your knowledge in JavaScript further so you can use advanced techniques and principles when utilizing it in your projects.', 'Advanced Functions and Closures, Prototypes and Inheritance, Error Handling and Debugging, Working with JSON and APIs, ES6+ Features and Syntax, Modules and Module Bundlers, Promises and Async/Await, JavaScript Design Patterns, Testing and Debugging JavaScript Code, JavaScript Performance Optimization', 'Intermediate', '3 weeks', 1);
 
 -- Insert statements for the lessons
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 1);
+VALUES ('Lesson 1: Introduction to JavaScript', 'JavaScript is a powerful programming language that plays a crucial role in web development. In this lesson, we will provide a brief introduction to JavaScript, explore its features and capabilities, and discuss its importance in enhancing website interactivity and user experience.', '<p>JavaScript is a versatile and powerful programming language that is widely used in web development. It adds interactivity and dynamic functionality to websites, making them more engaging for users. In this lesson, we will provide an overview of JavaScript and discuss its role in web development.</p>
+<h3>What is JavaScript?</h3>
+<p>JavaScript is a high-level, interpreted programming language that runs in the web browser. It is primarily used for client-side scripting, which means it runs on the user''s device rather than the web server. This allows JavaScript to interact with web pages in real-time, responding to user actions and modifying the content dynamically.</p>
+<h3>JavaScript''s Features and Capabilities:</h3>
+<span>JavaScript offers a wide range of features and capabilities that make it a powerful tool for web development. Some key features include:</span>
+<ul>
+<li>Manipulating HTML: JavaScript can interact with HTML elements, modifying their properties, styles, and content. It allows developers to dynamically update the web page based on user input or events.</li>
+<li>Handling Events: JavaScript enables developers to handle various user events, such as mouse clicks, keyboard input, and form submissions. This allows websites to respond to user actions and provide a more interactive experience.</li>
+<li>Data Manipulation: JavaScript can handle data in different formats, perform calculations, and manipulate data structures like arrays and objects. It provides functions and methods for working with data efficiently.</li>
+<li>Asynchronous Operations: JavaScript supports asynchronous programming, allowing tasks to run in the background without blocking the main execution. This is particularly useful when making network requests or handling time-consuming operations.</li>
+</ul>
+<h3>JavaScript''s Role in Web Development:</h3>
+<span>JavaScript plays a vital role in web development by enhancing the functionality and interactivity of websites. Here are some key aspects of JavaScript''s role:</span>
+<ul>
+<li>Client-Side Scripting: JavaScript is primarily used for client-side scripting, enabling dynamic and interactive features on web pages. It runs directly in the user''s browser, reducing the need for round-trips to the server for every user action.</li>
+<li>User Experience Enhancement: JavaScript allows developers to create engaging user experiences by adding animations, form validation, and interactive elements. It can make websites feel more responsive and intuitive.</li>
+<li>Web Application Development: With the advent of modern web frameworks and libraries, JavaScript has become a key technology for building web applications. It enables the development of complex and feature-rich applications that run entirely in the browser.</li>
+</ul>
+<p>JavaScript is a fundamental language in web development, empowering developers to create dynamic and interactive websites. Its rich features and capabilities make it a versatile tool for enhancing user experience and building web applications. In the next lesson, we will delve into variables and data types in JavaScript, which are essential concepts for writing dynamic scripts.</p>', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 1);
+VALUES ('Lesson 2: Variables and Data Types', 'In this lesson, we will explore the concept of variables in JavaScript and learn about different data types supported by the language. Understanding variables and data types is essential for writing dynamic scripts and manipulating data in JavaScript.', '<p>In JavaScript, variables are used to store and manipulate data. They provide a way to hold values that can be accessed and modified during program execution. Understanding variables and data types is essential for writing dynamic scripts and working with different kinds of information.</p>
+<h3>Introduction to Variables:</h3>
+<p>Variables are named containers that hold values in JavaScript. They allow us to store data and refer to it by a specific name. Before using a variable, we need to declare it using the <code>let</code>, <code>const</code>, or <code>var</code> keyword, followed by the variable name.</p>
+<p>For example, to declare a variable named <code>age</code> and assign it a value of 25, we can write:</p>
+<pre><code>let age = 25;</code></pre>
+<p>Variables can also be initialized without an initial value. In that case, the variable will have an initial value of <code>undefined</code>.</p>
+<h3>Data Types in JavaScript:</h3>
+<p>JavaScript supports various data types, which determine the kind of values that can be assigned to variables. Here are some commonly used data types:</p>
+<ul>
+<li><strong>Number:</strong> Represents numeric values, including integers and floating-point numbers. For example: <code>let count = 10;</code></li>
+<li><strong>String:</strong> Represents sequences of characters enclosed in single or double quotes. For example: <code>let name = "John";</code></li>
+<li><strong>Boolean:</strong> Represents logical values, either <code>true</code> or <code>false</code>. For example: <code>let isLogged = true;</code></li>
+<li><strong>Null:</strong> Represents the intentional absence of any object value. For example: <code>let data = null;</code></li>
+<li><strong>Undefined:</strong> Represents the absence of an assigned value. For example: <code>let value;</code></li>
+<li><strong>Array:</strong> Represents an ordered list of values, enclosed in square brackets and separated by commas. For example: <code>let numbers = [1, 2, 3];</code></li>
+<li><strong>Object:</strong> Represents a collection of key-value pairs, enclosed in curly braces. For example: <code>let person = { name: "John", age: 25 };</code></li>
+</ul>
+<h3>Variable Naming Conventions:</h3>
+<p>When naming variables, it is important to follow certain conventions and best practices:</p>
+<ul>
+<li>Use descriptive and meaningful names that reflect the purpose of the variable.</li>
+<li>Start variable names with a lowercase letter.</li>
+<li>Use camelCase for multi-word variable names (e.g., <code>userName</code>, <code>itemPrice</code>).</li>
+<li>Avoid using reserved keywords as variable names (e.g., <code>let</code>, <code>if</code>, <code>function</code>).</li>
+</ul>
+<p>By understanding variables and data types, you can effectively store and manipulate different kinds of information in JavaScript. In the next lesson, we will explore operators and expressions, which allow us to perform computations and manipulate data in JavaScript.</p>', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 1);
+VALUES ('Lesson 3: Operators and Expressions', 'In JavaScript, operators and expressions play a crucial role in performing computations and manipulating data. Operators allow us to perform mathematical calculations, logical operations, and comparisons, while expressions combine values and operators to produce new values. In this lesson, we will explore different types of operators and learn how to use them effectively. We will also delve into expressions and see how they are used to perform calculations and make comparisons.', '<p>In JavaScript, operators and expressions are fundamental building blocks for performing computations and manipulating data. Operators allow us to perform mathematical, logical, and comparison operations, while expressions combine values and operators to produce a new value.</p>
+<h3>Arithmetic Operators:</h3>
+<p>JavaScript provides several arithmetic operators for performing mathematical calculations. Here are some commonly used arithmetic operators:</p>
+<ul>
+<li><strong>Addition (+):</strong> Adds two values together. For example: <code>let sum = 5 + 3;</code></li>
+<li><strong>Subtraction (-):</strong> Subtracts one value from another. For example: <code>let difference = 10 - 4;</code></li>
+<li><strong>Multiplication (*):</strong> Multiplies two values. For example: <code>let product = 3 * 5;</code></li>
+<li><strong>Division (/):</strong> Divides one value by another. For example: <code>let quotient = 15 / 3;</code></li>
+<li><strong>Modulus (%):</strong> Returns the remainder of a division operation. For example: <code>let remainder = 10 % 3;</code></li>
+<li><strong>Increment (++) and Decrement (--):</strong> Increase or decrease the value of a variable by 1. For example: <code>let count = 0; count++;</code></li>
+</ul>
+<h3>Assignment Operators:</h3>
+<p>Assignment operators are used to assign values to variables. They combine the assignment (=) operator with arithmetic operators. Here are some commonly used assignment operators:</p>
+<ul>
+<li><strong>+=:</strong> Adds a value to the current value of a variable and assigns the result to the variable. For example: <code>let x = 5; x += 3; // x is now 8</code></li>
+<li><strong>-=:</strong> Subtracts a value from the current value of a variable and assigns the result to the variable.</li>
+<li><strong>*=:</strong> Multiplies the current value of a variable by a value and assigns the result to the variable.</li>
+<li><strong>/=:</strong> Divides the current value of a variable by a value and assigns the result to the variable.</li>
+</ul>
+<h3>Comparison Operators:</h3>
+<p>Comparison operators are used to compare two values and return a Boolean result. They are commonly used in conditional statements and loops. Here are some commonly used comparison operators:</p>
+<ul>
+<li><strong>Equal to (==):</strong> Checks if two values are equal. For example: <code>let isEqual = 5 == 5;</code></li>
+<li><strong>Not equal to (!=):</strong> Checks if two values are not equal.</li>
+<li><strong>Greater than (&gt;):</strong> Checks if one value is greater than another.</li>
+<li><strong>Less than (&lt;):</strong> Checks if one value is less than another.</li>
+<li><strong>Greater than or equal to (&gt;=):</strong> Checks if one value is greater than or equal to another.</li>
+<li><strong>Less than or equal to (&lt;=):</strong> Checks if one value is less than or equal to another.</li>
+</ul>
+<h3>Logical Operators:</h3>
+<p>Logical operators are used to combine multiple conditions and perform logical operations. They are commonly used in conditional statements. Here are the three logical operators in JavaScript:</p>
+<ul>
+<li><strong>AND (&&):</strong> Returns <code>true</code> if both conditions are true. For example: <code>let isTrue = (5 &gt; 3) && (10 &lt; 15);</code></li>
+<li><strong>OR (||):</strong> Returns <code>true</code> if at least one condition is true.</li>
+<li><strong>NOT (!):</strong> Negates the result of a condition. For example: <code>let isFalse = !(5 &gt; 3);</code></li>
+</ul>
+<h3>Expression Examples:</h3>
+<p>Expressions combine values and operators to produce a new value. Here are some examples of expressions:</p>
+<ul>
+<li><code>let sum = 5 + 3;</code> - The expression <code>5 + 3</code> adds the values 5 and 3 together and assigns the result to the variable <code>sum</code>.</li>
+<li><code>let average = (10 + 15 + 20) / 3;</code> - The expression <code>(10 + 15 + 20) / 3</code> calculates the average of the numbers 10, 15, and 20.</li>
+<li><code>let isGreater = 10 &gt; 5;</code> - The expression <code>10 &gt; 5</code> compares if 10 is greater than 5 and assigns the result to the variable <code>isGreater</code>.</li>
+</ul>
+<p>By understanding operators and expressions, you can perform calculations, compare values, and manipulate data in JavaScript. In the next lesson, we will explore control flow statements, which allow us to control the flow of program execution based on conditions.</p>', 1);
+
+-- TODO: I left off here
+INSERT INTO lessons (title, description, content, course_id)
+VALUES ('Control Flow and Conditional Statements', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 1);
+VALUES ('Loops and Iteration', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 2);
+VALUES ('Functions and Scope', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 2);
+VALUES ('Arrays and Objects', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 2);
+VALUES ('Working with DOM (Document Object Model)', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 2);
+VALUES ('Events and Event Handling', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 3);
+VALUES ('Introduction to Asynchronous Programming with Promises', '', '', 1);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 3);
+VALUES ('Introduction to HTML', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 3);
+VALUES ('HTML Document Structure', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 3);
+VALUES ('HTML Tags and Elements', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 4);
+VALUES ('Text Formatting and Structure', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 4);
+VALUES ('Links and Anchor Tags', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 4);
+VALUES ('Images and Multimedia', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 4);
+VALUES ('Lists and Tables', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 5);
+VALUES ('Forms and Input Elements', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 5);
+VALUES ('Semantic HTML', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 5);
+VALUES ('HTML5 Features and APIs', '', '', 2);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 5);
+VALUES ('Introduction to CSS', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 6);
+VALUES ('CSS Syntax and Selectors', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 6);
+VALUES ('CSS Box Model and Layout', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 6);
+VALUES ('CSS Typography and Fonts', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 6);
+VALUES ('CSS Colors and Backgrounds', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 7);
+VALUES ('CSS Borders and Shadows', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 7);
+VALUES ('CSS Layout Techniques (Floats, Flexbox, Grid)', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 7);
+VALUES ('CSS Transitions and Animations', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 7);
+VALUES ('Responsive Web Design with CSS', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 8);
+VALUES ('CSS Best Practices and Optimization', '', '', 3);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 8);
+VALUES ('Advanced Functions and Closures', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 8);
+VALUES ('Prototypes and Inheritance', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 8);
+VALUES ('Error Handling and Debugging', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Your First Lesson', 'This introductory lesson will walk you through our User Interface for our platform and how to navigate through it.', 'These are the steps you will need to be successful in using our platform.', 9);
+VALUES ('Working with JSON and APIs', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 2', 'In this lesson, you will learn about the main features of our platform.', 'Explore the various tools and functionalities available to you.', 9);
+VALUES ('ES6+ Features and Syntax', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 3', 'This lesson focuses on creating and managing your user profile.', 'Learn how to set up your profile, add a profile picture, and update your personal information.', 9);
+VALUES ('Modules and Module Bundlers', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Lesson 4', 'Discover how to navigate through different sections of our platform.', 'Find your way around the dashboard, menu options, and other important areas.', 9);
+VALUES ('Promises and Async/Await', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Introduction to Programming', 'Learn the basics of programming and get familiar with key concepts.', 'Explore fundamental programming principles and problem-solving techniques.', 10);
+VALUES ('JavaScript Design Patterns', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Variables and Data Types', 'Understand how to declare variables and work with different data types.', 'Learn about integers, strings, booleans, and other data types used in programming.', 10);
+VALUES ('Testing and Debugging JavaScript Code', '', '', 4);
 
 INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Conditional Statements', 'Discover how to use if-else statements and make decisions in your code.', 'Learn how to control the flow of your program based on certain conditions.', 10);
-
-INSERT INTO lessons (title, description, content, course_id)
-VALUES ('Loops and Iteration', 'Explore different types of loops and iterate over data structures.', 'Understand how to repeat certain actions in your code and process collections of data.', 10);
+VALUES ('JavaScript Performance Optimization', '', '', 4);
 
 -- Insert statements for the quizzes
 INSERT INTO quizzes (title, description, lesson_id)
