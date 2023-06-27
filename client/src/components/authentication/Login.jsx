@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import useAuthStore from '../../store/useAuthStore';
 
 export default function Login() {
-    const { userName, setUserName, password, setPassword, setUserId, keepLoggedIn, setKeepLoggedIn, disabled, setDisabled } = useStore(useCredentialStore);
+    const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled } = useStore(useCredentialStore);
 
     const { role, setToken, setRole } = useStore(useAuthStore);
 
@@ -36,8 +36,7 @@ export default function Login() {
             },
             body: JSON.stringify({
                 username: userName,
-                password,
-                keepLoggedIn
+                password
             }),
         })
             .then(response => response.json())
@@ -86,10 +85,6 @@ export default function Login() {
                 <label className='password'>
                     <p className='passwordTitle'>Password</p>
                     <input className='passwordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
-                </label>
-                <label className='keepLoggedIn'>
-                    <p className='subheading'>Keep me logged in</p>
-                    <input className='checkbox' type="checkbox" onChange={e => setKeepLoggedIn(e.target.checked)} required />
                 </label>
                 <div disabled={disabled}>
                     <Button purpose='login' text='Login' onClick={loginUser} />
