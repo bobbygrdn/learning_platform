@@ -138,10 +138,9 @@ export default function Publisher() {
                         <Card className='Card' key={currentSelection.id} onClick={() => handleCardClick(currentSelection.id)} style={{ width: '18em', height: '14em', padding: '1em', textAlign: 'center' }}>
                             <Card.Body>
                                 <Card.Title style={{ marginBottom: '1em' }}> {currentSelection.title}</Card.Title>
-                                {currentTable === "Courses" ? currentSelection.lessons.map((element, index) => {
-                                    return (<Card.Text key={element.id} style={{ textAlign: 'left' }}>{`${index + 1}.`} {element.title}</Card.Text>);
-                                }) : null}
-                                <Card.Text style={{ textAlign: 'left', textOverflow: 'ellipsis', overflow: 'hidden' }}>{currentTable !== "Courses" ? `${currentSelection.description.substring(0, 80)}...` : null}</Card.Text>
+                                {currentTable === "Courses" ? <Card.Text key={currentSelection.id}>Number of Lessons: {currentSelection.lessons.length}</Card.Text>
+                                    : null}
+                                <Card.Text style={{ textAlign: 'left', textOverflow: 'ellipsis', overflow: 'hidden' }}>{currentTable !== "Courses" && currentTable !== "Questions" ? `${currentSelection.description.substring(0, 80)}...` : null}</Card.Text>
                                 <div style={{ textAlign: 'left' }}>{currentTable === 'Questions' ? <ul style={{ display: 'flex', flexDirection: 'column' }}>Answer: {currentSelection.answers.map(answer => <li key={answer.id}>- {answer.content}</li>)}</ul> : ''}</div>
                                 {currentTable === "Lessons" || currentTable === "Questions" ?
                                     <div style={{ marginTop: '1.5em' }}>
