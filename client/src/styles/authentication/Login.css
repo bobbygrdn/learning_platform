@@ -27,6 +27,7 @@
     --text-color: var(--secondary-text);
     height: 4em;
     width: 10em;
+    margin-top: 2em;
     margin-bottom: 2em;
     border: none;
     background: var(--bg);
