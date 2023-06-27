@@ -96,7 +96,6 @@ export default function Table() {
                     <Card className='Card' key={thisTable.id} id={thisTable.id} onClick={() => handleCardClick(thisTable.id)}>
                         <Card.Body>
                             <Card.Title style={{ marginBottom: '.5em' }}>Title: {thisTable.title}</Card.Title>
-                            <Card.Text style={{ marginTop: '.5em' }}>{currentTable === 'Courses' ? `Topics: ${thisTable.topics}` : ''}</Card.Text>
                             <Card.Text style={{ marginTop: '.5em' }}>{currentTable === 'Courses' ? `Difficulty: ${thisTable.difficulty}` : ''}</Card.Text>
                             <Card.Text style={{ marginTop: '.5em' }}>{currentTable === 'Courses' ? `Time to Complete: ${thisTable.timeToComplete}` : ''}</Card.Text>
                             <Card.Text style={{ marginTop: '.5em' }}>{currentTable !== 'Questions' ? `Description: ${thisTable.description}` : ''}</Card.Text>
