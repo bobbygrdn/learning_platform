@@ -67,16 +67,6 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
-    /** `@Column(name = "keepLoggedIn", nullable = false)` is an annotation used to 
-     * specify that the `keepLoggedIn`
-     * field should be mapped to a column in the database table named `keepLoggedIn`. 
-     * The `nullable = false` parameter specifies that the `keepLoggedIn` field cannot
-     *  be null in the database. 
-     * The `private String keepLoggedIn;` line is declaring a field named 
-     * `keepLoggedIn` of type `String` in the `User` class. */
-    @Column(name = "keepLoggedIn", nullable = false, columnDefinition = "varchar(255) default 'false'")
-    private boolean keepLoggedIn;
-
     /** This code is creating a one-to-many relationship between the `Course` entity and 
     * the `User` entity.
     *  `JoinColumn` is being used to name the column `my_courses`
