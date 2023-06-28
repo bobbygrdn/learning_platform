@@ -67,6 +67,15 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
+
+   /** The `@Column(name = "clan")` annotation is used to specify that the `clan` field should be mapped
+    * to a column in the database table named `clan`. This annotation is used in conjunction with the
+    * `@Entity` and `@Table` annotations to define the mapping between the Java object and the database
+    * table. The `private String clan;` line declares a field named `clan` of type `String` in the
+    * `User` class. */
+    @Column(name = "clan")
+    private String clan;
+
     /** This code is creating a one-to-many relationship between the `Course` entity and 
     * the `User` entity.
     *  `JoinColumn` is being used to name the column `my_courses`
