@@ -15,4 +15,8 @@ public interface LessonService {
     void deleteLesson(Long id);
 
     void updatePublished(Long lessonId);
+
+    void updateProgress(long lessonId, int progress);
+
+    void updateIsUserFinished(long lessonId);
 }
