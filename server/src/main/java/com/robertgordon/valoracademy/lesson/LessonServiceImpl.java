@@ -110,4 +110,38 @@ public class LessonServiceImpl implements LessonService {
         lessonRepository.save(existingLesson);
     }
 
+    /**
+     * The method updates the progress of a lesson for a user.
+     * 
+     * @param lessonId The lessonId parameter is the unique identifier of the lesson that needs to be
+     * updated.
+     * @param progress The progress parameter is an integer value representing the progress made by the
+     * user in a lesson.
+     */
+    @Override
+    public void updateProgress(long lessonId, int progress) {
+        
+        Lesson existingLesson = lessonRepository.findById(lessonId).orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with ID: " + lessonId));
+
+        existingLesson.setUserProgress(progress);
+
+        lessonRepository.save(existingLesson);
+    }
+
+    /**
+     * The method updates the "isUserFinished" field of a lesson with the given ID to true.
+     * 
+     * @param lessonId The lessonId parameter is the unique identifier of the lesson that needs to be
+     * updated.
+     */
+    @Override
+    public void updateIsUserFinished(long lessonId) {
+        
+        Lesson existingLesson = lessonRepository.findById(lessonId).orElseThrow(() -> new ResourceNotFoundException("Lesson does not exist with ID: " + lessonId));
+
+        existingLesson.setUserFinished(true);
+
+        lessonRepository.save(existingLesson);
+    }
+
 }
