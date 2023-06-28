@@ -102,6 +102,39 @@ public class LessonController {
     }
 
     /**
+     * This method updates the progress of a lesson with a given ID.
+     * 
+     * @param lessonId The lessonId parameter is a long value that represents the unique identifier of
+     * a lesson. It is used to identify the specific lesson for which the progress needs to be updated.
+     * @param progress The progress parameter is an integer value representing the updated progress of
+     * a lesson.
+     * @return The method is returning a ResponseEntity object with a String message.
+     */
+    @PatchMapping("lessons/{id}/progress")
+    public ResponseEntity<String> updateUserProgress(@PathVariable("id") long lessonId, @RequestBody int progress) {
+
+        lessonService.updateProgress(lessonId, progress);
+
+        return ResponseEntity.ok("Lesson progress with id " + lessonId + " has now been updated");
+    }
+
+    /**
+     * This method updates the "isUserFinished" status of a lesson with the given ID and returns a
+     * response indicating that the lesson has been finished.
+     * 
+     * @param lessonId The lessonId is a long value representing the unique identifier of the lesson
+     * that needs to be updated.
+     * @return The method is returning a ResponseEntity object with a String message.
+     */
+    @PatchMapping("lessons/{id}/finished")
+    public ResponseEntity<String> updateIsUserFinished(@PathVariable("id") long lessonId) {
+
+        lessonService.updateIsUserFinished(lessonId);
+
+        return ResponseEntity.ok("Lesson with id " + lessonId + " has been finished");
+    }
+
+    /**
      * This method deletes a lesson with a specified ID and returns a success message.
      * @param lessonId The ID of the lesson that needs to be deleted. It is obtained from the path variable "{id}" in the URL of the DELETE request.
      * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the lesson with the specified ID has been deleted.
