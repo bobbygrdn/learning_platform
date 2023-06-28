@@ -16,7 +16,5 @@ public interface QuizService {
 
     void updatePublished(long quizId);
 
-    void updateProgress(long quizId, int progress);
-
     void updateIsUserFinished(long quizId);
 }
