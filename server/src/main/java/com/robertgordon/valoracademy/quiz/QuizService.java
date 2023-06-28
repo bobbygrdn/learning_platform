@@ -15,4 +15,8 @@ public interface QuizService {
     void deleteQuiz(Long id);
 
     void updatePublished(long quizId);
+
+    void updateProgress(long quizId, int progress);
+
+    void updateIsUserFinished(long quizId);
 }
