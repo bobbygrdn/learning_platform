@@ -10,13 +10,19 @@ import com.robertgordon.valoracademy.user.User;
 import com.robertgordon.valoracademy.user.UserService;
 import com.robertgordon.valoracademy.util.UrlPaths;
 
-
-/** `@RestController` is an annotation in Spring that combines `@Controller` and 
- *  `@ResponseBody`. It is used to indicate that the class is a RESTful web service
- *  controller that handles HTTP requests and returns the response in the form of JSON. */
+/**
+ * `@RestController` is an annotation in Spring that combines `@Controller` and
+ * `@ResponseBody`. It is used to indicate that the class is a RESTful web
+ * service
+ * controller that handles HTTP requests and returns the response in the form of
+ * JSON.
+ */
 @RestController
 /*
- * `@RequestMapping(UrlPaths.CLASSURL)` is setting the base URL path for all the endpoints in this controller to "/api/v1/" from the `UrlPaths class`. This means that all the endpoints in this controller will be accessed through URLs that start with "/api/v1/".
+ * `@RequestMapping(UrlPaths.CLASSURL)` is setting the base URL path for all the
+ * endpoints in this controller to "/api/v1/" from the `UrlPaths class`. This
+ * means that all the endpoints in this controller will be accessed through URLs
+ * that start with "/api/v1/".
  */
 @RequestMapping(UrlPaths.CLASSURL)
 public class CourseController {
@@ -37,14 +43,17 @@ public class CourseController {
     /**
      * This method creates a new course for a user and returns the saved course as
      * a response.
-     * @param userId A Long value representing the ID of the user who is creating the course.
-     * @param courseRequest The request body containing the details of the course to be created.
-     * @return A ResponseEntity object containing the created Course object is being returned.
+     * 
+     * @param userId        A Long value representing the ID of the user who is
+     *                      creating the course.
+     * @param courseRequest The request body containing the details of the course to
+     *                      be created.
+     * @return A ResponseEntity object containing the created Course object is being
+     *         returned.
      */
     @PostMapping("users/{userId}/courses")
     public ResponseEntity<Course> createCourse(@PathVariable("userId") Long userId,
             @RequestBody Course courseRequest) {
-
 
         User user = this.userService.getUserById(userId);
 
@@ -64,11 +73,15 @@ public class CourseController {
         return this.courseService.getAllCourses();
     }
 
-  
     /**
-     * This method retrieves a course by its ID and returns it as a ResponseEntity object.
-     * @param courseId The courseId is a Long variable that represents the unique identifier of a course. It is obtained from the path variable in the URL of the GET request.
-     * @return A ResponseEntity object containing a Course object with the specified ID.
+     * This method retrieves a course by its ID and returns it as a ResponseEntity
+     * object.
+     * 
+     * @param courseId The courseId is a Long variable that represents the unique
+     *                 identifier of a course. It is obtained from the path variable
+     *                 in the URL of the GET request.
+     * @return A ResponseEntity object containing a Course object with the specified
+     *         ID.
      */
     @GetMapping("courses/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable("id") Long courseId) {
@@ -77,12 +90,19 @@ public class CourseController {
         return ResponseEntity.ok(course);
     }
 
-    
     /**
-     * This method updates a course with the given ID and returns the updated course as a ResponseEntity. 
-     * @param courseId The ID of the course that needs to be updated. It is obtained from the URL path variable using the @PathVariable annotation.
-     * @param course The `course` parameter is a `Course` object that is being passed in the request body. It contains the updated information for the course that needs to be updated in the database.
-     * @return A ResponseEntity object containing the updated Course object is being returned.
+     * This method updates a course with the given ID and returns the updated course
+     * as a ResponseEntity.
+     * 
+     * @param courseId The ID of the course that needs to be updated. It is obtained
+     *                 from the URL path variable using the @PathVariable
+     *                 annotation.
+     * @param course   The `course` parameter is a `Course` object that is being
+     *                 passed in the request body. It contains the updated
+     *                 information for the course that needs to be updated in the
+     *                 database.
+     * @return A ResponseEntity object containing the updated Course object is being
+     *         returned.
      */
     @PutMapping("courses/{id}")
     public ResponseEntity<Course> updateCourse(@PathVariable("id") Long courseId,
@@ -96,11 +116,14 @@ public class CourseController {
     /**
      * This method updates the published status of a course with a given ID.
      * 
-     * @param courseId The courseId is a Long variable that represents the unique identifier of a
-     * course that needs to be updated. It is obtained from the path variable in the URL of the API
-     * endpoint.
-     * @return A ResponseEntity object with a status code of 200 (OK) and a message indicating that the
-     * course with the specified ID has been updated.
+     * @param courseId The courseId is a Long variable that represents the unique
+     *                 identifier of a
+     *                 course that needs to be updated. It is obtained from the path
+     *                 variable in the URL of the API
+     *                 endpoint.
+     * @return A ResponseEntity object with a status code of 200 (OK) and a message
+     *         indicating that the
+     *         course with the specified ID has been updated.
      */
     @PatchMapping("courses/{id}")
     public ResponseEntity<String> updatePublished(@PathVariable("id") Long courseId) {
@@ -110,12 +133,32 @@ public class CourseController {
         return ResponseEntity.ok("Course with id " + courseId + " has been updated");
     }
 
-   
-  /**
-   * This method deletes a course with a specific ID and returns a message confirming the deletion.
-   * @param courseId The ID of the course that needs to be deleted. It is obtained from the path variable in the URL.
-   * @return A ResponseEntity object with a message indicating that the course with the specified ID has been deleted.
-   */
+    /**
+     * This method updates the status of a course to indicate that a user has
+     * finished it.
+     * 
+     * @param courseId The courseId is a long value representing the unique
+     *                 identifier of a course.
+     * @return The method is returning a ResponseEntity object with a String
+     *         message.
+     */
+    @PatchMapping("courses/{id}/finished")
+    public ResponseEntity<String> updateIsUserFinished(@PathVariable("id") long courseId) {
+
+        courseService.updateIsUserFinished(courseId);
+
+        return ResponseEntity.ok("Lesson with id " + courseId + " has been finished");
+    }
+
+    /**
+     * This method deletes a course with a specific ID and returns a message
+     * confirming the deletion.
+     * 
+     * @param courseId The ID of the course that needs to be deleted. It is obtained
+     *                 from the path variable in the URL.
+     * @return A ResponseEntity object with a message indicating that the course
+     *         with the specified ID has been deleted.
+     */
     @DeleteMapping("courses/{id}")
     public ResponseEntity<String> deleteCourse(@PathVariable("id") Long courseId) {
 
