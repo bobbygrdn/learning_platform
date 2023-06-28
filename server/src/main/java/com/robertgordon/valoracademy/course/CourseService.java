@@ -15,4 +15,6 @@ public interface CourseService {
     void deleteCourse(Long id);
 
     void updatePublished(Long courseId);
+
+    void updateIsUserFinished(long courseId);
 }

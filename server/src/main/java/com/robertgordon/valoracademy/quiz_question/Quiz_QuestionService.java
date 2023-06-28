@@ -15,4 +15,6 @@ public interface Quiz_QuestionService {
     void deleteQuiz_Question(Long id);
 
     void updatePublished(long questionId);
+
+    void updateIsUserFinished(long questionId);
 }
