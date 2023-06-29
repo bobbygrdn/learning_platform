@@ -8,9 +8,11 @@
     right: 0;
     padding: 0.5em;
     width: 100vw;
-    border: 2px solid black;
-    border-radius: 2em 2em 0 0;
-    background-color: #E5F1F2;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .catalog,
@@ -35,9 +37,19 @@
 }
 
 .navIcon {
-    width: 4em;
+    width: 2em;
 }
 
 .labels {
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 600px) {
+    .labels {
+        display: none;
+    }
+
+    .navIcon {
+        width: 7em;
+    }
 }
