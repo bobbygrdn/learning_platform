@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 import useAuthStore from '../../store/useAuthStore';
 
 export default function Login() {
-    const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled } = useStore(useCredentialStore);
+    const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled, setExperience, setLearningStreak, SetTitle, setMastery } = useStore(useCredentialStore);
 
     const { role, setToken, setRole } = useStore(useAuthStore);
 
@@ -41,13 +41,24 @@ export default function Login() {
         })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 if (data) {
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("id", data.id);
                     localStorage.setItem("role", data.role);
+                    localStorage.setItem("experience", data.experience);
+                    localStorage.setItem("title", data.title);
+                    localStorage.setItem("mastery", data.mastery);
+                    localStorage.setItem("learningStreak", data.learningStreak);
+                    localStorage.setItem("username", data.username)
                     setToken(data.token);
                     setUserId(data.id);
                     setRole(data.role);
+                    setExperience(data.experience);
+                    setMastery(data.mastery);
+                    setLearningStreak(data.learningStreak);
+                    SetTitle(data.title);
+                    setUserName(data.username);
 
                     toast.success("Successfully logged in!");
                     if (data.role === "Admin") {
@@ -70,7 +81,6 @@ export default function Login() {
     if (role != null) {
         role === "Admin" ?
             navigate('/admin/creator') : navigate('/dashboard/profile');
-        toast.success("Hello again. Welcome Back!");
     }
 
     return (
