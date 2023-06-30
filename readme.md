@@ -142,8 +142,8 @@ Overall, the technical architecture of the learning platform is designed for per
 - Integration with external services
   - Integration with external services could involve using APIs to connect the platform with other services or applications, such as LinkedIn or other job-search platforms. Allowing users to import their LinkedIn profile to automatically populate their user profile on the platform, or adding a feature that allows users to search for job openings on external job sites directly from within the platform. We could look into integrating with external services for additional learning resources, such as online textbooks or educational video platforms, to supplement the courses offered on the platform. This could provide users with a more comprehensive learning experience and make the platform more valuable to users. Overall, the goal of integrating with external services would be to enhance the user experience and provide more value to users through additional features and functionality.
 
-- Advanced analytics
-  - Advanced analytics can provide deeper insights into user behavior and engagement on the platform. For example, analytics can help identify which courses are most popular, which ones have low completion rates, and which ones are most effective in terms of student learning outcomes. This information can help instructors and administrators make data-driven decisions about course offerings and improvements.
+- Analytics Dashboard
+  - Analytics can provide deeper insights into user behavior and engagement on the platform. For example, analytics can help identify which courses are most popular, which ones have low completion rates, and which ones are most effective in terms of student learning outcomes. This information can help instructors and administrators make data-driven decisions about course offerings and improvements.
 
   - Analytics can also provide insights into user demographics, such as age, gender, location, and educational background. This information can help instructors and administrators better understand their user base and tailor their courses to meet the needs of different groups.
 
