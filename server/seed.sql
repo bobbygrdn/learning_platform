@@ -1,3 +1,11 @@
+-- Insert statement for the users
+INSERT INTO users (username, email, password, role) VALUES
+("Bret", "bret@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin"),
+("Charles", "charles@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User");
+
+-- Insert statement for the settings
+INSERT INTO settings (registrations) VALUES (true);
+
 -- Insert statement for the course
 INSERT INTO courses (title, description, topics, difficulty, time_needed, user_id)
 VALUES
