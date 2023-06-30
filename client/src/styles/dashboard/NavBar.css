@@ -18,31 +18,43 @@
 .catalog,
 .leaderboard,
 .myLearning,
-.profile,
-.logout {
+.profile {
     width: 14em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
+
 
 .catalog:hover,
 .leaderboard:hover,
 .myLearning:hover,
 .profile:hover,
-.logout:hover {
+.catalog:focus,
+.leaderboard:focus,
+.myLearning:focus,
+.profile:focus {
     transform: scale(1.1);
 }
 
 .navIcon {
     width: 2em;
+    pointer-events: auto;
 }
 
 .labels {
     font-size: 1.5em;
+    color: var(--secondary-text);
+    pointer-events: none;
 }
+
+.labels:focus {
+    color: #f5f5f5;
+}
+
 
 @media screen and (max-width: 600px) {
     .labels {
@@ -51,5 +63,12 @@
 
     .navIcon {
         width: 7em;
+    }
+
+    .catalog:hover,
+    .leaderboard:hover,
+    .myLearning:hover,
+    .profile:hover {
+        transform: scale(1.6);
     }
 }
