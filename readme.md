@@ -97,7 +97,7 @@ Start the server
 
 ### Technical Architecture
 
-The learning platform is a web-based application built using a 2-tier architecture with a React.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
+The learning platform is a web-based application built using a 2-tier Microservice architecture with a React.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
 
 The React.js frontend uses client-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
 
