@@ -242,7 +242,8 @@
     color: var(--primary-text);
 }
 
-.createContentTitle {
+.createContentTitle,
+.viewContentTitle {
     color: var(--primary-text);
     margin-bottom: .5em;
 }
