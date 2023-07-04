@@ -153,4 +153,17 @@ public class User {
     @Column(name = "course_id")
     private List<Course> courses = new ArrayList<>();
 
+    /**
+     * The addCourse method adds a course to a list of courses if it is not already
+     * present.
+     * 
+     * @param course The parameter "course" is an object of the class "Course".
+     */
+    public void addCourse(Course course) {
+        if (courses.contains(course)) {
+            return;
+        }
+        this.courses.add(course);
+    }
+
 }
