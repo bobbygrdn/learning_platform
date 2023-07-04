@@ -2,38 +2,115 @@ import React from 'react';
 import { useStore } from 'zustand';
 import useAuthStore from '../../store/useAuthStore';
 import useCredentialStore from '../../store/useCredentialsStore';
+import { toast } from 'react-toastify';
 
 export default function Profile() {
 
-    const { experience, learningStreak, title, mastery } = useStore(useAuthStore);
+    const { experience, learningStreak, title, mastery, token } = useStore(useAuthStore);
     const { userName } = useStore(useCredentialStore);
-    // TODO: Add all the images htmlFor the different characters and character stories
-    // TODO: Replace images with proper images coming from the user data
+    const { userId } = useStore(useCredentialStore);
+
+    const closeToast = () => {
+        toast.dismiss();
+    }
 
     const handlePasswordReset = () => {
 
+        const handleReset = async () => {
+            toast.dismiss();
+            const userInput = document.querySelector("#passwordInput").value;
+            console.log(userInput);
+            console.log(userId);
+            await fetch(`/api/v1/users/${userId}/reset`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    password: userInput,
+                }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    toast.success("Password updated successfully!")
+                })
+                .catch(error => {
+                    toast.error(error);
+                })
+        }
+
+        toast.info(
+            <div>
+                <h3>Input your new password</h3>
+                <div className='userPasswordReset'>
+                    <label >New Password:</label>
+                    <input type='password' id='passwordInput'></input>
+                </div>
+                <div className='buttons'>
+                    <button className='yes' onClick={handleReset}>Submit</button>
+                    <button className='no' onClick={closeToast}>Cancel</button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+                closeOnClick: false,
+                className: 'passwordReset'
+            }
+        )
     }
 
     const handleDeleteAccount = () => {
 
+        const handleDelete = () => {
+            toast.dismiss();
+            fetch(`/api/v1/users/${userId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`
+                },
+            })
+                .then((data) => {
+                    localStorage.clear();
+                    window.location.href = '/';
+                })
+                .catch(error => {
+                    toast.error(error);
+                })
+        }
+
+        toast.info(
+            <div>
+                <p>Are you sure you want to delete your account?</p>
+                <div className='buttons'>
+                    <button className='yes' onClick={handleDelete}>Delete</button>
+                    <button className='no' onClick={closeToast}>Cancel</button>
+                </div>
+            </div>,
+            {
+                autoClose: false,
+            }
+        )
+    }
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.href = '/';
     }
 
     return (
         <div className='profileContainer'>
             <div className='profileStats'>
-                <img src={process.env.PUBLIC_URL + "/resources/male_meijin.jpg"} id='character' alt='character'></img>
+                <img src={process.env.PUBLIC_URL + `/resources/${title}.jpg`} id='character' alt='character'></img>
                 <div className='stats'>
                     <h2>{userName}</h2>
-                    <div className='currency'>
-                        <p>{0}</p>
-                        <img src={process.env.PUBLIC_URL + "/resources/male_meijin.jpg"} id='currencyImage' alt='currency'></img>
-                    </div>
-                    <h3>Title: {title}</h3>
+                    <h3>Title: {title !== null ? title.split("_")[1].toUpperCase() : null}</h3>
                     <p><strong>Experience:</strong> {experience}</p>
                     <p><strong>Age of Character:</strong> {0} days</p>
                     <p><strong>Learning Streak:</strong> {learningStreak < new Date() ? null : 0} days</p>
                     <p><strong>Mastery Badges:</strong></p>
-                    <ul></ul>
+                    <ul>{mastery}</ul>
                 </div>
             </div>
             <section className='profileSettings'>
@@ -69,6 +146,10 @@ export default function Profile() {
                 </ul>
                 <h4>Security:</h4>
                 <ul className='securitySettings'>
+                    <li>
+                        Account Logout:
+                        <button onClick={handleLogout}>Logout</button>
+                    </li>
                     <li>
                         Password Reset:
                         <button onClick={handlePasswordReset}>Reset Password</button>
