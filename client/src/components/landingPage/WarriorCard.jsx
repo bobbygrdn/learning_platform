@@ -23,9 +23,9 @@ export default function WarriorCard({ warrior }) {
         break;
       default:
         setWarrior1(
-          process.env.PUBLIC_URL + "/resources/female_king_viking.jpg"
+          process.env.PUBLIC_URL + "/resources/female_vikingKing.jpg"
         );
-        setWarrior2(process.env.PUBLIC_URL + "/resources/male_king_viking.jpg");
+        setWarrior2(process.env.PUBLIC_URL + "/resources/male_vikingKing.jpg");
         break;
     }
   }, [warrior]);
