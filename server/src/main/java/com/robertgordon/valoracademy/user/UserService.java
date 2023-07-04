@@ -14,4 +14,8 @@ public interface UserService {
     User updateUserRole(Long id, User user);
 
     void deleteUser(Long id);
+
+    User resetPassword(long userId, String password);
+
+    User enrollInCourse(long userId, long courseId);
 }
