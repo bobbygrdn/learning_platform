@@ -41,7 +41,6 @@ export default function Login() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if (data) {
                     localStorage.setItem("token", data.token);
                     localStorage.setItem("id", data.id);
@@ -70,7 +69,7 @@ export default function Login() {
                             navigate('/admin/creator');
                         }
                     } else {
-                        navigate('/dashboard/profile');
+                        navigate('/dashboard/myLearning');
                     }
                 } else {
                     toast.error("User not found!");
@@ -80,7 +79,7 @@ export default function Login() {
 
     if (role != null) {
         role === "Admin" ?
-            navigate('/admin/creator') : navigate('/dashboard/profile');
+            navigate('/admin/creator') : navigate('/dashboard/myLearning');
     }
 
     return (
