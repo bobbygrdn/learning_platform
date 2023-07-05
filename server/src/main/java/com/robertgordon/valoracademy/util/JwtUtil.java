@@ -30,13 +30,16 @@ public class JwtUtil {
     @Value("${jwt.secret}")
     private String secret;
 
-    
     /**
-     * The method generates a JWT token and returns a map containing the token and user information.
+     * The method generates a JWT token and returns a map containing the token and
+     * user information.
      * 
-     * @param existingUser The existingUser parameter is an object of the User class. It represents the
-     * user for whom the token is being generated. The User class likely has properties such as id,
-     * username, role, title, experience, learningStreak, and mastery.
+     * @param existingUser The existingUser parameter is an object of the User
+     *                     class. It represents the
+     *                     user for whom the token is being generated. The User
+     *                     class likely has properties such as id,
+     *                     username, role, title, experience, characterAge, and
+     *                     mastery.
      * @return The method is returning a Map<String, String> object.
      */
     public Map<String, String> generateToken(User existingUser) {
@@ -51,7 +54,7 @@ public class JwtUtil {
         jwtTokenMap.put("username", existingUser.getUsername());
         jwtTokenMap.put("title", existingUser.getTitle());
         jwtTokenMap.put("experience", String.valueOf(existingUser.getExperience()));
-        jwtTokenMap.put("learningStreak", String.valueOf(existingUser.getLearningStreak()));
+        jwtTokenMap.put("characterAge", String.valueOf(existingUser.getCharacterAge()));
         jwtTokenMap.put("mastery", existingUser.getMastery());
 
         return jwtTokenMap;
