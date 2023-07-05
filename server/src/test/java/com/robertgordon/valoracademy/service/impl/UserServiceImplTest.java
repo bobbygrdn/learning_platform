@@ -43,7 +43,7 @@ public class UserServiceImplTest {
         newUser.setPassword("password");
         newUser.setEmail(username + "@email.com");
         newUser.setRole("User");
-        newUser.setLearningStreak(LocalDate.now());
+        newUser.setCharacterAge(LocalDate.now());
 
         // Act
         userService.saveUser(newUser);
