@@ -115,16 +115,15 @@ public class User {
     private int experience;
 
     /**
-     * The `@Column(name = "learningStreak")` annotation is used to specify that the
-     * `learningStreak`
-     * field should be mapped to a column in the database table named
-     * `learningStreak`. This annotation
+     * The `@Column(name = "character_age")` annotation is used to specify that the
+     * `characterAge` field should be mapped to a column in the database table named
+     * `character_age`. This annotation
      * is used in conjunction with the `@Entity` and `@Table` annotations to
      * define the mapping between
      * the Java object and the database table.
      */
-    @Column(name = "learningStreak", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDate learningStreak;
+    @Column(name = "character_age")
+    private LocalDate characterAge = LocalDate.now();
 
     /**
      * The `@Column(name = "mastery")` annotation is used to specify that the
