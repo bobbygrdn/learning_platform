@@ -1,9 +1,9 @@
 use vams;
 
 -- Insert statement for the users
-INSERT INTO users (username, email, password, role, title) VALUES
-("Bret", "bret@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null),
-("Charles", "charles@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User", "male_meijin");
+INSERT INTO users (username, email, password, role, title, character_age) VALUES
+("Bret", "bret@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null, null),
+("Charles", "charles@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User", "male_meijin", "2023-05-29");
 
 -- Insert statement for the settings
 INSERT INTO settings (registrations) VALUES (true);
