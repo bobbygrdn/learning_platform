@@ -2,6 +2,7 @@ package com.robertgordon.valoracademy.service.impl;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,7 @@ public class UserServiceImplTest {
         newUser.setPassword("password");
         newUser.setEmail(username + "@email.com");
         newUser.setRole("User");
+        newUser.setLearningStreak(LocalDate.now());
 
         // Act
         userService.saveUser(newUser);
