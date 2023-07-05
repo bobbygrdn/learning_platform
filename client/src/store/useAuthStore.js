@@ -5,7 +5,7 @@ const useAuthStore = createStore((set) => {
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
     const experience = localStorage.getItem('experience');
-    const learningStreak = localStorage.getItem('learningStreak');
+    const characterAge = localStorage.getItem('characterAge');
     const title = localStorage.getItem('title');
     const mastery = localStorage.getItem('mastery');
 
@@ -16,8 +16,8 @@ const useAuthStore = createStore((set) => {
         setToken: (token) => set(() => ({ token })),
         experience: experience || null,
         setExperience: (experience) => set(() => ({ experience })),
-        learningStreak: learningStreak || null,
-        setLearningStreak: (learningStreak) => set(() => ({ learningStreak })),
+        characterAge: characterAge || null,
+        setCharacterAge: (characterAge) => set(() => ({ characterAge })),
         title: title || null,
         setTitle: (title) => set(() => ({ title })),
         mastery: mastery || null,
