@@ -40,14 +40,14 @@ public class UserController {
      * returning the saved user.
      * 
      * @param user The "user" parameter is an object of the User class that is
-     *             received as a request body in a POST request to the "/users"
+     *             received as a request body in a POST request to the "/signup"
      *             endpoint.
      *             The method "saveUser" of the controller class takes this user
      *             object as input,
      *             passes it to the "saveUser" method of the "userService
      * @return The `saveUser` method is returning a `User` object.
      */
-    @PostMapping("users")
+    @PostMapping("signup")
     public User saveUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
