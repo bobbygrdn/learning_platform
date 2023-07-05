@@ -9,9 +9,8 @@ import { toast } from 'react-toastify';
 import useAuthStore from '../../store/useAuthStore';
 
 export default function Login() {
-    const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled, setExperience, setLearningStreak, SetTitle, setMastery } = useStore(useCredentialStore);
-
-    const { role, setToken, setRole } = useStore(useAuthStore);
+    const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled } = useStore(useCredentialStore);
+    const { role, setToken, setRole, setExperience, setTitle, setMastery, setCharacterAge } = useStore(useAuthStore);
 
     const navigate = useNavigate();
 
@@ -48,15 +47,15 @@ export default function Login() {
                     localStorage.setItem("experience", data.experience);
                     localStorage.setItem("title", data.title);
                     localStorage.setItem("mastery", data.mastery);
-                    localStorage.setItem("learningStreak", data.learningStreak);
+                    localStorage.setItem("characterAge", data.characterAge);
                     localStorage.setItem("username", data.username)
                     setToken(data.token);
                     setUserId(data.id);
                     setRole(data.role);
                     setExperience(data.experience);
                     setMastery(data.mastery);
-                    setLearningStreak(data.learningStreak);
-                    SetTitle(data.title);
+                    setCharacterAge(data.characterAge);
+                    setTitle(data.title);
                     setUserName(data.username);
 
                     toast.success("Successfully logged in!");
@@ -69,7 +68,7 @@ export default function Login() {
                             navigate('/admin/creator');
                         }
                     } else {
-                        navigate('/dashboard/myLearning');
+                        navigate('/dashboard/catalog');
                     }
                 } else {
                     toast.error("User not found!");
@@ -79,7 +78,7 @@ export default function Login() {
 
     if (role != null) {
         role === "Admin" ?
-            navigate('/admin/creator') : navigate('/dashboard/myLearning');
+            navigate('/admin/creator') : navigate('/dashboard/catalog');
     }
 
     return (
