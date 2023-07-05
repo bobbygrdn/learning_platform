@@ -81,7 +81,7 @@ export default function Signup() {
         event.preventDefault();
         const { isValid } = validateForm();
         if (isValid) {
-            fetch('/api/v1/users', {
+            fetch('/api/v1/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
