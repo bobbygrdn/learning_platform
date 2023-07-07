@@ -24,6 +24,8 @@
 }
 
 #character {
+    border: 2px solid #f5f5f5;
+    border-radius: 1em;
     aspect-ratio: 1;
     width: 20em;
 }
@@ -51,6 +53,8 @@
 
 
 .displayCarousel {
+    border: 2px solid #ccc;
+    border-radius: .5em;
     height: 5em;
     overflow-x: auto;
     margin-bottom: 2em;
@@ -151,7 +155,8 @@ input[type="radio"]:checked {
     color: var(--primary-text);
 }
 
-.viewContent {
+.viewContent,
+.characterCreator {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -171,8 +176,64 @@ input[type="radio"]:checked {
     padding-bottom: 1em;
 }
 
+.characterView {
+    height: 100%;
+    width: 100%;
+    color: var(--primary-text);
+    display: flex;
+    justify-content: center;
+}
+
 main {
     height: 78%;
+}
+
+.leaderboardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.characterButtons {
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 4em;
+}
+
+.character-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterCard {
+    width: 14em;
+    height: auto;
+    cursor: pointer;
+    opacity: .3;
+}
+
+.characterCard:focus,
+.characterCard:hover,
+.characterCard:active {
+    opacity: 1;
+}
+
+.warrior {
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: .5em;
+    pointer-events: none;
+}
+
+.selected {
+    opacity: 1;
 }
 
 @media screen and (max-width: 600px) {
@@ -226,6 +287,18 @@ main {
 
     .contentView {
         font-size: 1em;
+    }
+
+    .characterCard {
+        width: 6em;
+    }
+
+    .warrior {
+        height: 12em;
+    }
+
+    .character-container {
+        height: 0%;
     }
 
 }
