@@ -109,7 +109,7 @@ th {
     color: whitesmoke;
     width: 14em;
     text-align: center;
-    border-bottom: 1px solid var(--secondary-text);
+    border-bottom: 2px solid var(--secondary-text);
 }
 
 th:hover span {
