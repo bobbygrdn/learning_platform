@@ -1,0 +1,15 @@
+.leaderboardStats {
+    margin-top: 1em;
+    pointer-events: none;
+    width: 90vw;
+}
+
+tbody tr {
+    height: 2.8em;
+}
+
+@media screen and (max-width: 600px) {
+    tbody tr {
+        height: 3em;
+    }
+}
