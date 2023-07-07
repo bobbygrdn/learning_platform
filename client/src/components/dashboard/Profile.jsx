@@ -6,12 +6,23 @@ import { toast } from 'react-toastify';
 
 export default function Profile() {
 
-    const { experience, learningStreak, title, mastery, token } = useStore(useAuthStore);
+    const { experience, characterAge, title, mastery, token } = useStore(useAuthStore);
     const { userName } = useStore(useCredentialStore);
     const { userId } = useStore(useCredentialStore);
 
     const closeToast = () => {
         toast.dismiss();
+    }
+
+    const getCharacterAge = () => {
+        const today = new Date();
+        const characterAgeDate = new Date(characterAge)
+
+        const timeDifference = characterAgeDate.getTime() - today.getTime();
+
+        const differenceInDays = Math.ceil(Math.abs(timeDifference) / (1000 * 60 * 60 * 24));
+
+        return differenceInDays;
     }
 
     const handlePasswordReset = () => {
@@ -105,12 +116,11 @@ export default function Profile() {
                 <img src={process.env.PUBLIC_URL + `/resources/${title}.jpg`} id='character' alt='character'></img>
                 <div className='stats'>
                     <h2>{userName}</h2>
-                    <h3>Title: {title !== null ? title.split("_")[1].toUpperCase() : null}</h3>
+                    <h3>Title: {title && title.split("_")[1].toUpperCase()}</h3>
                     <p><strong>Experience:</strong> {experience}</p>
-                    <p><strong>Age of Character:</strong> {0} days</p>
-                    <p><strong>Learning Streak:</strong> {learningStreak < new Date() ? null : 0} days</p>
+                    <p><strong>Character Age:</strong> {getCharacterAge()} days</p>
                     <p><strong>Mastery Badges:</strong></p>
-                    <ul>{mastery}</ul>
+                    <ul>{mastery !== "null" ? "" : "NONE"}</ul>
                 </div>
             </div>
             <section className='profileSettings'>
