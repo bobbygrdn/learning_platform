@@ -4,13 +4,13 @@ import useTableStore from '../../store/useTableStore';
 import { Card } from 'react-bootstrap';
 import useAuthStore from '../../store/useAuthStore';
 import Modal from '../admin/creator/Modal';
+import CharacterCreator from './characterCreator/CharacterCreator';
 
 export default function Catalog() {
 
     const { searchTerm, setSearchTerm, courses, setCourses, setAction, modalOpen, setModalOpen, setCurrentEntity } = useStore(useTableStore);
-    const { token } = useStore(useAuthStore);
+    const { token, title } = useStore(useAuthStore);
 
-    // TODO: Need to change this so it only filters courses that are currently published
     const filteredContent = courses.filter((current) => {
         return current.title.includes(searchTerm);
     });
@@ -23,9 +23,19 @@ export default function Catalog() {
         })
             .then(response => response.json())
             .then(data => {
-                setCourses(data);
+                const published = data.filter((course) => {
+                    return course.published === true;
+                });
+                setCourses(published);
             })
     }, [setCourses, token]);
+
+    useEffect(() => {
+        if (title === "null") {
+            setAction("userCreation");
+            setModalOpen(!modalOpen)
+        }
+    }, [])
 
     const handleModalOpen = (id, action) => {
         setAction(action || "");
@@ -36,7 +46,7 @@ export default function Catalog() {
     }
 
     return (
-        <div className='catalogContainer'>
+        title === null ? <CharacterCreator /> : <div className='catalogContainer'>
             <Modal />
             <h1 className='catalogTitle'>Courses</h1>
             <div className='searchBar'>
