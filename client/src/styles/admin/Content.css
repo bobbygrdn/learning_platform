@@ -47,7 +47,8 @@
 .back,
 .publishButton,
 .previewButton,
-.unpublishButton {
+.unpublishButton,
+.characterButton {
     cursor: pointer;
     --bg: #e74c3c;
     --text-color: var(--secondary-text);
@@ -76,7 +77,8 @@
 .close:hover,
 .back:hover,
 .publishButton:hover,
-.previewButton:hover {
+.previewButton:hover,
+.characterButton:hover {
     opacity: 1;
 }
 
@@ -88,7 +90,8 @@
 .close:active,
 .back:active,
 .publishButton:active,
-.previewButton:active {
+.previewButton:active,
+.characterButton:active {
     top: 4px;
 }
 
@@ -105,7 +108,8 @@
     box-shadow: #229c37 0px 7px 2px, #000 0px 8px 5px;
 }
 
-.previewButton {
+.previewButton,
+.characterButton {
     background-color: #1808f1;
     box-shadow: #3426ee 0px 7px 2px, #000 0px 8px 5px;
 }
