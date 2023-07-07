@@ -194,4 +194,26 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * This method updates the title of a user with the given ID and returns the
+     * updated user.
+     * 
+     * @param id    The id parameter is the unique identifier of the user that needs
+     *              to be updated.
+     * @param title The "title" parameter is a String that represents the new title
+     *              to be updated for
+     *              the user.
+     * @return The method is returning the updated User object.
+     */
+    @Override
+    public User updateUserTitle(long id, String title) {
+
+        User existingUser = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + id));
+
+        existingUser.setTitle(title);
+
+        return userRepository.save(existingUser);
+    }
+
 }

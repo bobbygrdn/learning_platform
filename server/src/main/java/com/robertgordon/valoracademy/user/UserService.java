@@ -18,4 +18,6 @@ public interface UserService {
     User resetPassword(long userId, String password);
 
     User enrollInCourse(long userId, long courseId);
+
+    User updateUserTitle(long id, String title);
 }
