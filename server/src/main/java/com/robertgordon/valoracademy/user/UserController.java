@@ -167,6 +167,26 @@ public class UserController {
     }
 
     /**
+     * This method updates the title of a user's warrior.
+     * 
+     * @param id    The id parameter is a long value representing the unique
+     *              identifier of the user. It is
+     *              used to identify the specific user whose title needs to be
+     *              updated.
+     * @param title The "title" parameter is a string that represents the new title
+     *              for the user.
+     * @return The method is returning a ResponseEntity object with the updated User
+     *         object.
+     */
+    @PatchMapping("users/{id}/warriorSelect")
+    public ResponseEntity<User> updateUserTitle(@PathVariable("id") long id, @RequestBody String title) {
+
+        User existingUser = this.userService.updateUserTitle(id, title);
+
+        return ResponseEntity.ok(existingUser);
+    }
+
+    /**
      * This method deletes a user with a specific ID and returns a message
      * confirming the deletion.
      * 
