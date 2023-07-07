@@ -13,6 +13,7 @@ const useTableStore = createStore((set) => ({
     currentTable: "Courses",
     searchTerm: "",
     preview: "",
+    leaderboard: 0,
     setCurrentPage: (page) => set({ currentPage: page }),
     setModalOpen: (isOpen) => set({ modalOpen: isOpen }),
     setCurrentEntity: (entity) => set({ currentEntity: entity }),
@@ -32,7 +33,8 @@ const useTableStore = createStore((set) => ({
             currentTable: table,
         })),
     setSearchTerm: (searchTerm) => set({ searchTerm }),
-    setPreview: (preview) => set({ preview })
+    setPreview: (preview) => set({ preview }),
+    setLeaderboard: (leaderboard) => set({ leaderboard })
 }));
 
 export default useTableStore;
