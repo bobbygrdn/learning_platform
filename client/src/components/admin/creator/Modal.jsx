@@ -4,6 +4,7 @@ import useTableStore from '../../../store/useTableStore';
 import CreateContent from './CreateContent';
 import EditContent from './EditContent';
 import ViewContent from '../../dashboard/ViewContent';
+import CharacterCreator from '../../dashboard/characterCreator/CharacterCreator';
 
 export default function Modal({ table }) {
 
@@ -17,6 +18,8 @@ export default function Modal({ table }) {
                 return <EditContent table={table} />
             case "view":
                 return <ViewContent />
+            case "userCreation":
+                return <CharacterCreator />
             default:
                 return <h1>Error</h1>;
         }
