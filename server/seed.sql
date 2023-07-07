@@ -1,20 +1,20 @@
 use vams;
 
 -- Insert statement for the users
-INSERT INTO users (username, email, password, role, title, character_age) VALUES
-("Bret", "bret@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null, null),
-("Charles", "charles@email.com", "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User", "male_meijin", "2023-05-29");
+INSERT INTO users (username, email, experience, password, role, title, character_age) VALUES
+("Bret", "bret@email.com", 0, "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null, null),
+("Charles", "charles@email.com", 100000, "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User", "male_meijin", "2023-05-29");
 
 -- Insert statement for the settings
 INSERT INTO settings (registrations) VALUES (true);
 
 -- Insert statement for the course
-INSERT INTO courses (title, description, topics, difficulty, time_needed, user_id)
+INSERT INTO courses (title, description, topics, difficulty, time_needed, user_id, published)
 VALUES
-  ('JavaScript Fundamentals', 'This course is designed to give you the foundational knowledge you need to start using JavaScript', 'Introduction to JavaScript, Variables and Data Types, Operators and Expressions, Control Flow and Conditional Statements, Loop and Iterations, Functions and Scope, Arrays and Objects, Working with DOM(Document Object Model), Events and Event Handling, Introduction to Asynchronous Programming with Promises', 'Beginner', '2 Weeks', 1),
-  ('Getting Started with HTML', 'This course is designed to give you the foundational knowledge you need for working with HTML and the Browser.', 'Introduction to HTML, HTML Document Structure, HTML Tags and Elements, Text Formatting and Structure, Links and Anchor Tags, Images and Multimedia, Lists and Tables, Forms and Input Elements, Semantic HTML, HTML5 Features and APIs', 'Intermediate', '2 Weeks', 1),
-  ('CSS Basics', 'This course is designed to give you the foundational knowledge you need for working with style systems like Flex-Box and Grid for creating responsive, styled webpages.', 'Introduction to CSS, CSS Syntax and Selectors, CSS Box Model and Layout, CSS Typography and Fonts, CSS Colors and Backgrounds, CSS Borders and Shadows, CSS Layout Techniques (Floats, Flexbox, Grid), CSS Transitions and Animations, Responsive Web Design with CSS, CSS Best Practices and Optimization', 'Beginner', '2 Weeks', 1),
-  ('Advanced JavaScript', 'This course is designed to push your knowledge in JavaScript further so you can use advanced techniques and principles when utilizing it in your projects.', 'Advanced Functions and Closures, Prototypes and Inheritance, Error Handling and Debugging, Working with JSON and APIs, ES6+ Features and Syntax, Modules and Module Bundlers, Promises and Async/Await, JavaScript Design Patterns, Testing and Debugging JavaScript Code, JavaScript Performance Optimization', 'Intermediate', '3 weeks', 1);
+  ('JavaScript Fundamentals', 'This course is designed to give you the foundational knowledge you need to start using JavaScript', 'Introduction to JavaScript, Variables and Data Types, Operators and Expressions, Control Flow and Conditional Statements, Loop and Iterations, Functions and Scope, Arrays and Objects, Working with DOM(Document Object Model), Events and Event Handling, Introduction to Asynchronous Programming with Promises', 'Beginner', '2 Weeks', 1, true),
+  ('Getting Started with HTML', 'This course is designed to give you the foundational knowledge you need for working with HTML and the Browser.', 'Introduction to HTML, HTML Document Structure, HTML Tags and Elements, Text Formatting and Structure, Links and Anchor Tags, Images and Multimedia, Lists and Tables, Forms and Input Elements, Semantic HTML, HTML5 Features and APIs', 'Intermediate', '2 Weeks', 1, true),
+  ('CSS Basics', 'This course is designed to give you the foundational knowledge you need for working with style systems like Flex-Box and Grid for creating responsive, styled webpages.', 'Introduction to CSS, CSS Syntax and Selectors, CSS Box Model and Layout, CSS Typography and Fonts, CSS Colors and Backgrounds, CSS Borders and Shadows, CSS Layout Techniques (Floats, Flexbox, Grid), CSS Transitions and Animations, Responsive Web Design with CSS, CSS Best Practices and Optimization', 'Beginner', '2 Weeks', 1, true),
+  ('Advanced JavaScript', 'This course is designed to push your knowledge in JavaScript further so you can use advanced techniques and principles when utilizing it in your projects.', 'Advanced Functions and Closures, Prototypes and Inheritance, Error Handling and Debugging, Working with JSON and APIs, ES6+ Features and Syntax, Modules and Module Bundlers, Promises and Async/Await, JavaScript Design Patterns, Testing and Debugging JavaScript Code, JavaScript Performance Optimization', 'Intermediate', '3 weeks', 1, true);
 
 -- Insert statements for the lessons
 INSERT INTO lessons (title, description, content, course_id)
