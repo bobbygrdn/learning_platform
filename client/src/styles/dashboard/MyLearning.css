@@ -1,0 +1,249 @@
+.myCourses {
+    display: flex;
+}
+
+.card {
+    cursor: default !important;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 1em;
+}
+
+.myCoursesButton {
+    cursor: pointer;
+    --bg: #e74c3c;
+    --text-color: var(--secondary-text);
+    position: relative;
+    width: 14em;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    font-size: .5em;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
+    margin: 2em 0 .5em 0;
+    align-self: center;
+}
+
+.currentLessonContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-bottom: 7em;
+    box-sizing: border-box;
+}
+
+.currentLessonContainer p,
+.currentLessonContainer h2,
+.currentLessonContainer h3,
+.currentLessonContainer ul,
+.currentLessonContainer pre {
+    pointer-events: none;
+    margin-bottom: 1em;
+}
+
+.currentLessonContainer pre {
+    background-color: #424242;
+    width: fit-content;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+.currentLessonContainer strong {
+    margin-bottom: .5em;
+}
+
+.currentLessonContainer h3 {
+    border-bottom: 2px solid #ccc;
+    width: fit-content;
+}
+
+.currentLessonContainer ul {
+    border: 2px solid #ccc;
+    border-radius: .5em;
+    padding: .5em;
+    max-width: fit-content;
+    overflow-x: auto;
+}
+
+.currentLessonContainer li {
+    width: 20em;
+    height: fit-content;
+    flex-direction: column;
+    gap: .2em;
+}
+
+.currentLessonButton,
+.currentQuizButton,
+.currentQuestionButton {
+    cursor: pointer;
+    --bg: #0c19d4;
+    --text-color: var(--secondary-text);
+    position: relative;
+    width: 14em;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-weight: bold;
+    font-size: .8em;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #2732d3 0px 7px 2px, #000 0px 8px 5px;
+    transform: translateY(-5px);
+    margin: 2em 0 .5em 0;
+    align-self: center;
+}
+
+.currentQuestionButton:hover {
+    opacity: 1;
+}
+
+.currentQuestionButton:active {
+    top: 4px;
+}
+
+.currentQuizButtons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.currentQuestionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.currentQuestionsContent {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    border: 2px solid #ccc;
+    padding: 1em;
+    border-radius: .5em;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    outline: none;
+    margin-right: 5px;
+    transform: translateY(1em);
+    cursor: pointer;
+}
+
+.questionLabel {
+    pointer-events: none;
+    margin-top: .7em;
+    margin-left: .5em;
+}
+
+.result {
+    visibility: hidden;
+    font-size: 2em;
+    color: rgb(233, 20, 20);
+    background-color: #5e5a5a;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+#currentQuestionsOptions {
+    width: fit-content;
+    flex-direction: column;
+}
+
+.questionLabel {
+    text-align: left;
+}
+
+#currentQuestionsOptions li {
+    max-width: fit-content;
+    word-break: break-all;
+}
+
+.congratulationsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1em;
+}
+
+.congratulationsContainer h1 {
+    font-size: 5em;
+    margin-bottom: 1em;
+}
+
+.congratulationsContainer p {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+}
+
+.counter {
+    color: var(--primary-text);
+}
+
+@media screen and (max-width: 600px) {
+    .currentLessonContainer h2 {
+        font-size: 1.2em;
+    }
+
+    .currentLessonContainer h3 {
+        font-size: 1em;
+    }
+
+    .currentLessonContainer ul {
+        overflow-x: scroll;
+        flex-direction: column;
+    }
+
+    .currentLessonContainer li {
+        border-right: none;
+        margin: .5em 0;
+        width: 100%;
+    }
+
+    .currentQuestionsContent {
+        width: 90vw;
+    }
+
+    #currentQuestionsOptions {
+        flex-direction: column;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .congratulationsContainer h1 {
+        font-size: 3em;
+        margin-bottom: 1em;
+    }
+
+    .congratulationsContainer p {
+        font-size: 1.2em;
+        margin-bottom: .5em;
+        width: 120%;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+}
