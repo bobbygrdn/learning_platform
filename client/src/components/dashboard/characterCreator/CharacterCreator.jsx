@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useStore } from 'zustand';
 import useAuthStore from '../../../store/useAuthStore';
 import useCredentialStore from '../../../store/useCredentialsStore';
-import useTableStore from '../../../store/useTableStore';
 import Characters from './Characters';
 import GenderSelect from './GenderSelect';
 import CharacterLore from './CharacterLore';
 import FinalizeCharacter from './FinalizeCharacter';
+import useWarriorStore from '../../../store/useWarriorStore';
+import { toast } from 'react-toastify';
 
 export default function CharacterCreator() {
 
-    const { currentEntity, modalOpen, setModalOpen } = useStore(useTableStore);
     const { userId } = useStore(useCredentialStore);
-    const { token } = useStore(useAuthStore);
+    const { token, setTitle } = useStore(useAuthStore);
+    const { genderSelection, characterSelection, setWarriorLore, warriorLore, setChosenWarrior } = useStore(useWarriorStore);
 
     const [formSection, setFormSection] = useState(0);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch('/dummyData/warriorLore.json');
+            const data = await response.json();
+            setWarriorLore(data);
+        };
+        fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const formCreation = () => {
         switch (formSection) {
@@ -31,13 +42,55 @@ export default function CharacterCreator() {
         }
     }
 
-    const updateFormSection = (action) => {
-        switch (action) {
+    const updateFormSection = (e) => {
+        switch (e.target.value) {
             case "next":
                 setFormSection(formSection + 1);
                 break;
             case "prev":
                 setFormSection(formSection - 1);
+                break;
+            case "submit":
+                setFormSection(formSection + 1);
+                handleWarriorSelection();
+                break;
+            default:
+                break;
+        }
+    }
+
+    const handleWarriorSelection = async () => {
+        await fetch(`/api/v1/users/${userId}/warriorSelect`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${token}`
+                },
+                body: genderSelection + characterSelection,
+            })
+            .then((response) => response.json())
+            .then(data => {
+                toast.success("You have successfully chosen your warrior!");
+                setTitle(genderSelection + characterSelection);
+                localStorage.setItem("title", genderSelection + characterSelection);
+            })
+            .catch(error => {
+                toast.error("Your warrior could not be chosen!");
+            })
+
+        switch (characterSelection) {
+            case "_muda":
+                setChosenWarrior(warriorLore[1])
+                break;
+            case "_thrall":
+                setChosenWarrior(warriorLore[0])
+                break;
+            case "_recruit":
+                setChosenWarrior(warriorLore[3])
+                break;
+            case "_initiate":
+                setChosenWarrior(warriorLore[2])
                 break;
             default:
                 break;
@@ -47,12 +100,12 @@ export default function CharacterCreator() {
     return (
         <div className='characterCreator'>
             <div className='modalContent'>
-                <h2 className='viewContentTitle'>Clan Selection</h2>
+                <h2 className='viewContentTitle'>{formSection === 3 ? "Warrior Backstory" : "Clan Selection"}</h2>
                 <div className='characterView'>
                     {formCreation()}
                     <div className='characterButtons'>
-                        {formSection === 0 ? null : <button className='characterButton' value={"prev"} onClick={(e) => updateFormSection(e.target.value)}>Prev</button>}
-                        {formSection === 3 ? null : <button className='characterButton' value={"next"} onClick={(e) => updateFormSection(e.target.value)}>Next</button>}
+                        {(formSection === 0 || formSection > 2) ? null : <button className='characterButton' value={"prev"} onClick={updateFormSection}>Prev</button>}
+                        {formSection === 3 ? null : <button className='characterButton' value={formSection === 2 ? "submit" : "next"} onClick={updateFormSection}>{formSection === 2 ? "Submit" : "Next"}</button>}
                     </div>
                 </div>
             </div>
