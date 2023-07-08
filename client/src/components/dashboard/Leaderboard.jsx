@@ -6,7 +6,6 @@ import useTableStore from '../../store/useTableStore';
 
 export default function Leaderboard() {
     const [leaderboardStats, setLeaderboardStats] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     const { leaderboard } = useStore(useTableStore);
 
@@ -15,7 +14,6 @@ export default function Leaderboard() {
             const response = await fetch('/dummyData/leaderboardStats.json');
             const data = await response.json();
             setLeaderboardStats(data);
-            setLoading(false);
         };
         fetchData();
     }, [])
