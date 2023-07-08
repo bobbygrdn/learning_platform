@@ -116,7 +116,7 @@ export default function Profile() {
                 <img src={process.env.PUBLIC_URL + `/resources/${title}.jpg`} id='character' alt='character'></img>
                 <div className='stats'>
                     <h2>{userName}</h2>
-                    <h3>Title: {title && title.split("_")[1].toUpperCase()}</h3>
+                    <h3>Title: {title !== undefined ? title.split("_")[1]?.toUpperCase() : ''}</h3>
                     <p><strong>Experience:</strong> {experience}</p>
                     <p><strong>Character Age:</strong> {getCharacterAge()} days</p>
                     <p><strong>Mastery Badges:</strong></p>
