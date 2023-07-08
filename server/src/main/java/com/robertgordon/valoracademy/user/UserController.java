@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.robertgordon.valoracademy.course.Course;
 import com.robertgordon.valoracademy.util.UrlPaths;
 
 /**
@@ -184,6 +185,27 @@ public class UserController {
         User existingUser = this.userService.updateUserTitle(id, title);
 
         return ResponseEntity.ok(existingUser);
+    }
+
+    /**
+     * This method completes a lesson for a specific user and returns a response
+     * entity with a success message.
+     * 
+     * @param userId   The userId parameter represents the unique identifier of the
+     *                 user who is
+     *                 completing the lesson. It is of type long.
+     * @param lessonId The `lessonId` parameter represents the unique identifier of
+     *                 a lesson that a
+     *                 user wants to complete.
+     * @return The method is returning a ResponseEntity<String> object.
+     */
+    @PatchMapping("users/{userId}/completeLesson/{lessonId}")
+    public ResponseEntity<Course> completeLesson(@PathVariable("userId") long userId,
+            @PathVariable("lessonId") long lessonId, @RequestBody long courseId) {
+
+        Course changedCourse = this.userService.completeLesson(userId, lessonId, courseId);
+        return ResponseEntity.ok(changedCourse);
+
     }
 
     /**
