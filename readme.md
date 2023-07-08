@@ -98,6 +98,7 @@ Start the server
 | 06/30/2023 | - Updated the state management stystem to manage the newly created fields for the user <br> - Created the profile page with the necessary data | - The new fields account for the warrior themed progression system that keeps track of experience, mastery level, clan choice and badges earned <br> - The profile page gives the user access to all their statistics and settings | 92% |
 | 07/03/2023 - 07/05/2023 | - Created the catalog page for the user to be able to view all the current courses and enroll in a course <br> - Updated the profile page for password reset and account deletion | - Users can click on a course and see its information and enroll in the course if they choose <br> - Profile page now has the updated logic to allow for the user to reset their password and delete their account | 95% |
 | 07/06/2023 | - Created the Character creator view | - The Character Creator allows the user to select their warrior class, warrior gender and update their account to match their selection | 97% |
+| 07/07/2023 - 07/08/2023 | - Created the My Courses view <br> - Created the Lesson view <br> - Created the quiz view <br> - Created the questions view <br> - Completes the Application | - The My Courses view shows the user which courses they are currently enrolled in, their progress and allows them to take the next lesson for the course <br> - The Lesson view allows the user to learn and read the content for the next lesson for their selected course <br> - The quiz view allows the user to see what the quiz will be on and the number of questions it has <br> - The questions view allows the user to take each question for the quiz and complete the lesson when they are done | 100% |
 
 ### Technical Architecture
 
@@ -113,8 +114,10 @@ Overall, the technical architecture of the learning platform is designed for per
 
 | Challenge | Resolution |
 |---|---|
-| **Authentication**/**Authorization** | I used JWT tokens (JSON Web Tokens) created upon login and passed to client to be passed with all requests to backend. This ensures that each request will be authenticated from an authorized user and only fulfilled for those users.
-| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/verification of passwords to store and authenticate users.
+| **Authentication**/**Authorization** | I used JWT tokens (JSON Web Tokens) created upon login and passed to client to be passed with all requests to backend. This ensures that each request will be authenticated from an authorized user and only fulfilled for those users. |
+| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/verification of passwords to store and authenticate users. |
+| **State Management** | I use localstorage and Zustand for state management which allows the application to handle any state changes and keep the required information for the logged in user. |
+| **User Testing** | In order to properly test the application on a mobile device, I hosted the application on my local wifi and let a few people I know test the application which gave me real time insights into the dependability and flexibility of the application |
 
 ### Future Improvements
 
