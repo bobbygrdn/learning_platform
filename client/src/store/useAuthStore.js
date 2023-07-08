@@ -8,6 +8,8 @@ const useAuthStore = createStore((set) => {
     const characterAge = localStorage.getItem('characterAge');
     const title = localStorage.getItem('title');
     const mastery = localStorage.getItem('mastery');
+    const currentCourse = localStorage.getItem('currentCourse')
+    const completeLesson = localStorage.getItem('completeLesson');
 
     return {
         role: role || null,
@@ -24,6 +26,12 @@ const useAuthStore = createStore((set) => {
         setMastery: (mastery) => set(() => ({ mastery })),
         allowRegistration: false,
         setAllowRegistration: (allowRegistration) => set(() => ({ allowRegistration: allowRegistration })),
+        myCourses: [],
+        setMyCourses: (myCourses) => set({ myCourses }),
+        currentCourse: currentCourse || null,
+        setCurrentCourse: (currentCourse) => set({ currentCourse }),
+        completeLesson: completeLesson || null,
+        setCompleteLesson: (completeLesson) => set({ completeLesson })
     }
 });
 
