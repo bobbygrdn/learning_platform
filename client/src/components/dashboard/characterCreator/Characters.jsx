@@ -29,15 +29,19 @@ export default function Characters() {
     return (
         <div className='character-container'>
             <div id='samurai' className={`characterCard ${characterSelection === '_muda' ? 'selected' : ""}`} onClick={handleSelection}>
+                <h4>Samurai</h4>
                 <img className='warrior' src='/resources/male_muda.jpg' alt='Samurai'></img>
             </div>
             <div id='viking' className={`characterCard ${characterSelection === '_thrall' ? 'selected' : ""}`} onClick={handleSelection}>
+                <h4>Viking</h4>
                 <img className='warrior' src='/resources/female_thrall.jpg' alt='Viking'></img>
             </div>
             <div id='legionnaire' className={`characterCard ${characterSelection === '_recruit' ? 'selected' : ""}`} onClick={handleSelection}>
+                <h4>Legionnaire</h4>
                 <img className='warrior' src='/resources/male_recruit.jpg' alt='Legionnaire'></img>
             </div>
             <div id='spartan' className={`characterCard ${characterSelection === '_initiate' ? 'selected' : ""}`} onClick={handleSelection}>
+                <h4>Spartan</h4>
                 <img className='warrior' src='/resources/female_initiate.jpg' alt='Spartan'></img>
             </div>
         </div>
