@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.robertgordon.valoracademy.course.Course;
 import com.robertgordon.valoracademy.course.CourseRepository;
 import com.robertgordon.valoracademy.exception.ResourceNotFoundException;
+import com.robertgordon.valoracademy.lesson.Lesson;
 import com.robertgordon.valoracademy.util.PasswordEncoder;
 
 /**
@@ -214,6 +215,53 @@ public class UserServiceImpl implements UserService {
         existingUser.setTitle(title);
 
         return userRepository.save(existingUser);
+    }
+
+    /**
+     * The `completeLesson` method marks a lesson as finished for a specific user
+     * and course.
+     * 
+     * @param userId   The ID of the user who completed the lesson.
+     * @param lessonId The `lessonId` parameter represents the ID of the lesson that
+     *                 the user wants to mark as completed.
+     * @param courseId The courseId parameter represents the ID of the course that
+     *                 the lesson belongs to.
+     */
+    @Override
+    public Course completeLesson(long userId, long lessonId, long courseId) {
+
+        User existingUser = userRepository.findById(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("User does not exist with the ID: " + userId));
+
+        List<Course> courses = existingUser.getCourses();
+
+        Course existingCourse = null;
+
+        for (Course course : courses) {
+            if (course.getId() == courseId) {
+                existingCourse = course;
+                break;
+            }
+        }
+
+        Lesson lessonToChange = null;
+
+        if (existingCourse != null) {
+            List<Lesson> lessons = existingCourse.getLessons();
+            for(Lesson lesson : lessons) {
+                if(lesson.getId() == lessonId) {
+                    lessonToChange = lesson;
+                    break;
+                }
+            }
+        }
+
+        if (lessonToChange != null) {
+            lessonToChange.setUserFinished(true);
+        }
+
+        return courseRepository.save(existingCourse);
+
     }
 
 }
