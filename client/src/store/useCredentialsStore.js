@@ -3,11 +3,12 @@ import { createStore } from 'zustand';
 const useCredentialStore = createStore((set) => {
 
     const userName = localStorage.getItem('username');
+    const userId = localStorage.getItem('id');
 
     return {
         userName: userName || '',
         password: '',
-        userId: 0,
+        userId: userId || 0,
         keepLoggedIn: false,
         disabled: true,
         setUserName: (name) => set({ userName: name }),
