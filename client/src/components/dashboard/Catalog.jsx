@@ -35,6 +35,7 @@ export default function Catalog() {
             setAction("userCreation");
             setModalOpen(!modalOpen)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleModalOpen = (id, action) => {
@@ -48,7 +49,6 @@ export default function Catalog() {
     return (
         title === null ? <CharacterCreator /> : <div className='catalogContainer'>
             <Modal />
-            <h1 className='catalogTitle'>Courses</h1>
             <div className='searchBar'>
                 <h3 className='searchTitle'>Search</h3>
                 <input
