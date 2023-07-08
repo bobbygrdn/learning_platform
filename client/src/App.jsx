@@ -19,11 +19,13 @@ import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
 import Unauthorized from './components/authentication/Unauthorized';
 import useAuthStore from './store/useAuthStore';
-import useCredentialStore from './store/useCredentialsStore';
+import Lesson from './components/dashboard/courseContent/Lesson';
+import Quiz from './components/dashboard/courseContent/Quiz';
+import Questions from './components/dashboard/courseContent/Questions';
+import Congratulations from './components/dashboard/courseContent/Congratulations';
 
 function App() {
-  const { setRole, setToken, setAllowRegistration } = useStore(useAuthStore);
-  const { setUserId } = useStore(useCredentialStore);
+  const { setAllowRegistration } = useStore(useAuthStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -37,6 +39,10 @@ function App() {
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
           <Route path="/dashboard/myLearning" element={<MyLearning />} />
+          <Route path="/dashboard/myLearning/lesson" element={<Lesson />} />
+          <Route path="/dashboard/myLearning/quiz" element={<Quiz />} />
+          <Route path="/dashboard/myLearning/questions" element={<Questions />} />
+          <Route path="/dashboard/myLearning/congratulations" element={<Congratulations />} />
           <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
         <Route path="/admin" element={<AdminDashboard />}>
@@ -47,13 +53,6 @@ function App() {
       </Route>
     )
   );
-
-  useEffect(() => {
-    setRole(localStorage.getItem('role'));
-    setToken(localStorage.getItem('token'));
-    setUserId(localStorage.getItem('id'));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     fetch("/api/v1/settings")
