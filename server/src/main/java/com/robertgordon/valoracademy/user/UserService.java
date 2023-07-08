@@ -2,6 +2,8 @@ package com.robertgordon.valoracademy.user;
 
 import java.util.List;
 
+import com.robertgordon.valoracademy.course.Course;
+
 public interface UserService {
     User saveUser(User user);
 
@@ -20,4 +22,6 @@ public interface UserService {
     User enrollInCourse(long userId, long courseId);
 
     User updateUserTitle(long id, String title);
+
+    Course completeLesson(long userId, long lessonId, long courseId);
 }
