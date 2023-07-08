@@ -11,8 +11,6 @@ export default function Quiz() {
 
     const currentQuiz = (myCourses !== undefined && currentCourse !== undefined && completeLesson !== undefined) ? myCourses?.find(course => course.id === parseInt(currentCourse))?.lessons.find(lesson => lesson.id === parseInt(completeLesson))?.quizzes[0] : '';
 
-    const currentQuizQuestions = (currentQuiz !== undefined) ? currentQuiz.questions : "";
-
     const handleStartQuiz = () => {
         navigate("/dashboard/myLearning/questions");
     }
