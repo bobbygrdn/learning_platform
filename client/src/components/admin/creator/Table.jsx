@@ -93,7 +93,7 @@ export default function Table() {
             <Modal table={currentTable} />
             <div className="grid-container">
                 {filteredContent.slice(startIndex, endIndex).map(thisTable => (
-                    <Card className='Card' key={thisTable.id} id={thisTable.id} onClick={() => handleCardClick(thisTable.id)}>
+                    <Card className='Card' style={{ overflowY: 'auto', maxHeight: '30em' }} key={thisTable.id} id={thisTable.id} onClick={() => handleCardClick(thisTable.id)}>
                         <Card.Body>
                             <Card.Title style={{ marginBottom: '.5em' }}>Title: {thisTable.title}</Card.Title>
                             <Card.Text style={{ marginTop: '.5em' }}>{currentTable === 'Courses' ? `Difficulty: ${thisTable.difficulty}` : ''}</Card.Text>
