@@ -32,7 +32,7 @@ export default function MyLearning() {
                                 <p style={{ marginTop: '1em' }}>Progress:</p>
                                 <ProgressBar width={10} height={1.5} outerColor={'transparent'} innerColor={'rgb(51, 66, 80)'} progress={course.lessons.filter(lesson => lesson.userFinished).length * 10} borderColor={'var(--secondary-text)'} />
                             </div>
-                            <button id={course.id} className='myCoursesButton' onClick={handleStartCourse}>{course.lessons.filter(lesson => lesson.userFinished).length === 0 ? "Start Course" : "Continue Course"}</button>
+                            {course.lessons.filter(lesson => lesson.userFinished === false) ? <button id={course.id} className='myCoursesButton' onClick={handleStartCourse}>{course.lessons.filter(lesson => lesson.userFinished).length === 0 ? "Start Course" : "Continue Course"}</button> : null}
                         </Card>
                     ))
                 ) : (
