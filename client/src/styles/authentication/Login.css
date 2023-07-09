@@ -107,6 +107,17 @@
     text-align: center;
 }
 
+.passwordImage {
+    width: 2em;
+}
+
+.passwordIcon {
+    cursor: pointer;
+    position: absolute;
+    right: 9.5em;
+    top: 13em;
+}
+
 @media screen and (max-width: 600px) {
     .login-form {
         width: 90vw;
@@ -139,6 +150,13 @@
     .subheading {
         margin-right: 1.5em;
         font-size: 1em;
+    }
+
+    .passwordIcon {
+        cursor: pointer;
+        position: absolute;
+        right: 4em;
+        top: 15.3em;
     }
 
 
