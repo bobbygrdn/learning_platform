@@ -6,9 +6,7 @@ import Button from './Button'
 import UserReviews from './UserReviews'
 import KeyFeatures from './KeyFeatures'
 import Overview from './Overview'
-import GettingStarted from './GettingStarted'
 import Footer from './Footer'
-import Demo from './Demo';
 import WarriorCards from './WarriorCards';
 import '../../styles/landingPage/LandingPage.css'
 import { useStore } from 'zustand';
@@ -47,14 +45,12 @@ export default function LandingPage() {
         <>
             <Header />
             <WarriorCards />
+            <Overview />
             <CallToAction />
             <Button purpose={"landingPage"} type={"submit"} onClick={handleClick} text={"Start Your Journey"} />
             <UserReviews reviews={reviews} loading={loading} />
+            <h3 style={{ color: '#fff', fontSize: '2em', fontWeight: 'bold', marginBottom: '.5em', textAlign: 'center' }}>Key Features</h3>
             <KeyFeatures />
-            <Overview />
-            <GettingStarted />
-            {/* TODO: Add demo video url*/}
-            <Demo video={""} />
             <Footer />
         </>
     )
