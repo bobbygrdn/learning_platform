@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import Button from '../landingPage/Button';
 import '../../styles/authentication/Login.css';
@@ -11,6 +11,8 @@ import useAuthStore from '../../store/useAuthStore';
 export default function Login() {
     const { userName, setUserName, password, setPassword, setUserId, disabled, setDisabled } = useStore(useCredentialStore);
     const { role, setToken, setRole, setExperience, setTitle, setMastery, setCharacterAge } = useStore(useAuthStore);
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -81,6 +83,10 @@ export default function Login() {
             navigate('/admin/creator') : navigate('/dashboard/catalog');
     }
 
+    const handleIconClick = () => {
+        setShowPassword(!showPassword);
+    }
+
     return (
         <div className='login-wrapper'>
             <Header />
@@ -92,7 +98,10 @@ export default function Login() {
                 </label>
                 <label className='password'>
                     <p className='passwordTitle'>Password</p>
-                    <input className='passwordInput' type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
+                    <div className='passwordInputContainer'>
+                        <input className='passwordInput' type={showPassword ? "text" : "password"} placeholder="Password" onChange={e => setPassword(e.target.value)} required />
+                        <div className='passwordIcon' onClick={handleIconClick}>{showPassword ? <img className='passwordImage' src='/resources/view.png' alt='hide' /> : <img className='passwordImage' src='/resources/hide.png' alt='hide' />}</div>
+                    </div>
                 </label>
                 <div disabled={disabled}>
                     <Button purpose='login' text='Login' onClick={loginUser} />
