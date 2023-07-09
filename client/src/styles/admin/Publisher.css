@@ -18,7 +18,7 @@
 
 .publisherPreview {
     flex: 1;
-    height: 98%;
+    max-height: 38em;
     background-image: linear-gradient(135deg, rgba(103, 125, 140, 1) 0%, rgba(172, 169, 164, 1) 100%);
     background-attachment: fixed;
     box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
@@ -31,6 +31,9 @@
     overflow-y: auto;
     word-wrap: break-word;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 7em;
 }
 
 .publisherPreview p,
@@ -38,9 +41,33 @@
     margin-bottom: 1em;
 }
 
+.publisherPreview h3 {
+    border-bottom: 2px solid #ccc;
+    width: fit-content;
+}
+
 .publisherPreview ul {
     display: flex;
-    margin-bottom: 1em;
+    border: 2px solid #ccc;
+    border-radius: .5em;
+    padding: .5em;
+    max-width: fit-content;
+    height: fit-content;
+    margin-bottom: .5em;
+}
+
+.publisherPreview li {
+    width: 20em;
+    height: fit-content;
+    flex-direction: column;
+    gap: .2em;
+}
+
+.publisherPreview pre {
+    background-color: #424242;
+    width: fit-content;
+    padding: 1em;
+    border-radius: .5em;
 }
 
 .publisherPagesButtons {
