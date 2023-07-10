@@ -106,7 +106,7 @@ The learning platform is a web-based application built using a 2-tier Microservi
 
 The React.js frontend uses client-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
 
-The Spring Boot backend is built with Java and uses Spring Framework to provide a modular and scalable architecture. It is responsible for handling authentication and authorization, managing user profiles, and serving course content. The backend also integrates with a MySQL database to store user data, course information, and other application data.
+The Spring Boot backend is built with Java and uses Spring Framework to provide a modular and scalable architecture. It is responsible for handling authentication and authorization, managing user profiles, and serving content. The backend also integrates with a MySQL database to store user data, course information, and other application data.
 
 Overall, the technical architecture of the learning platform is designed for performance, scalability, and reliability, with a modular and extensible architecture that can support future growth and expansion.
 
