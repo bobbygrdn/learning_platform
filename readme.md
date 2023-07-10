@@ -36,7 +36,7 @@ Install MySQL if you do not have this program
 Update the application.properties file for your specific setup
 
 ```application.properties
-  # MySQL properties (database name, username and password should be specific to your environment)
+  # MySQL properties (username and password should be specific to your environment)
   spring.datasource.url=jdbc:mysql://localhost:3306/vams?useSSL=false
   spring.datasource.username=root
   spring.datasource.password=password
