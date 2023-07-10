@@ -92,26 +92,26 @@ style: |
 ---
 
 ### Landing Page
-
+<!-- TODO: Add Image -->
 ![Landing Page](client/public/resources/landingPage.jpg)
 
 ---
 
 ### Login / Signup
-
+<!-- TODO: Add Image -->
 ![Login/Signup](client/public/resources/loginSignup.jpg)
 
 ---
 
 ### Admin Dashboard Content Creator
-
+<!-- TODO: Add Image -->
 ![Admin Content Creator](client/public/resources/contentCreator.jpg)
 
 
 ---
 
 ### Admin Dashboard Publisher
-
+<!-- TODO: Add Images -->
 ![Admin Publisher](client/public/resources/publisher.jpg)
 ![Admin Publisher](client/public/resources/publisherPreview.jpg)
 
@@ -119,34 +119,34 @@ style: |
 ---
 
 ### Admin Dashboard Settings Page
-
+<!-- TODO: Add Image -->
 ![Admin Settings Page](client/public/resources/settingsPage.jpg)
 
 
 ---
 
 ### User Portal Catalog
-
+<!-- TODO: Add Image -->
 ![Course Catalog](client/public/resources/courseCatalog.jpg)
 
 
 ---
 
 ### User Portal My Learning Page
-
+<!-- TODO: Add Image -->
 ![My Learning Page](client/public/resources/myLearning.jpg)
 
 
 ---
 
 ### User Portal Leaderboard
-
+<!-- TODO: Add Image -->
 ![Leaderboard](client/public/resources/leaderboard.jpg)
 
 
 ---
 ### User Portal Profile Page
-
+<!-- TODO: Add Image -->
 ![Profile Page](client/public/resources/profile.jpg)
 
 
