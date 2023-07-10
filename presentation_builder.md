@@ -22,6 +22,11 @@ style: |
   section.objective li {
     list-style: none;
   }
+
+  section.business li {
+    font-size: 32px;
+    text-align: left;
+  }
 ---
 <!-- _paginate: skip -->
 
@@ -71,6 +76,79 @@ style: |
   - Zustand/LocalStorage
 - User Testing
   - Beta Testers
+
+---
+<!-- _class: business -->
+### Business Use Cases
+
+- Valor Academy has a wide range of business use cases, making it a valuable asset for various individuals and organizations. Some of the key business use cases for the learning platform are:
+  - Skill Development and Upskilling
+  - Talent Acquisition and Recruitment
+  - Employee Onboarding and Training
+  - Developer Certification Programs
+  - Continuing Education and Professional Development
+  - Entrepreneurship and Startup
+  - Adaptable to different training needs
+---
+
+### Landing Page
+
+![Landing Page](client/public/resources/landingPage.jpg)
+
+---
+
+### Login / Signup
+
+![Login/Signup](client/public/resources/loginSignup.jpg)
+
+---
+
+### Admin Dashboard Content Creator
+
+![Admin Content Creator](client/public/resources/contentCreator.jpg)
+
+
+---
+
+### Admin Dashboard Publisher
+
+![Admin Publisher](client/public/resources/publisher.jpg)
+![Admin Publisher](client/public/resources/publisherPreview.jpg)
+
+
+---
+
+### Admin Dashboard Settings Page
+
+![Admin Settings Page](client/public/resources/settingsPage.jpg)
+
+
+---
+
+### User Portal Catalog
+
+![Course Catalog](client/public/resources/courseCatalog.jpg)
+
+
+---
+
+### User Portal My Learning Page
+
+![My Learning Page](client/public/resources/myLearning.jpg)
+
+
+---
+
+### User Portal Leaderboard
+
+![Leaderboard](client/public/resources/leaderboard.jpg)
+
+
+---
+### User Portal Profile Page
+
+![Profile Page](client/public/resources/profile.jpg)
+
 
 ---
 
