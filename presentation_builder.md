@@ -93,7 +93,7 @@ style: |
 
 ### Application Overview
 <!-- TODO: Add Demo Video -->
-![Demo Video](client/public/resources/demo.mp4)
+![Valor Academy Demo](/Valor%20Academy%20Demo%20Video.mp4)
 
 ---
 
