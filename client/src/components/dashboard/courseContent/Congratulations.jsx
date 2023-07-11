@@ -49,7 +49,7 @@ export default function Congratulations() {
     return (
         <div className='congratulationsContainer'>
             <h1>Congratulations!!</h1>
-            <p>You have successfully completed the <strong>{myCourses.find(course => course.id === parseInt(currentCourse))?.title}</strong> course!</p>
+            <p>You have successfully completed the <strong>{myCourses.find(course => course.id === parseInt(currentCourse))?.title}</strong> lesson!</p>
             <p>You will be redirected to the <strong>My Learning Page </strong>in <strong className='counter'>{countdown}</strong> seconds.</p>
         </div>
     )
