@@ -1,4 +1,6 @@
-# Web Development Learning Platform
+# Valor Academy
+
+![valorAcademy_logo](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/dcac4558-1e62-46b3-ac4e-088be1777b94)
 
 ## Objective Statement:
 
