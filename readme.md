@@ -1,6 +1,6 @@
 # Valor Academy
 
-![valorAcademy_logo](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/dcac4558-1e62-46b3-ac4e-088be1777b94)
+![Valor Academy](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)
 
 ## Objective Statement:
 
