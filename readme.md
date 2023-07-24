@@ -2,6 +2,10 @@
 
 [![Valor Academy](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)](https://www.youtube.com/watch?v=Ls7okDod1hc)
 
+<a href="https://www.youtube.com/watch?v=Ls7okDod1hc" target="_blank">
+ <img src="https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg" alt="Watch the video" width="240" height="180" border="10" />
+</a>
+
 ## Objective Statement:
 
 To create a comprehensive, user-friendly learning platform that enables users to learn web development skills through interactive lessons, quizzes, and projects. The platform will include features such as content management, progress tracking, and assessment, as well as user authentication and authorization to ensure secure access.
