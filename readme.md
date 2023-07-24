@@ -1,12 +1,13 @@
 # Valor Academy
 
-![Valor Academy](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)
+[![Valor Academy](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)](https://www.youtube.com/watch?v=Ls7okDod1hc&t=303s)
 
 ## Objective Statement:
 
 To create a comprehensive, user-friendly learning platform that enables users to learn web development skills through interactive lessons, quizzes, and projects. The platform will include features such as content management, progress tracking, and assessment, as well as user authentication and authorization to ensure secure access.
 
 ## Table of Contents:
+
 
 -	Jira Board 
     - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board
