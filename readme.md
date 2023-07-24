@@ -1,6 +1,8 @@
 # Valor Academy
 
-![Valor Academy](https://www.youtube.com/watch?v=Ls7okDod1hc&t=303s)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=nTQUwghvy5Q" target="_blank">
+ <img src="[http://img.youtube.com/vi/nTQUwghvy5Q/mqdefault.jpg](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)" alt="Watch the video" width="240" height="180" border="10" />
+</a>
 
 ## Objective Statement:
 
