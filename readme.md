@@ -1,10 +1,6 @@
 # Valor Academy
 
-[![Valor Academy](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)](https://www.youtube.com/watch?v=Ls7okDod1hc)
-
-<a href="https://www.youtube.com/watch?v=Ls7okDod1hc" target="_blank">
- <img src="https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg" alt="Watch the video" width="240" height="180" border="10" />
-</a>
+![Valor Academy](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)]
 
 ## Objective Statement:
 
