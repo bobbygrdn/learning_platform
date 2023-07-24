@@ -1,6 +1,8 @@
 # Valor Academy
 
-![Valor Academy](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)]
+![Valor Academy](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)
+
+[Watch the video](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)]
 
 ## Objective Statement:
 
