@@ -12,7 +12,7 @@ To create a comprehensive, user-friendly learning platform that enables users to
 
 
 -	Jira Board 
-    - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board
+    - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board.
 -	[Documentation](https://bobbygrdn.atlassian.net/wiki/spaces/VA/pages/7012354/Documentation?atlOrigin=eyJpIjoiMDA5YjhhN2QwOWNhNDIxZGEwYTU3NmZhZjJmN2NjOTgiLCJwIjoiaiJ9)
 - [Run Locally](#run-locally)
 -	[Daily Progress](#daily-progress)
