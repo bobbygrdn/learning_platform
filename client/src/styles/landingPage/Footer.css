@@ -35,6 +35,10 @@ li a {
   text-decoration: none;
 }
 
+li a:hover {
+  color: var(--primary-color);
+}
+
 .break {
   margin-left: 0.5em;
   font-size: 28px;
