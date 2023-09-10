@@ -1,0 +1,6 @@
+### VS Code ###
+.vscode/
+
+*.mp4
+
+*.pptx

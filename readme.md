@@ -1,4 +1,8 @@
-# Web Development Learning Platform
+# Valor Academy
+
+![Valor Academy](https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone/assets/96712943/d2e18893-8fe5-4bc5-a697-9a0c4249af65)
+
+[**Watch the video**](https://www.youtube.com/watch?v=Ls7okDod1hc/default.jpg)
 
 ## Objective Statement:
 
@@ -6,34 +10,123 @@ To create a comprehensive, user-friendly learning platform that enables users to
 
 ## Table of Contents:
 
+
 -	Jira Board 
-    - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board
+    - Contact bobbygrdn777@gmail.com to get added as a viewer to the project board.
 -	[Documentation](https://bobbygrdn.atlassian.net/wiki/spaces/VA/pages/7012354/Documentation?atlOrigin=eyJpIjoiMDA5YjhhN2QwOWNhNDIxZGEwYTU3NmZhZjJmN2NjOTgiLCJwIjoiaiJ9)
+- [Run Locally](#run-locally)
 -	[Daily Progress](#daily-progress)
 -	[Technical Architecture](#technical-architecture)
 -	[Technical Challenges](#technical-challenges)
--	[Lessons Learned](#lessons-learned)
 -	[Future Improvements](#future-improvements)
+
+### Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/bobbygrdn/robert_gordon_learning_platform_capstone.git
+```
+
+Go to the server directory
+
+```bash
+  cd server
+```
+
+Install MySQL if you do not have this program
+
+[MySQL Download](https://dev.mysql.com/downloads/mysql/)
+
+Update the application.properties file for your specific setup
+
+```application.properties
+  # MySQL properties (username and password should be specific to your environment)
+  spring.datasource.url=jdbc:mysql://localhost:3306/vams?useSSL=false
+  spring.datasource.username=root
+  spring.datasource.password=password
+
+  # Hibernate properties (MySQL dialect should be the version you downloaded and use)
+  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+```
+
+Create a clean jar file for the Spring Application
+
+```bash
+  mvn clean package
+```
+
+Run the Spring Boot REST API using your newly created jar file
+
+```bash
+  java -jar target/valoracademy-0.0.1-SNAPSHOT.jar
+```
+
+Run the data.sql source file to inject data into the MySQL database using MySQL workbench or CLI
+
+```bash
+  # CLI command for running sql file once you login to MySQL and you are connected to your database
+  source seed.sql
+```
+
+**You should now have the Spring REST API/database setup and running**
+
+Open a new terminal and go to the client directory
+
+```bash
+  cd ../client
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
+
+**Now the Client should be running, and the application should be ready for you to use**
 
 ### Daily Progress
 
+| Date | Tasks | Remarks | Project Completion |
+|---|---|---|---|
+| 06/16/2023 | - Restructured project to follow the Business Model structure <br> - Added fields and methods in backend to handle user progression tracking <br> - Added constant variables to clean up repetitive code in backend | - Project was perviously in project structure <br> - User progression system was implemented in backend only <br> - Constant variables were added to meet requirements | 80% |
+| 06/20/20323 | - Created the editContent component that allows admins to edit the content of the platform <br> - Cleaned up the logic for editing content and component rerendering <br> - Removed the frontend test suite <br> - Updated the state management stores to accomodate the new necessary editContent state | - This includes Courses, Lessons, Quizzes and Questions <br> - State refresh now rerenders the necessary components and refetches their data <br> - Test suite was outdated and therefore needed to be removed <br> - Options and Answers for each question created or edited is now being stored in state for rendering and fetching purposes | 82% |
+| 06/21/2023 - 06/23/2023 | - Created the Publisher view that allows admin personnel to preview and publish content <br> - Created the patch request handlers in the model controllers to update the published status of the content  | - Created the UI necessary for admins to be able to preview the content in its entirety and publish the content to the platform <br> - Updated the database data types to store boolean values properly and handle the changes of those values  | 85% |
+| 06/26/2023 - 06/28/2023 | - Updated the logic in the publisher view of the admin dashboard to reflect the real time preview of the user <br> - Changed the dummy data for the courses to reflect the real time data <br> - Adds business logic for the progression system to handle requests from the client | - The content now gets rendered as html tags instead of plain text. <br> - The Courses now reflect the correct structure of the platform. There are 4 courses total. <br> - Progression system has full CRUD functionality in the business and database layers | 90% |
+| 06/29/2023 | - Fixed the layout of the user portal to match my Mobile first design architecture | - The application is dynamic and can support any screen size from mobile to desktop | 90% |
+| 06/30/2023 | - Updated the state management stystem to manage the newly created fields for the user <br> - Created the profile page with the necessary data | - The new fields account for the warrior themed progression system that keeps track of experience, mastery level, clan choice and badges earned <br> - The profile page gives the user access to all their statistics and settings | 92% |
+| 07/03/2023 - 07/05/2023 | - Created the catalog page for the user to be able to view all the current courses and enroll in a course <br> - Updated the profile page for password reset and account deletion | - Users can click on a course and see its information and enroll in the course if they choose <br> - Profile page now has the updated logic to allow for the user to reset their password and delete their account | 95% |
+| 07/06/2023 | - Created the Character creator view | - The Character Creator allows the user to select their warrior class, warrior gender and update their account to match their selection | 97% |
+| 07/07/2023 - 07/08/2023 | - Created the My Courses view <br> - Created the Lesson view <br> - Created the quiz view <br> - Created the questions view <br> - Completes the Application | - The My Courses view shows the user which courses they are currently enrolled in, their progress and allows them to take the next lesson for the course <br> - The Lesson view allows the user to learn and read the content for the next lesson for their selected course <br> - The quiz view allows the user to see what the quiz will be on and the number of questions it has <br> - The questions view allows the user to take each question for the quiz and complete the lesson when they are done | 100% |
+
 ### Technical Architecture
 
-The learning platform is a web-based application built with a React.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
+The learning platform is a web-based application built using a 2-tier Microservice architecture with a React.js frontend and a Spring Boot backend. The frontend is responsible for rendering the user interface and handling user interactions, while the backend provides the business logic and data storage.
 
-The React.js frontend uses server-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
+The React.js frontend uses client-side rendering for improved performance and SEO. It communicates with the backend via RESTful API calls, which are handled by the Spring Boot backend.
 
-The Spring Boot backend is built with Java and uses Spring Framework to provide a modular and scalable architecture. It is responsible for handling authentication and authorization, managing user profiles, and serving course content. The backend also integrates with a MySQL database to store user data, course information, and other application data.
+The Spring Boot backend is built with Java and uses Spring Framework to provide a modular and scalable architecture. It is responsible for handling authentication and authorization, managing user profiles, and serving content. The backend also integrates with a MySQL database to store user data, course information, and other application data.
 
 Overall, the technical architecture of the learning platform is designed for performance, scalability, and reliability, with a modular and extensible architecture that can support future growth and expansion.
 
 ### Technical Challenges
 
-### Lessons Learned
+| Challenge | Resolution |
+|---|---|
+| **Authentication**/**Authorization** | I used JWT tokens (JSON Web Tokens) created upon login and passed to client to be passed with all requests to backend. This ensures that each request will be authenticated from an authorized user and only fulfilled for those users. |
+| **User Data Encryption** | For storing user passwords I used BCrypt to hash passwords to be stored into the database. Backend handles encryption/verification of passwords to store and authenticate users. |
+| **State Management** | I use localstorage and Zustand for state management which allows the application to handle any state changes and keep the required information for the logged in user. |
+| **User Testing** | In order to properly test the application on a mobile device, I hosted the application on my local wifi and let a few people I know test the application which gave me real time insights into the dependability and flexibility of the application |
 
 ### Future Improvements
 
-- Content Creator Account
+- Content Creator Account/Dashboard
   - The content creator account feature would allow approved users to create and add new courses to the platform. Upon logging in, content creators would be taken to their dashboard where they can create new courses, edit existing ones, and view the status of their submissions.
 
   - To create a new course, content creators would need to provide information such as the course name, description, target audience, and learning objectives. They would also be able to upload any relevant course materials such as videos, documents, and images. Once the course is complete, the content creator can submit it for approval by the admin.
@@ -61,8 +154,8 @@ Overall, the technical architecture of the learning platform is designed for per
 - Integration with external services
   - Integration with external services could involve using APIs to connect the platform with other services or applications, such as LinkedIn or other job-search platforms. Allowing users to import their LinkedIn profile to automatically populate their user profile on the platform, or adding a feature that allows users to search for job openings on external job sites directly from within the platform. We could look into integrating with external services for additional learning resources, such as online textbooks or educational video platforms, to supplement the courses offered on the platform. This could provide users with a more comprehensive learning experience and make the platform more valuable to users. Overall, the goal of integrating with external services would be to enhance the user experience and provide more value to users through additional features and functionality.
 
-- Advanced analytics
-  - Advanced analytics can provide deeper insights into user behavior and engagement on the platform. For example, analytics can help identify which courses are most popular, which ones have low completion rates, and which ones are most effective in terms of student learning outcomes. This information can help instructors and administrators make data-driven decisions about course offerings and improvements.
+- Analytics Dashboard
+  - Analytics can provide deeper insights into user behavior and engagement on the platform. For example, analytics can help identify which courses are most popular, which ones have low completion rates, and which ones are most effective in terms of student learning outcomes. This information can help instructors and administrators make data-driven decisions about course offerings and improvements.
 
   - Analytics can also provide insights into user demographics, such as age, gender, location, and educational background. This information can help instructors and administrators better understand their user base and tailor their courses to meet the needs of different groups.
 

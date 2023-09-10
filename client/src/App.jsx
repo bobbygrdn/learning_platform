@@ -13,40 +13,46 @@ import MyLearning from './components/dashboard/MyLearning';
 import Catalog from './components/dashboard/Catalog';
 import Leaderboard from './components/dashboard/Leaderboard';
 import AdminDashboard from './components/admin/AdminDashboard';
-import Content from './components/admin/content/Content';
-import Analytics from './components/admin/Analytics';
+import ContentCreator from './components/admin/creator/ContentCreator';
+import Publisher from './components/admin/Publisher';
 import Settings from './components/admin/Settings';
 import PlatformIssue from './components/authentication/PlatformIssue';
+import Unauthorized from './components/authentication/Unauthorized';
 import useAuthStore from './store/useAuthStore';
+import Lesson from './components/dashboard/courseContent/Lesson';
+import Quiz from './components/dashboard/courseContent/Quiz';
+import Questions from './components/dashboard/courseContent/Questions';
+import Congratulations from './components/dashboard/courseContent/Congratulations';
 
 function App() {
-  const { token, setToken, allowRegistration, setAllowRegistration } = useStore(useAuthStore);
+  const { setAllowRegistration } = useStore(useAuthStore);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path="/" element={<LandingPage token={token} />} />
-        <Route path="/login" element={<Login token={token} />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/deviceIssue" element={<PlatformIssue />} />
-        <Route path="/signup" element={<Signup allowRegistration={allowRegistration} />} />
-        <Route path="/dashboard" element={<Dashboard token={token} />}>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/dashboard" element={<Dashboard />}>
           <Route path="/dashboard/catalog" element={<Catalog />} />
           <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
           <Route path="/dashboard/myLearning" element={<MyLearning />} />
+          <Route path="/dashboard/myLearning/lesson" element={<Lesson />} />
+          <Route path="/dashboard/myLearning/quiz" element={<Quiz />} />
+          <Route path="/dashboard/myLearning/questions" element={<Questions />} />
+          <Route path="/dashboard/myLearning/congratulations" element={<Congratulations />} />
           <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
-        <Route path="/admin" element={<AdminDashboard token={token} />}>
-          <Route path="/admin/content" element={<Content />} />
-          <Route path="/admin/analytics" element={<Analytics />} />
+        <Route path="/admin" element={<AdminDashboard />}>
+          <Route path="/admin/creator" element={<ContentCreator />} />
+          <Route path="/admin/publisher" element={<Publisher />} />
           <Route path='/admin/settings' element={<Settings />} />
         </Route>
       </Route>
     )
   );
-
-  useEffect(() => {
-    setToken(localStorage.getItem('token'));
-  }, [setToken, token]);
 
   useEffect(() => {
     fetch("/api/v1/settings")
@@ -55,7 +61,7 @@ function App() {
         setAllowRegistration(data[0].registrations);
       })
       .catch(error => console.error(error));
-  })
+  }, [setAllowRegistration])
 
   return (
     <div className='App'>

@@ -8,36 +8,67 @@
     right: 0;
     padding: 0.5em;
     width: 100vw;
-    border: 2px solid black;
-    border-radius: 2em 2em 0 0;
-    background-color: #E5F1F2;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: -8px 0 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .catalog,
 .leaderboard,
 .myLearning,
-.profile,
-.logout {
+.profile {
     width: 14em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
+
 
 .catalog:hover,
 .leaderboard:hover,
 .myLearning:hover,
 .profile:hover,
-.logout:hover {
+.catalog:focus,
+.leaderboard:focus,
+.myLearning:focus,
+.profile:focus {
     transform: scale(1.1);
 }
 
 .navIcon {
-    width: 4em;
+    width: 2em;
+    pointer-events: auto;
 }
 
 .labels {
     font-size: 1.5em;
+    color: var(--secondary-text);
+    pointer-events: none;
+}
+
+.labels:focus {
+    color: #f5f5f5;
+}
+
+
+@media screen and (max-width: 600px) {
+    .labels {
+        display: none;
+    }
+
+    .navIcon {
+        width: 7em;
+    }
+
+    .catalog:hover,
+    .leaderboard:hover,
+    .myLearning:hover,
+    .profile:hover {
+        transform: scale(1.6);
+    }
 }

@@ -15,6 +15,11 @@ footer {
   margin-top: 1em;
 }
 
+.copyright,
+.media {
+  pointer-events: none;
+}
+
 ul {
   list-style-type: none;
   display: flex;
@@ -31,12 +36,16 @@ li {
 }
 
 li a {
-  color: var(--primary-color);
+  color: var(--secondary-text);
   text-decoration: none;
 }
 
 li a:hover {
+<<<<<<< HEAD
   color: var(--primary-color);
+=======
+  color: var(--tertiary-text)
+>>>>>>> 2e56a6ca796d8fa947dfe18305d354f372295362
 }
 
 .break {

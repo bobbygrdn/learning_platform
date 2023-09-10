@@ -10,15 +10,31 @@ const useTableStore = createStore((set) => ({
     lessons: [],
     quizzes: [],
     questions: [],
+    currentTable: "Courses",
+    searchTerm: "",
+    preview: "",
+    leaderboard: 0,
     setCurrentPage: (page) => set({ currentPage: page }),
     setModalOpen: (isOpen) => set({ modalOpen: isOpen }),
     setCurrentEntity: (entity) => set({ currentEntity: entity }),
     setAction: (action) => set({ action }),
-    setcurrentContent: (content) => set({ currentContent: content }),
+    setCurrentContent: (content) =>
+        set((state) => ({
+            ...state,
+            currentContent: content,
+        })),
     setCourses: (courses) => set({ courses }),
     setLessons: (lessons) => set({ lessons }),
     setQuizzes: (quizzes) => set({ quizzes }),
     setQuestions: (questions) => set({ questions }),
+    setCurrentTable: (table) =>
+        set((state) => ({
+            ...state,
+            currentTable: table,
+        })),
+    setSearchTerm: (searchTerm) => set({ searchTerm }),
+    setPreview: (preview) => set({ preview }),
+    setLeaderboard: (leaderboard) => set({ leaderboard })
 }));
 
 export default useTableStore;

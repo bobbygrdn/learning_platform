@@ -1,11 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/dashboard/NavBar.css';
+import { useStore } from 'zustand';
+import useCredentialStore from '../../store/useCredentialsStore';
+import useAuthStore from '../../store/useAuthStore';
 
 export default function NavBar() {
 
-    function logout() {
-        window.localStorage.clear()
+    const { userId } = useStore(useCredentialStore);
+    const { setMyCourses } = useStore(useAuthStore);
+
+    const handleMyLearningClick = () => {
+        fetch(`/api/v1/users/${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                setMyCourses(data.courses);
+            })
     }
 
     return (
@@ -18,17 +28,13 @@ export default function NavBar() {
                 <img className='navIcon' src={`${process.env.PUBLIC_URL + "/resources/leaderboard_icon.png"}`} alt='Leaderboard icon'></img>
                 <p className='labels'>Leaderboard</p>
             </NavLink>
-            <NavLink className='myLearning' to='/dashboard/myLearning'>
+            <NavLink className='myLearning' to='/dashboard/myLearning' onClick={handleMyLearningClick}>
                 <img className='navIcon' src={`${process.env.PUBLIC_URL + "/resources/myLearning_icon.png"}`} alt='My Learning icon'></img>
                 <p className='labels'>My Learning</p>
             </NavLink>
             <NavLink className='profile' to='/dashboard/profile'>
                 <img className='navIcon' src={`${process.env.PUBLIC_URL + "/resources/profile_icon.png"}`} alt='Profile icon'></img>
                 <p className='labels'>Profile</p>
-            </NavLink>
-            <NavLink className='logout' to='/'>
-                <img className='navIcon' src={`${process.env.PUBLIC_URL + "/resources/logout_icon.png"}`} alt='Logout icon' onClick={logout}></img>
-                <p className='labels'>Logout</p>
             </NavLink>
         </ul>
     )
