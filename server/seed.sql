@@ -1,4 +1,4 @@
-use vams;
+use sql3645388;
 
 -- Insert statement for the users
 INSERT INTO users (username, email, experience, password, role, title, character_age) VALUES
