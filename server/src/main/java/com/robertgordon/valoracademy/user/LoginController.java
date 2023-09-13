@@ -3,6 +3,7 @@ package com.robertgordon.valoracademy.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.robertgordon.valoracademy.util.JwtUtil;
 import com.robertgordon.valoracademy.util.PasswordEncoder;
 
+@CrossOrigin(origins = "https://valor-academy-ui.onrender.com")
 @RestController
 public class LoginController {
 

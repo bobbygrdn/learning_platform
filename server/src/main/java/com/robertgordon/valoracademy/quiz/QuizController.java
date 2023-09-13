@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import com.robertgordon.valoracademy.lesson.LessonService;
 import com.robertgordon.valoracademy.util.UrlPaths;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "https://valor-academy-ui.onrender.com")
 @RestController
 @RequestMapping(UrlPaths.CLASSURL)
 public class QuizController {

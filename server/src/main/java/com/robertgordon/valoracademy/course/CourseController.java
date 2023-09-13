@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import com.robertgordon.valoracademy.user.User;
 import com.robertgordon.valoracademy.user.UserService;
 import com.robertgordon.valoracademy.util.UrlPaths;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "https://valor-academy-ui.onrender.com")
 @RestController
 @RequestMapping(UrlPaths.CLASSURL)
 public class CourseController {

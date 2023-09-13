@@ -7,7 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.robertgordon.valoracademy.util.UrlPaths;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "https://valor-academy-ui.onrender.com")
 @RestController
 @RequestMapping(UrlPaths.CLASSURL)
 public class SettingsController {
