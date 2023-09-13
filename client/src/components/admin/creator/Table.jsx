@@ -32,7 +32,7 @@ export default function Table() {
 
     const handleUserSelection = (action, id) => {
         if (action === 'yes') {
-            fetch(`/api/v1/${currentTable.toLowerCase()}/${id}`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/${currentTable.toLowerCase()}/${id}`, {
                 method: "DELETE",
                 headers: {
                     'Authorization': `Bearer ${token}`

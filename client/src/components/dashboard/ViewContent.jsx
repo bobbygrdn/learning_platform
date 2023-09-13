@@ -19,7 +19,7 @@ export default function ViewContent() {
 
         const handleChoice = () => {
             toast.dismiss();
-            fetch(`/api/v1/users/${userId}/enroll`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}/enroll`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

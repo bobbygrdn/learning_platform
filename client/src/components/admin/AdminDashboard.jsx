@@ -15,7 +15,7 @@ export default function AdminDashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/api/v1/courses", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/courses", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -26,7 +26,7 @@ export default function AdminDashboard() {
             })
     }, [setCourses, token]);
     useEffect(() => {
-        fetch("/api/v1/lessons", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/lessons", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -37,7 +37,7 @@ export default function AdminDashboard() {
             })
     }, [setLessons, token]);
     useEffect(() => {
-        fetch("/api/v1/quizzes", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/quizzes", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -48,7 +48,7 @@ export default function AdminDashboard() {
             })
     }, [setQuizzes, token]);
     useEffect(() => {
-        fetch("/api/v1/questions", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/questions", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

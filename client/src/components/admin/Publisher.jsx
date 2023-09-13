@@ -92,7 +92,7 @@ export default function Publisher() {
 
         const body = selectEntity(elementId);
 
-        fetch(`/api/v1/${url}`, {
+        fetch(`https://valor-academy-api.onrender.com/api/v1/${url}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

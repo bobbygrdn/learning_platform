@@ -28,7 +28,7 @@ export default function Congratulations() {
     }, [countdown, navigate]);
 
     useEffect(() => {
-        fetch(`/api/v1/users/${userId}/completeLesson/${completeLesson}`, {
+        fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}/completeLesson/${completeLesson}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',

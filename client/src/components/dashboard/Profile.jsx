@@ -32,7 +32,7 @@ export default function Profile() {
             const userInput = document.querySelector("#passwordInput").value;
             console.log(userInput);
             console.log(userId);
-            await fetch(`/api/v1/users/${userId}/reset`, {
+            await fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}/reset`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -75,7 +75,7 @@ export default function Profile() {
 
         const handleDelete = () => {
             toast.dismiss();
-            fetch(`/api/v1/users/${userId}`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

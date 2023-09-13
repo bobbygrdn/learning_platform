@@ -60,7 +60,7 @@ export default function CharacterCreator() {
     }
 
     const handleWarriorSelection = async () => {
-        await fetch(`/api/v1/users/${userId}/warriorSelect`,
+        await fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}/warriorSelect`,
             {
                 method: "PATCH",
                 headers: {

@@ -30,7 +30,7 @@ export default function Login() {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        await fetch('/api/v1/login', {
+        await fetch('https://valor-academy-api.onrender.com/api/v1/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

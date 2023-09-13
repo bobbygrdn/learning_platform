@@ -88,7 +88,7 @@ export default function EditContent({ table }) {
 
         const body = createBody();
 
-        fetch(`/api/v1/${url}`, {
+        fetch(`https://valor-academy-api.onrender.com/api/v1/${url}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export default function EditContent({ table }) {
 
         if (table === "Questions") {
 
-            fetch(`/api/v1/${url}`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/${url}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -122,7 +122,7 @@ export default function EditContent({ table }) {
                     toast.error(`${title} could not be created`);
                 })
 
-            fetch(`/api/v1/${url}`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/${url}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

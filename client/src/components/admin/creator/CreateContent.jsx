@@ -86,7 +86,7 @@ export default function CreateContent({ table }) {
 
         const body = createBody();
 
-        fetch(`/api/v1/${url}`, {
+        fetch(`https://valor-academy-api.onrender.com/api/v1/${url}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

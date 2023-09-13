@@ -55,7 +55,7 @@ function App() {
   );
 
   useEffect(() => {
-    fetch("/api/v1/settings")
+    fetch("https://valor-academy-api.onrender.com/api/v1/settings")
       .then(response => response.json())
       .then(data => {
         setAllowRegistration(data[0].registrations);

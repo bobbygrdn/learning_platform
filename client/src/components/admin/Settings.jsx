@@ -24,7 +24,7 @@ export default function Settings() {
     const endIndex = startIndex + itemsPerPage;
 
     useEffect(() => {
-        fetch("/api/v1/users", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/users", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -38,7 +38,7 @@ export default function Settings() {
     }, []);
 
     useEffect(() => {
-        fetch("/api/v1/settings", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/settings", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -68,7 +68,7 @@ export default function Settings() {
 
     const handleUserRoleSelection = (action, existUser, newRole) => {
         if (action === 'yes') {
-            fetch(`/api/v1/users/${existUser.id}/role`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/users/${existUser.id}/role`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export default function Settings() {
 
     const handleUserSelection = (action, user, userId) => {
         if (action === 'yes') {
-            fetch(`/api/v1/users/${userId}`, {
+            fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`

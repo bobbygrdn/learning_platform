@@ -11,7 +11,7 @@ export default function NavBar() {
     const { setMyCourses } = useStore(useAuthStore);
 
     const handleMyLearningClick = () => {
-        fetch(`/api/v1/users/${userId}`)
+        fetch(`https://valor-academy-api.onrender.com/api/v1/users/${userId}`)
             .then(response => response.json())
             .then(data => {
                 setMyCourses(data.courses);

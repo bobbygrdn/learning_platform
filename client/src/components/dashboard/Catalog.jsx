@@ -16,7 +16,7 @@ export default function Catalog() {
     });
 
     useEffect(() => {
-        fetch("/api/v1/courses", {
+        fetch("https://valor-academy-api.onrender.com/api/v1/courses", {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
