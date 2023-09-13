@@ -1,5 +1,3 @@
-use sql3645539;
-
 -- Insert statement for the users
 INSERT INTO users (username, email, experience, password, role, title, character_age) VALUES
 ("Bret", "bret@email.com", 0, "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null, null),
