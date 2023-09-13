@@ -1,7 +1,7 @@
 -- Insert statement for the users
 INSERT INTO users (username, email, experience, password, role, title, character_age) VALUES
-("Bret", "bret@email.com", 0, "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "Admin", null, null),
-("Charles", "charles@email.com", 100000, "$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG", "User", "male_meijin", "2023-05-29");
+('Bret', 'bret@email.com', 0, '$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG', 'Admin', null, null),
+('Charles', 'charles@email.com', 100000, '$2a$10$KgvTJT0qeiUDSobn5Lm2f.SXDZKUJuBCWqc0s9aBBC4QTNeje8wkG', 'User', 'male_meijin', '2023-05-29');
 
 -- Insert statement for the settings
 INSERT INTO settings (registrations) VALUES (true);
@@ -19,7 +19,7 @@ INSERT INTO lessons (title, description, content, course_id)
 VALUES ('Lesson 1: Introduction to JavaScript', 'JavaScript is a powerful programming language that plays a crucial role in web development. In this lesson, we will provide a brief introduction to JavaScript, explore its features and capabilities, and discuss its importance in enhancing website interactivity and user experience.', '<p>JavaScript is a versatile and powerful programming language that is widely used in web development. It adds interactivity and dynamic functionality to websites, making them more engaging for users. In this lesson, we will provide an overview of JavaScript and discuss its role in web development.</p>
 <h3>What is JavaScript?</h3>
 <p>JavaScript is a high-level, interpreted programming language that runs in the web browser. It is primarily used for client-side scripting, which means it runs on the user''s device rather than the web server. This allows JavaScript to interact with web pages in real-time, responding to user actions and modifying the content dynamically.</p>
-<h3>JavaScript''s Features and Capabilities:</h3>
+<h3>JavaScripts Features and Capabilities:</h3>
 <span>JavaScript offers a wide range of features and capabilities that make it a powerful tool for web development. Some key features include:</span>
 <ul>
 <li>Manipulating HTML: JavaScript can interact with HTML elements, modifying their properties, styles, and content. It allows developers to dynamically update the web page based on user input or events.</li>
@@ -27,10 +27,10 @@ VALUES ('Lesson 1: Introduction to JavaScript', 'JavaScript is a powerful progra
 <li>Data Manipulation: JavaScript can handle data in different formats, perform calculations, and manipulate data structures like arrays and objects. It provides functions and methods for working with data efficiently.</li>
 <li>Asynchronous Operations: JavaScript supports asynchronous programming, allowing tasks to run in the background without blocking the main execution. This is particularly useful when making network requests or handling time-consuming operations.</li>
 </ul>
-<h3>JavaScript''s Role in Web Development:</h3>
-<span>JavaScript plays a vital role in web development by enhancing the functionality and interactivity of websites. Here are some key aspects of JavaScript''s role:</span>
+<h3>JavaScripts Role in Web Development:</h3>
+<span>JavaScript plays a vital role in web development by enhancing the functionality and interactivity of websites. Here are some key aspects of JavaScripts role:</span>
 <ul>
-<li>Client-Side Scripting: JavaScript is primarily used for client-side scripting, enabling dynamic and interactive features on web pages. It runs directly in the user''s browser, reducing the need for round-trips to the server for every user action.</li>
+<li>Client-Side Scripting: JavaScript is primarily used for client-side scripting, enabling dynamic and interactive features on web pages. It runs directly in the users browser, reducing the need for round-trips to the server for every user action.</li>
 <li>User Experience Enhancement: JavaScript allows developers to create engaging user experiences by adding animations, form validation, and interactive elements. It can make websites feel more responsive and intuitive.</li>
 <li>Web Application Development: With the advent of modern web frameworks and libraries, JavaScript has become a key technology for building web applications. It enables the development of complex and feature-rich applications that run entirely in the browser.</li>
 </ul>
