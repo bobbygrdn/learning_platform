@@ -7,17 +7,12 @@
 
 :root {
   --primary-color: #e5f1f2;
-<<<<<<< HEAD
-  --secondary-color: #677d8c;
-  --tertiary-color: #
-=======
   --secondary-color: #ACA9A4;
   --tertiary-color: #677D8C;
   --supplemental-color: #4A4C52;
   --primary-text: #000;
   --secondary-text: #ffffff;
   --tertiary-text: #ACA9A4;
->>>>>>> 2e56a6ca796d8fa947dfe18305d354f372295362
 }
 
 body {
