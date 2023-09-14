@@ -30,25 +30,25 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route path="./" element={<LandingPage />} />
-        <Route path="./login" element={<Login />} />
-        <Route path="./deviceIssue" element={<PlatformIssue />} />
-        <Route path="./signup" element={<Signup />} />
-        <Route path="./unauthorized" element={<Unauthorized />} />
-        <Route path="./dashboard" element={<Dashboard />}>
-          <Route path="./dashboard/catalog" element={<Catalog />} />
-          <Route path="./dashboard/leaderboard" element={<Leaderboard />} />
-          <Route path="./dashboard/myLearning" element={<MyLearning />} />
-          <Route path="./dashboard/myLearning/lesson" element={<Lesson />} />
-          <Route path="./dashboard/myLearning/quiz" element={<Quiz />} />
-          <Route path="./dashboard/myLearning/questions" element={<Questions />} />
-          <Route path="./dashboard/myLearning/congratulations" element={<Congratulations />} />
-          <Route path="./dashboard/profile" element={<Profile />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/deviceIssue" element={<PlatformIssue />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard/catalog" element={<Catalog />} />
+          <Route path="/dashboard/leaderboard" element={<Leaderboard />} />
+          <Route path="/dashboard/myLearning" element={<MyLearning />} />
+          <Route path="/dashboard/myLearning/lesson" element={<Lesson />} />
+          <Route path="/dashboard/myLearning/quiz" element={<Quiz />} />
+          <Route path="/dashboard/myLearning/questions" element={<Questions />} />
+          <Route path="/dashboard/myLearning/congratulations" element={<Congratulations />} />
+          <Route path="/dashboard/profile" element={<Profile />} />
         </Route>
-        <Route path="./admin" element={<AdminDashboard />}>
-          <Route path="./admin/creator" element={<ContentCreator />} />
-          <Route path="./admin/publisher" element={<Publisher />} />
-          <Route path="./admin/settings" element={<Settings />} />
+        <Route path="/admin" element={<AdminDashboard />}>
+          <Route path="/admin/creator" element={<ContentCreator />} />
+          <Route path="/admin/publisher" element={<Publisher />} />
+          <Route path="/admin/settings" element={<Settings />} />
         </Route>
       </Route>
     )
