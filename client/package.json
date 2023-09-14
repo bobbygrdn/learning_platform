@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://valor-academy-ui.onrender.com",
   "private": true,
   "dependencies": {
     "@monaco-editor/react": "^4.5.1",
