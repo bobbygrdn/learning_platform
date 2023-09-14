@@ -70,7 +70,7 @@ export default function Login() {
                             navigate('/admin/creator');
                         }
                     } else {
-                        navigate('/dashboard/catalog');
+                        navigate('/dashboard/myLearning');
                     }
                 } else {
                     toast.error("User not found!");
