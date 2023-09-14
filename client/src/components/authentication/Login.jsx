@@ -67,7 +67,7 @@ export default function Login() {
                             navigate('/deviceIssue');
                         } else {
                             // User is on a desktop device
-                            navigate('/admin/creator');
+                            navigate('/admin/settings');
                         }
                     } else {
                         navigate('/dashboard/myLearning');
@@ -80,7 +80,7 @@ export default function Login() {
 
     if (role != null) {
         role === "Admin" ?
-            navigate('/admin/creator') : navigate('/dashboard/myLearning');
+            navigate('/admin/settings') : navigate('/dashboard/myLearning');
     }
 
     const handleIconClick = () => {
