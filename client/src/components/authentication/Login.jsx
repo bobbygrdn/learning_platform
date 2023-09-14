@@ -80,7 +80,7 @@ export default function Login() {
 
     if (role != null) {
         role === "Admin" ?
-            navigate('/admin/creator') : navigate('/dashboard/catalog');
+            navigate('/admin/creator') : navigate('/dashboard/myLearning');
     }
 
     const handleIconClick = () => {
